@@ -17,10 +17,30 @@ namespace Server
     public class CoursesWebService : System.Web.Services.WebService
     {
 
+        private DatabaseEntities databaseEntities = new DatabaseEntities();
+
         [WebMethod]
-        public string HelloWorld()
+        public List<User> GetUsers()
         {
-            return "Hello World";
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Users.ToList();
+        }
+
+        [WebMethod]
+        public User GetUser(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Users.Find(id);
+        }
+
+        [WebMethod]
+        public User GetUserByEmail(string email)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Users.Where(user => user.email == email).FirstOrDefault();
         }
     }
 }

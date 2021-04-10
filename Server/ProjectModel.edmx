@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="specialization_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="study_year" Type="int" Nullable="false" />
+          <Property Name="semester" Type="tinyint" Nullable="false" />
+          <Property Name="study_level" Type="tinyint" Nullable="false" />
+          <Property Name="credits" Type="tinyint" Nullable="false" />
+          <Property Name="course_hours" Type="int" Nullable="false" />
+          <Property Name="laboratory_hours" Type="int" Nullable="false" />
+          <Property Name="seminary_hours" Type="int" Nullable="false" />
+          <Property Name="project_hours" Type="int" Nullable="false" />
+          <Property Name="content" Type="text" />
+          <Property Name="laboratory_tutors" Type="text" />
+          <Property Name="seminary_tutors" Type="text" />
+          <Property Name="project_tutors" Type="text" />
+        </EntityType>
+        <EntityType Name="Domains">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="faculty_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faculties">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="website" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="logo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specializations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="domain_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'D:\ANUL 3\SEMESTRUL II\INFORMATICĂ INDUSTRIALĂ\PROIECT\SERVER\APP_DATA\PROJECTDATABASE.MDF.dbo.Users2Courses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Users2Courses">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="id_course" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_course" Type="int" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'D:\ANUL 3\SEMESTRUL II\INFORMATICĂ INDUSTRIALĂ\PROIECT\SERVER\APP_DATA\PROJECTDATABASE.MDF.dbo.Users2Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Users2Roles">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Courses_To_Specializations">
+          <End Role="Specializations" Type="Self.Specializations" Multiplicity="1" />
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specializations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="specialization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Domains_To_Faculties">
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="1" />
+          <End Role="Domains" Type="Self.Domains" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Domains">
+              <PropertyRef Name="faculty_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specializations_To_Domains">
+          <End Role="Domains" Type="Self.Domains" Multiplicity="1" />
+          <End Role="Specializations" Type="Self.Specializations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Domains">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specializations">
+              <PropertyRef Name="domain_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users2Courses_To_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Users2Courses" Type="Self.Users2Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users2Courses">
+              <PropertyRef Name="id_course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users2Courses_To_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Users2Courses" Type="Self.Users2Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users2Courses">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users2Roles_To_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users2Roles" Type="Self.Users2Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users2Roles">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users2Roles_To_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Users2Roles" Type="Self.Users2Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users2Roles">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Domains" EntityType="Self.Domains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specializations" EntityType="Self.Specializations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users2Courses" EntityType="Self.Users2Courses" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Users2Courses].[id_user] AS [id_user], 
+    [Users2Courses].[id_course] AS [id_course], 
+    [Users2Courses].[status] AS [status]
+    FROM [dbo].[Users2Courses] AS [Users2Courses]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Users2Roles" EntityType="Self.Users2Roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Users2Roles].[id_user] AS [id_user], 
+    [Users2Roles].[id_role] AS [id_role]
+    FROM [dbo].[Users2Roles] AS [Users2Roles]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Courses_To_Specializations" Association="Self.FK_Courses_To_Specializations">
+            <End Role="Specializations" EntitySet="Specializations" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Domains_To_Faculties" Association="Self.FK_Domains_To_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="Domains" EntitySet="Domains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specializations_To_Domains" Association="Self.FK_Specializations_To_Domains">
+            <End Role="Domains" EntitySet="Domains" />
+            <End Role="Specializations" EntitySet="Specializations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users2Courses_To_Courses" Association="Self.FK_Users2Courses_To_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Users2Courses" EntitySet="Users2Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users2Courses_To_Users" Association="Self.FK_Users2Courses_To_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Users2Courses" EntitySet="Users2Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users2Roles_To_Roles" Association="Self.FK_Users2Roles_To_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users2Roles" EntitySet="Users2Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users2Roles_To_Users" Association="Self.FK_Users2Roles_To_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Users2Roles" EntitySet="Users2Roles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="specialization_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="study_year" Type="Int32" Nullable="false" />
+          <Property Name="semester" Type="Byte" Nullable="false" />
+          <Property Name="study_level" Type="Byte" Nullable="false" />
+          <Property Name="credits" Type="Byte" Nullable="false" />
+          <Property Name="course_hours" Type="Int32" Nullable="false" />
+          <Property Name="laboratory_hours" Type="Int32" Nullable="false" />
+          <Property Name="seminary_hours" Type="Int32" Nullable="false" />
+          <Property Name="project_hours" Type="Int32" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="laboratory_tutors" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="seminary_tutors" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="project_tutors" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Specialization" Relationship="Self.FK_Courses_To_Specializations" FromRole="Courses" ToRole="Specializations" />
+          <NavigationProperty Name="Users2Courses" Relationship="Self.FK_Users2Courses_To_Courses" FromRole="Courses" ToRole="Users2Courses" />
+        </EntityType>
+        <EntityType Name="Domain">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="faculty_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK_Domains_To_Faculties" FromRole="Domains" ToRole="Faculties" />
+          <NavigationProperty Name="Specializations" Relationship="Self.FK_Specializations_To_Domains" FromRole="Domains" ToRole="Specializations" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Domains" Relationship="Self.FK_Domains_To_Faculties" FromRole="Faculties" ToRole="Domains" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.Users2Roles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="domain_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_To_Specializations" FromRole="Specializations" ToRole="Courses" />
+          <NavigationProperty Name="Domain" Relationship="Self.FK_Specializations_To_Domains" FromRole="Specializations" ToRole="Domains" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users2Courses" Relationship="Self.FK_Users2Courses_To_Users" FromRole="Users" ToRole="Users2Courses" />
+          <NavigationProperty Name="Roles" Relationship="Self.Users2Roles" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Users2Courses">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="id_course" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_course" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Users2Courses_To_Courses" FromRole="Users2Courses" ToRole="Courses" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Users2Courses_To_Users" FromRole="Users2Courses" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Courses_To_Specializations">
+          <End Role="Specializations" Type="Self.Specialization" Multiplicity="1" />
+          <End Role="Courses" Type="DatabaseModel.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specializations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="specialization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users2Courses_To_Courses">
+          <End Role="Courses" Type="DatabaseModel.Course" Multiplicity="1" />
+          <End Role="Users2Courses" Type="Self.Users2Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users2Courses">
+              <PropertyRef Name="id_course" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Domains_To_Faculties">
+          <End Role="Faculties" Type="Self.Faculty" Multiplicity="1" />
+          <End Role="Domains" Type="Self.Domain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Domains">
+              <PropertyRef Name="faculty_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specializations_To_Domains">
+          <End Role="Domains" Type="Self.Domain" Multiplicity="1" />
+          <End Role="Specializations" Type="Self.Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Domains">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specializations">
+              <PropertyRef Name="domain_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users2Courses_To_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Users2Courses" Type="Self.Users2Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users2Courses">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users2Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="DatabaseModel.Course" />
+          <EntitySet Name="Domains" EntityType="Self.Domain" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Specializations" EntityType="Self.Specialization" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Users2Courses" EntityType="Self.Users2Courses" />
+          <AssociationSet Name="FK_Courses_To_Specializations" Association="Self.FK_Courses_To_Specializations">
+            <End Role="Specializations" EntitySet="Specializations" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users2Courses_To_Courses" Association="Self.FK_Users2Courses_To_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Users2Courses" EntitySet="Users2Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Domains_To_Faculties" Association="Self.FK_Domains_To_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="Domains" EntitySet="Domains" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specializations_To_Domains" Association="Self.FK_Specializations_To_Domains">
+            <End Role="Domains" EntitySet="Domains" />
+            <End Role="Specializations" EntitySet="Specializations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users2Courses_To_Users" Association="Self.FK_Users2Courses_To_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Users2Courses" EntitySet="Users2Courses" />
+          </AssociationSet>
+          <AssociationSet Name="Users2Roles" Association="Self.Users2Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="DatabaseModel.Course">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="specialization_id" ColumnName="specialization_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="study_year" ColumnName="study_year" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="study_level" ColumnName="study_level" />
+                <ScalarProperty Name="credits" ColumnName="credits" />
+                <ScalarProperty Name="course_hours" ColumnName="course_hours" />
+                <ScalarProperty Name="laboratory_hours" ColumnName="laboratory_hours" />
+                <ScalarProperty Name="seminary_hours" ColumnName="seminary_hours" />
+                <ScalarProperty Name="project_hours" ColumnName="project_hours" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="laboratory_tutors" ColumnName="laboratory_tutors" />
+                <ScalarProperty Name="seminary_tutors" ColumnName="seminary_tutors" />
+                <ScalarProperty Name="project_tutors" ColumnName="project_tutors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Domains">
+            <EntityTypeMapping TypeName="DatabaseModel.Domain">
+              <MappingFragment StoreEntitySet="Domains">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="DatabaseModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DatabaseModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="DatabaseModel.Specialization">
+              <MappingFragment StoreEntitySet="Specializations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="domain_id" ColumnName="domain_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DatabaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users2Courses">
+            <EntityTypeMapping TypeName="DatabaseModel.Users2Courses">
+              <MappingFragment StoreEntitySet="Users2Courses">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_course" ColumnName="id_course" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Users2Roles" TypeName="DatabaseModel.Users2Roles" StoreEntitySet="Users2Roles">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="id" ColumnName="id_role" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="id" ColumnName="id_user" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
