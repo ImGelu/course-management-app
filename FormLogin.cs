@@ -19,14 +19,26 @@ namespace Proiect
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-            CoursesWebServiceReference.User newUser = new CoursesWebServiceReference.User();
-            newUser.name = textBox1.Text;
-            newUser.email = textBox2.Text;
-            newUser.password = textBox3.Text;
+            string email, password;
 
-            webService.AddUser(newUser);
+            CoursesWebServiceReference.User loginUser = new CoursesWebServiceReference.User();
+
+            email    = textBoxEmail.Text;
+            password = textBoxPassword.Text;
+
+            loginUser = webService.CheckLogin(email, password);
+
+            if (loginUser != null) MessageBox.Show("Login successful!");
+            else MessageBox.Show("Wrong email/password combination. Try again.");
+        }
+
+        private void linkLabelSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormSignUp formSignUp = new FormSignUp();
+            formSignUp.Show(this);
+            this.Hide();
         }
     }
 }
