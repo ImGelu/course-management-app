@@ -39,35 +39,43 @@ namespace Proiect
 
             if(name != String.Empty && email != String.Empty && password != String.Empty && passwordConfirmation != String.Empty)
             {
-                if (IsValidEmail(email))
+                if (Utils.IsValidEmail(email))
                 {
-                    if (password.Equals(passwordConfirmation))
+                    if (!Utils.EmailAlreadyTaken(email))
                     {
-                        CoursesWebServiceReference.User newUser = new CoursesWebServiceReference.User();
-                        newUser.name = name;
-                        newUser.email = email;
-                        newUser.password = password;
+                        if (password.Equals(passwordConfirmation))
+                        {
+                            CoursesWebServiceReference.User newUser = new CoursesWebServiceReference.User();
+                            newUser.name = name;
+                            newUser.email = email;
+                            newUser.password = password;
 
-                        try
-                        {
-                            webService.AddUser(newUser);
-                        } catch(Exception ex)
-                        {
-                            MessageBox.Show("An error occured!\n" + ex.Message.ToString());
+                            try
+                            {
+                                webService.AddUser(newUser);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("An error occured!\n" + ex.Message.ToString());
+                            }
+
+                            MessageBox.Show("The account has been successfully created. You can log in now!");
+                            textBoxEmail.Text = String.Empty;
+                            textBoxName.Text = String.Empty;
+                            textBoxPassword.Text = String.Empty;
+                            textBoxPasswordConfirmation.Text = String.Empty;
+
+                            FormLogin parent = (FormLogin)Owner;
+                            parent.Show();
+                            this.Hide();
                         }
-
-                        MessageBox.Show("The account has been successfully created. You can log in now!");
-                        textBoxEmail.Text = String.Empty;
-                        textBoxName.Text = String.Empty;
-                        textBoxPassword.Text = String.Empty;
-                        textBoxPasswordConfirmation.Text = String.Empty;
-
-                        FormLogin parent = (FormLogin)Owner;
-                        parent.Show();
-                        this.Hide();
+                        else
+                        {
+                            MessageBox.Show("The passwords don't match. Try again!");
+                        }
                     } else
                     {
-                        MessageBox.Show("The passwords don't match. Try again!");
+                        MessageBox.Show("This email is already taken. Try another one!");
                     }
                 } else
                 {
@@ -76,18 +84,6 @@ namespace Proiect
             } else
             {
                 MessageBox.Show("Please fill all the fields.");
-            }
-        }
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
             }
         }
     }
