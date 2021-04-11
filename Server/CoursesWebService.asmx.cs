@@ -19,6 +19,7 @@ namespace Server
 
         private DatabaseEntities databaseEntities = new DatabaseEntities();
 
+        /** Users **/
         [WebMethod]
         public List<User> GetUsers()
         {
@@ -42,5 +43,48 @@ namespace Server
 
             return databaseEntities.Users.Where(user => user.email == email).FirstOrDefault();
         }
+
+        [WebMethod]
+        public User CheckLogin(string email, string password)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Users.Where(user => user.email == email && user.password == password).FirstOrDefault();
+        }
+
+        [WebMethod]
+        public void AddUser(User user)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Users.Add(user);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void EditUser(User user)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            User existingUser = databaseEntities.Users.Find(user.id);
+
+            existingUser.name     = user.name;
+            existingUser.email    = user.email;
+            existingUser.password = user.password;
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void DeleteUser(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            User existingUser = databaseEntities.Users.Find(id);
+            databaseEntities.Users.Remove(existingUser);
+
+            databaseEntities.SaveChanges();
+        }
     }
 }
+\

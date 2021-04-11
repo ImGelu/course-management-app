@@ -21,8 +21,12 @@ namespace Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String helloWorld = webService.HelloWorld();
-            textBox1.Text = helloWorld;
+            CoursesWebServiceReference.User newUser = new CoursesWebServiceReference.User();
+            newUser.name = textBox1.Text;
+            newUser.email = textBox2.Text;
+            newUser.password = textBox3.Text;
+
+            webService.AddUser(newUser);
         }
     }
 }
