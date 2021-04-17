@@ -60,6 +60,18 @@
     <Compile Include="Editare.Designer.cs">
       <DependentUpon>Editare.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adaugare_materie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adaugare_materie.Designer.cs">
+      <DependentUpon>Adaugare_materie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editare_materie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editare_materie.Designer.cs">
+      <DependentUpon>Editare_materie.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +92,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stergere_utilizator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stergere_utilizator.Designer.cs">
+      <DependentUpon>Stergere_utilizator.cs</DependentUpon>
+    </Compile>
     <Compile Include="test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +111,24 @@
     <Compile Include="Vizualizare.Designer.cs">
       <DependentUpon>Vizualizare.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vizualizare_1materie_ID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vizualizare_1materie_ID.Designer.cs">
+      <DependentUpon>Vizualizare_1materie_ID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vizualizare_materii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vizualizare_materii.Designer.cs">
+      <DependentUpon>Vizualizare_materii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vizualizare_revendicari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vizualizare_revendicari.Designer.cs">
+      <DependentUpon>Vizualizare_revendicari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Web References\CoursesWebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editare.resx">
       <DependentUpon>Editare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adaugare_materie.resx">
+      <DependentUpon>Adaugare_materie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editare_materie.resx">
+      <DependentUpon>Editare_materie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -122,8 +164,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Stergere_utilizator.resx">
+      <DependentUpon>Stergere_utilizator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vizualizare.resx">
       <DependentUpon>Vizualizare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vizualizare_1materie_ID.resx">
+      <DependentUpon>Vizualizare_1materie_ID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vizualizare_materii.resx">
+      <DependentUpon>Vizualizare_materii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vizualizare_revendicari.resx">
+      <DependentUpon>Vizualizare_revendicari.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
