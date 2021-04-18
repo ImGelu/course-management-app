@@ -37,12 +37,13 @@ namespace Proiect
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
             this.linkLabelSignUp = new System.Windows.Forms.LinkLabel();
+            this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.groupBoxLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(77, 79);
+            this.buttonLogin.Location = new System.Drawing.Point(77, 105);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(157, 23);
             this.buttonLogin.TabIndex = 2;
@@ -87,7 +88,7 @@ namespace Proiect
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 45);
+            this.label4.Location = new System.Drawing.Point(33, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(273, 25);
             this.label4.TabIndex = 7;
@@ -95,15 +96,16 @@ namespace Proiect
             // 
             // groupBoxLogin
             // 
+            this.groupBoxLogin.Controls.Add(this.checkBoxRememberMe);
             this.groupBoxLogin.Controls.Add(this.textBoxPassword);
             this.groupBoxLogin.Controls.Add(this.buttonLogin);
             this.groupBoxLogin.Controls.Add(this.labelPassword);
             this.groupBoxLogin.Controls.Add(this.textBoxEmail);
             this.groupBoxLogin.Controls.Add(this.labelEmail);
             this.groupBoxLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxLogin.Location = new System.Drawing.Point(43, 87);
+            this.groupBoxLogin.Location = new System.Drawing.Point(43, 74);
             this.groupBoxLogin.Name = "groupBoxLogin";
-            this.groupBoxLogin.Size = new System.Drawing.Size(252, 119);
+            this.groupBoxLogin.Size = new System.Drawing.Size(252, 144);
             this.groupBoxLogin.TabIndex = 8;
             this.groupBoxLogin.TabStop = false;
             this.groupBoxLogin.Text = "Login";
@@ -112,13 +114,23 @@ namespace Proiect
             // 
             this.linkLabelSignUp.AutoSize = true;
             this.linkLabelSignUp.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelSignUp.Location = new System.Drawing.Point(121, 209);
+            this.linkLabelSignUp.Location = new System.Drawing.Point(121, 221);
             this.linkLabelSignUp.Name = "linkLabelSignUp";
             this.linkLabelSignUp.Size = new System.Drawing.Size(174, 13);
             this.linkLabelSignUp.TabIndex = 3;
             this.linkLabelSignUp.TabStop = true;
             this.linkLabelSignUp.Text = "Don\'t have an account? Sign up!";
             this.linkLabelSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignUp_LinkClicked);
+            // 
+            // checkBoxRememberMe
+            // 
+            this.checkBoxRememberMe.AutoSize = true;
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(77, 81);
+            this.checkBoxRememberMe.Name = "checkBoxRememberMe";
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxRememberMe.TabIndex = 7;
+            this.checkBoxRememberMe.Text = "Remember me";
+            this.checkBoxRememberMe.UseVisualStyleBackColor = true;
             // 
             // FormLogin
             // 
@@ -151,6 +163,7 @@ namespace Proiect
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBoxLogin;
         private System.Windows.Forms.LinkLabel linkLabelSignUp;
+        private System.Windows.Forms.CheckBox checkBoxRememberMe;
     }
 }
 

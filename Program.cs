@@ -16,7 +16,14 @@ namespace Proiect
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+
+            if (Properties.Settings.Default.rememberMe && Properties.Settings.Default.loggedInUserId != 0)
+            {
+                Application.Run(new FormDashboard());
+            } else
+            {
+                Application.Run(new FormLogin());
+            }
         }
     }
 }

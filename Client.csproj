@@ -166,6 +166,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Users\FormDeleteUser.resx">
       <DependentUpon>FormDeleteUser.cs</DependentUpon>
@@ -225,6 +226,56 @@
   <ItemGroup>
     <None Include="Web References\CoursesWebServiceReference\CoursesWebService.disco" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icon_course.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online-course.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_course.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_request.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_specialization.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_faculty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_domains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_role.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_utcn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_logout.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

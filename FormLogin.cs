@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
@@ -17,6 +10,7 @@ namespace Proiect
         public FormLogin()
         {
             InitializeComponent();
+            Utils.SetButtonImage(buttonLogin, Properties.Resources.icon_login, 15, 15);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -30,7 +24,20 @@ namespace Proiect
 
             loginUser = webService.CheckLogin(email, password);
 
-            if (loginUser != null) MessageBox.Show("Login successful!");
+            if (loginUser != null)
+            {
+                Properties.Settings.Default.rememberMe = checkBoxRememberMe.Checked;
+                Properties.Settings.Default.loggedInUserId = loginUser.id;
+                Properties.Settings.Default.Save();
+
+                textBoxEmail.Text = String.Empty;
+                textBoxPassword.Text = String.Empty;
+                checkBoxRememberMe.Checked = false;
+
+                FormDashboard formDashboard = new FormDashboard();
+                formDashboard.Show(this);
+                this.Hide();
+            }
             else MessageBox.Show("Wrong email/password combination. Try again.");
         }
 

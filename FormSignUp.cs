@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
@@ -19,6 +12,7 @@ namespace Proiect
             InitializeComponent();
 
             toolTipEmail.SetToolTip(textBoxEmail, "The email must end with *.utcluj.ro");
+            Utils.SetButtonImage(buttonCreateAccount, Properties.Resources.icon_login, 15, 15);
         }
 
         private void linkLabelLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -67,7 +61,7 @@ namespace Proiect
 
                             FormLogin parent = (FormLogin)Owner;
                             parent.Show();
-                            this.Hide();
+                            this.Close();
                         }
                         else
                         {

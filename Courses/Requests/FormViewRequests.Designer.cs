@@ -1,6 +1,6 @@
 ﻿namespace Proiect
 {
-    partial class Vizualizare_revendicari
+    partial class FormViewRequests
     {
         /// <summary>
         /// Required designer variable.

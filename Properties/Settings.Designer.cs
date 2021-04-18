@@ -32,5 +32,29 @@ namespace Proiect.Properties {
                 return ((string)(this["Proiect_CoursesWebServiceReference_CoursesWebService"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int loggedInUserId {
+            get {
+                return ((int)(this["loggedInUserId"]));
+            }
+            set {
+                this["loggedInUserId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool rememberMe {
+            get {
+                return ((bool)(this["rememberMe"]));
+            }
+            set {
+                this["rememberMe"] = value;
+            }
+        }
     }
 }

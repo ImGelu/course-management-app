@@ -31,6 +31,8 @@ namespace Proiect
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -40,8 +42,6 @@ namespace Proiect
             this.labelEmail = new System.Windows.Forms.Label();
             this.toolTipEmail = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabelLogin = new System.Windows.Forms.LinkLabel();
-            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,23 @@ namespace Proiect
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create a new account";
+            // 
+            // textBoxPasswordConfirmation
+            // 
+            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(162, 90);
+            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
+            this.textBoxPasswordConfirmation.PasswordChar = '*';
+            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(135, 22);
+            this.textBoxPasswordConfirmation.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(159, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Password confirmation";
             // 
             // label1
             // 
@@ -140,23 +157,6 @@ namespace Proiect
             this.linkLabelLogin.TabStop = true;
             this.linkLabelLogin.Text = "Already have an account? Log in!";
             this.linkLabelLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLogin_LinkClicked);
-            // 
-            // textBoxPasswordConfirmation
-            // 
-            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(162, 90);
-            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
-            this.textBoxPasswordConfirmation.PasswordChar = '*';
-            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(135, 22);
-            this.textBoxPasswordConfirmation.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 13);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Password confirmation";
             // 
             // FormSignUp
             // 

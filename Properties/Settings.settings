@@ -5,5 +5,11 @@
     <Setting Name="Proiect_CoursesWebServiceReference_CoursesWebService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://localhost:44347/CoursesWebService.asmx</Value>
     </Setting>
+    <Setting Name="loggedInUserId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="rememberMe" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

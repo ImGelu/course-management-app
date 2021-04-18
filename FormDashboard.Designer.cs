@@ -29,51 +29,168 @@ namespace Proiect
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStrip1.SuspendLayout();
+            this.groupBoxActions = new System.Windows.Forms.GroupBox();
+            this.buttonViewRoles = new System.Windows.Forms.Button();
+            this.buttonViewSpecializations = new System.Windows.Forms.Button();
+            this.buttonViewDomains = new System.Windows.Forms.Button();
+            this.buttonViewUsers = new System.Windows.Forms.Button();
+            this.buttonViewFaculties = new System.Windows.Forms.Button();
+            this.buttonViewCourses = new System.Windows.Forms.Button();
+            this.buttonViewRequests = new System.Windows.Forms.Button();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButtonLoggedIn = new System.Windows.Forms.ToolStripSplitButton();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBoxActions.SuspendLayout();
+            this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxActions
             // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 161);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBoxActions.Controls.Add(this.buttonViewRoles);
+            this.groupBoxActions.Controls.Add(this.buttonViewSpecializations);
+            this.groupBoxActions.Controls.Add(this.buttonViewDomains);
+            this.groupBoxActions.Controls.Add(this.buttonViewUsers);
+            this.groupBoxActions.Controls.Add(this.buttonViewFaculties);
+            this.groupBoxActions.Controls.Add(this.buttonViewCourses);
+            this.groupBoxActions.Controls.Add(this.buttonViewRequests);
+            this.groupBoxActions.Location = new System.Drawing.Point(12, 32);
+            this.groupBoxActions.Name = "groupBoxActions";
+            this.groupBoxActions.Size = new System.Drawing.Size(233, 396);
+            this.groupBoxActions.TabIndex = 0;
+            this.groupBoxActions.TabStop = false;
+            this.groupBoxActions.Text = "What do you want to do today?";
             // 
-            // toolStrip1
+            // buttonViewRoles
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(566, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.buttonViewRoles.Location = new System.Drawing.Point(9, 337);
+            this.buttonViewRoles.Name = "buttonViewRoles";
+            this.buttonViewRoles.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewRoles.TabIndex = 7;
+            this.buttonViewRoles.Text = "View Roles";
+            this.buttonViewRoles.UseVisualStyleBackColor = true;
+            this.buttonViewRoles.Click += new System.EventHandler(this.buttonViewRoles_Click);
             // 
-            // toolStripLabel1
+            // buttonViewSpecializations
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(154, 22);
-            this.toolStripLabel1.Text = "Logged in as $user$ ($role$)";
+            this.buttonViewSpecializations.Location = new System.Drawing.Point(9, 233);
+            this.buttonViewSpecializations.Name = "buttonViewSpecializations";
+            this.buttonViewSpecializations.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewSpecializations.TabIndex = 6;
+            this.buttonViewSpecializations.Text = "View Specializations";
+            this.buttonViewSpecializations.UseVisualStyleBackColor = true;
+            this.buttonViewSpecializations.Click += new System.EventHandler(this.buttonViewSpecializations_Click);
+            // 
+            // buttonViewDomains
+            // 
+            this.buttonViewDomains.Location = new System.Drawing.Point(9, 181);
+            this.buttonViewDomains.Name = "buttonViewDomains";
+            this.buttonViewDomains.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewDomains.TabIndex = 5;
+            this.buttonViewDomains.Text = "View Domains";
+            this.buttonViewDomains.UseVisualStyleBackColor = true;
+            this.buttonViewDomains.Click += new System.EventHandler(this.buttonViewDomains_Click);
+            // 
+            // buttonViewUsers
+            // 
+            this.buttonViewUsers.Location = new System.Drawing.Point(9, 285);
+            this.buttonViewUsers.Name = "buttonViewUsers";
+            this.buttonViewUsers.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewUsers.TabIndex = 3;
+            this.buttonViewUsers.Text = "View Users";
+            this.buttonViewUsers.UseVisualStyleBackColor = true;
+            this.buttonViewUsers.Click += new System.EventHandler(this.buttonViewUsers_Click);
+            // 
+            // buttonViewFaculties
+            // 
+            this.buttonViewFaculties.Location = new System.Drawing.Point(9, 129);
+            this.buttonViewFaculties.Name = "buttonViewFaculties";
+            this.buttonViewFaculties.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewFaculties.TabIndex = 4;
+            this.buttonViewFaculties.Text = "View Faculties";
+            this.buttonViewFaculties.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonViewFaculties.UseVisualStyleBackColor = true;
+            this.buttonViewFaculties.Click += new System.EventHandler(this.buttonViewFaculties_Click);
+            // 
+            // buttonViewCourses
+            // 
+            this.buttonViewCourses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonViewCourses.Location = new System.Drawing.Point(9, 25);
+            this.buttonViewCourses.Name = "buttonViewCourses";
+            this.buttonViewCourses.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewCourses.TabIndex = 1;
+            this.buttonViewCourses.Text = "View Courses";
+            this.buttonViewCourses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonViewCourses.UseVisualStyleBackColor = true;
+            this.buttonViewCourses.Click += new System.EventHandler(this.buttonViewCourses_Click);
+            // 
+            // buttonViewRequests
+            // 
+            this.buttonViewRequests.Location = new System.Drawing.Point(9, 77);
+            this.buttonViewRequests.Name = "buttonViewRequests";
+            this.buttonViewRequests.Size = new System.Drawing.Size(214, 46);
+            this.buttonViewRequests.TabIndex = 2;
+            this.buttonViewRequests.Text = "View Redemption Requests ";
+            this.buttonViewRequests.UseVisualStyleBackColor = true;
+            this.buttonViewRequests.Click += new System.EventHandler(this.buttonViewRequests_Click);
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButtonLoggedIn});
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(783, 25);
+            this.toolStrip.TabIndex = 1;
+            // 
+            // toolStripSplitButtonLoggedIn
+            // 
+            this.toolStripSplitButtonLoggedIn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButtonLoggedIn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.toolStripSplitButtonLoggedIn.Image = global::Proiect.Properties.Resources.icon_user;
+            this.toolStripSplitButtonLoggedIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonLoggedIn.Name = "toolStripSplitButtonLoggedIn";
+            this.toolStripSplitButtonLoggedIn.Size = new System.Drawing.Size(115, 22);
+            this.toolStripSplitButtonLoggedIn.Text = "Logged in as...";
+            this.toolStripSplitButtonLoggedIn.ToolTipText = "Logged in as {user} ({role})";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = global::Proiect.Properties.Resources.icon_logout;
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proiect.Properties.Resources.logo_utcn;
+            this.pictureBox1.Location = new System.Drawing.Point(251, 144);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(520, 172);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(566, 330);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(783, 460);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.toolStrip);
+            this.Controls.Add(this.groupBoxActions);
             this.MaximizeBox = false;
             this.Name = "FormDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.groupBoxActions.ResumeLayout(false);
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,8 +198,17 @@ namespace Proiect
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.GroupBox groupBoxActions;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.Button buttonViewUsers;
+        private System.Windows.Forms.Button buttonViewSpecializations;
+        private System.Windows.Forms.Button buttonViewDomains;
+        private System.Windows.Forms.Button buttonViewFaculties;
+        private System.Windows.Forms.Button buttonViewCourses;
+        private System.Windows.Forms.Button buttonViewRequests;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonLoggedIn;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.Button buttonViewRoles;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
