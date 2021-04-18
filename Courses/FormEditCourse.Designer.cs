@@ -1,6 +1,6 @@
 ﻿namespace Proiect
 {
-    partial class Editare_materie
+    partial class FormEditCourse
     {
         /// <summary>
         /// Required designer variable.
@@ -296,7 +296,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Editare_materie
+            // FormEditCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -329,7 +329,7 @@
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Editare_materie";
+            this.Name = "FormEditCourse";
             this.Text = "Editare_materie";
             this.Load += new System.EventHandler(this.Editare_materie_Load);
             this.ResumeLayout(false);

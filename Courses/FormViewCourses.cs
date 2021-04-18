@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Vizualizare_materii : Form
+    public partial class FormViewCourses : Form
     {
-        public Vizualizare_materii()
+        public FormViewCourses()
         {
             InitializeComponent();
         }

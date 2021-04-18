@@ -1,6 +1,6 @@
 ﻿namespace Proiect
 {
-    partial class Vizualizare_materii
+    partial class FormViewCourse
     {
         /// <summary>
         /// Required designer variable.
@@ -52,11 +52,10 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(150, 112);
+            this.dataGridView1.Location = new System.Drawing.Point(175, 114);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(544, 286);
-            this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.TabIndex = 14;
             // 
             // Column1
             // 
@@ -101,51 +100,51 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 55);
+            this.label1.Location = new System.Drawing.Point(118, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Nume materie";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "ID materie";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 52);
+            this.textBox1.Location = new System.Drawing.Point(192, 54);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(503, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBox1.Size = new System.Drawing.Size(61, 20);
+            this.textBox1.TabIndex = 12;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(719, 426);
+            this.button2.Location = new System.Drawing.Point(744, 428);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 30);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 11;
             this.button2.Text = "Anulare";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(51, 426);
+            this.button1.Location = new System.Drawing.Point(76, 428);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 30);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Căutare";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Vizualizare_materii
+            // FormViewCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 509);
+            this.ClientSize = new System.Drawing.Size(900, 512);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Vizualizare_materii";
-            this.Text = "Vizualizare_materii";
+            this.Name = "FormViewCourse";
+            this.Text = "Vizualizare_1materie_ID";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,6 +1,6 @@
 ﻿namespace Proiect
 {
-    partial class Stergere_utilizator
+    partial class FormDeleteUser
     {
         /// <summary>
         /// Required designer variable.
@@ -70,7 +70,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Stergere_utilizator
+            // FormDeleteUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,7 +79,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Stergere_utilizator";
+            this.Name = "FormDeleteUser";
             this.Text = "Stergere_utilizator";
             this.ResumeLayout(false);
             this.PerformLayout();

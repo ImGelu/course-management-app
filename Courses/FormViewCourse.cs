@@ -10,24 +10,19 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Vizualizare : Form
+    public partial class FormViewCourse : Form
     {
-        public Vizualizare()
+        public FormViewCourse()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class FormUtilizatori : Form
+    public partial class FormViewUsers : Form
     {
         
-        public FormUtilizatori()
+        public FormViewUsers()
         {
             InitializeComponent();
           
@@ -26,13 +26,13 @@ namespace Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Adaugare newForm = new Adaugare();
+            FormCreateUser newForm = new FormCreateUser();
             newForm.Show();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            Editare newForm = new Editare();
+            FormEditUser newForm = new FormEditUser();
             newForm.Show();
         }
 
@@ -43,7 +43,7 @@ namespace Proiect
 
         private void Check_Click(object sender, EventArgs e)
         {
-            Vizualizare newForm = new Vizualizare();
+            FormViewUser newForm = new FormViewUser();
             newForm.Show();
         }
     }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Adaugare_materie : Form
+    public partial class FormCreateCourse : Form
     {
-        public Adaugare_materie()
+        public FormCreateCourse()
         {
             InitializeComponent();
         }

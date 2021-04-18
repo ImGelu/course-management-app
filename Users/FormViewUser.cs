@@ -10,16 +10,25 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Editare : Form
+    public partial class FormViewUser : Form
     {
-        public Editare()
+        public FormViewUser()
         {
             InitializeComponent();
         }
 
-        private void Edit_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Utilizatorul a fost editat cu succes!");
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

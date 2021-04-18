@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Stergere_utilizator : Form
+    public partial class FormDeleteUser : Form
     {
-        public Stergere_utilizator()
+        public FormDeleteUser()
         {
             InitializeComponent();
         }

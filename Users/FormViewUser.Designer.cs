@@ -1,7 +1,7 @@
 ﻿
 namespace Proiect
 {
-    partial class Vizualizare
+    partial class FormViewUser
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@ namespace Proiect
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(126, 316);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 29);
+            this.label4.Size = new System.Drawing.Size(152, 24);
             this.label4.TabIndex = 16;
             this.label4.Text = "Rol Principal:   ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -58,7 +58,7 @@ namespace Proiect
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(126, 256);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 29);
+            this.label3.Size = new System.Drawing.Size(114, 24);
             this.label3.TabIndex = 15;
             this.label3.Text = "Nume:       ";
             // 
@@ -68,7 +68,7 @@ namespace Proiect
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(126, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 29);
+            this.label2.Size = new System.Drawing.Size(104, 24);
             this.label2.TabIndex = 14;
             this.label2.Text = "Email:      ";
             // 
@@ -78,7 +78,7 @@ namespace Proiect
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(126, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 29);
+            this.label1.Size = new System.Drawing.Size(75, 24);
             this.label1.TabIndex = 13;
             this.label1.Text = "Id:       ";
             // 
@@ -88,7 +88,7 @@ namespace Proiect
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(324, 99);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 29);
+            this.label5.Size = new System.Drawing.Size(61, 24);
             this.label5.TabIndex = 17;
             this.label5.Text = "TestId";
             // 
@@ -98,7 +98,7 @@ namespace Proiect
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(324, 177);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 29);
+            this.label6.Size = new System.Drawing.Size(108, 24);
             this.label6.TabIndex = 18;
             this.label6.Text = "TestEmail   ";
             // 
@@ -108,7 +108,7 @@ namespace Proiect
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(324, 256);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 29);
+            this.label7.Size = new System.Drawing.Size(98, 24);
             this.label7.TabIndex = 19;
             this.label7.Text = "TestNume";
             // 
@@ -118,7 +118,7 @@ namespace Proiect
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(324, 316);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(192, 29);
+            this.label8.Size = new System.Drawing.Size(146, 24);
             this.label8.TabIndex = 20;
             this.label8.Text = "TestRolPrincipal";
             // 
@@ -139,11 +139,11 @@ namespace Proiect
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(126, 25);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(212, 29);
+            this.label9.Size = new System.Drawing.Size(167, 24);
             this.label9.TabIndex = 22;
             this.label9.Text = "Date Utilizator:    ";
             // 
-            // Vizualizare
+            // FormViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +158,7 @@ namespace Proiect
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Vizualizare";
+            this.Name = "FormViewUser";
             this.Text = "Vizualizare Utilizator";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -48,29 +48,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adaugare.cs">
+    <Compile Include="Users\FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Adaugare.Designer.cs">
-      <DependentUpon>Adaugare.cs</DependentUpon>
+    <Compile Include="Users\FormCreateUser.Designer.cs">
+      <DependentUpon>FormCreateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editare.cs">
+    <Compile Include="Users\FormEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editare.Designer.cs">
-      <DependentUpon>Editare.cs</DependentUpon>
+    <Compile Include="Users\FormEditUser.Designer.cs">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Adaugare_materie.cs">
+    <Compile Include="Courses\FormCreateCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Adaugare_materie.Designer.cs">
-      <DependentUpon>Adaugare_materie.cs</DependentUpon>
+    <Compile Include="Courses\FormCreateCourse.Designer.cs">
+      <DependentUpon>FormCreateCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editare_materie.cs">
+    <Compile Include="Courses\FormEditCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editare_materie.Designer.cs">
-      <DependentUpon>Editare_materie.cs</DependentUpon>
+    <Compile Include="Courses\FormEditCourse.Designer.cs">
+      <DependentUpon>FormEditCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -84,67 +84,61 @@
     <Compile Include="FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUtilizatori.cs">
+    <Compile Include="Users\FormViewUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUtilizatori.Designer.cs">
-      <DependentUpon>FormUtilizatori.cs</DependentUpon>
+    <Compile Include="Users\FormViewUsers.Designer.cs">
+      <DependentUpon>FormViewUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stergere_utilizator.cs">
+    <Compile Include="Users\FormDeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stergere_utilizator.Designer.cs">
-      <DependentUpon>Stergere_utilizator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
+    <Compile Include="Users\FormDeleteUser.Designer.cs">
+      <DependentUpon>FormDeleteUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="Vizualizare.cs">
+    <Compile Include="Users\FormViewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vizualizare.Designer.cs">
-      <DependentUpon>Vizualizare.cs</DependentUpon>
+    <Compile Include="Users\FormViewUser.Designer.cs">
+      <DependentUpon>FormViewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vizualizare_1materie_ID.cs">
+    <Compile Include="Courses\FormViewCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vizualizare_1materie_ID.Designer.cs">
-      <DependentUpon>Vizualizare_1materie_ID.cs</DependentUpon>
+    <Compile Include="Courses\FormViewCourse.Designer.cs">
+      <DependentUpon>FormViewCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vizualizare_materii.cs">
+    <Compile Include="Courses\FormViewCourses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vizualizare_materii.Designer.cs">
-      <DependentUpon>Vizualizare_materii.cs</DependentUpon>
+    <Compile Include="Courses\FormViewCourses.Designer.cs">
+      <DependentUpon>FormViewCourses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vizualizare_revendicari.cs">
+    <Compile Include="Courses\Requests\FormViewRequests.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vizualizare_revendicari.Designer.cs">
-      <DependentUpon>Vizualizare_revendicari.cs</DependentUpon>
+    <Compile Include="Courses\Requests\FormViewRequests.Designer.cs">
+      <DependentUpon>FormViewRequests.cs</DependentUpon>
     </Compile>
     <Compile Include="Web References\CoursesWebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Adaugare.resx">
-      <DependentUpon>Adaugare.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FormCreateUser.resx">
+      <DependentUpon>FormCreateUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editare.resx">
-      <DependentUpon>Editare.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FormEditUser.resx">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Adaugare_materie.resx">
-      <DependentUpon>Adaugare_materie.cs</DependentUpon>
+    <EmbeddedResource Include="Courses\FormCreateCourse.resx">
+      <DependentUpon>FormCreateCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editare_materie.resx">
-      <DependentUpon>Editare_materie.cs</DependentUpon>
+    <EmbeddedResource Include="Courses\FormEditCourse.resx">
+      <DependentUpon>FormEditCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -152,8 +146,8 @@
     <EmbeddedResource Include="FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUtilizatori.resx">
-      <DependentUpon>FormUtilizatori.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FormViewUsers.resx">
+      <DependentUpon>FormViewUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,20 +158,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Stergere_utilizator.resx">
-      <DependentUpon>Stergere_utilizator.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FormDeleteUser.resx">
+      <DependentUpon>FormDeleteUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vizualizare.resx">
-      <DependentUpon>Vizualizare.cs</DependentUpon>
+    <EmbeddedResource Include="Users\FormViewUser.resx">
+      <DependentUpon>FormViewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vizualizare_1materie_ID.resx">
-      <DependentUpon>Vizualizare_1materie_ID.cs</DependentUpon>
+    <EmbeddedResource Include="Courses\FormViewCourse.resx">
+      <DependentUpon>FormViewCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vizualizare_materii.resx">
-      <DependentUpon>Vizualizare_materii.cs</DependentUpon>
+    <EmbeddedResource Include="Courses\FormViewCourses.resx">
+      <DependentUpon>FormViewCourses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vizualizare_revendicari.resx">
-      <DependentUpon>Vizualizare_revendicari.cs</DependentUpon>
+    <EmbeddedResource Include="Courses\Requests\FormViewRequests.resx">
+      <DependentUpon>FormViewRequests.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -222,5 +216,6 @@
   <ItemGroup>
     <None Include="Web References\CoursesWebServiceReference\CoursesWebService.disco" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

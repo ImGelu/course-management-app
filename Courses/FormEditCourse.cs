@@ -10,16 +10,25 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Adaugare : Form
+    public partial class FormEditCourse : Form
     {
-        public Adaugare()
+        public FormEditCourse()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Editare_materie_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Utilizatorul a fost adaugat cu succes!");
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) // Editare
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)  //Anulare
+        {
             this.Close();
         }
     }

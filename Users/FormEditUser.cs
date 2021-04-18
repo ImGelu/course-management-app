@@ -10,20 +10,16 @@ using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class Vizualizare_1materie_ID : Form
+    public partial class FormEditUser : Form
     {
-        public Vizualizare_1materie_ID()
+        public FormEditUser()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Edit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
+            MessageBox.Show("Utilizatorul a fost editat cu succes!");
             this.Close();
         }
     }
