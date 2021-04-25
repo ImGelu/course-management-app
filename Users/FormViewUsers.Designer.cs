@@ -34,12 +34,12 @@ namespace Proiect
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.Check = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonVizualizare = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,13 +85,13 @@ namespace Proiect
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
             // 
-            // textBox1
+            // textBoxSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(431, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxSearch.Location = new System.Drawing.Point(431, 41);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(150, 20);
+            this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // labelSearch
             // 
@@ -123,37 +123,37 @@ namespace Proiect
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // Delete
+            // buttonDelete
             // 
-            this.Delete.Location = new System.Drawing.Point(415, 530);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(166, 35);
-            this.Delete.TabIndex = 5;
-            this.Delete.Text = "Stergere";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            this.buttonDelete.Location = new System.Drawing.Point(415, 530);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(166, 35);
+            this.buttonDelete.TabIndex = 5;
+            this.buttonDelete.Text = "Stergere";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // Check
+            // buttonVizualizare
             // 
-            this.Check.Location = new System.Drawing.Point(221, 572);
-            this.Check.Name = "Check";
-            this.Check.Size = new System.Drawing.Size(166, 35);
-            this.Check.TabIndex = 6;
-            this.Check.Text = "Vizualizare";
-            this.Check.UseVisualStyleBackColor = true;
-            this.Check.Click += new System.EventHandler(this.Check_Click);
+            this.buttonVizualizare.Location = new System.Drawing.Point(221, 572);
+            this.buttonVizualizare.Name = "buttonVizualizare";
+            this.buttonVizualizare.Size = new System.Drawing.Size(166, 35);
+            this.buttonVizualizare.TabIndex = 6;
+            this.buttonVizualizare.Text = "Vizualizare";
+            this.buttonVizualizare.UseVisualStyleBackColor = true;
+            this.buttonVizualizare.Click += new System.EventHandler(this.Check_Click);
             // 
             // FormViewUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 619);
-            this.Controls.Add(this.Check);
-            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.buttonVizualizare);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelSearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormViewUsers";
             this.Text = "FormUtilizatori";
@@ -166,7 +166,7 @@ namespace Proiect
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -174,7 +174,7 @@ namespace Proiect
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button Delete;
-        private System.Windows.Forms.Button Check;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonVizualizare;
     }
 }

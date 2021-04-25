@@ -19,8 +19,13 @@ namespace Proiect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Utilizatorul a fost adaugat cu succes!");
-            this.Close();
+            if (textBoxEmail.Text != String.Empty && textBoxName.Text != String.Empty && !comboBoxRole.SelectedItem.Equals(String.Empty))
+            {
+                MessageBox.Show("Utilizatorul a fost adaugat cu succes!");
+                this.Close();
+            }
+            else MessageBox.Show("Campurile trebuie completate!");
+
         }
     }
 }

@@ -31,5 +31,11 @@ namespace Proiect
         {
             this.Close();
         }
+
+        private void dataGridViewVizualizare_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }
