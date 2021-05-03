@@ -1,51 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
 {
-    public partial class FormEditUser : Form { 
-        public int id;
-        public FormEditUser(int id)
+    public partial class FormEditUser : Form
     {
-            InitializeComponent();
-            this.id = id;
-    }
-    
         public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        private FormViewUsers parent;
+        private int id;
+
         public FormEditUser()
         {
             InitializeComponent();
         }
 
-        private void Edit_Click(object sender, EventArgs e)
+        public FormEditUser(int id)
         {
+            InitializeComponent();
+            this.id = id;
+        }
 
+        private void FormEditUser_Load(object sender, EventArgs e)
+        {
+            parent = (FormViewUsers)Owner;
+        }
+
+        private void buttonEditUser_Click(object sender, EventArgs e)
+        {
             CoursesWebServiceReference.User user = new CoursesWebServiceReference.User();
 
             if (textBoxEmail.Text != String.Empty && textBoxName.Text != String.Empty && !comboBoxRole.SelectedItem.Equals(String.Empty))
             {
-
                 user.id = id;
                 user.name = textBoxName.Text;
                 user.email = textBoxEmail.Text;
-                user.password = textBoxPass.Text;
-
+                user.password = textBoxPassword.Text;
 
                 webService.EditUser(user);
                 MessageBox.Show("Utilizatorul a fost editat cu succes!");
                 this.Close();
-                FormViewUsers newform = new FormViewUsers();
-                newform.Show();
+                parent.Show();
             }
-            else MessageBox.Show("Campurile trebuie completate!");
+            else
+            {
+                MessageBox.Show("Campurile trebuie completate!");
+            }
         }
 
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void FormEditUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
+        }
     }
 }

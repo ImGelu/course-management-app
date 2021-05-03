@@ -29,138 +29,155 @@ namespace Proiect
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.labelSearch = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonAddUser = new System.Windows.Forms.Button();
+            this.buttonEditUser = new System.Windows.Forms.Button();
+            this.buttonDeleteUser = new System.Windows.Forms.Button();
             this.buttonVizualizare = new System.Windows.Forms.Button();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
+            this.groupBoxActions = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
+            this.toolStrip.SuspendLayout();
+            this.groupBoxActions.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewUsers
             // 
+            this.dataGridViewUsers.AllowUserToAddRows = false;
+            this.dataGridViewUsers.AllowUserToDeleteRows = false;
+            this.dataGridViewUsers.AllowUserToResizeColumns = false;
+            this.dataGridViewUsers.AllowUserToResizeRows = false;
+            this.dataGridViewUsers.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(12, 87);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(12, 36);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.RowHeadersWidth = 51;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(537, 417);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(624, 417);
             this.dataGridViewUsers.TabIndex = 0;
             // 
-            // textBoxSearch
+            // buttonAddUser
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(431, 41);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(150, 20);
-            this.textBoxSearch.TabIndex = 1;
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.buttonAddUser.Location = new System.Drawing.Point(6, 133);
+            this.buttonAddUser.Name = "buttonAddUser";
+            this.buttonAddUser.Size = new System.Drawing.Size(166, 35);
+            this.buttonAddUser.TabIndex = 3;
+            this.buttonAddUser.Text = "Adaugă utilizator";
+            this.buttonAddUser.UseVisualStyleBackColor = true;
+            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
             // 
-            // labelSearch
+            // buttonEditUser
             // 
-            this.labelSearch.AutoSize = true;
-            this.labelSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearch.Location = new System.Drawing.Point(350, 41);
-            this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(53, 17);
-            this.labelSearch.TabIndex = 2;
-            this.labelSearch.Text = "Search";
+            this.buttonEditUser.Location = new System.Drawing.Point(6, 174);
+            this.buttonEditUser.Name = "buttonEditUser";
+            this.buttonEditUser.Size = new System.Drawing.Size(166, 35);
+            this.buttonEditUser.TabIndex = 4;
+            this.buttonEditUser.Text = "Editare utilizator";
+            this.buttonEditUser.UseVisualStyleBackColor = true;
+            this.buttonEditUser.Click += new System.EventHandler(this.buttonEditUser_Click);
             // 
-            // buttonAdd
+            // buttonDeleteUser
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(28, 530);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(166, 35);
-            this.buttonAdd.TabIndex = 3;
-            this.buttonAdd.Text = "Adaugare";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonEdit
-            // 
-            this.buttonEdit.Location = new System.Drawing.Point(221, 530);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(166, 35);
-            this.buttonEdit.TabIndex = 4;
-            this.buttonEdit.Text = "Editare";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(415, 530);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(166, 35);
-            this.buttonDelete.TabIndex = 5;
-            this.buttonDelete.Text = "Stergere";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.Delete_Click);
+            this.buttonDeleteUser.Location = new System.Drawing.Point(6, 215);
+            this.buttonDeleteUser.Name = "buttonDeleteUser";
+            this.buttonDeleteUser.Size = new System.Drawing.Size(166, 35);
+            this.buttonDeleteUser.TabIndex = 5;
+            this.buttonDeleteUser.Text = "Ștergere utilizator";
+            this.buttonDeleteUser.UseVisualStyleBackColor = true;
+            this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
             // 
             // buttonVizualizare
             // 
-            this.buttonVizualizare.Location = new System.Drawing.Point(221, 572);
+            this.buttonVizualizare.Location = new System.Drawing.Point(6, 256);
             this.buttonVizualizare.Name = "buttonVizualizare";
             this.buttonVizualizare.Size = new System.Drawing.Size(166, 35);
             this.buttonVizualizare.TabIndex = 6;
-            this.buttonVizualizare.Text = "Vizualizare";
+            this.buttonVizualizare.Text = "Vizualizare utilizator";
             this.buttonVizualizare.UseVisualStyleBackColor = true;
-            this.buttonVizualizare.Click += new System.EventHandler(this.Check_Click);
+            this.buttonVizualizare.Click += new System.EventHandler(this.buttonViewUser_Click);
             // 
-            // userBindingSource
+            // toolStrip
             // 
-            this.userBindingSource.DataSource = typeof(Proiect.CoursesWebServiceReference.User);
+            this.toolStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBack,
+            this.toolStripTextBoxSearch,
+            this.toolStripLabelSearch});
+            this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip.Size = new System.Drawing.Size(833, 33);
+            this.toolStrip.TabIndex = 13;
+            this.toolStrip.Text = "toolStrip";
             // 
-            // userBindingSource1
+            // toolStripButtonBack
             // 
-            this.userBindingSource1.DataSource = typeof(Proiect.CoursesWebServiceReference.User);
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 23);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
             // 
-            // rolesBindingSource
+            // toolStripTextBoxSearch
             // 
-            this.rolesBindingSource.DataMember = "Roles";
-            this.rolesBindingSource.DataSource = this.userBindingSource1;
+            this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxSearch.Margin = new System.Windows.Forms.Padding(1, 5, 5, 5);
+            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
+            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxSearch.TextChanged += new System.EventHandler(this.toolStripTextBoxSearch_TextChanged);
             // 
-            // usersBindingSource
+            // toolStripLabelSearch
             // 
-            this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.rolesBindingSource;
+            this.toolStripLabelSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabelSearch.Name = "toolStripLabelSearch";
+            this.toolStripLabelSearch.Size = new System.Drawing.Size(92, 30);
+            this.toolStripLabelSearch.Text = "Caută utilizatori:";
             // 
-            // usersBindingSource1
+            // groupBoxActions
             // 
-            this.usersBindingSource1.DataMember = "Users";
-            this.usersBindingSource1.DataSource = this.rolesBindingSource;
+            this.groupBoxActions.Controls.Add(this.buttonAddUser);
+            this.groupBoxActions.Controls.Add(this.buttonEditUser);
+            this.groupBoxActions.Controls.Add(this.buttonVizualizare);
+            this.groupBoxActions.Controls.Add(this.buttonDeleteUser);
+            this.groupBoxActions.Location = new System.Drawing.Point(642, 36);
+            this.groupBoxActions.Name = "groupBoxActions";
+            this.groupBoxActions.Size = new System.Drawing.Size(179, 417);
+            this.groupBoxActions.TabIndex = 14;
+            this.groupBoxActions.TabStop = false;
+            this.groupBoxActions.Text = "Acțiuni";
             // 
             // FormViewUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 619);
-            this.Controls.Add(this.buttonVizualizare);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.labelSearch);
-            this.Controls.Add(this.textBoxSearch);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(833, 464);
+            this.Controls.Add(this.groupBoxActions);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.dataGridViewUsers);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormViewUsers";
-            this.Text = "FormUtilizatori";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Lista utilizatorilor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewUsers_FormClosed);
             this.Load += new System.EventHandler(this.FormViewUsers_Load);
+            this.VisibleChanged += new System.EventHandler(this.FormViewUsers_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
+            this.groupBoxActions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,16 +186,14 @@ namespace Proiect
         #endregion
 
         public System.Windows.Forms.DataGridView dataGridViewUsers;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Label labelSearch;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonAddUser;
+        private System.Windows.Forms.Button buttonEditUser;
+        private System.Windows.Forms.Button buttonDeleteUser;
         private System.Windows.Forms.Button buttonVizualizare;
-        private System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.BindingSource usersBindingSource;
-        private System.Windows.Forms.BindingSource rolesBindingSource;
-        private System.Windows.Forms.BindingSource userBindingSource1;
-        private System.Windows.Forms.BindingSource usersBindingSource1;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelSearch;
+        private System.Windows.Forms.GroupBox groupBoxActions;
     }
 }

@@ -49,7 +49,7 @@ namespace Proiect
         private void buttonViewCourses_Click(object sender, EventArgs e)
         {
             FormViewCourses formViewCourses = new FormViewCourses();
-            formViewCourses.Show();
+            formViewCourses.Show(this);
             this.Hide();
         }
 

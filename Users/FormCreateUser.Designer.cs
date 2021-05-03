@@ -32,17 +32,25 @@ namespace Proiect
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelRole = new System.Windows.Forms.Label();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
-            this.textBoxPass = new System.Windows.Forms.TextBox();
-            this.labelPass = new System.Windows.Forms.Label();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.groupBox.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(262, 92);
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxEmail.Location = new System.Drawing.Point(14, 52);
             this.textBoxEmail.Multiline = true;
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(290, 29);
@@ -50,7 +58,8 @@ namespace Proiect
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(262, 162);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxName.Location = new System.Drawing.Point(332, 52);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(290, 29);
@@ -59,91 +68,163 @@ namespace Proiect
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(334, 368);
+            this.buttonAdd.Location = new System.Drawing.Point(14, 224);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(128, 34);
-            this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Text = "Adauga";
+            this.buttonAdd.Size = new System.Drawing.Size(608, 34);
+            this.buttonAdd.TabIndex = 6;
+            this.buttonAdd.Text = "Adaugă utilizatorul";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // label2
+            // labelEmail
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(143, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Email      ";
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(14, 28);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(48, 21);
+            this.labelEmail.TabIndex = 6;
+            this.labelEmail.Text = "Email";
             // 
-            // label3
+            // labelName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(143, 171);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Nume       ";
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(332, 28);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(53, 21);
+            this.labelName.TabIndex = 7;
+            this.labelName.Text = "Nume";
             // 
-            // label4
+            // labelRole
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(143, 302);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Rol Principal   ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.labelRole.AutoSize = true;
+            this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRole.Location = new System.Drawing.Point(14, 166);
+            this.labelRole.Name = "labelRole";
+            this.labelRole.Size = new System.Drawing.Size(97, 21);
+            this.labelRole.TabIndex = 8;
+            this.labelRole.Text = "Rol Principal";
             // 
             // comboBoxRole
             // 
+            this.comboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRole.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
             "Administrator",
             "Secretar",
             "Profesor"});
-            this.comboBoxRole.Location = new System.Drawing.Point(262, 302);
+            this.comboBoxRole.Location = new System.Drawing.Point(14, 190);
             this.comboBoxRole.Name = "comboBoxRole";
-            this.comboBoxRole.Size = new System.Drawing.Size(290, 21);
-            this.comboBoxRole.TabIndex = 9;
+            this.comboBoxRole.Size = new System.Drawing.Size(608, 28);
+            this.comboBoxRole.TabIndex = 5;
             // 
-            // textBoxPass
+            // textBoxPassword
             // 
-            this.textBoxPass.Location = new System.Drawing.Point(262, 233);
-            this.textBoxPass.Multiline = true;
-            this.textBoxPass.Name = "textBoxPass";
-            this.textBoxPass.Size = new System.Drawing.Size(290, 29);
-            this.textBoxPass.TabIndex = 10;
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxPassword.Location = new System.Drawing.Point(14, 122);
+            this.textBoxPassword.Multiline = true;
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPassword.TabIndex = 3;
             // 
-            // labelPass
+            // labelPassword
             // 
-            this.labelPass.AutoSize = true;
-            this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPass.Location = new System.Drawing.Point(143, 245);
-            this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(61, 17);
-            this.labelPass.TabIndex = 11;
-            this.labelPass.Text = "Parola   ";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Location = new System.Drawing.Point(14, 98);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(53, 21);
+            this.labelPassword.TabIndex = 11;
+            this.labelPassword.Text = "Parola";
+            // 
+            // textBoxPasswordConfirmation
+            // 
+            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
+            this.textBoxPasswordConfirmation.Multiline = true;
+            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
+            this.textBoxPasswordConfirmation.PasswordChar = '*';
+            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPasswordConfirmation.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(332, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Confirmarea parolei";
+            // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.textBoxPasswordConfirmation);
+            this.groupBox.Controls.Add(this.comboBoxRole);
+            this.groupBox.Controls.Add(this.textBoxEmail);
+            this.groupBox.Controls.Add(this.label1);
+            this.groupBox.Controls.Add(this.textBoxName);
+            this.groupBox.Controls.Add(this.buttonAdd);
+            this.groupBox.Controls.Add(this.labelEmail);
+            this.groupBox.Controls.Add(this.labelPassword);
+            this.groupBox.Controls.Add(this.labelName);
+            this.groupBox.Controls.Add(this.textBoxPassword);
+            this.groupBox.Controls.Add(this.labelRole);
+            this.groupBox.Location = new System.Drawing.Point(12, 28);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(628, 280);
+            this.groupBox.TabIndex = 15;
+            this.groupBox.TabStop = false;
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 20);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBack});
+            this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip.Size = new System.Drawing.Size(652, 30);
+            this.toolStrip.TabIndex = 16;
+            this.toolStrip.Text = "toolStrip";
             // 
             // FormCreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelPass);
-            this.Controls.Add(this.textBoxPass);
-            this.Controls.Add(this.comboBoxRole);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.textBoxEmail);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(652, 320);
+            this.Controls.Add(this.toolStrip);
+            this.Controls.Add(this.groupBox);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormCreateUser";
-            this.Text = "Adaugare utilizator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Adăugare utilizator nou";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCreateUser_FormClosed);
+            this.Load += new System.EventHandler(this.FormCreateUser_Load);
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,11 +234,16 @@ namespace Proiect
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelRole;
         private System.Windows.Forms.ComboBox comboBoxRole;
-        private System.Windows.Forms.TextBox textBoxPass;
-        private System.Windows.Forms.Label labelPass;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.TextBox textBoxPasswordConfirmation;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStrip toolStrip;
     }
 }

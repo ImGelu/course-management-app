@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
@@ -13,13 +6,19 @@ namespace Proiect
     public partial class FormCreateUser : Form
     {
         public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        private FormViewUsers parent;
+
         public FormCreateUser()
         {
             InitializeComponent();
-            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FormCreateUser_Load(object sender, EventArgs e)
+        {
+            parent = (FormViewUsers)Owner;
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (textBoxEmail.Text != String.Empty && textBoxName.Text != String.Empty && !comboBoxRole.SelectedItem.Equals(String.Empty))
             {
@@ -27,26 +26,29 @@ namespace Proiect
 
                 newUser.name = textBoxName.Text;
                 newUser.email = textBoxEmail.Text;
-                newUser.password = textBoxPass.Text;
-
+                newUser.password = textBoxPassword.Text;
 
                 webService.AddUser(newUser);
+
                 MessageBox.Show("Utilizatorul a fost adaugat cu succes!");
                 this.Close();
-                FormViewUsers newform = new FormViewUsers();
-                newform.Show();
+                parent.Show();
             }
             else
             {
-              
                 MessageBox.Show("Campurile trebuie completate!");
             }
-
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
+            this.Close();
+            parent.Show();
+        }
 
+        private void FormCreateUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
         }
     }
 }

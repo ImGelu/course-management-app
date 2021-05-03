@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
@@ -13,93 +8,116 @@ namespace Proiect
     public partial class FormViewUsers : Form
     {
         public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
-        DataTable dataTable = new DataTable();
+        private FormDashboard parent;
+        private DataTable dataTable = new DataTable();
+
         public FormViewUsers()
         {
             InitializeComponent();
-            dataTable.Columns.Add("Name", typeof(string));
+            dataTable.Columns.Add("Nume", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
-            dataTable.Columns.Add("Password", typeof(string));
-            dataTable.Columns.Add("Principal Role", typeof(string));
+            dataTable.Columns.Add("Parolă", typeof(string));
+            dataTable.Columns.Add("Rolul principal", typeof(string));
             dataGridViewUsers.DataSource = dataTable;
-
-
-
+            dataGridViewUsers.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void FormViewUsers_Load(object sender, EventArgs e)
         {
-            {
-                string searchValue = textBoxSearch.Text;
-                try
-                {
-                    var re = from row in dataTable.AsEnumerable()
-                             where row[1].ToString().Contains(searchValue)
-                             select row;
-                    if (re.Count() == 0)
-                    {
-                        MessageBox.Show("No row");
-                    }
-                    else
-                    {
-                        dataGridViewUsers.DataSource = re.CopyToDataTable();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+            parent = (FormDashboard)Owner;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAddUser_Click(object sender, EventArgs e)
         {
             FormCreateUser newForm = new FormCreateUser();
-            newForm.Show();
+            newForm.Show(this);
             this.Hide();
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void buttonEditUser_Click(object sender, EventArgs e)
         {
             int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
             string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
             CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
             FormEditUser newForm = new FormEditUser(user.id);
-            newForm.Show();
+            newForm.Show(this);
             this.Hide();
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
             int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
             string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
             CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-            
+
             webService.DeleteUser(user.id);
             dataGridViewUsers.Rows.RemoveAt(rowIndex);
             MessageBox.Show("Utilizatorul a fost sters cu succes!");
         }
 
-        private void Check_Click(object sender, EventArgs e)
+        private void buttonViewUser_Click(object sender, EventArgs e)
         {
             int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
             string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
             CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-            
+
             FormViewUser newForm = new FormViewUser();
             newForm.dataGridViewVizualizare.Rows.Add();
             newForm.dataGridViewVizualizare.Rows[0].Cells[0].Value = user.name;
             newForm.dataGridViewVizualizare.Rows[0].Cells[1].Value = user.email;
-            newForm.dataGridViewVizualizare.Rows[0].Cells[2].Value =user.password;
+            newForm.dataGridViewVizualizare.Rows[0].Cells[2].Value = user.password;
             newForm.Show();
         }
 
-        private void FormViewUsers_Load(object sender, EventArgs e)
+        private void toolStripTextBoxSearch_TextChanged(object sender, EventArgs e)
         {
+            string searchValue = toolStripTextBoxSearch.Text;
+
+            try
+            {
+                var results = from row in dataTable.AsEnumerable()
+                              where row[1].ToString().Contains(searchValue)
+                              select row;
+
+                if (results.Count() == 0)
+                {
+                    MessageBox.Show("No row");
+                }
+                else
+                {
+                    dataGridViewUsers.DataSource = results.CopyToDataTable();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void FormViewUsers_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
+        }
+
+        private void FormViewUsers_VisibleChanged(object sender, EventArgs e)
+        {
+            updateDataGridView();
+        }
+
+        private void updateDataGridView()
+        {
+            dataTable.Clear();
+
             for (int i = 0; i < webService.GetUsers().Length; i++)
             {
                 dataTable.Rows.Add(webService.GetUsers()[i].name, webService.GetUsers()[i].email, webService.GetUsers()[i].password);
-                
             }
         }
     }
