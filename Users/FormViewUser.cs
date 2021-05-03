@@ -34,8 +34,12 @@ namespace Proiect
 
         private void dataGridViewVizualizare_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
+        private void FormViewUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

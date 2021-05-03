@@ -36,13 +36,15 @@ namespace Proiect
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
+            this.textBoxPass = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(128, 217);
+            this.label4.Location = new System.Drawing.Point(128, 255);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 17;
@@ -98,16 +100,40 @@ namespace Proiect
             // comboBoxRole
             // 
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Location = new System.Drawing.Point(247, 217);
+            this.comboBoxRole.Items.AddRange(new object[] {
+            "Administrator",
+            "Secretar",
+            "Profesor"});
+            this.comboBoxRole.Location = new System.Drawing.Point(247, 255);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(290, 21);
             this.comboBoxRole.TabIndex = 18;
+            // 
+            // textBoxPass
+            // 
+            this.textBoxPass.Location = new System.Drawing.Point(247, 200);
+            this.textBoxPass.Multiline = true;
+            this.textBoxPass.Name = "textBoxPass";
+            this.textBoxPass.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPass.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(128, 212);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Parola";
             // 
             // FormEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 402);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxPass);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -131,5 +157,7 @@ namespace Proiect
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.ComboBox comboBoxRole;
+        private System.Windows.Forms.TextBox textBoxPass;
+        private System.Windows.Forms.Label label1;
     }
 }

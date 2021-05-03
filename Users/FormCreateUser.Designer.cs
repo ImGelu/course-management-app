@@ -36,6 +36,8 @@ namespace Proiect
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
+            this.textBoxPass = new System.Windows.Forms.TextBox();
+            this.labelPass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxEmail
@@ -57,7 +59,7 @@ namespace Proiect
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(343, 318);
+            this.buttonAdd.Location = new System.Drawing.Point(334, 368);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(128, 34);
             this.buttonAdd.TabIndex = 4;
@@ -89,25 +91,50 @@ namespace Proiect
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(143, 238);
+            this.label4.Location = new System.Drawing.Point(143, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Rol Principal   ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // comboBoxRole
             // 
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Location = new System.Drawing.Point(262, 238);
+            this.comboBoxRole.Items.AddRange(new object[] {
+            "Administrator",
+            "Secretar",
+            "Profesor"});
+            this.comboBoxRole.Location = new System.Drawing.Point(262, 302);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(290, 21);
             this.comboBoxRole.TabIndex = 9;
+            // 
+            // textBoxPass
+            // 
+            this.textBoxPass.Location = new System.Drawing.Point(262, 233);
+            this.textBoxPass.Multiline = true;
+            this.textBoxPass.Name = "textBoxPass";
+            this.textBoxPass.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPass.TabIndex = 10;
+            // 
+            // labelPass
+            // 
+            this.labelPass.AutoSize = true;
+            this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPass.Location = new System.Drawing.Point(143, 245);
+            this.labelPass.Name = "labelPass";
+            this.labelPass.Size = new System.Drawing.Size(61, 17);
+            this.labelPass.TabIndex = 11;
+            this.labelPass.Text = "Parola   ";
             // 
             // FormCreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelPass);
+            this.Controls.Add(this.textBoxPass);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -130,5 +157,7 @@ namespace Proiect
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxRole;
+        private System.Windows.Forms.TextBox textBoxPass;
+        private System.Windows.Forms.Label labelPass;
     }
 }

@@ -19,6 +19,14 @@ namespace Server
 
         private DatabaseEntities databaseEntities = new DatabaseEntities();
 
+        /** Roles **/
+        [WebMethod]
+        public List<Role> GetRoles()
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+            
+            return databaseEntities.Roles.ToList();
+        }
         /** Users **/
         [WebMethod]
         public List<User> GetUsers()

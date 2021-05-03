@@ -111,6 +111,7 @@ namespace Proiect
             this.Controls.Add(this.buttonClose);
             this.Name = "FormViewUser";
             this.Text = "Vizualizare Utilizator";
+            this.Load += new System.EventHandler(this.FormViewUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVizualizare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -120,7 +121,7 @@ namespace Proiect
         #endregion
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label labelUtil;
-        private System.Windows.Forms.DataGridView dataGridViewVizualizare;
+        public System.Windows.Forms.DataGridView dataGridViewVizualizare;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nume;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;

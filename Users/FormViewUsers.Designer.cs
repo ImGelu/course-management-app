@@ -29,61 +29,35 @@ namespace Proiect
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.components = new System.ComponentModel.Container();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonVizualizare = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewUsers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(28, 92);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(553, 417);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "E-mail";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Parola";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Nume";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Rol Principal";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Location = new System.Drawing.Point(12, 87);
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.RowHeadersWidth = 51;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(537, 417);
+            this.dataGridViewUsers.TabIndex = 0;
             // 
             // textBoxSearch
             // 
@@ -143,21 +117,50 @@ namespace Proiect
             this.buttonVizualizare.UseVisualStyleBackColor = true;
             this.buttonVizualizare.Click += new System.EventHandler(this.Check_Click);
             // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Proiect.CoursesWebServiceReference.User);
+            // 
+            // userBindingSource1
+            // 
+            this.userBindingSource1.DataSource = typeof(Proiect.CoursesWebServiceReference.User);
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.userBindingSource1;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.rolesBindingSource;
+            // 
+            // usersBindingSource1
+            // 
+            this.usersBindingSource1.DataMember = "Users";
+            this.usersBindingSource1.DataSource = this.rolesBindingSource;
+            // 
             // FormViewUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 619);
+            this.ClientSize = new System.Drawing.Size(648, 619);
             this.Controls.Add(this.buttonVizualizare);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewUsers);
             this.Name = "FormViewUsers";
             this.Text = "FormUtilizatori";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormViewUsers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,16 +168,17 @@ namespace Proiect
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonVizualizare;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.BindingSource usersBindingSource;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private System.Windows.Forms.BindingSource userBindingSource1;
+        private System.Windows.Forms.BindingSource usersBindingSource1;
     }
 }
