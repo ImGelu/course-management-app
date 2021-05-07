@@ -35,10 +35,11 @@ namespace Proiect
             this.buttonDeleteUser = new System.Windows.Forms.Button();
             this.buttonVizualizare = new System.Windows.Forms.Button();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
             this.groupBoxActions = new System.Windows.Forms.GroupBox();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.labelNotFound = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.groupBoxActions.SuspendLayout();
@@ -52,11 +53,11 @@ namespace Proiect
             this.dataGridViewUsers.AllowUserToResizeRows = false;
             this.dataGridViewUsers.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(12, 36);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(12, 69);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.RowHeadersWidth = 51;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(624, 417);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(624, 384);
             this.dataGridViewUsers.TabIndex = 0;
             // 
             // buttonAddUser
@@ -117,16 +118,6 @@ namespace Proiect
             this.toolStrip.TabIndex = 13;
             this.toolStrip.Text = "toolStrip";
             // 
-            // toolStripButtonBack
-            // 
-            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
-            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 23);
-            this.toolStripButtonBack.Text = "Înapoi";
-            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
-            // 
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -156,12 +147,33 @@ namespace Proiect
             this.groupBoxActions.TabStop = false;
             this.groupBoxActions.Text = "Acțiuni";
             // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 23);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
+            // 
+            // labelNotFound
+            // 
+            this.labelNotFound.AutoSize = true;
+            this.labelNotFound.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotFound.Location = new System.Drawing.Point(231, 45);
+            this.labelNotFound.Name = "labelNotFound";
+            this.labelNotFound.Size = new System.Drawing.Size(180, 21);
+            this.labelNotFound.TabIndex = 15;
+            this.labelNotFound.Text = "No such user was found!";
+            // 
             // FormViewUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(833, 464);
+            this.Controls.Add(this.labelNotFound);
             this.Controls.Add(this.groupBoxActions);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.dataGridViewUsers);
@@ -191,9 +203,10 @@ namespace Proiect
         private System.Windows.Forms.Button buttonDeleteUser;
         private System.Windows.Forms.Button buttonVizualizare;
         private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabelSearch;
         private System.Windows.Forms.GroupBox groupBoxActions;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.Label labelNotFound;
     }
 }
