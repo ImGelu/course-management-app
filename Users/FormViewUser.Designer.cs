@@ -30,19 +30,24 @@ namespace Proiect
         private void InitializeComponent()
         {
             this.labelUtil = new System.Windows.Forms.Label();
-            this.dataGridViewVizualizare = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RolPrincipal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonEditUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeleteUser = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVizualizare)).BeginInit();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.labelRole = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip.SuspendLayout();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelUtil
@@ -54,45 +59,6 @@ namespace Proiect
             this.labelUtil.Size = new System.Drawing.Size(167, 24);
             this.labelUtil.TabIndex = 22;
             this.labelUtil.Text = "Date Utilizator:    ";
-            // 
-            // dataGridViewVizualizare
-            // 
-            this.dataGridViewVizualizare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVizualizare.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Nume,
-            this.Email,
-            this.RolPrincipal,
-            this.ColumEdit});
-            this.dataGridViewVizualizare.Location = new System.Drawing.Point(104, 74);
-            this.dataGridViewVizualizare.Name = "dataGridViewVizualizare";
-            this.dataGridViewVizualizare.Size = new System.Drawing.Size(530, 265);
-            this.dataGridViewVizualizare.TabIndex = 23;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // Nume
-            // 
-            this.Nume.HeaderText = "Nume";
-            this.Nume.Name = "Nume";
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // RolPrincipal
-            // 
-            this.RolPrincipal.HeaderText = "Rol Principal";
-            this.RolPrincipal.Name = "RolPrincipal";
-            // 
-            // ColumEdit
-            // 
-            this.ColumEdit.HeaderText = "Edit";
-            this.ColumEdit.Name = "ColumEdit";
             // 
             // toolStrip
             // 
@@ -150,20 +116,141 @@ namespace Proiect
             this.toolStripButtonDeleteUser.Text = "Șterge utilizatorul";
             this.toolStripButtonDeleteUser.Click += new System.EventHandler(this.toolStripButtonDeleteUser_Click);
             // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.textBox1);
+            this.groupBox.Controls.Add(this.textBoxPasswordConfirmation);
+            this.groupBox.Controls.Add(this.textBoxEmail);
+            this.groupBox.Controls.Add(this.label1);
+            this.groupBox.Controls.Add(this.textBoxName);
+            this.groupBox.Controls.Add(this.labelEmail);
+            this.groupBox.Controls.Add(this.labelPassword);
+            this.groupBox.Controls.Add(this.labelName);
+            this.groupBox.Controls.Add(this.textBoxPassword);
+            this.groupBox.Controls.Add(this.labelRole);
+            this.groupBox.Location = new System.Drawing.Point(53, 85);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(628, 280);
+            this.groupBox.TabIndex = 25;
+            this.groupBox.TabStop = false;
+            // 
+            // textBoxPasswordConfirmation
+            // 
+            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
+            this.textBoxPasswordConfirmation.Multiline = true;
+            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
+            this.textBoxPasswordConfirmation.PasswordChar = '*';
+            this.textBoxPasswordConfirmation.ReadOnly = true;
+            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPasswordConfirmation.TabIndex = 4;
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxEmail.Location = new System.Drawing.Point(14, 52);
+            this.textBoxEmail.Multiline = true;
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.ReadOnly = true;
+            this.textBoxEmail.Size = new System.Drawing.Size(290, 29);
+            this.textBoxEmail.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(332, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Confirmarea parolei";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxName.Location = new System.Drawing.Point(332, 52);
+            this.textBoxName.Multiline = true;
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
+            this.textBoxName.Size = new System.Drawing.Size(290, 29);
+            this.textBoxName.TabIndex = 2;
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(14, 28);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(48, 21);
+            this.labelEmail.TabIndex = 6;
+            this.labelEmail.Text = "Email";
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Location = new System.Drawing.Point(14, 98);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(53, 21);
+            this.labelPassword.TabIndex = 11;
+            this.labelPassword.Text = "Parola";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(332, 28);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(53, 21);
+            this.labelName.TabIndex = 7;
+            this.labelName.Text = "Nume";
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxPassword.Location = new System.Drawing.Point(14, 122);
+            this.textBoxPassword.Multiline = true;
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.ReadOnly = true;
+            this.textBoxPassword.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPassword.TabIndex = 3;
+            // 
+            // labelRole
+            // 
+            this.labelRole.AutoSize = true;
+            this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRole.Location = new System.Drawing.Point(14, 166);
+            this.labelRole.Name = "labelRole";
+            this.labelRole.Size = new System.Drawing.Size(97, 21);
+            this.labelRole.TabIndex = 8;
+            this.labelRole.Text = "Rol Principal";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBox1.Location = new System.Drawing.Point(14, 190);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(608, 29);
+            this.textBox1.TabIndex = 15;
+            // 
             // FormViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 450);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.dataGridViewVizualizare);
             this.Controls.Add(this.labelUtil);
             this.Name = "FormViewUser";
             this.Text = "Vizualizare Utilizator";
             this.Load += new System.EventHandler(this.FormViewUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVizualizare)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,16 +258,21 @@ namespace Proiect
 
         #endregion
         private System.Windows.Forms.Label labelUtil;
-        public System.Windows.Forms.DataGridView dataGridViewVizualizare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nume;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RolPrincipal;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumEdit;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonEditUser;
         private System.Windows.Forms.ToolStripButton toolStripButtonDeleteUser;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPasswordConfirmation;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Label labelRole;
     }
 }

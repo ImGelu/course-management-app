@@ -94,11 +94,10 @@ namespace Proiect
             // 
             // textBoxPasswordConfirmation
             // 
-            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
             this.textBoxPasswordConfirmation.Multiline = true;
             this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
-            this.textBoxPasswordConfirmation.PasswordChar = '*';
             this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
             this.textBoxPasswordConfirmation.TabIndex = 13;
             // 
@@ -118,7 +117,7 @@ namespace Proiect
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(14, 52);
             this.textBoxEmail.Multiline = true;
             this.textBoxEmail.Name = "textBoxEmail";
@@ -137,7 +136,7 @@ namespace Proiect
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(332, 52);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
@@ -187,11 +186,10 @@ namespace Proiect
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(14, 122);
             this.textBoxPassword.Multiline = true;
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(290, 29);
             this.textBoxPassword.TabIndex = 10;
             // 

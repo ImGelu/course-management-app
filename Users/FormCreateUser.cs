@@ -12,6 +12,7 @@ namespace Proiect
         {
             InitializeComponent();
         }
+       
 
         private void FormCreateUser_Load(object sender, EventArgs e)
         {
@@ -27,20 +28,49 @@ namespace Proiect
                 newUser.name = textBoxName.Text;
                 newUser.email = textBoxEmail.Text;
                 newUser.password = textBoxPassword.Text;
+                if (Utils.IsValidEmail(newUser.email))
+                {
+                    if (!Utils.EmailAlreadyTaken(newUser.email))
+                    {
+                        if (newUser.password.Equals(textBoxPasswordConfirmation.Text))
+                        {
+                            webService.AddUser(newUser);
 
-                webService.AddUser(newUser);
+                            MessageBox.Show("Utilizatorul a fost adaugat cu succes!");
+                            this.Close();
+                            parent.Show();
+                        }
 
-                MessageBox.Show("Utilizatorul a fost adaugat cu succes!");
-                this.Close();
-                parent.Show();
+                        else
+                        {
+                            MessageBox.Show("The passwords don't match. Try again!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This email is already taken. Try another one!");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Please enter a valid email address!");
+                }
             }
             else
-            {
-                MessageBox.Show("Campurile trebuie completate!");
-            }
-        }
 
-        private void toolStripButtonBack_Click(object sender, EventArgs e)
+            {
+                MessageBox.Show("Please fill all the fields.");
+            }
+}
+
+
+        
+
+                          
+                       
+
+private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             parent.Show();
