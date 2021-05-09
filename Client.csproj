@@ -183,10 +183,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\CoursesWebServiceReference\Course.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\CoursesWebServiceReference\CoursesWebService.wsdl" />
     <None Include="Web References\CoursesWebServiceReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CoursesWebServiceReference\Role.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\CoursesWebServiceReference\User1.datasource">
       <DependentUpon>Reference.map</DependentUpon>

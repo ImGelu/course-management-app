@@ -28,142 +28,187 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.labelID = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.buttonAnulare = new System.Windows.Forms.Button();
+            this.buttonCautare = new System.Windows.Forms.Button();
+            this.labelMaterie = new System.Windows.Forms.Label();
+            this.labelFacultate = new System.Windows.Forms.Label();
+            this.labelDomeniu = new System.Windows.Forms.Label();
+            this.labelSpecializare = new System.Windows.Forms.Label();
+            this.labelMaterie2 = new System.Windows.Forms.Label();
+            this.labelFacultate2 = new System.Windows.Forms.Label();
+            this.labelDomeniu2 = new System.Windows.Forms.Label();
+            this.labelSpecializare2 = new System.Windows.Forms.Label();
+            this.buttonEditare = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // labelID
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(175, 114);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 286);
-            this.dataGridView1.TabIndex = 14;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(157, 70);
+            this.labelID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(76, 17);
+            this.labelID.TabIndex = 13;
+            this.labelID.Text = "ID materie:";
             // 
-            // Column1
+            // textBoxID
             // 
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 50;
+            this.textBoxID.Location = new System.Drawing.Point(256, 67);
+            this.textBoxID.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(80, 22);
+            this.textBoxID.TabIndex = 12;
             // 
-            // Column2
+            // buttonAnulare
             // 
-            this.Column2.HeaderText = "Materie";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.buttonAnulare.Location = new System.Drawing.Point(992, 527);
+            this.buttonAnulare.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAnulare.Name = "buttonAnulare";
+            this.buttonAnulare.Size = new System.Drawing.Size(108, 37);
+            this.buttonAnulare.TabIndex = 11;
+            this.buttonAnulare.Text = "Anulare";
+            this.buttonAnulare.UseVisualStyleBackColor = true;
+            this.buttonAnulare.Click += new System.EventHandler(this.buttonAnulare_Click);
             // 
-            // Column3
+            // buttonCautare
             // 
-            this.Column3.HeaderText = "Facultate";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.buttonCautare.Location = new System.Drawing.Point(101, 527);
+            this.buttonCautare.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCautare.Name = "buttonCautare";
+            this.buttonCautare.Size = new System.Drawing.Size(107, 37);
+            this.buttonCautare.TabIndex = 10;
+            this.buttonCautare.Text = "Căutare";
+            this.buttonCautare.UseVisualStyleBackColor = true;
+            this.buttonCautare.Click += new System.EventHandler(this.buttonCautare_Click);
             // 
-            // Column4
+            // labelMaterie
             // 
-            this.Column4.HeaderText = "Domeniu";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.labelMaterie.AutoSize = true;
+            this.labelMaterie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaterie.Location = new System.Drawing.Point(155, 193);
+            this.labelMaterie.Name = "labelMaterie";
+            this.labelMaterie.Size = new System.Drawing.Size(91, 25);
+            this.labelMaterie.TabIndex = 15;
+            this.labelMaterie.Text = "Materie:";
             // 
-            // Column5
+            // labelFacultate
             // 
-            this.Column5.HeaderText = "Specializare";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.labelFacultate.AutoSize = true;
+            this.labelFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFacultate.Location = new System.Drawing.Point(155, 249);
+            this.labelFacultate.Name = "labelFacultate";
+            this.labelFacultate.Size = new System.Drawing.Size(108, 25);
+            this.labelFacultate.TabIndex = 16;
+            this.labelFacultate.Text = "Facultate:";
             // 
-            // Column6
+            // labelDomeniu
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column6.HeaderText = "Acțiuni";
-            this.Column6.Name = "Column6";
-            this.Column6.Text = "View";
-            this.Column6.UseColumnTextForButtonValue = true;
-            this.Column6.Width = 50;
+            this.labelDomeniu.AutoSize = true;
+            this.labelDomeniu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDomeniu.Location = new System.Drawing.Point(155, 308);
+            this.labelDomeniu.Name = "labelDomeniu";
+            this.labelDomeniu.Size = new System.Drawing.Size(104, 25);
+            this.labelDomeniu.TabIndex = 17;
+            this.labelDomeniu.Text = "Domeniu:";
             // 
-            // label1
+            // labelSpecializare
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "ID materie";
+            this.labelSpecializare.AutoSize = true;
+            this.labelSpecializare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpecializare.Location = new System.Drawing.Point(155, 369);
+            this.labelSpecializare.Name = "labelSpecializare";
+            this.labelSpecializare.Size = new System.Drawing.Size(138, 25);
+            this.labelSpecializare.TabIndex = 18;
+            this.labelSpecializare.Text = "Specializare:";
             // 
-            // textBox1
+            // labelMaterie2
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(61, 20);
-            this.textBox1.TabIndex = 12;
+            this.labelMaterie2.AutoSize = true;
+            this.labelMaterie2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaterie2.Location = new System.Drawing.Point(313, 193);
+            this.labelMaterie2.Name = "labelMaterie2";
+            this.labelMaterie2.Size = new System.Drawing.Size(0, 25);
+            this.labelMaterie2.TabIndex = 19;
             // 
-            // button2
+            // labelFacultate2
             // 
-            this.button2.Location = new System.Drawing.Point(744, 428);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 30);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Anulare";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelFacultate2.AutoSize = true;
+            this.labelFacultate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFacultate2.Location = new System.Drawing.Point(313, 249);
+            this.labelFacultate2.Name = "labelFacultate2";
+            this.labelFacultate2.Size = new System.Drawing.Size(0, 25);
+            this.labelFacultate2.TabIndex = 20;
             // 
-            // button1
+            // labelDomeniu2
             // 
-            this.button1.Location = new System.Drawing.Point(76, 428);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 30);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Căutare";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelDomeniu2.AutoSize = true;
+            this.labelDomeniu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDomeniu2.Location = new System.Drawing.Point(313, 308);
+            this.labelDomeniu2.Name = "labelDomeniu2";
+            this.labelDomeniu2.Size = new System.Drawing.Size(0, 25);
+            this.labelDomeniu2.TabIndex = 21;
+            // 
+            // labelSpecializare2
+            // 
+            this.labelSpecializare2.AutoSize = true;
+            this.labelSpecializare2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpecializare2.Location = new System.Drawing.Point(313, 369);
+            this.labelSpecializare2.Name = "labelSpecializare2";
+            this.labelSpecializare2.Size = new System.Drawing.Size(0, 25);
+            this.labelSpecializare2.TabIndex = 22;
+            // 
+            // buttonEditare
+            // 
+            this.buttonEditare.Location = new System.Drawing.Point(242, 527);
+            this.buttonEditare.Name = "buttonEditare";
+            this.buttonEditare.Size = new System.Drawing.Size(107, 37);
+            this.buttonEditare.TabIndex = 23;
+            this.buttonEditare.Text = "Editare";
+            this.buttonEditare.UseVisualStyleBackColor = true;
+            this.buttonEditare.Click += new System.EventHandler(this.buttonEditare_Click);
             // 
             // FormViewCourse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 512);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1200, 630);
+            this.Controls.Add(this.buttonEditare);
+            this.Controls.Add(this.labelSpecializare2);
+            this.Controls.Add(this.labelDomeniu2);
+            this.Controls.Add(this.labelFacultate2);
+            this.Controls.Add(this.labelMaterie2);
+            this.Controls.Add(this.labelSpecializare);
+            this.Controls.Add(this.labelDomeniu);
+            this.Controls.Add(this.labelFacultate);
+            this.Controls.Add(this.labelMaterie);
+            this.Controls.Add(this.labelID);
+            this.Controls.Add(this.textBoxID);
+            this.Controls.Add(this.buttonAnulare);
+            this.Controls.Add(this.buttonCautare);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormViewCourse";
-            this.Text = "Vizualizare_1materie_ID";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "FormViewCourse";
+            this.Load += new System.EventHandler(this.FormViewCourse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column6;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Button buttonAnulare;
+        private System.Windows.Forms.Button buttonCautare;
+        private System.Windows.Forms.Label labelMaterie;
+        private System.Windows.Forms.Label labelFacultate;
+        private System.Windows.Forms.Label labelDomeniu;
+        private System.Windows.Forms.Label labelSpecializare;
+        private System.Windows.Forms.Label labelMaterie2;
+        private System.Windows.Forms.Label labelFacultate2;
+        private System.Windows.Forms.Label labelDomeniu2;
+        private System.Windows.Forms.Label labelSpecializare2;
+        private System.Windows.Forms.Button buttonEditare;
     }
 }

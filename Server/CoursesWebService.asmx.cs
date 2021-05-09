@@ -24,7 +24,7 @@ namespace Server
         public List<Role> GetRoles()
         {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
-            
+
             return databaseEntities.Roles.ToList();
         }
         /** Users **/
@@ -76,8 +76,8 @@ namespace Server
 
             User existingUser = databaseEntities.Users.Find(user.id);
 
-            existingUser.name     = user.name;
-            existingUser.email    = user.email;
+            existingUser.name = user.name;
+            existingUser.email = user.email;
             existingUser.password = user.password;
 
             databaseEntities.SaveChanges();
@@ -90,6 +90,66 @@ namespace Server
 
             User existingUser = databaseEntities.Users.Find(id);
             databaseEntities.Users.Remove(existingUser);
+
+            databaseEntities.SaveChanges();
+
+        }
+
+        /** Courses **/
+        [WebMethod]
+        public List<Course> GetCourses()
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Courses.ToList();
+        }
+
+        [WebMethod]
+        public Course GetCourse(int id)
+        {
+                databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+                return databaseEntities.Courses.Find(id);
+         
+        }
+
+        [WebMethod]
+        public List<Course> GetCourseByName(string name)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Courses.Where(course => course.name == name).ToList();
+        }
+
+        [WebMethod]
+        public void AddCourse(Course course)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Courses.Add(course);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void EditCourse(Course course)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Course existingCourse = databaseEntities.Courses.Find(course.id);
+
+            existingCourse.content = course.content;
+            existingCourse.name = course.name;
+            existingCourse.laboratory_hours = course.laboratory_hours;
+            existingCourse.laboratory_tutors = course.laboratory_tutors;
+            existingCourse.project_hours = course.project_hours;
+            existingCourse.project_tutors = course.project_tutors;
+            existingCourse.semester = course.semester;
+            existingCourse.seminary_hours = course.seminary_hours;
+            existingCourse.seminary_tutors = course.seminary_tutors;
+            existingCourse.study_level = course.study_level;
+            existingCourse.study_year = course.study_year;
+            existingCourse.Specialization = course.Specialization;
+            existingCourse.specialization_id = course.specialization_id;
 
             databaseEntities.SaveChanges();
         }

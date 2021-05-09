@@ -12,16 +12,30 @@ namespace Proiect
 {
     public partial class FormViewCourses : Form
     {
+        public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        private FormDashboard parent;
+        private DataTable dataTable = new DataTable();
         public FormViewCourses()
         {
             InitializeComponent();
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Materie", typeof(string));
+            dataTable.Columns.Add("Facultate", typeof(string));
+            dataTable.Columns.Add("Domeniu", typeof(string));
+            dataTable.Columns.Add("Specializare", typeof(string));
+            dataGridViewCourses.DataSource = dataTable;
+            dataGridViewCourses.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCourses.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void button1_Click(object sender, EventArgs e)  // Cautare
         {
-            if (String.IsNullOrEmpty(textBox1.Text))
+            string materie = textBox1.Text;
+            dataTable.Clear();
+
+            for (int i = 0; i < webService.GetCourseByName(materie).Length; i++)
             {
-                MessageBox.Show("Câmpurile trebuie completate!");
+                dataTable.Rows.Add(webService.GetCourseByName(materie)[i].id, webService.GetCourseByName(materie)[i].name, webService.GetCourseByName(materie)[i].Specialization, webService.GetCourseByName(materie)[i].semester);
             }
         }
 
@@ -30,12 +44,19 @@ namespace Proiect
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void FormViewCourses_Load(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["Acțiuni"].Index && e.RowIndex >= 0)
-            {
-                Console.WriteLine("Button on row {0} clicked", e.RowIndex); // DE SCHIMBAT, AM TESTAT
-            }
+            parent = (FormDashboard)Owner;
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dataGridViewCourses.CurrentCell.RowIndex;
+            string nume = dataGridViewCourses.Rows[rowIndex].Cells[1].Value.ToString();
+           // CoursesWebServiceReference.Course course = webService.GetCourseByName(nume);
+           // FormEditCourse newForm = new FormEditCourse(course.id);
+            //newForm.Show(this);
+            //this.Hide();
         }
     }
 }
