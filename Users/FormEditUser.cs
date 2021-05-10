@@ -1,94 +1,93 @@
 ﻿using System;
 using System.Windows.Forms;
+using Proiect.CoursesWebServiceReference;
 
 namespace Proiect
 {
     public partial class FormEditUser : Form
     {
-        public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        public static CoursesWebService webService = new CoursesWebService();
         private FormViewUsers parent;
-        private int id;
-        private string name;
-        private string email;
-        private string pass;
+        private User user;
+
         public FormEditUser()
         {
             InitializeComponent();
         }
 
-        public FormEditUser(int id,string name, string email,string pass)
+        public FormEditUser(int id)
         {
             InitializeComponent();
-            this.id = id;
-            this.name = name;
-            this.email = email;
-            this.pass = pass;
-            textBoxName.Text = name;
-            textBoxEmail.Text = email;
-            textBoxPassword.Text = pass;
-            textBoxPasswordConfirmation.Text = pass;
-
+            user = webService.GetUser(id);
         }
 
         private void FormEditUser_Load(object sender, EventArgs e)
         {
             parent = new FormViewUsers();
+            textBoxEmail.Text = user.email;
+            textBoxName.Text = user.name;
         }
 
         private void buttonEditUser_Click(object sender, EventArgs e)
-        { 
-       if (textBoxEmail.Text != String.Empty && textBoxName.Text != String.Empty && !comboBoxRole.SelectedItem.Equals(String.Empty))
+        {
+            string name, email, password, passwordConfirmation;
+
+            name = textBoxName.Text;
+            email = textBoxEmail.Text;
+            password = textBoxPassword.Text;
+            passwordConfirmation = textBoxPasswordConfirmation.Text;
+
+            if (name != String.Empty && email != String.Empty && password != String.Empty && passwordConfirmation != String.Empty)
             {
-                CoursesWebServiceReference.User newUser = new CoursesWebServiceReference.User();
-                newUser.id = id;
-                newUser.name = textBoxName.Text;
-                newUser.email = textBoxEmail.Text;
-                newUser.password = textBoxPassword.Text;
-                if (Utils.IsValidEmail(newUser.email))
+                if (Utils.IsValidEmail(email))
                 {
-
-
-                    if (newUser.password.Equals(textBoxPasswordConfirmation.Text))
+                    if (!Utils.EmailAlreadyTaken(email))
                     {
-                        webService.EditUser(newUser);
+                        if (password.Equals(passwordConfirmation))
+                        {
+                            User newUser = new User();
+                            newUser.id = user.id;
+                            newUser.name = name;
+                            newUser.email = email;
+                            newUser.password = password;
 
-                        MessageBox.Show("Utilizatorul a fost editat cu succes!");
-                        this.Close();
-                        parent.Show();
+                            try
+                            {
+                                webService.EditUser(newUser);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("An error occured!\n" + ex.Message.ToString());
+                            }
+
+                            MessageBox.Show("The account has been successfully created. You can log in now!");
+                            textBoxEmail.Text = String.Empty;
+                            textBoxName.Text = String.Empty;
+                            textBoxPassword.Text = String.Empty;
+                            textBoxPasswordConfirmation.Text = String.Empty;
+
+                            parent.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("The passwords don't match. Try again!");
+                        }
                     }
-
                     else
                     {
-                        MessageBox.Show("The passwords don't match. Try again!");
+                        MessageBox.Show("This email is already taken. Try another one!");
                     }
                 }
-
-
-
-
-
                 else
                 {
                     MessageBox.Show("Please enter a valid email address!");
                 }
             }
             else
-
-{
-    MessageBox.Show("Please fill all the fields.");
-}
-}
-
-        private void toolStripButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            parent.Show();
-        }
-
-        private void FormEditUser_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-            parent.Show();
+            {
+                MessageBox.Show("Please fill all the fields.");
+            }
         }
     }
 }

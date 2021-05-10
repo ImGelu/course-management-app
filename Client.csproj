@@ -187,11 +187,20 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\CoursesWebServiceReference\CoursesWebService.wsdl" />
+    <None Include="Web References\CoursesWebServiceReference\Domain.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CoursesWebServiceReference\Faculty.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\CoursesWebServiceReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\CoursesWebServiceReference\Role.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CoursesWebServiceReference\Specialization.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\CoursesWebServiceReference\User1.datasource">

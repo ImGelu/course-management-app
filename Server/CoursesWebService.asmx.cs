@@ -27,6 +27,15 @@ namespace Server
 
             return databaseEntities.Roles.ToList();
         }
+
+        [WebMethod]
+        public Role GetRole(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Roles.Find(id);
+        }
+
         /** Users **/
         [WebMethod]
         public List<User> GetUsers()
@@ -42,6 +51,14 @@ namespace Server
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
             return databaseEntities.Users.Find(id);
+        }
+
+        [WebMethod]
+        public List<User> GetUsersByName(string name)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Users.Where(user => user.name.Contains(name)).ToList();
         }
 
         [WebMethod]
@@ -92,7 +109,6 @@ namespace Server
             databaseEntities.Users.Remove(existingUser);
 
             databaseEntities.SaveChanges();
-
         }
 
         /** Courses **/
@@ -107,10 +123,9 @@ namespace Server
         [WebMethod]
         public Course GetCourse(int id)
         {
-                databaseEntities.Configuration.ProxyCreationEnabled = false;
-
-                return databaseEntities.Courses.Find(id);
-         
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+            
+            return databaseEntities.Courses.Find(id);
         }
 
         [WebMethod]
@@ -118,7 +133,7 @@ namespace Server
         {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
-            return databaseEntities.Courses.Where(course => course.name == name).ToList();
+            return databaseEntities.Courses.Where(course => course.name.Contains(name)).ToList();
         }
 
         [WebMethod]
@@ -137,19 +152,209 @@ namespace Server
 
             Course existingCourse = databaseEntities.Courses.Find(course.id);
 
-            existingCourse.content = course.content;
             existingCourse.name = course.name;
-            existingCourse.laboratory_hours = course.laboratory_hours;
-            existingCourse.laboratory_tutors = course.laboratory_tutors;
-            existingCourse.project_hours = course.project_hours;
-            existingCourse.project_tutors = course.project_tutors;
-            existingCourse.semester = course.semester;
-            existingCourse.seminary_hours = course.seminary_hours;
-            existingCourse.seminary_tutors = course.seminary_tutors;
-            existingCourse.study_level = course.study_level;
             existingCourse.study_year = course.study_year;
-            existingCourse.Specialization = course.Specialization;
+            existingCourse.semester = course.semester;
+            existingCourse.study_level = course.study_level;
+            existingCourse.credits = course.credits;
             existingCourse.specialization_id = course.specialization_id;
+            existingCourse.content = course.content;
+
+            existingCourse.course_hours = course.course_hours;
+            existingCourse.laboratory_hours = course.laboratory_hours;
+            existingCourse.seminary_hours = course.seminary_hours;
+            existingCourse.project_hours = course.project_hours;
+
+            existingCourse.laboratory_tutors = course.laboratory_tutors;
+            existingCourse.seminary_tutors = course.seminary_tutors;
+            existingCourse.project_tutors = course.project_tutors;
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void DeleteCourse(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Course existingCourse = databaseEntities.Courses.Find(id);
+            databaseEntities.Courses.Remove(existingCourse);
+
+            databaseEntities.SaveChanges();
+        }
+
+        /* Specializations */
+        [WebMethod]
+        public List<Specialization> GetSpecializations()
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Specializations.ToList();
+        }
+
+        [WebMethod]
+        public Specialization GetSpecialization(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Specializations.Find(id);
+
+        }
+
+        [WebMethod]
+        public List<Specialization> GetSpecializationByName(string name)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Specializations.Where(specialization => specialization.name.Contains(name)).ToList();
+        }
+
+        [WebMethod]
+        public void AddSpecialization(Specialization specialization)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Specializations.Add(specialization);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void EditSpecialization(Specialization specialization)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Specialization existingSpecialization = databaseEntities.Specializations.Find(specialization.id);
+
+            existingSpecialization.name = specialization.name;
+            existingSpecialization.domain_id = specialization.domain_id;
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void DeleteSpecialization(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Specialization existingSpecialization = databaseEntities.Specializations.Find(id);
+            databaseEntities.Specializations.Remove(existingSpecialization);
+
+            databaseEntities.SaveChanges();
+        }
+
+        /* Domains */
+        [WebMethod]
+        public List<Domain> GetDomains()
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Domains.ToList();
+        }
+
+        [WebMethod]
+        public Domain GetDomain(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Domains.Find(id);
+        }
+
+        [WebMethod]
+        public List<Domain> GetDomainByName(string name)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Domains.Where(domain => domain.name.Contains(name)).ToList();
+        }
+
+        [WebMethod]
+        public void AddDomain(Domain domain)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Domains.Add(domain);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void EditDomain(Domain domain)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Domain existingDomain = databaseEntities.Domains.Find(domain.id);
+
+            existingDomain.name = domain.name;
+            existingDomain.faculty_id = domain.faculty_id;
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void DeleteDomain(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Domain existingDomain = databaseEntities.Domains.Find(id);
+            databaseEntities.Domains.Remove(existingDomain);
+
+            databaseEntities.SaveChanges();
+        }
+
+        /* Faculties */
+        [WebMethod]
+        public List<Faculty> GetFaculties()
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Faculties.ToList();
+        }
+
+        [WebMethod]
+        public Faculty GetFaculty(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Faculties.Find(id);
+        }
+
+        [WebMethod]
+        public List<Faculty> GetFacultyByName(string name)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Faculties.Where(faculty => faculty.name.Contains(name)).ToList();
+        }
+
+        [WebMethod]
+        public void AddFaculty(Faculty faculty)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Faculties.Add(faculty);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void EditFaculty(Faculty faculty)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Faculty existingFaculty = databaseEntities.Faculties.Find(faculty.id);
+
+            existingFaculty.name = faculty.name;
+            existingFaculty.website = faculty.website;
+            existingFaculty.logo = faculty.logo;
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void DeleteFaculty(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Faculty existingFaculty = databaseEntities.Faculties.Find(id);
+            databaseEntities.Faculties.Remove(existingFaculty);
 
             databaseEntities.SaveChanges();
         }

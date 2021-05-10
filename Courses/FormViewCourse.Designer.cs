@@ -28,187 +28,569 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelID = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
-            this.buttonAnulare = new System.Windows.Forms.Button();
-            this.buttonCautare = new System.Windows.Forms.Button();
-            this.labelMaterie = new System.Windows.Forms.Label();
-            this.labelFacultate = new System.Windows.Forms.Label();
-            this.labelDomeniu = new System.Windows.Forms.Label();
-            this.labelSpecializare = new System.Windows.Forms.Label();
-            this.labelMaterie2 = new System.Windows.Forms.Label();
-            this.labelFacultate2 = new System.Windows.Forms.Label();
-            this.labelDomeniu2 = new System.Windows.Forms.Label();
-            this.labelSpecializare2 = new System.Windows.Forms.Label();
-            this.buttonEditare = new System.Windows.Forms.Button();
+            this.groupBoxProject = new System.Windows.Forms.GroupBox();
+            this.labelProjectTutors = new System.Windows.Forms.Label();
+            this.listBoxProjectTutors = new System.Windows.Forms.ListBox();
+            this.textBoxProjectHours = new System.Windows.Forms.TextBox();
+            this.labelProjectHours = new System.Windows.Forms.Label();
+            this.groupBoxSeminary = new System.Windows.Forms.GroupBox();
+            this.labelSeminaryTutors = new System.Windows.Forms.Label();
+            this.listBoxSeminaryTutors = new System.Windows.Forms.ListBox();
+            this.textBoxSeminaryHours = new System.Windows.Forms.TextBox();
+            this.labelSeminaryHours = new System.Windows.Forms.Label();
+            this.groupBoxLab = new System.Windows.Forms.GroupBox();
+            this.labelLabTutors = new System.Windows.Forms.Label();
+            this.listBoxLabTutors = new System.Windows.Forms.ListBox();
+            this.textBoxLabHours = new System.Windows.Forms.TextBox();
+            this.labelLabHours = new System.Windows.Forms.Label();
+            this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
+            this.comboBoxSpecialization = new System.Windows.Forms.ComboBox();
+            this.comboBoxDomain = new System.Windows.Forms.ComboBox();
+            this.comboBoxFaculty = new System.Windows.Forms.ComboBox();
+            this.labelDomain = new System.Windows.Forms.Label();
+            this.labelSpecialization = new System.Windows.Forms.Label();
+            this.labelFaculty = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxCredits = new System.Windows.Forms.TextBox();
+            this.labelYear = new System.Windows.Forms.Label();
+            this.labelSemester = new System.Windows.Forms.Label();
+            this.labelStudyLevel = new System.Windows.Forms.Label();
+            this.labelCredits = new System.Windows.Forms.Label();
+            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
+            this.comboBoxYear = new System.Windows.Forms.ComboBox();
+            this.comboBoxStudyLevel = new System.Windows.Forms.ComboBox();
+            this.labelContent = new System.Windows.Forms.Label();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.groupBoxCourse = new System.Windows.Forms.GroupBox();
+            this.labelCourseTutors = new System.Windows.Forms.Label();
+            this.listBoxCourseTutors = new System.Windows.Forms.ListBox();
+            this.textBoxCourseHours = new System.Windows.Forms.TextBox();
+            this.labelCourseHours = new System.Windows.Forms.Label();
+            this.groupBoxProject.SuspendLayout();
+            this.groupBoxSeminary.SuspendLayout();
+            this.groupBoxLab.SuspendLayout();
+            this.groupBoxGeneral.SuspendLayout();
+            this.groupBoxCourse.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelID
+            // groupBoxProject
             // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(157, 70);
-            this.labelID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(76, 17);
-            this.labelID.TabIndex = 13;
-            this.labelID.Text = "ID materie:";
+            this.groupBoxProject.Controls.Add(this.labelProjectTutors);
+            this.groupBoxProject.Controls.Add(this.listBoxProjectTutors);
+            this.groupBoxProject.Controls.Add(this.textBoxProjectHours);
+            this.groupBoxProject.Controls.Add(this.labelProjectHours);
+            this.groupBoxProject.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.groupBoxProject.Location = new System.Drawing.Point(950, 289);
+            this.groupBoxProject.Name = "groupBoxProject";
+            this.groupBoxProject.Size = new System.Drawing.Size(273, 238);
+            this.groupBoxProject.TabIndex = 83;
+            this.groupBoxProject.TabStop = false;
+            this.groupBoxProject.Text = "Proiect";
             // 
-            // textBoxID
+            // labelProjectTutors
             // 
-            this.textBoxID.Location = new System.Drawing.Point(256, 67);
-            this.textBoxID.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(80, 22);
-            this.textBoxID.TabIndex = 12;
+            this.labelProjectTutors.AutoSize = true;
+            this.labelProjectTutors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelProjectTutors.Location = new System.Drawing.Point(7, 95);
+            this.labelProjectTutors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProjectTutors.Name = "labelProjectTutors";
+            this.labelProjectTutors.Size = new System.Drawing.Size(55, 20);
+            this.labelProjectTutors.TabIndex = 58;
+            this.labelProjectTutors.Text = "Titulari";
+            this.labelProjectTutors.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // buttonAnulare
+            // listBoxProjectTutors
             // 
-            this.buttonAnulare.Location = new System.Drawing.Point(992, 527);
-            this.buttonAnulare.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAnulare.Name = "buttonAnulare";
-            this.buttonAnulare.Size = new System.Drawing.Size(108, 37);
-            this.buttonAnulare.TabIndex = 11;
-            this.buttonAnulare.Text = "Anulare";
-            this.buttonAnulare.UseVisualStyleBackColor = true;
-            this.buttonAnulare.Click += new System.EventHandler(this.buttonAnulare_Click);
+            this.listBoxProjectTutors.Enabled = false;
+            this.listBoxProjectTutors.FormattingEnabled = true;
+            this.listBoxProjectTutors.ItemHeight = 20;
+            this.listBoxProjectTutors.Location = new System.Drawing.Point(7, 118);
+            this.listBoxProjectTutors.Name = "listBoxProjectTutors";
+            this.listBoxProjectTutors.Size = new System.Drawing.Size(260, 84);
+            this.listBoxProjectTutors.TabIndex = 57;
             // 
-            // buttonCautare
+            // textBoxProjectHours
             // 
-            this.buttonCautare.Location = new System.Drawing.Point(101, 527);
-            this.buttonCautare.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonCautare.Name = "buttonCautare";
-            this.buttonCautare.Size = new System.Drawing.Size(107, 37);
-            this.buttonCautare.TabIndex = 10;
-            this.buttonCautare.Text = "Căutare";
-            this.buttonCautare.UseVisualStyleBackColor = true;
-            this.buttonCautare.Click += new System.EventHandler(this.buttonCautare_Click);
+            this.textBoxProjectHours.Enabled = false;
+            this.textBoxProjectHours.Location = new System.Drawing.Point(7, 59);
+            this.textBoxProjectHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxProjectHours.Name = "textBoxProjectHours";
+            this.textBoxProjectHours.Size = new System.Drawing.Size(260, 27);
+            this.textBoxProjectHours.TabIndex = 41;
             // 
-            // labelMaterie
+            // labelProjectHours
             // 
-            this.labelMaterie.AutoSize = true;
-            this.labelMaterie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaterie.Location = new System.Drawing.Point(155, 193);
-            this.labelMaterie.Name = "labelMaterie";
-            this.labelMaterie.Size = new System.Drawing.Size(91, 25);
-            this.labelMaterie.TabIndex = 15;
-            this.labelMaterie.Text = "Materie:";
+            this.labelProjectHours.AutoSize = true;
+            this.labelProjectHours.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelProjectHours.Location = new System.Drawing.Point(7, 36);
+            this.labelProjectHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProjectHours.Name = "labelProjectHours";
+            this.labelProjectHours.Size = new System.Drawing.Size(84, 20);
+            this.labelProjectHours.TabIndex = 56;
+            this.labelProjectHours.Text = "Ore proiect";
+            this.labelProjectHours.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // labelFacultate
+            // groupBoxSeminary
             // 
-            this.labelFacultate.AutoSize = true;
-            this.labelFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultate.Location = new System.Drawing.Point(155, 249);
-            this.labelFacultate.Name = "labelFacultate";
-            this.labelFacultate.Size = new System.Drawing.Size(108, 25);
-            this.labelFacultate.TabIndex = 16;
-            this.labelFacultate.Text = "Facultate:";
+            this.groupBoxSeminary.Controls.Add(this.labelSeminaryTutors);
+            this.groupBoxSeminary.Controls.Add(this.listBoxSeminaryTutors);
+            this.groupBoxSeminary.Controls.Add(this.textBoxSeminaryHours);
+            this.groupBoxSeminary.Controls.Add(this.labelSeminaryHours);
+            this.groupBoxSeminary.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.groupBoxSeminary.Location = new System.Drawing.Point(950, 45);
+            this.groupBoxSeminary.Name = "groupBoxSeminary";
+            this.groupBoxSeminary.Size = new System.Drawing.Size(273, 238);
+            this.groupBoxSeminary.TabIndex = 84;
+            this.groupBoxSeminary.TabStop = false;
+            this.groupBoxSeminary.Text = "Seminar";
             // 
-            // labelDomeniu
+            // labelSeminaryTutors
             // 
-            this.labelDomeniu.AutoSize = true;
-            this.labelDomeniu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDomeniu.Location = new System.Drawing.Point(155, 308);
-            this.labelDomeniu.Name = "labelDomeniu";
-            this.labelDomeniu.Size = new System.Drawing.Size(104, 25);
-            this.labelDomeniu.TabIndex = 17;
-            this.labelDomeniu.Text = "Domeniu:";
+            this.labelSeminaryTutors.AutoSize = true;
+            this.labelSeminaryTutors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelSeminaryTutors.Location = new System.Drawing.Point(7, 95);
+            this.labelSeminaryTutors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSeminaryTutors.Name = "labelSeminaryTutors";
+            this.labelSeminaryTutors.Size = new System.Drawing.Size(55, 20);
+            this.labelSeminaryTutors.TabIndex = 58;
+            this.labelSeminaryTutors.Text = "Titulari";
+            this.labelSeminaryTutors.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // labelSpecializare
+            // listBoxSeminaryTutors
             // 
-            this.labelSpecializare.AutoSize = true;
-            this.labelSpecializare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(155, 369);
-            this.labelSpecializare.Name = "labelSpecializare";
-            this.labelSpecializare.Size = new System.Drawing.Size(138, 25);
-            this.labelSpecializare.TabIndex = 18;
-            this.labelSpecializare.Text = "Specializare:";
+            this.listBoxSeminaryTutors.Enabled = false;
+            this.listBoxSeminaryTutors.FormattingEnabled = true;
+            this.listBoxSeminaryTutors.ItemHeight = 20;
+            this.listBoxSeminaryTutors.Location = new System.Drawing.Point(7, 118);
+            this.listBoxSeminaryTutors.Name = "listBoxSeminaryTutors";
+            this.listBoxSeminaryTutors.Size = new System.Drawing.Size(260, 84);
+            this.listBoxSeminaryTutors.TabIndex = 57;
             // 
-            // labelMaterie2
+            // textBoxSeminaryHours
             // 
-            this.labelMaterie2.AutoSize = true;
-            this.labelMaterie2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaterie2.Location = new System.Drawing.Point(313, 193);
-            this.labelMaterie2.Name = "labelMaterie2";
-            this.labelMaterie2.Size = new System.Drawing.Size(0, 25);
-            this.labelMaterie2.TabIndex = 19;
+            this.textBoxSeminaryHours.Enabled = false;
+            this.textBoxSeminaryHours.Location = new System.Drawing.Point(7, 59);
+            this.textBoxSeminaryHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxSeminaryHours.Name = "textBoxSeminaryHours";
+            this.textBoxSeminaryHours.Size = new System.Drawing.Size(260, 27);
+            this.textBoxSeminaryHours.TabIndex = 41;
             // 
-            // labelFacultate2
+            // labelSeminaryHours
             // 
-            this.labelFacultate2.AutoSize = true;
-            this.labelFacultate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultate2.Location = new System.Drawing.Point(313, 249);
-            this.labelFacultate2.Name = "labelFacultate2";
-            this.labelFacultate2.Size = new System.Drawing.Size(0, 25);
-            this.labelFacultate2.TabIndex = 20;
+            this.labelSeminaryHours.AutoSize = true;
+            this.labelSeminaryHours.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelSeminaryHours.Location = new System.Drawing.Point(7, 36);
+            this.labelSeminaryHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSeminaryHours.Name = "labelSeminaryHours";
+            this.labelSeminaryHours.Size = new System.Drawing.Size(89, 20);
+            this.labelSeminaryHours.TabIndex = 56;
+            this.labelSeminaryHours.Text = "Ore seminar";
+            this.labelSeminaryHours.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // labelDomeniu2
+            // groupBoxLab
             // 
-            this.labelDomeniu2.AutoSize = true;
-            this.labelDomeniu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDomeniu2.Location = new System.Drawing.Point(313, 308);
-            this.labelDomeniu2.Name = "labelDomeniu2";
-            this.labelDomeniu2.Size = new System.Drawing.Size(0, 25);
-            this.labelDomeniu2.TabIndex = 21;
+            this.groupBoxLab.Controls.Add(this.labelLabTutors);
+            this.groupBoxLab.Controls.Add(this.listBoxLabTutors);
+            this.groupBoxLab.Controls.Add(this.textBoxLabHours);
+            this.groupBoxLab.Controls.Add(this.labelLabHours);
+            this.groupBoxLab.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.groupBoxLab.Location = new System.Drawing.Point(671, 289);
+            this.groupBoxLab.Name = "groupBoxLab";
+            this.groupBoxLab.Size = new System.Drawing.Size(273, 238);
+            this.groupBoxLab.TabIndex = 82;
+            this.groupBoxLab.TabStop = false;
+            this.groupBoxLab.Text = "Laborator";
             // 
-            // labelSpecializare2
+            // labelLabTutors
             // 
-            this.labelSpecializare2.AutoSize = true;
-            this.labelSpecializare2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare2.Location = new System.Drawing.Point(313, 369);
-            this.labelSpecializare2.Name = "labelSpecializare2";
-            this.labelSpecializare2.Size = new System.Drawing.Size(0, 25);
-            this.labelSpecializare2.TabIndex = 22;
+            this.labelLabTutors.AutoSize = true;
+            this.labelLabTutors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelLabTutors.Location = new System.Drawing.Point(7, 95);
+            this.labelLabTutors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLabTutors.Name = "labelLabTutors";
+            this.labelLabTutors.Size = new System.Drawing.Size(55, 20);
+            this.labelLabTutors.TabIndex = 58;
+            this.labelLabTutors.Text = "Titulari";
+            this.labelLabTutors.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // buttonEditare
+            // listBoxLabTutors
             // 
-            this.buttonEditare.Location = new System.Drawing.Point(242, 527);
-            this.buttonEditare.Name = "buttonEditare";
-            this.buttonEditare.Size = new System.Drawing.Size(107, 37);
-            this.buttonEditare.TabIndex = 23;
-            this.buttonEditare.Text = "Editare";
-            this.buttonEditare.UseVisualStyleBackColor = true;
-            this.buttonEditare.Click += new System.EventHandler(this.buttonEditare_Click);
+            this.listBoxLabTutors.Enabled = false;
+            this.listBoxLabTutors.FormattingEnabled = true;
+            this.listBoxLabTutors.ItemHeight = 20;
+            this.listBoxLabTutors.Location = new System.Drawing.Point(7, 118);
+            this.listBoxLabTutors.Name = "listBoxLabTutors";
+            this.listBoxLabTutors.Size = new System.Drawing.Size(260, 84);
+            this.listBoxLabTutors.TabIndex = 57;
+            // 
+            // textBoxLabHours
+            // 
+            this.textBoxLabHours.Enabled = false;
+            this.textBoxLabHours.Location = new System.Drawing.Point(7, 59);
+            this.textBoxLabHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxLabHours.Name = "textBoxLabHours";
+            this.textBoxLabHours.Size = new System.Drawing.Size(260, 27);
+            this.textBoxLabHours.TabIndex = 41;
+            // 
+            // labelLabHours
+            // 
+            this.labelLabHours.AutoSize = true;
+            this.labelLabHours.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelLabHours.Location = new System.Drawing.Point(7, 36);
+            this.labelLabHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLabHours.Name = "labelLabHours";
+            this.labelLabHours.Size = new System.Drawing.Size(99, 20);
+            this.labelLabHours.TabIndex = 56;
+            this.labelLabHours.Text = "Ore laborator";
+            this.labelLabHours.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // groupBoxGeneral
+            // 
+            this.groupBoxGeneral.Controls.Add(this.comboBoxSpecialization);
+            this.groupBoxGeneral.Controls.Add(this.comboBoxDomain);
+            this.groupBoxGeneral.Controls.Add(this.comboBoxFaculty);
+            this.groupBoxGeneral.Controls.Add(this.labelDomain);
+            this.groupBoxGeneral.Controls.Add(this.labelSpecialization);
+            this.groupBoxGeneral.Controls.Add(this.labelFaculty);
+            this.groupBoxGeneral.Controls.Add(this.labelName);
+            this.groupBoxGeneral.Controls.Add(this.textBoxName);
+            this.groupBoxGeneral.Controls.Add(this.textBoxCredits);
+            this.groupBoxGeneral.Controls.Add(this.labelYear);
+            this.groupBoxGeneral.Controls.Add(this.labelSemester);
+            this.groupBoxGeneral.Controls.Add(this.labelStudyLevel);
+            this.groupBoxGeneral.Controls.Add(this.labelCredits);
+            this.groupBoxGeneral.Controls.Add(this.comboBoxSemester);
+            this.groupBoxGeneral.Controls.Add(this.comboBoxYear);
+            this.groupBoxGeneral.Controls.Add(this.comboBoxStudyLevel);
+            this.groupBoxGeneral.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.groupBoxGeneral.Location = new System.Drawing.Point(19, 46);
+            this.groupBoxGeneral.Name = "groupBoxGeneral";
+            this.groupBoxGeneral.Size = new System.Drawing.Size(632, 237);
+            this.groupBoxGeneral.TabIndex = 86;
+            this.groupBoxGeneral.TabStop = false;
+            this.groupBoxGeneral.Text = "Informații generale";
+            // 
+            // comboBoxSpecialization
+            // 
+            this.comboBoxSpecialization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxSpecialization.Enabled = false;
+            this.comboBoxSpecialization.FormattingEnabled = true;
+            this.comboBoxSpecialization.Location = new System.Drawing.Point(384, 188);
+            this.comboBoxSpecialization.Name = "comboBoxSpecialization";
+            this.comboBoxSpecialization.Size = new System.Drawing.Size(233, 28);
+            this.comboBoxSpecialization.TabIndex = 71;
+            this.comboBoxSpecialization.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpecialization_SelectedIndexChanged);
+            // 
+            // comboBoxDomain
+            // 
+            this.comboBoxDomain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxDomain.Enabled = false;
+            this.comboBoxDomain.FormattingEnabled = true;
+            this.comboBoxDomain.Location = new System.Drawing.Point(384, 118);
+            this.comboBoxDomain.Name = "comboBoxDomain";
+            this.comboBoxDomain.Size = new System.Drawing.Size(233, 28);
+            this.comboBoxDomain.TabIndex = 70;
+            this.comboBoxDomain.SelectedIndexChanged += new System.EventHandler(this.comboBoxDomain_SelectedIndexChanged);
+            // 
+            // comboBoxFaculty
+            // 
+            this.comboBoxFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxFaculty.Enabled = false;
+            this.comboBoxFaculty.FormattingEnabled = true;
+            this.comboBoxFaculty.Location = new System.Drawing.Point(384, 47);
+            this.comboBoxFaculty.Name = "comboBoxFaculty";
+            this.comboBoxFaculty.Size = new System.Drawing.Size(233, 28);
+            this.comboBoxFaculty.TabIndex = 69;
+            this.comboBoxFaculty.SelectedIndexChanged += new System.EventHandler(this.comboBoxFaculty_SelectedIndexChanged);
+            // 
+            // labelDomain
+            // 
+            this.labelDomain.AutoSize = true;
+            this.labelDomain.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDomain.Location = new System.Drawing.Point(384, 95);
+            this.labelDomain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDomain.Name = "labelDomain";
+            this.labelDomain.Size = new System.Drawing.Size(73, 20);
+            this.labelDomain.TabIndex = 68;
+            this.labelDomain.Text = "Domeniu:";
+            // 
+            // labelSpecialization
+            // 
+            this.labelSpecialization.AutoSize = true;
+            this.labelSpecialization.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpecialization.Location = new System.Drawing.Point(384, 165);
+            this.labelSpecialization.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSpecialization.Name = "labelSpecialization";
+            this.labelSpecialization.Size = new System.Drawing.Size(92, 20);
+            this.labelSpecialization.TabIndex = 67;
+            this.labelSpecialization.Text = "Specializare:";
+            // 
+            // labelFaculty
+            // 
+            this.labelFaculty.AutoSize = true;
+            this.labelFaculty.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFaculty.Location = new System.Drawing.Point(384, 26);
+            this.labelFaculty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFaculty.Name = "labelFaculty";
+            this.labelFaculty.Size = new System.Drawing.Size(71, 20);
+            this.labelFaculty.TabIndex = 66;
+            this.labelFaculty.Text = "Facultate:";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(12, 49);
+            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(52, 20);
+            this.labelName.TabIndex = 51;
+            this.labelName.Text = "Nume:";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Enabled = false;
+            this.textBoxName.Location = new System.Drawing.Point(104, 46);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(243, 27);
+            this.textBoxName.TabIndex = 36;
+            // 
+            // textBoxCredits
+            // 
+            this.textBoxCredits.Enabled = false;
+            this.textBoxCredits.Location = new System.Drawing.Point(104, 188);
+            this.textBoxCredits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCredits.Name = "textBoxCredits";
+            this.textBoxCredits.Size = new System.Drawing.Size(243, 27);
+            this.textBoxCredits.TabIndex = 40;
+            // 
+            // labelYear
+            // 
+            this.labelYear.AutoSize = true;
+            this.labelYear.Location = new System.Drawing.Point(12, 84);
+            this.labelYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelYear.Name = "labelYear";
+            this.labelYear.Size = new System.Drawing.Size(74, 20);
+            this.labelYear.TabIndex = 52;
+            this.labelYear.Text = "An studiu:";
+            // 
+            // labelSemester
+            // 
+            this.labelSemester.AutoSize = true;
+            this.labelSemester.Location = new System.Drawing.Point(12, 121);
+            this.labelSemester.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSemester.Name = "labelSemester";
+            this.labelSemester.Size = new System.Drawing.Size(73, 20);
+            this.labelSemester.TabIndex = 53;
+            this.labelSemester.Text = "Semestru:";
+            // 
+            // labelStudyLevel
+            // 
+            this.labelStudyLevel.AutoSize = true;
+            this.labelStudyLevel.Location = new System.Drawing.Point(12, 155);
+            this.labelStudyLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelStudyLevel.Name = "labelStudyLevel";
+            this.labelStudyLevel.Size = new System.Drawing.Size(90, 20);
+            this.labelStudyLevel.TabIndex = 54;
+            this.labelStudyLevel.Text = "Nivel studiu:";
+            // 
+            // labelCredits
+            // 
+            this.labelCredits.AutoSize = true;
+            this.labelCredits.Location = new System.Drawing.Point(12, 191);
+            this.labelCredits.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCredits.Name = "labelCredits";
+            this.labelCredits.Size = new System.Drawing.Size(60, 20);
+            this.labelCredits.TabIndex = 55;
+            this.labelCredits.Text = "Credite:";
+            // 
+            // comboBoxSemester
+            // 
+            this.comboBoxSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxSemester.Enabled = false;
+            this.comboBoxSemester.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBoxSemester.FormattingEnabled = true;
+            this.comboBoxSemester.Location = new System.Drawing.Point(104, 118);
+            this.comboBoxSemester.Name = "comboBoxSemester";
+            this.comboBoxSemester.Size = new System.Drawing.Size(243, 28);
+            this.comboBoxSemester.TabIndex = 63;
+            // 
+            // comboBoxYear
+            // 
+            this.comboBoxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxYear.Enabled = false;
+            this.comboBoxYear.FormattingEnabled = true;
+            this.comboBoxYear.Location = new System.Drawing.Point(104, 81);
+            this.comboBoxYear.Name = "comboBoxYear";
+            this.comboBoxYear.Size = new System.Drawing.Size(243, 28);
+            this.comboBoxYear.TabIndex = 65;
+            // 
+            // comboBoxStudyLevel
+            // 
+            this.comboBoxStudyLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBoxStudyLevel.Enabled = false;
+            this.comboBoxStudyLevel.FormattingEnabled = true;
+            this.comboBoxStudyLevel.Location = new System.Drawing.Point(104, 152);
+            this.comboBoxStudyLevel.Name = "comboBoxStudyLevel";
+            this.comboBoxStudyLevel.Size = new System.Drawing.Size(243, 28);
+            this.comboBoxStudyLevel.TabIndex = 64;
+            // 
+            // labelContent
+            // 
+            this.labelContent.AutoSize = true;
+            this.labelContent.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.labelContent.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelContent.Location = new System.Drawing.Point(19, 289);
+            this.labelContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelContent.Name = "labelContent";
+            this.labelContent.Size = new System.Drawing.Size(131, 20);
+            this.labelContent.TabIndex = 80;
+            this.labelContent.Text = "Conținutul cursului";
+            this.labelContent.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.Enabled = false;
+            this.richTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.richTextBox.Location = new System.Drawing.Point(19, 311);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(632, 216);
+            this.richTextBox.TabIndex = 85;
+            this.richTextBox.Text = "";
+            // 
+            // groupBoxCourse
+            // 
+            this.groupBoxCourse.Controls.Add(this.labelCourseTutors);
+            this.groupBoxCourse.Controls.Add(this.listBoxCourseTutors);
+            this.groupBoxCourse.Controls.Add(this.textBoxCourseHours);
+            this.groupBoxCourse.Controls.Add(this.labelCourseHours);
+            this.groupBoxCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.groupBoxCourse.Location = new System.Drawing.Point(671, 45);
+            this.groupBoxCourse.Name = "groupBoxCourse";
+            this.groupBoxCourse.Size = new System.Drawing.Size(273, 238);
+            this.groupBoxCourse.TabIndex = 81;
+            this.groupBoxCourse.TabStop = false;
+            this.groupBoxCourse.Text = "Curs";
+            // 
+            // labelCourseTutors
+            // 
+            this.labelCourseTutors.AutoSize = true;
+            this.labelCourseTutors.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelCourseTutors.Location = new System.Drawing.Point(7, 95);
+            this.labelCourseTutors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCourseTutors.Name = "labelCourseTutors";
+            this.labelCourseTutors.Size = new System.Drawing.Size(55, 20);
+            this.labelCourseTutors.TabIndex = 58;
+            this.labelCourseTutors.Text = "Titulari";
+            this.labelCourseTutors.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // listBoxCourseTutors
+            // 
+            this.listBoxCourseTutors.Enabled = false;
+            this.listBoxCourseTutors.FormattingEnabled = true;
+            this.listBoxCourseTutors.ItemHeight = 20;
+            this.listBoxCourseTutors.Location = new System.Drawing.Point(7, 118);
+            this.listBoxCourseTutors.Name = "listBoxCourseTutors";
+            this.listBoxCourseTutors.Size = new System.Drawing.Size(260, 84);
+            this.listBoxCourseTutors.TabIndex = 57;
+            // 
+            // textBoxCourseHours
+            // 
+            this.textBoxCourseHours.Enabled = false;
+            this.textBoxCourseHours.Location = new System.Drawing.Point(7, 59);
+            this.textBoxCourseHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCourseHours.Name = "textBoxCourseHours";
+            this.textBoxCourseHours.Size = new System.Drawing.Size(260, 27);
+            this.textBoxCourseHours.TabIndex = 41;
+            // 
+            // labelCourseHours
+            // 
+            this.labelCourseHours.AutoSize = true;
+            this.labelCourseHours.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelCourseHours.Location = new System.Drawing.Point(7, 36);
+            this.labelCourseHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCourseHours.Name = "labelCourseHours";
+            this.labelCourseHours.Size = new System.Drawing.Size(63, 20);
+            this.labelCourseHours.TabIndex = 56;
+            this.labelCourseHours.Text = "Ore curs";
+            this.labelCourseHours.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // FormViewCourse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 630);
-            this.Controls.Add(this.buttonEditare);
-            this.Controls.Add(this.labelSpecializare2);
-            this.Controls.Add(this.labelDomeniu2);
-            this.Controls.Add(this.labelFacultate2);
-            this.Controls.Add(this.labelMaterie2);
-            this.Controls.Add(this.labelSpecializare);
-            this.Controls.Add(this.labelDomeniu);
-            this.Controls.Add(this.labelFacultate);
-            this.Controls.Add(this.labelMaterie);
-            this.Controls.Add(this.labelID);
-            this.Controls.Add(this.textBoxID);
-            this.Controls.Add(this.buttonAnulare);
-            this.Controls.Add(this.buttonCautare);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1243, 573);
+            this.Controls.Add(this.groupBoxProject);
+            this.Controls.Add(this.groupBoxSeminary);
+            this.Controls.Add(this.groupBoxLab);
+            this.Controls.Add(this.groupBoxGeneral);
+            this.Controls.Add(this.labelContent);
+            this.Controls.Add(this.richTextBox);
+            this.Controls.Add(this.groupBoxCourse);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormViewCourse";
-            this.Text = "FormViewCourse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Vizualizare materie";
             this.Load += new System.EventHandler(this.FormViewCourse_Load);
+            this.groupBoxProject.ResumeLayout(false);
+            this.groupBoxProject.PerformLayout();
+            this.groupBoxSeminary.ResumeLayout(false);
+            this.groupBoxSeminary.PerformLayout();
+            this.groupBoxLab.ResumeLayout(false);
+            this.groupBoxLab.PerformLayout();
+            this.groupBoxGeneral.ResumeLayout(false);
+            this.groupBoxGeneral.PerformLayout();
+            this.groupBoxCourse.ResumeLayout(false);
+            this.groupBoxCourse.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.Button buttonAnulare;
-        private System.Windows.Forms.Button buttonCautare;
-        private System.Windows.Forms.Label labelMaterie;
-        private System.Windows.Forms.Label labelFacultate;
-        private System.Windows.Forms.Label labelDomeniu;
-        private System.Windows.Forms.Label labelSpecializare;
-        private System.Windows.Forms.Label labelMaterie2;
-        private System.Windows.Forms.Label labelFacultate2;
-        private System.Windows.Forms.Label labelDomeniu2;
-        private System.Windows.Forms.Label labelSpecializare2;
-        private System.Windows.Forms.Button buttonEditare;
+
+        private System.Windows.Forms.GroupBox groupBoxProject;
+        private System.Windows.Forms.Label labelProjectTutors;
+        private System.Windows.Forms.ListBox listBoxProjectTutors;
+        private System.Windows.Forms.TextBox textBoxProjectHours;
+        private System.Windows.Forms.Label labelProjectHours;
+        private System.Windows.Forms.GroupBox groupBoxSeminary;
+        private System.Windows.Forms.Label labelSeminaryTutors;
+        private System.Windows.Forms.ListBox listBoxSeminaryTutors;
+        private System.Windows.Forms.TextBox textBoxSeminaryHours;
+        private System.Windows.Forms.Label labelSeminaryHours;
+        private System.Windows.Forms.GroupBox groupBoxLab;
+        private System.Windows.Forms.Label labelLabTutors;
+        private System.Windows.Forms.ListBox listBoxLabTutors;
+        private System.Windows.Forms.TextBox textBoxLabHours;
+        private System.Windows.Forms.Label labelLabHours;
+        private System.Windows.Forms.GroupBox groupBoxGeneral;
+        private System.Windows.Forms.ComboBox comboBoxSpecialization;
+        private System.Windows.Forms.ComboBox comboBoxDomain;
+        private System.Windows.Forms.ComboBox comboBoxFaculty;
+        private System.Windows.Forms.Label labelDomain;
+        private System.Windows.Forms.Label labelSpecialization;
+        private System.Windows.Forms.Label labelFaculty;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxCredits;
+        private System.Windows.Forms.Label labelYear;
+        private System.Windows.Forms.Label labelSemester;
+        private System.Windows.Forms.Label labelStudyLevel;
+        private System.Windows.Forms.Label labelCredits;
+        private System.Windows.Forms.ComboBox comboBoxSemester;
+        private System.Windows.Forms.ComboBox comboBoxYear;
+        private System.Windows.Forms.ComboBox comboBoxStudyLevel;
+        private System.Windows.Forms.Label labelContent;
+        private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.GroupBox groupBoxCourse;
+        private System.Windows.Forms.Label labelCourseTutors;
+        private System.Windows.Forms.ListBox listBoxCourseTutors;
+        private System.Windows.Forms.TextBox textBoxCourseHours;
+        private System.Windows.Forms.Label labelCourseHours;
     }
 }

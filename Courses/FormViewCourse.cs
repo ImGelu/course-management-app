@@ -1,54 +1,121 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Proiect.CoursesWebServiceReference;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
 {
     public partial class FormViewCourse : Form
     {
-        public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        public static CoursesWebService webService = new CoursesWebService();
         private FormDashboard parent;
-        private DataTable dataTable = new DataTable();
+        private Course course;
+        private Faculty selectedFaculty;
+        private Domain selectedDomain;
+        private Specialization selectedSpecialization;
 
         public FormViewCourse()
         {
             InitializeComponent();
         }
 
-        private void buttonCautare_Click(object sender, EventArgs e)
+        public FormViewCourse(int id)
         {
-            int index = int.Parse(textBoxID.Text);
-            CoursesWebServiceReference.Course course = webService.GetCourse(index);
-            labelMaterie2.Text = course.name;
-            // labelFacultate2.Text = course.
-            labelDomeniu2.Text = course.content;
-            labelSpecializare2.Text = Convert.ToString(course.Specialization);
-
-
-        }
-
-        private void buttonAnulare_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            parent.Show();
+            InitializeComponent();
+            course = webService.GetCourse(id);
         }
 
         private void FormViewCourse_Load(object sender, EventArgs e)
         {
+            parent = new FormDashboard();
 
+            comboBoxSemester.Items.Add("Semestrul 1");
+            comboBoxSemester.Items.Add("Semestrul 2");
+            comboBoxStudyLevel.Items.Add("Licență");
+            comboBoxStudyLevel.Items.Add("Master");
+            comboBoxYear.Items.Add("Anul 1");
+            comboBoxYear.Items.Add("Anul 2");
+            comboBoxYear.Items.Add("Anul 3");
+            comboBoxYear.Items.Add("Anul 4");
+            comboBoxYear.Items.Add("Anul 5");
+            comboBoxYear.Items.Add("Anul 6");
+
+            comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
+            comboBoxFaculty.DisplayMember = "name";
+
+            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
+            comboBoxDomain.DisplayMember = "name";
+
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+            comboBoxSpecialization.DisplayMember = "name";
+
+            Specialization courseSpecialization = webService.GetSpecialization(course.specialization_id);
+            Domain courseDomain = webService.GetDomain(courseSpecialization.domain_id);
+            Faculty courseFaculty = webService.GetFaculty(courseDomain.faculty_id);
+
+            comboBoxFaculty.SelectedItem = courseFaculty;
+            comboBoxDomain.SelectedItem = courseDomain;
+            comboBoxSpecialization.SelectedItem = courseSpecialization;
+
+            for (int i = 0; i < comboBoxFaculty.Items.Count; i++)
+            {
+                Faculty currentFaculty = (Faculty)comboBoxFaculty.Items[i];
+                if (currentFaculty.id == courseFaculty.id) comboBoxFaculty.SelectedIndex = i;
+            }
+
+            for (int i = 0; i < comboBoxDomain.Items.Count; i++)
+            {
+                Domain currentDomain = (Domain)comboBoxDomain.Items[i];
+                if (currentDomain.id == courseDomain.id) comboBoxDomain.SelectedIndex = i;
+            }
+
+            for (int i = 0; i < comboBoxSpecialization.Items.Count; i++)
+            {
+                Specialization currentSpecialization = (Specialization)comboBoxSpecialization.Items[i];
+                if (currentSpecialization.id == courseSpecialization.id) comboBoxSpecialization.SelectedIndex = i;
+            }
+
+            textBoxName.Text = course.name;
+            comboBoxYear.SelectedIndex = course.study_level - 1;
+            comboBoxSemester.SelectedIndex = course.semester - 1;
+            comboBoxStudyLevel.SelectedIndex = course.study_level - 1;
+            textBoxCredits.Text = course.credits.ToString();
+
+            textBoxCourseHours.Text = course.course_hours.ToString();
+            textBoxSeminaryHours.Text = course.seminary_hours.ToString();
+            textBoxLabHours.Text = course.laboratory_hours.ToString();
+            textBoxProjectHours.Text = course.project_hours.ToString();
+
+            if (course.seminary_tutors.Length > 0)
+                course.seminary_tutors.Split(',').ToList().ForEach((tutor) => { listBoxSeminaryTutors.Items.Add(tutor.ToString()); });
+
+            if (course.laboratory_tutors.Length > 0)
+                course.laboratory_tutors.Split(',').ToList().ForEach((tutor) => { listBoxLabTutors.Items.Add(tutor.ToString()); });
+
+            if (course.project_tutors.Length > 0)
+                course.project_tutors.Split(',').ToList().ForEach((tutor) => { listBoxProjectTutors.Items.Add(tutor.ToString()); });
+
+            richTextBox.Text = course.content;
         }
 
-        private void buttonEditare_Click(object sender, EventArgs e)
+        private void comboBoxFaculty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FormEditCourse formEdit = new FormEditCourse(int.Parse(textBoxID.Text));
-            formEdit.Show(this);
-            this.Hide();
+            selectedFaculty = (Faculty)comboBoxFaculty.SelectedItem;
+
+            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+        }
+
+        private void comboBoxDomain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedDomain = (Domain)comboBoxDomain.SelectedItem;
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+        }
+
+        private void comboBoxSpecialization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSpecialization = (Specialization)comboBoxSpecialization.SelectedItem;
         }
     }
 }

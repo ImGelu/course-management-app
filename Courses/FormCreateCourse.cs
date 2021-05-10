@@ -1,86 +1,189 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Proiect.CoursesWebServiceReference;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Proiect
 {
     public partial class FormCreateCourse : Form
     {
-        public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
-        private FormDashboard parent;
+        public static CoursesWebService webService = new CoursesWebService();
+        private FormDashboard parent = new FormDashboard();
+        private Faculty selectedFaculty;
+        private Domain selectedDomain;
+        private Specialization selectedSpecialization;
+
         public FormCreateCourse()
         {
             InitializeComponent();
-            comboBoxSemestru.Items.Add("Semestrul 1");
-            comboBoxSemestru.Items.Add("Semestrul 2");
-            comboBoxNivelStudiu.Items.Add("Licenta");
-            comboBoxSemestru.Items.Add("Master");
-            comboBoxAn.Items.Add("Anul 1");
-            comboBoxAn.Items.Add("Anul 2");
-            comboBoxAn.Items.Add("Anul 3");
-            comboBoxAn.Items.Add("Anul 4");
-            comboBoxAn.Items.Add("Anul 5");
-            comboBoxAn.Items.Add("Anul 6");
+            comboBoxSemester.Items.Add("Semestrul 1");
+            comboBoxSemester.Items.Add("Semestrul 2");
+            comboBoxStudyLevel.Items.Add("Licență");
+            comboBoxSemester.Items.Add("Master");
+            comboBoxYear.Items.Add("Anul 1");
+            comboBoxYear.Items.Add("Anul 2");
+            comboBoxYear.Items.Add("Anul 3");
+            comboBoxYear.Items.Add("Anul 4");
+            comboBoxYear.Items.Add("Anul 5");
+            comboBoxYear.Items.Add("Anul 6");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void buttonAddCourse_Click(object sender, EventArgs e)
         {
+            Course newCourse = new Course();
 
-        }
+            newCourse.name = textBoxName.Text;
+            newCourse.study_year = (byte)(comboBoxYear.SelectedIndex + 1);
+            newCourse.semester = (byte)(comboBoxSemester.SelectedIndex + 1);
+            newCourse.study_level = (byte)(comboBoxStudyLevel.SelectedIndex + 1);
+            newCourse.credits = Convert.ToByte(textBoxCredits.Text);
+            newCourse.specialization_id = selectedSpecialization.id;
+            newCourse.content = richTextBox.Text;
 
-        private void button2_Click(object sender, EventArgs e) // Anulare
-        {
-            this.Close();
-            parent.Show();
-        }
+            newCourse.course_hours = Convert.ToByte(textBoxCourseHours.Text);
+            newCourse.seminary_hours = Convert.ToByte(textBoxSeminaryHours.Text);
+            newCourse.laboratory_hours = Convert.ToByte(textBoxLabHours.Text);
+            newCourse.project_hours = Convert.ToByte(textBoxProjectHours.Text);
 
-        private void button1_Click(object sender, EventArgs e) // Adaugare
-        {
-            CoursesWebServiceReference.Course newCourse = new CoursesWebServiceReference.Course();
+            newCourse.seminary_tutors = string.Join(",", listBoxSeminaryTutors.Items.Cast<String>().ToList());
+            newCourse.laboratory_tutors = string.Join(",", listBoxLabTutors.Items.Cast<String>().ToList());
+            newCourse.project_tutors = string.Join(",", listBoxProjectTutors.Items.Cast<String>().ToList());
 
-            if (textBoxNume.Text != String.Empty && textBoxCredite.Text != String.Empty && textBoxProfProj.Text != String.Empty && textBoxProfLab.Text != String.Empty && textBoxProfSemi.Text != String.Empty && textBoxHSemi.Text != String.Empty && textBoxHProj.Text != String.Empty && textBoxHLab.Text != String.Empty && textBoxHCurs.Text != String.Empty && !comboBoxAn.SelectedItem.Equals(String.Empty) && !comboBoxSemestru.SelectedItem.Equals(String.Empty) && !comboBoxNivelStudiu.SelectedItem.Equals(String.Empty))
+            try
             {
-                newCourse.name = textBoxNume.Text;
-                newCourse.semester = byte.Parse(comboBoxSemestru.SelectedText);
-                newCourse.study_year = byte.Parse(comboBoxAn.SelectedText);
-                newCourse.study_level = byte.Parse(comboBoxNivelStudiu.SelectedText);
-                newCourse.credits = byte.Parse(textBoxCredite.Text);
-                newCourse.course_hours = int.Parse(textBoxHCurs.Text);
-                newCourse.laboratory_hours = int.Parse(textBoxHLab.Text);
-                newCourse.laboratory_tutors = textBoxProfLab.Text;
-                newCourse.seminary_hours = int.Parse(textBoxHSemi.Text);
-                newCourse.seminary_tutors = textBoxProfSemi.Text;
-                newCourse.project_hours = int.Parse(textBoxHProj.Text);
-                newCourse.project_tutors = textBoxProfProj.Text;
-                try
-                {
-                    webService.AddCourse(newCourse);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occured!\n" + ex.Message.ToString());
-                }
-
-                MessageBox.Show("Cursul a fost creeat cu succes!");
+                webService.EditCourse(newCourse);
+                MessageBox.Show("Materia a fost adăugată cu succes!");
                 this.Close();
                 parent.Show();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Campurile trebuie completate!");
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void button3_Click(object sender, EventArgs e) // Cautare
+        private void FormCreateCourse_Load(object sender, EventArgs e)
         {
+            FormDashboard parent = (FormDashboard)Owner;
 
+            comboBoxSemester.Items.Add("Semestrul 1");
+            comboBoxSemester.Items.Add("Semestrul 2");
+            comboBoxStudyLevel.Items.Add("Licență");
+            comboBoxStudyLevel.Items.Add("Master");
+            comboBoxYear.Items.Add("Anul 1");
+            comboBoxYear.Items.Add("Anul 2");
+            comboBoxYear.Items.Add("Anul 3");
+            comboBoxYear.Items.Add("Anul 4");
+            comboBoxYear.Items.Add("Anul 5");
+            comboBoxYear.Items.Add("Anul 6");
+
+            comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
+            comboBoxFaculty.DisplayMember = "name";
+
+            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
+            comboBoxDomain.DisplayMember = "name";
+
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+            comboBoxSpecialization.DisplayMember = "name";
         }
 
+        private void buttonCourseTutors_Click(object sender, EventArgs e)
+        {
+            if (textBoxCourseTutors.Text != String.Empty)
+            {
+                listBoxCourseTutors.Items.Add(textBoxCourseTutors.Text);
+                textBoxCourseTutors.Clear();
+            }
+        }
+
+        private void buttonLabTutors_Click(object sender, EventArgs e)
+        {
+            if (textBoxLabTutors.Text != String.Empty)
+            {
+                listBoxLabTutors.Items.Add(textBoxLabTutors.Text);
+                textBoxLabTutors.Clear();
+            }
+        }
+
+        private void buttonSeminaryTutors_Click(object sender, EventArgs e)
+        {
+            if (textBoxSeminaryTutors.Text != String.Empty)
+            {
+                listBoxSeminaryTutors.Items.Add(textBoxSeminaryTutors.Text);
+                textBoxSeminaryTutors.Clear();
+            }
+        }
+
+        private void buttonProjectTutors_Click(object sender, EventArgs e)
+        {
+            if (textBoxProjectTutors.Text != String.Empty)
+            {
+                listBoxProjectTutors.Items.Add(textBoxProjectTutors.Text);
+                textBoxProjectTutors.Clear();
+            }
+        }
+
+        private void comboBoxFaculty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedFaculty = (Faculty)comboBoxFaculty.SelectedItem;
+
+            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+        }
+
+        private void comboBoxDomain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedDomain = (Domain)comboBoxDomain.SelectedItem;
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+        }
+
+        private void comboBoxSpecialization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSpecialization = (Specialization)comboBoxSpecialization.SelectedItem;
+        }
+
+        private void listBoxCourseTutors_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ((char)Keys.Back))
+            {
+                int selectedIndex = listBoxCourseTutors.SelectedIndex;
+
+                e.Handled = true;
+                if (selectedIndex > -1) listBoxCourseTutors.Items.RemoveAt(selectedIndex);
+            }
+        }
+
+        private void listBoxSeminaryTutors_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ((char)Keys.Back))
+            {
+                int selectedIndex = listBoxSeminaryTutors.SelectedIndex;
+
+                e.Handled = true;
+                if (selectedIndex > -1) listBoxSeminaryTutors.Items.RemoveAt(selectedIndex);
+            }
+        }
+
+        private void listBoxLabTutors_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ((char)Keys.Back))
+            {
+                int selectedIndex = listBoxLabTutors.SelectedIndex;
+
+                e.Handled = true;
+                if (selectedIndex > -1) listBoxLabTutors.Items.RemoveAt(selectedIndex);
+            }
+        }
+
+        private void listBoxProjectTutors_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ((char)Keys.Back))
+            {
+                int selectedIndex = listBoxProjectTutors.SelectedIndex;
+
+                e.Handled = true;
+                if (selectedIndex > -1) listBoxProjectTutors.Items.RemoveAt(selectedIndex);
+            }
+        }
     }
 }

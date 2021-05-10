@@ -30,9 +30,7 @@ namespace Proiect
         private void InitializeComponent()
         {
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +41,7 @@ namespace Proiect
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelRole = new System.Windows.Forms.Label();
-            this.toolStrip.SuspendLayout();
+            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,26 +50,14 @@ namespace Proiect
             this.toolStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonBack});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(652, 30);
+            this.toolStrip.Size = new System.Drawing.Size(652, 25);
             this.toolStrip.TabIndex = 18;
             this.toolStrip.Text = "toolStrip";
-            // 
-            // toolStripButtonBack
-            // 
-            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
-            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 20);
-            this.toolStripButtonBack.Text = "Înapoi";
-            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
             // 
             // groupBox
             // 
@@ -91,15 +77,6 @@ namespace Proiect
             this.groupBox.Size = new System.Drawing.Size(628, 280);
             this.groupBox.TabIndex = 17;
             this.groupBox.TabStop = false;
-            // 
-            // textBoxPasswordConfirmation
-            // 
-            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
-            this.textBoxPasswordConfirmation.Multiline = true;
-            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
-            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
-            this.textBoxPasswordConfirmation.TabIndex = 13;
             // 
             // comboBoxRole
             // 
@@ -203,6 +180,15 @@ namespace Proiect
             this.labelRole.TabIndex = 8;
             this.labelRole.Text = "Rol Principal";
             // 
+            // textBoxPasswordConfirmation
+            // 
+            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
+            this.textBoxPasswordConfirmation.Multiline = true;
+            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
+            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
+            this.textBoxPasswordConfirmation.TabIndex = 13;
+            // 
             // FormEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,10 +202,7 @@ namespace Proiect
             this.Name = "FormEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editare utilizator existent";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditUser_FormClosed);
             this.Load += new System.EventHandler(this.FormEditUser_Load);
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -230,9 +213,7 @@ namespace Proiect
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.TextBox textBoxPasswordConfirmation;
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label1;
@@ -243,5 +224,6 @@ namespace Proiect
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelRole;
+        private System.Windows.Forms.TextBox textBoxPasswordConfirmation;
     }
 }

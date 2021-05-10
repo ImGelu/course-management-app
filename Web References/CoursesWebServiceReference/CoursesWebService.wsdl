@@ -116,6 +116,20 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Specialization" nillable="true" type="tns:Specialization" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleResult" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetUsers">
         <s:complexType />
       </s:element>
@@ -137,6 +151,20 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersByNameResult" type="tns:ArrayOfUser" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -257,6 +285,225 @@
       <s:element name="EditCourseResponse">
         <s:complexType />
       </s:element>
+      <s:element name="DeleteCourse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCourseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSpecializations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSpecializationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSpecializationsResult" type="tns:ArrayOfSpecialization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSpecialization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSpecializationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSpecializationResult" type="tns:Specialization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSpecializationByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSpecializationByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSpecializationByNameResult" type="tns:ArrayOfSpecialization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSpecialization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="specialization" type="tns:Specialization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSpecializationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EditSpecialization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="specialization" type="tns:Specialization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSpecializationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteSpecialization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSpecializationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDomains">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDomainsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDomainsResult" type="tns:ArrayOfDomain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDomainResult" type="tns:Domain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDomainByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDomainByNameResult" type="tns:ArrayOfDomain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="tns:Domain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDomainResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EditDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="tns:Domain" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDomainResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDomainResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFaculties">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFacultiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacultiesResult" type="tns:ArrayOfFaculty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFaculty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Faculty" nillable="true" type="tns:Faculty" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFaculty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacultyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacultyResult" type="tns:Faculty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacultyByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacultyByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacultyByNameResult" type="tns:ArrayOfFaculty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFaculty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="faculty" type="tns:Faculty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFacultyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EditFaculty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="faculty" type="tns:Faculty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditFacultyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteFaculty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFacultyResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetRolesSoapIn">
@@ -264,6 +511,12 @@
   </wsdl:message>
   <wsdl:message name="GetRolesSoapOut">
     <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRole" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleResponse" />
   </wsdl:message>
   <wsdl:message name="GetUsersSoapIn">
     <wsdl:part name="parameters" element="tns:GetUsers" />
@@ -276,6 +529,12 @@
   </wsdl:message>
   <wsdl:message name="GetUserSoapOut">
     <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersByName" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersByNameResponse" />
   </wsdl:message>
   <wsdl:message name="GetUserByEmailSoapIn">
     <wsdl:part name="parameters" element="tns:GetUserByEmail" />
@@ -337,10 +596,128 @@
   <wsdl:message name="EditCourseSoapOut">
     <wsdl:part name="parameters" element="tns:EditCourseResponse" />
   </wsdl:message>
+  <wsdl:message name="DeleteCourseSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCourse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCourseSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSpecializationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSpecializations" />
+  </wsdl:message>
+  <wsdl:message name="GetSpecializationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSpecializationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSpecializationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSpecialization" />
+  </wsdl:message>
+  <wsdl:message name="GetSpecializationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSpecializationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSpecializationByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSpecializationByName" />
+  </wsdl:message>
+  <wsdl:message name="GetSpecializationByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSpecializationByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSpecializationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSpecialization" />
+  </wsdl:message>
+  <wsdl:message name="AddSpecializationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSpecializationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditSpecializationSoapIn">
+    <wsdl:part name="parameters" element="tns:EditSpecialization" />
+  </wsdl:message>
+  <wsdl:message name="EditSpecializationSoapOut">
+    <wsdl:part name="parameters" element="tns:EditSpecializationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSpecializationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSpecialization" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSpecializationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSpecializationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomains" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomain" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomainByName" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDomain" />
+  </wsdl:message>
+  <wsdl:message name="AddDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDomain" />
+  </wsdl:message>
+  <wsdl:message name="EditDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDomain" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacultiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaculties" />
+  </wsdl:message>
+  <wsdl:message name="GetFacultiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacultiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacultySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFaculty" />
+  </wsdl:message>
+  <wsdl:message name="GetFacultySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacultyByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFacultyByName" />
+  </wsdl:message>
+  <wsdl:message name="GetFacultyByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacultyByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacultySoapIn">
+    <wsdl:part name="parameters" element="tns:AddFaculty" />
+  </wsdl:message>
+  <wsdl:message name="AddFacultySoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditFacultySoapIn">
+    <wsdl:part name="parameters" element="tns:EditFaculty" />
+  </wsdl:message>
+  <wsdl:message name="EditFacultySoapOut">
+    <wsdl:part name="parameters" element="tns:EditFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFacultySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFaculty" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFacultySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFacultyResponse" />
+  </wsdl:message>
   <wsdl:portType name="CoursesWebServiceSoap">
     <wsdl:operation name="GetRoles">
       <wsdl:input message="tns:GetRolesSoapIn" />
       <wsdl:output message="tns:GetRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <wsdl:input message="tns:GetRoleSoapIn" />
+      <wsdl:output message="tns:GetRoleSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
@@ -349,6 +726,10 @@
     <wsdl:operation name="GetUser">
       <wsdl:input message="tns:GetUserSoapIn" />
       <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByName">
+      <wsdl:input message="tns:GetUsersByNameSoapIn" />
+      <wsdl:output message="tns:GetUsersByNameSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetUserByEmail">
       <wsdl:input message="tns:GetUserByEmailSoapIn" />
@@ -390,11 +771,96 @@
       <wsdl:input message="tns:EditCourseSoapIn" />
       <wsdl:output message="tns:EditCourseSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="DeleteCourse">
+      <wsdl:input message="tns:DeleteCourseSoapIn" />
+      <wsdl:output message="tns:DeleteCourseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecializations">
+      <wsdl:input message="tns:GetSpecializationsSoapIn" />
+      <wsdl:output message="tns:GetSpecializationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialization">
+      <wsdl:input message="tns:GetSpecializationSoapIn" />
+      <wsdl:output message="tns:GetSpecializationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecializationByName">
+      <wsdl:input message="tns:GetSpecializationByNameSoapIn" />
+      <wsdl:output message="tns:GetSpecializationByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSpecialization">
+      <wsdl:input message="tns:AddSpecializationSoapIn" />
+      <wsdl:output message="tns:AddSpecializationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSpecialization">
+      <wsdl:input message="tns:EditSpecializationSoapIn" />
+      <wsdl:output message="tns:EditSpecializationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpecialization">
+      <wsdl:input message="tns:DeleteSpecializationSoapIn" />
+      <wsdl:output message="tns:DeleteSpecializationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomains">
+      <wsdl:input message="tns:GetDomainsSoapIn" />
+      <wsdl:output message="tns:GetDomainsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <wsdl:input message="tns:GetDomainSoapIn" />
+      <wsdl:output message="tns:GetDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainByName">
+      <wsdl:input message="tns:GetDomainByNameSoapIn" />
+      <wsdl:output message="tns:GetDomainByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDomain">
+      <wsdl:input message="tns:AddDomainSoapIn" />
+      <wsdl:output message="tns:AddDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDomain">
+      <wsdl:input message="tns:EditDomainSoapIn" />
+      <wsdl:output message="tns:EditDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDomain">
+      <wsdl:input message="tns:DeleteDomainSoapIn" />
+      <wsdl:output message="tns:DeleteDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaculties">
+      <wsdl:input message="tns:GetFacultiesSoapIn" />
+      <wsdl:output message="tns:GetFacultiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFaculty">
+      <wsdl:input message="tns:GetFacultySoapIn" />
+      <wsdl:output message="tns:GetFacultySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacultyByName">
+      <wsdl:input message="tns:GetFacultyByNameSoapIn" />
+      <wsdl:output message="tns:GetFacultyByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFaculty">
+      <wsdl:input message="tns:AddFacultySoapIn" />
+      <wsdl:output message="tns:AddFacultySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditFaculty">
+      <wsdl:input message="tns:EditFacultySoapIn" />
+      <wsdl:output message="tns:EditFacultySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFaculty">
+      <wsdl:input message="tns:DeleteFacultySoapIn" />
+      <wsdl:output message="tns:DeleteFacultySoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CoursesWebServiceSoap" type="tns:CoursesWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetRoles">
       <soap:operation soapAction="http://tempuri.org/GetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap:operation soapAction="http://tempuri.org/GetRole" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -413,6 +879,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUser">
       <soap:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByName">
+      <soap:operation soapAction="http://tempuri.org/GetUsersByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -510,11 +985,191 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteCourse">
+      <soap:operation soapAction="http://tempuri.org/DeleteCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecializations">
+      <soap:operation soapAction="http://tempuri.org/GetSpecializations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialization">
+      <soap:operation soapAction="http://tempuri.org/GetSpecialization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecializationByName">
+      <soap:operation soapAction="http://tempuri.org/GetSpecializationByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSpecialization">
+      <soap:operation soapAction="http://tempuri.org/AddSpecialization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSpecialization">
+      <soap:operation soapAction="http://tempuri.org/EditSpecialization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpecialization">
+      <soap:operation soapAction="http://tempuri.org/DeleteSpecialization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomains">
+      <soap:operation soapAction="http://tempuri.org/GetDomains" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap:operation soapAction="http://tempuri.org/GetDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainByName">
+      <soap:operation soapAction="http://tempuri.org/GetDomainByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDomain">
+      <soap:operation soapAction="http://tempuri.org/AddDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDomain">
+      <soap:operation soapAction="http://tempuri.org/EditDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDomain">
+      <soap:operation soapAction="http://tempuri.org/DeleteDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaculties">
+      <soap:operation soapAction="http://tempuri.org/GetFaculties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaculty">
+      <soap:operation soapAction="http://tempuri.org/GetFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacultyByName">
+      <soap:operation soapAction="http://tempuri.org/GetFacultyByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFaculty">
+      <soap:operation soapAction="http://tempuri.org/AddFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditFaculty">
+      <soap:operation soapAction="http://tempuri.org/EditFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFaculty">
+      <soap:operation soapAction="http://tempuri.org/DeleteFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CoursesWebServiceSoap12" type="tns:CoursesWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetRoles">
       <soap12:operation soapAction="http://tempuri.org/GetRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap12:operation soapAction="http://tempuri.org/GetRole" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -533,6 +1188,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUser">
       <soap12:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByName">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersByName" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -623,6 +1287,177 @@
     </wsdl:operation>
     <wsdl:operation name="EditCourse">
       <soap12:operation soapAction="http://tempuri.org/EditCourse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCourse">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCourse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecializations">
+      <soap12:operation soapAction="http://tempuri.org/GetSpecializations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialization">
+      <soap12:operation soapAction="http://tempuri.org/GetSpecialization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecializationByName">
+      <soap12:operation soapAction="http://tempuri.org/GetSpecializationByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSpecialization">
+      <soap12:operation soapAction="http://tempuri.org/AddSpecialization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSpecialization">
+      <soap12:operation soapAction="http://tempuri.org/EditSpecialization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpecialization">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSpecialization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomains">
+      <soap12:operation soapAction="http://tempuri.org/GetDomains" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomain">
+      <soap12:operation soapAction="http://tempuri.org/GetDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDomainByName">
+      <soap12:operation soapAction="http://tempuri.org/GetDomainByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDomain">
+      <soap12:operation soapAction="http://tempuri.org/AddDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDomain">
+      <soap12:operation soapAction="http://tempuri.org/EditDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDomain">
+      <soap12:operation soapAction="http://tempuri.org/DeleteDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaculties">
+      <soap12:operation soapAction="http://tempuri.org/GetFaculties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFaculty">
+      <soap12:operation soapAction="http://tempuri.org/GetFaculty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacultyByName">
+      <soap12:operation soapAction="http://tempuri.org/GetFacultyByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFaculty">
+      <soap12:operation soapAction="http://tempuri.org/AddFaculty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditFaculty">
+      <soap12:operation soapAction="http://tempuri.org/EditFaculty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFaculty">
+      <soap12:operation soapAction="http://tempuri.org/DeleteFaculty" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

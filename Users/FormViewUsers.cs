@@ -1,49 +1,45 @@
-﻿using System;
+﻿using Proiect.CoursesWebServiceReference;
+using System;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
 {
     public partial class FormViewUsers : Form
     {
-        public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        public static CoursesWebService webService = new CoursesWebService();
         private FormDashboard parent;
         private DataTable dataTable = new DataTable();
 
         public FormViewUsers()
         {
             InitializeComponent();
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Nume", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
-            dataTable.Columns.Add("Parolă", typeof(string));
             dataTable.Columns.Add("Rolul principal", typeof(string));
             dataGridViewUsers.DataSource = dataTable;
-            dataGridViewUsers.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-          /*  
-            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
-            deleteButtonColumn.Name = "Delete";
-            deleteButtonColumn.Text = "Delete";
-            deleteButtonColumn.HeaderText = "Delete";
-            deleteButtonColumn.UseColumnTextForButtonValue = true;
-            
-            if (dataGridViewUsers.Columns["Delete"] == null)
-            {
-                dataGridViewUsers.Columns.Add( deleteButtonColumn);
+            DataGridViewButtonColumn viewBtn = new DataGridViewButtonColumn();
+            viewBtn.UseColumnTextForButtonValue = true;
+            viewBtn.Text = "Vizualizare";
+            viewBtn.Name = "Vizualizare";
+            dataGridViewUsers.Columns.Add(viewBtn);
 
-            }
-/*
-            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
-            editButtonColumn.Name = "Edit";
-            // editButtonColumn.Text = "Edit";
-            int columnIndex_2 = 5;
-            if (dataGridViewUsers.Columns["Edit"] == null)
-            {
-                dataGridViewUsers.Columns.Insert(columnIndex_2, editButtonColumn);*/
+            DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
+            editBtn.UseColumnTextForButtonValue = true;
+            editBtn.Text = "Editează";
+            editBtn.Name = "Editează";
+            dataGridViewUsers.Columns.Add(editBtn);
 
-            
+            DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
+            deleteBtn.UseColumnTextForButtonValue = true;
+            deleteBtn.Text = "Șterge";
+            deleteBtn.Name = "Șterge";
+            dataGridViewUsers.Columns.Add(deleteBtn);
         }
 
         private void FormViewUsers_Load(object sender, EventArgs e)
@@ -52,78 +48,52 @@ namespace Proiect
             labelNotFound.Visible = false;
         }
 
-        private void buttonAddUser_Click(object sender, EventArgs e)
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void toolStripButtonAddUser_Click(object sender, EventArgs e)
         {
             FormCreateUser newForm = new FormCreateUser();
             newForm.Show(this);
             this.Hide();
         }
 
-        private void buttonEditUser_Click(object sender, EventArgs e)
-        {
-            int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
-            string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
-            CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-            FormEditUser newForm = new FormEditUser(user.id,user.name,user.email,user.password);
-            
-            newForm.Show(this);
-            this.Hide();
-        }
-
-        private void buttonDeleteUser_Click(object sender, EventArgs e)
-        {
-            int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
-            string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
-            CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-            if (MessageBox.Show("Are you sure tou want to delete thi user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                webService.DeleteUser(user.id);
-                dataGridViewUsers.Rows.RemoveAt(rowIndex);
-                MessageBox.Show("Utilizatorul a fost sters cu succes!");
-            }
-        }
-
-        private void buttonViewUser_Click(object sender, EventArgs e)
-        {
-            int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
-            string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
-            CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-            FormViewUser newForm = new FormViewUser(user.id, user.name, user.email, user.password);
-
-            newForm.Show(this);
-            this.Hide();
-        }
-
-        private void toolStripTextBoxSearch_TextChanged(object sender, EventArgs e)
+        private async void toolStripTextBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string searchValue = toolStripTextBoxSearch.Text;
 
-            try
-            {
-                var results = from row in dataTable.AsEnumerable()
-                              where row[1].ToString().Contains(searchValue)
-                              select row;
+            ToolStripTextBox tb = (ToolStripTextBox)sender;
+            int startLength = tb.Text.Length;
 
-                if (results.Count() == 0)
+            await Task.Delay(1000);
+
+            if (startLength == tb.Text.Length && tb.Text.Length > 0)
+            {
+                try
                 {
-                    labelNotFound.Visible = true;
+                    var results = webService.GetUsersByName(searchValue);
+
+                    dataTable.Rows.Clear();
+
+                    results.ToList().ForEach((result) =>
+                    {
+                        //Role role = webService.GetRole(result.specialization_id);
+                        DataRow newRow = dataTable.NewRow();
+                        newRow["ID"] = result.id;
+                        newRow["Nume"] = result.name;
+                        newRow["Email"] = result.email;
+
+                        dataTable.Rows.Add(newRow);
+                    });
                 }
-                else
+                catch (Exception ex)
                 {
-                    dataGridViewUsers.DataSource = results.CopyToDataTable();
-                    labelNotFound.Visible = false;
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void toolStripButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            parent.Show();
         }
 
         private void FormViewUsers_FormClosed(object sender, FormClosedEventArgs e)
@@ -136,45 +106,43 @@ namespace Proiect
             updateDataGridView();
         }
 
+        private void dataGridViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int userId = Convert.ToInt32(dataGridViewUsers.Rows[e.RowIndex].Cells["ID"].Value);
+
+            if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Vizualizare")
+            {
+                FormViewUser formViewUser = new FormViewUser(userId);
+                formViewUser.Show();
+            }
+            else if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Șterge")
+            {
+                if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?\n\nAcțiunea este ireversibilă.", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    webService.DeleteUser(userId);
+                    dataGridViewUsers.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+            else if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Editează")
+            {
+                FormEditUser formEditUser = new FormEditUser(userId);
+                formEditUser.Show();
+            }
+        }
+
         private void updateDataGridView()
         {
             dataTable.Clear();
 
-            for (int i = 0; i < webService.GetUsers().Length; i++)
+            webService.GetUsers().ToList().ForEach((user) =>
             {
-                dataTable.Rows.Add(webService.GetUsers()[i].name, webService.GetUsers()[i].email, webService.GetUsers()[i].password);
-            }
+                DataRow newRow = dataTable.NewRow();
+                newRow["ID"] = user.id;
+                newRow["Nume"] = user.name;
+                newRow["Email"] = user.email;
+
+                dataTable.Rows.Add(newRow);
+            });
         }
-
-
-        /*
-                private void dataGridViewUsers_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-                {
-                    if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Delete")
-                    {
-                        if (MessageBox.Show("Are you sure tou want to delete thi user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
-                            string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
-                            CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-
-                            webService.DeleteUser(user.id);
-                            dataGridViewUsers.Rows.RemoveAt(rowIndex);
-                        }
-                    }
-                }
-
-        if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Edit")
-        {
-           int rowIndex = dataGridViewUsers.CurrentCell.RowIndex;
-           string email = dataGridViewUsers.Rows[rowIndex].Cells[1].Value.ToString();
-           CoursesWebServiceReference.User user = webService.GetUserByEmail(email);
-           FormEditUser newForm = new FormEditUser(user.id, user.name, user.email, user.password);
-
-           newForm.Show(this);
-           this.Hide();
-        }
-        }
-        */
     }
 }

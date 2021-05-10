@@ -31,9 +31,13 @@ namespace Proiect.CoursesWebServiceReference {
         
         private System.Threading.SendOrPostCallback GetRolesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetRoleOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetUsersOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetUserOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetUsersByNameOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetUserByEmailOperationCompleted;
         
@@ -54,6 +58,44 @@ namespace Proiect.CoursesWebServiceReference {
         private System.Threading.SendOrPostCallback AddCourseOperationCompleted;
         
         private System.Threading.SendOrPostCallback EditCourseOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteCourseOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSpecializationsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSpecializationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetSpecializationByNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddSpecializationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback EditSpecializationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteSpecializationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDomainsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDomainOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDomainByNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddDomainOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback EditDomainOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteDomainOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetFacultiesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetFacultyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetFacultyByNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddFacultyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback EditFacultyOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteFacultyOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -97,10 +139,16 @@ namespace Proiect.CoursesWebServiceReference {
         public event GetRolesCompletedEventHandler GetRolesCompleted;
         
         /// <remarks/>
+        public event GetRoleCompletedEventHandler GetRoleCompleted;
+        
+        /// <remarks/>
         public event GetUsersCompletedEventHandler GetUsersCompleted;
         
         /// <remarks/>
         public event GetUserCompletedEventHandler GetUserCompleted;
+        
+        /// <remarks/>
+        public event GetUsersByNameCompletedEventHandler GetUsersByNameCompleted;
         
         /// <remarks/>
         public event GetUserByEmailCompletedEventHandler GetUserByEmailCompleted;
@@ -133,6 +181,63 @@ namespace Proiect.CoursesWebServiceReference {
         public event EditCourseCompletedEventHandler EditCourseCompleted;
         
         /// <remarks/>
+        public event DeleteCourseCompletedEventHandler DeleteCourseCompleted;
+        
+        /// <remarks/>
+        public event GetSpecializationsCompletedEventHandler GetSpecializationsCompleted;
+        
+        /// <remarks/>
+        public event GetSpecializationCompletedEventHandler GetSpecializationCompleted;
+        
+        /// <remarks/>
+        public event GetSpecializationByNameCompletedEventHandler GetSpecializationByNameCompleted;
+        
+        /// <remarks/>
+        public event AddSpecializationCompletedEventHandler AddSpecializationCompleted;
+        
+        /// <remarks/>
+        public event EditSpecializationCompletedEventHandler EditSpecializationCompleted;
+        
+        /// <remarks/>
+        public event DeleteSpecializationCompletedEventHandler DeleteSpecializationCompleted;
+        
+        /// <remarks/>
+        public event GetDomainsCompletedEventHandler GetDomainsCompleted;
+        
+        /// <remarks/>
+        public event GetDomainCompletedEventHandler GetDomainCompleted;
+        
+        /// <remarks/>
+        public event GetDomainByNameCompletedEventHandler GetDomainByNameCompleted;
+        
+        /// <remarks/>
+        public event AddDomainCompletedEventHandler AddDomainCompleted;
+        
+        /// <remarks/>
+        public event EditDomainCompletedEventHandler EditDomainCompleted;
+        
+        /// <remarks/>
+        public event DeleteDomainCompletedEventHandler DeleteDomainCompleted;
+        
+        /// <remarks/>
+        public event GetFacultiesCompletedEventHandler GetFacultiesCompleted;
+        
+        /// <remarks/>
+        public event GetFacultyCompletedEventHandler GetFacultyCompleted;
+        
+        /// <remarks/>
+        public event GetFacultyByNameCompletedEventHandler GetFacultyByNameCompleted;
+        
+        /// <remarks/>
+        public event AddFacultyCompletedEventHandler AddFacultyCompleted;
+        
+        /// <remarks/>
+        public event EditFacultyCompletedEventHandler EditFacultyCompleted;
+        
+        /// <remarks/>
+        public event DeleteFacultyCompletedEventHandler DeleteFacultyCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRoles", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Role[] GetRoles() {
             object[] results = this.Invoke("GetRoles", new object[0]);
@@ -156,6 +261,35 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.GetRolesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetRolesCompleted(this, new GetRolesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRole", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Role GetRole(int id) {
+            object[] results = this.Invoke("GetRole", new object[] {
+                        id});
+            return ((Role)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRoleAsync(int id) {
+            this.GetRoleAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetRoleAsync(int id, object userState) {
+            if ((this.GetRoleOperationCompleted == null)) {
+                this.GetRoleOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRoleOperationCompleted);
+            }
+            this.InvokeAsync("GetRole", new object[] {
+                        id}, this.GetRoleOperationCompleted, userState);
+        }
+        
+        private void OnGetRoleOperationCompleted(object arg) {
+            if ((this.GetRoleCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRoleCompleted(this, new GetRoleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -212,6 +346,35 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.GetUserCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetUserCompleted(this, new GetUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUsersByName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public User[] GetUsersByName(string name) {
+            object[] results = this.Invoke("GetUsersByName", new object[] {
+                        name});
+            return ((User[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetUsersByNameAsync(string name) {
+            this.GetUsersByNameAsync(name, null);
+        }
+        
+        /// <remarks/>
+        public void GetUsersByNameAsync(string name, object userState) {
+            if ((this.GetUsersByNameOperationCompleted == null)) {
+                this.GetUsersByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUsersByNameOperationCompleted);
+            }
+            this.InvokeAsync("GetUsersByName", new object[] {
+                        name}, this.GetUsersByNameOperationCompleted, userState);
+        }
+        
+        private void OnGetUsersByNameOperationCompleted(object arg) {
+            if ((this.GetUsersByNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUsersByNameCompleted(this, new GetUsersByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -497,6 +660,541 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.EditCourseCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EditCourseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteCourse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeleteCourse(int id) {
+            this.Invoke("DeleteCourse", new object[] {
+                        id});
+        }
+        
+        /// <remarks/>
+        public void DeleteCourseAsync(int id) {
+            this.DeleteCourseAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteCourseAsync(int id, object userState) {
+            if ((this.DeleteCourseOperationCompleted == null)) {
+                this.DeleteCourseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteCourseOperationCompleted);
+            }
+            this.InvokeAsync("DeleteCourse", new object[] {
+                        id}, this.DeleteCourseOperationCompleted, userState);
+        }
+        
+        private void OnDeleteCourseOperationCompleted(object arg) {
+            if ((this.DeleteCourseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteCourseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSpecializations", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Specialization[] GetSpecializations() {
+            object[] results = this.Invoke("GetSpecializations", new object[0]);
+            return ((Specialization[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSpecializationsAsync() {
+            this.GetSpecializationsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetSpecializationsAsync(object userState) {
+            if ((this.GetSpecializationsOperationCompleted == null)) {
+                this.GetSpecializationsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSpecializationsOperationCompleted);
+            }
+            this.InvokeAsync("GetSpecializations", new object[0], this.GetSpecializationsOperationCompleted, userState);
+        }
+        
+        private void OnGetSpecializationsOperationCompleted(object arg) {
+            if ((this.GetSpecializationsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSpecializationsCompleted(this, new GetSpecializationsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSpecialization", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Specialization GetSpecialization(int id) {
+            object[] results = this.Invoke("GetSpecialization", new object[] {
+                        id});
+            return ((Specialization)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSpecializationAsync(int id) {
+            this.GetSpecializationAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetSpecializationAsync(int id, object userState) {
+            if ((this.GetSpecializationOperationCompleted == null)) {
+                this.GetSpecializationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSpecializationOperationCompleted);
+            }
+            this.InvokeAsync("GetSpecialization", new object[] {
+                        id}, this.GetSpecializationOperationCompleted, userState);
+        }
+        
+        private void OnGetSpecializationOperationCompleted(object arg) {
+            if ((this.GetSpecializationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSpecializationCompleted(this, new GetSpecializationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSpecializationByName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Specialization[] GetSpecializationByName(string name) {
+            object[] results = this.Invoke("GetSpecializationByName", new object[] {
+                        name});
+            return ((Specialization[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSpecializationByNameAsync(string name) {
+            this.GetSpecializationByNameAsync(name, null);
+        }
+        
+        /// <remarks/>
+        public void GetSpecializationByNameAsync(string name, object userState) {
+            if ((this.GetSpecializationByNameOperationCompleted == null)) {
+                this.GetSpecializationByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSpecializationByNameOperationCompleted);
+            }
+            this.InvokeAsync("GetSpecializationByName", new object[] {
+                        name}, this.GetSpecializationByNameOperationCompleted, userState);
+        }
+        
+        private void OnGetSpecializationByNameOperationCompleted(object arg) {
+            if ((this.GetSpecializationByNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSpecializationByNameCompleted(this, new GetSpecializationByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddSpecialization", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddSpecialization(Specialization specialization) {
+            this.Invoke("AddSpecialization", new object[] {
+                        specialization});
+        }
+        
+        /// <remarks/>
+        public void AddSpecializationAsync(Specialization specialization) {
+            this.AddSpecializationAsync(specialization, null);
+        }
+        
+        /// <remarks/>
+        public void AddSpecializationAsync(Specialization specialization, object userState) {
+            if ((this.AddSpecializationOperationCompleted == null)) {
+                this.AddSpecializationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddSpecializationOperationCompleted);
+            }
+            this.InvokeAsync("AddSpecialization", new object[] {
+                        specialization}, this.AddSpecializationOperationCompleted, userState);
+        }
+        
+        private void OnAddSpecializationOperationCompleted(object arg) {
+            if ((this.AddSpecializationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddSpecializationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EditSpecialization", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EditSpecialization(Specialization specialization) {
+            this.Invoke("EditSpecialization", new object[] {
+                        specialization});
+        }
+        
+        /// <remarks/>
+        public void EditSpecializationAsync(Specialization specialization) {
+            this.EditSpecializationAsync(specialization, null);
+        }
+        
+        /// <remarks/>
+        public void EditSpecializationAsync(Specialization specialization, object userState) {
+            if ((this.EditSpecializationOperationCompleted == null)) {
+                this.EditSpecializationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEditSpecializationOperationCompleted);
+            }
+            this.InvokeAsync("EditSpecialization", new object[] {
+                        specialization}, this.EditSpecializationOperationCompleted, userState);
+        }
+        
+        private void OnEditSpecializationOperationCompleted(object arg) {
+            if ((this.EditSpecializationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EditSpecializationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteSpecialization", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeleteSpecialization(int id) {
+            this.Invoke("DeleteSpecialization", new object[] {
+                        id});
+        }
+        
+        /// <remarks/>
+        public void DeleteSpecializationAsync(int id) {
+            this.DeleteSpecializationAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteSpecializationAsync(int id, object userState) {
+            if ((this.DeleteSpecializationOperationCompleted == null)) {
+                this.DeleteSpecializationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteSpecializationOperationCompleted);
+            }
+            this.InvokeAsync("DeleteSpecialization", new object[] {
+                        id}, this.DeleteSpecializationOperationCompleted, userState);
+        }
+        
+        private void OnDeleteSpecializationOperationCompleted(object arg) {
+            if ((this.DeleteSpecializationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteSpecializationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDomains", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Domain[] GetDomains() {
+            object[] results = this.Invoke("GetDomains", new object[0]);
+            return ((Domain[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDomainsAsync() {
+            this.GetDomainsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetDomainsAsync(object userState) {
+            if ((this.GetDomainsOperationCompleted == null)) {
+                this.GetDomainsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDomainsOperationCompleted);
+            }
+            this.InvokeAsync("GetDomains", new object[0], this.GetDomainsOperationCompleted, userState);
+        }
+        
+        private void OnGetDomainsOperationCompleted(object arg) {
+            if ((this.GetDomainsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDomainsCompleted(this, new GetDomainsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDomain", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Domain GetDomain(int id) {
+            object[] results = this.Invoke("GetDomain", new object[] {
+                        id});
+            return ((Domain)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDomainAsync(int id) {
+            this.GetDomainAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetDomainAsync(int id, object userState) {
+            if ((this.GetDomainOperationCompleted == null)) {
+                this.GetDomainOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDomainOperationCompleted);
+            }
+            this.InvokeAsync("GetDomain", new object[] {
+                        id}, this.GetDomainOperationCompleted, userState);
+        }
+        
+        private void OnGetDomainOperationCompleted(object arg) {
+            if ((this.GetDomainCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDomainCompleted(this, new GetDomainCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDomainByName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Domain[] GetDomainByName(string name) {
+            object[] results = this.Invoke("GetDomainByName", new object[] {
+                        name});
+            return ((Domain[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDomainByNameAsync(string name) {
+            this.GetDomainByNameAsync(name, null);
+        }
+        
+        /// <remarks/>
+        public void GetDomainByNameAsync(string name, object userState) {
+            if ((this.GetDomainByNameOperationCompleted == null)) {
+                this.GetDomainByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDomainByNameOperationCompleted);
+            }
+            this.InvokeAsync("GetDomainByName", new object[] {
+                        name}, this.GetDomainByNameOperationCompleted, userState);
+        }
+        
+        private void OnGetDomainByNameOperationCompleted(object arg) {
+            if ((this.GetDomainByNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDomainByNameCompleted(this, new GetDomainByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddDomain", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddDomain(Domain domain) {
+            this.Invoke("AddDomain", new object[] {
+                        domain});
+        }
+        
+        /// <remarks/>
+        public void AddDomainAsync(Domain domain) {
+            this.AddDomainAsync(domain, null);
+        }
+        
+        /// <remarks/>
+        public void AddDomainAsync(Domain domain, object userState) {
+            if ((this.AddDomainOperationCompleted == null)) {
+                this.AddDomainOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddDomainOperationCompleted);
+            }
+            this.InvokeAsync("AddDomain", new object[] {
+                        domain}, this.AddDomainOperationCompleted, userState);
+        }
+        
+        private void OnAddDomainOperationCompleted(object arg) {
+            if ((this.AddDomainCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddDomainCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EditDomain", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EditDomain(Domain domain) {
+            this.Invoke("EditDomain", new object[] {
+                        domain});
+        }
+        
+        /// <remarks/>
+        public void EditDomainAsync(Domain domain) {
+            this.EditDomainAsync(domain, null);
+        }
+        
+        /// <remarks/>
+        public void EditDomainAsync(Domain domain, object userState) {
+            if ((this.EditDomainOperationCompleted == null)) {
+                this.EditDomainOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEditDomainOperationCompleted);
+            }
+            this.InvokeAsync("EditDomain", new object[] {
+                        domain}, this.EditDomainOperationCompleted, userState);
+        }
+        
+        private void OnEditDomainOperationCompleted(object arg) {
+            if ((this.EditDomainCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EditDomainCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteDomain", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeleteDomain(int id) {
+            this.Invoke("DeleteDomain", new object[] {
+                        id});
+        }
+        
+        /// <remarks/>
+        public void DeleteDomainAsync(int id) {
+            this.DeleteDomainAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteDomainAsync(int id, object userState) {
+            if ((this.DeleteDomainOperationCompleted == null)) {
+                this.DeleteDomainOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteDomainOperationCompleted);
+            }
+            this.InvokeAsync("DeleteDomain", new object[] {
+                        id}, this.DeleteDomainOperationCompleted, userState);
+        }
+        
+        private void OnDeleteDomainOperationCompleted(object arg) {
+            if ((this.DeleteDomainCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteDomainCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetFaculties", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Faculty[] GetFaculties() {
+            object[] results = this.Invoke("GetFaculties", new object[0]);
+            return ((Faculty[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetFacultiesAsync() {
+            this.GetFacultiesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetFacultiesAsync(object userState) {
+            if ((this.GetFacultiesOperationCompleted == null)) {
+                this.GetFacultiesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetFacultiesOperationCompleted);
+            }
+            this.InvokeAsync("GetFaculties", new object[0], this.GetFacultiesOperationCompleted, userState);
+        }
+        
+        private void OnGetFacultiesOperationCompleted(object arg) {
+            if ((this.GetFacultiesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetFacultiesCompleted(this, new GetFacultiesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetFaculty", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Faculty GetFaculty(int id) {
+            object[] results = this.Invoke("GetFaculty", new object[] {
+                        id});
+            return ((Faculty)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetFacultyAsync(int id) {
+            this.GetFacultyAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetFacultyAsync(int id, object userState) {
+            if ((this.GetFacultyOperationCompleted == null)) {
+                this.GetFacultyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetFacultyOperationCompleted);
+            }
+            this.InvokeAsync("GetFaculty", new object[] {
+                        id}, this.GetFacultyOperationCompleted, userState);
+        }
+        
+        private void OnGetFacultyOperationCompleted(object arg) {
+            if ((this.GetFacultyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetFacultyCompleted(this, new GetFacultyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetFacultyByName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Faculty[] GetFacultyByName(string name) {
+            object[] results = this.Invoke("GetFacultyByName", new object[] {
+                        name});
+            return ((Faculty[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetFacultyByNameAsync(string name) {
+            this.GetFacultyByNameAsync(name, null);
+        }
+        
+        /// <remarks/>
+        public void GetFacultyByNameAsync(string name, object userState) {
+            if ((this.GetFacultyByNameOperationCompleted == null)) {
+                this.GetFacultyByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetFacultyByNameOperationCompleted);
+            }
+            this.InvokeAsync("GetFacultyByName", new object[] {
+                        name}, this.GetFacultyByNameOperationCompleted, userState);
+        }
+        
+        private void OnGetFacultyByNameOperationCompleted(object arg) {
+            if ((this.GetFacultyByNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetFacultyByNameCompleted(this, new GetFacultyByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddFaculty", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddFaculty(Faculty faculty) {
+            this.Invoke("AddFaculty", new object[] {
+                        faculty});
+        }
+        
+        /// <remarks/>
+        public void AddFacultyAsync(Faculty faculty) {
+            this.AddFacultyAsync(faculty, null);
+        }
+        
+        /// <remarks/>
+        public void AddFacultyAsync(Faculty faculty, object userState) {
+            if ((this.AddFacultyOperationCompleted == null)) {
+                this.AddFacultyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddFacultyOperationCompleted);
+            }
+            this.InvokeAsync("AddFaculty", new object[] {
+                        faculty}, this.AddFacultyOperationCompleted, userState);
+        }
+        
+        private void OnAddFacultyOperationCompleted(object arg) {
+            if ((this.AddFacultyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddFacultyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EditFaculty", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EditFaculty(Faculty faculty) {
+            this.Invoke("EditFaculty", new object[] {
+                        faculty});
+        }
+        
+        /// <remarks/>
+        public void EditFacultyAsync(Faculty faculty) {
+            this.EditFacultyAsync(faculty, null);
+        }
+        
+        /// <remarks/>
+        public void EditFacultyAsync(Faculty faculty, object userState) {
+            if ((this.EditFacultyOperationCompleted == null)) {
+                this.EditFacultyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEditFacultyOperationCompleted);
+            }
+            this.InvokeAsync("EditFaculty", new object[] {
+                        faculty}, this.EditFacultyOperationCompleted, userState);
+        }
+        
+        private void OnEditFacultyOperationCompleted(object arg) {
+            if ((this.EditFacultyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EditFacultyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteFaculty", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeleteFaculty(int id) {
+            this.Invoke("DeleteFaculty", new object[] {
+                        id});
+        }
+        
+        /// <remarks/>
+        public void DeleteFacultyAsync(int id) {
+            this.DeleteFacultyAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteFacultyAsync(int id, object userState) {
+            if ((this.DeleteFacultyOperationCompleted == null)) {
+                this.DeleteFacultyOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteFacultyOperationCompleted);
+            }
+            this.InvokeAsync("DeleteFaculty", new object[] {
+                        id}, this.DeleteFacultyOperationCompleted, userState);
+        }
+        
+        private void OnDeleteFacultyOperationCompleted(object arg) {
+            if ((this.DeleteFacultyCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteFacultyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1162,6 +1860,32 @@ namespace Proiect.CoursesWebServiceReference {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetRoleCompletedEventHandler(object sender, GetRoleCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRoleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRoleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Role Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Role)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void GetUsersCompletedEventHandler(object sender, GetUsersCompletedEventArgs e);
     
     /// <remarks/>
@@ -1208,6 +1932,32 @@ namespace Proiect.CoursesWebServiceReference {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((User)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetUsersByNameCompletedEventHandler(object sender, GetUsersByNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUsersByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetUsersByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public User[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((User[])(this.results[0]));
             }
         }
     }
@@ -1361,6 +2111,280 @@ namespace Proiect.CoursesWebServiceReference {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void EditCourseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteCourseCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetSpecializationsCompletedEventHandler(object sender, GetSpecializationsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSpecializationsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSpecializationsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Specialization[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Specialization[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetSpecializationCompletedEventHandler(object sender, GetSpecializationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSpecializationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSpecializationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Specialization Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Specialization)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetSpecializationByNameCompletedEventHandler(object sender, GetSpecializationByNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSpecializationByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSpecializationByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Specialization[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Specialization[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddSpecializationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void EditSpecializationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteSpecializationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetDomainsCompletedEventHandler(object sender, GetDomainsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDomainsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDomainsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Domain[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Domain[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetDomainCompletedEventHandler(object sender, GetDomainCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDomainCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDomainCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Domain Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Domain)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetDomainByNameCompletedEventHandler(object sender, GetDomainByNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDomainByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDomainByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Domain[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Domain[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddDomainCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void EditDomainCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteDomainCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetFacultiesCompletedEventHandler(object sender, GetFacultiesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetFacultiesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetFacultiesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Faculty[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Faculty[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetFacultyCompletedEventHandler(object sender, GetFacultyCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetFacultyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetFacultyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Faculty Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Faculty)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetFacultyByNameCompletedEventHandler(object sender, GetFacultyByNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetFacultyByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetFacultyByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Faculty[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Faculty[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddFacultyCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void EditFacultyCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteFacultyCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591
