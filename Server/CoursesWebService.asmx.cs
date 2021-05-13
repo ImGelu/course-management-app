@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -35,6 +36,31 @@ namespace Server
 
             return databaseEntities.Roles.Find(id);
         }
+
+        [WebMethod]
+        public List<Role> GetUserRoles(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Database.SqlQuery<Role>("SELECT t2.* FROM Users2Roles AS t1 INNER JOIN Roles AS t2 ON t1.id_role = t2.id AND t1.id_user = @id", new SqlParameter("@id", id)).ToList();
+        }
+
+        [WebMethod]
+        public void UpdateUserRoles(int id, List<Role> roles)
+        { 
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Database.ExecuteSqlCommand("DELETE FROM Users2Roles WHERE id_user = @id", new SqlParameter("@id", id));
+
+            roles.ForEach((role) =>
+            {
+                if (role != null)
+                {
+                    databaseEntities.Database.ExecuteSqlCommand("INSERT INTO Users2Roles(id_user, id_role) VALUES(@id_user, @id_role)", new SqlParameter("@id_user", id), new SqlParameter("@id_role", role.id));
+                }
+            });
+        }
+
 
         /** Users **/
         [WebMethod]
@@ -179,6 +205,31 @@ namespace Server
 
             Course existingCourse = databaseEntities.Courses.Find(id);
             databaseEntities.Courses.Remove(existingCourse);
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void RedeemCourse(int courseId, int userId)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Users2Courses users2Courses = new Users2Courses();
+            users2Courses.id_user = userId;
+            users2Courses.id_course = courseId;
+            users2Courses.status = 0;
+
+            databaseEntities.Users2Courses.Add(users2Courses);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void SetCourseRedemptionStatus(int courseId, int userId, byte status)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Users2Courses users2Courses = databaseEntities.Users2Courses.Where((item) => item.id_course == courseId).Where((item) => item.id_user == userId).FirstOrDefault();
+            users2Courses.status = status;
 
             databaseEntities.SaveChanges();
         }

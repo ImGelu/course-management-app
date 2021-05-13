@@ -1,5 +1,6 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Proiect
             dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Nume", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
-            dataTable.Columns.Add("Rolul principal", typeof(string));
+            dataTable.Columns.Add("Roluri", typeof(string));
             dataGridViewUsers.DataSource = dataTable;
             dataGridViewUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
@@ -112,7 +113,7 @@ namespace Proiect
 
             if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Vizualizare")
             {
-                FormViewUser formViewUser = new FormViewUser(userId);
+                FormViewUser formViewUser = new FormViewUser(this, userId);
                 formViewUser.Show();
             }
             else if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Șterge")
@@ -136,10 +137,18 @@ namespace Proiect
 
             webService.GetUsers().ToList().ForEach((user) =>
             {
+
+                List<String> roles = new List<string>();
+                webService.GetUserRoles(user.id).ToList().ForEach((role) =>
+                {
+                    roles.Add(role.name);
+                });
+
                 DataRow newRow = dataTable.NewRow();
                 newRow["ID"] = user.id;
                 newRow["Nume"] = user.name;
                 newRow["Email"] = user.email;
+                newRow["Roluri"] = string.Join(", ", roles);
 
                 dataTable.Rows.Add(newRow);
             });

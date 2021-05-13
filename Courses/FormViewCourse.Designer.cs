@@ -67,11 +67,14 @@
             this.listBoxCourseTutors = new System.Windows.Forms.ListBox();
             this.textBoxCourseHours = new System.Windows.Forms.TextBox();
             this.labelCourseHours = new System.Windows.Forms.Label();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonRedeemCourse = new System.Windows.Forms.ToolStripButton();
             this.groupBoxProject.SuspendLayout();
             this.groupBoxSeminary.SuspendLayout();
             this.groupBoxLab.SuspendLayout();
             this.groupBoxGeneral.SuspendLayout();
             this.groupBoxCourse.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxProject
@@ -517,12 +520,38 @@
             this.labelCourseHours.Text = "Ore curs";
             this.labelCourseHours.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // toolStrip
+            // 
+            this.toolStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonRedeemCourse});
+            this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip.Size = new System.Drawing.Size(1243, 25);
+            this.toolStrip.TabIndex = 87;
+            this.toolStrip.Text = "toolStrip";
+            // 
+            // toolStripButtonRedeemCourse
+            // 
+            this.toolStripButtonRedeemCourse.Image = global::Proiect.Properties.Resources.icon_request;
+            this.toolStripButtonRedeemCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRedeemCourse.Name = "toolStripButtonRedeemCourse";
+            this.toolStripButtonRedeemCourse.Size = new System.Drawing.Size(120, 22);
+            this.toolStripButtonRedeemCourse.Text = "Revendică materia";
+            this.toolStripButtonRedeemCourse.Click += new System.EventHandler(this.toolStripButtonRedeemCourse_Click);
+            // 
             // FormViewCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1243, 573);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.groupBoxProject);
             this.Controls.Add(this.groupBoxSeminary);
             this.Controls.Add(this.groupBoxLab);
@@ -546,6 +575,8 @@
             this.groupBoxGeneral.PerformLayout();
             this.groupBoxCourse.ResumeLayout(false);
             this.groupBoxCourse.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,5 +623,7 @@
         private System.Windows.Forms.ListBox listBoxCourseTutors;
         private System.Windows.Forms.TextBox textBoxCourseHours;
         private System.Windows.Forms.Label labelCourseHours;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRedeemCourse;
     }
 }

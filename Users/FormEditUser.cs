@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using Proiect.CoursesWebServiceReference;
+using System.Linq;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace Proiect
 {
@@ -26,6 +29,33 @@ namespace Proiect
             parent = new FormViewUsers();
             textBoxEmail.Text = user.email;
             textBoxName.Text = user.name;
+            listBoxRoles.ValueMember = "name";
+            comboBoxRoles.ValueMember = "name";
+
+            List<Role> rolesToBeRemoved = new List<Role>();
+
+            webService.GetRoles().ToList().ForEach((role) =>
+            {
+                comboBoxRoles.Items.Add(role);
+            });
+
+            webService.GetUserRoles(user.id).ToList().ForEach((userRole) =>
+            {
+                listBoxRoles.Items.Add(userRole);
+
+                foreach(Role role in comboBoxRoles.Items)
+                {
+                    if(role.id == userRole.id)
+                    {
+                        rolesToBeRemoved.Add(role);
+                    }
+                }
+            });
+
+            rolesToBeRemoved.ForEach((role) =>
+            {
+                comboBoxRoles.Items.Remove(role);
+            });
         }
 
         private void buttonEditUser_Click(object sender, EventArgs e)
@@ -41,7 +71,7 @@ namespace Proiect
             {
                 if (Utils.IsValidEmail(email))
                 {
-                    if (!Utils.EmailAlreadyTaken(email))
+                    if (!Utils.EmailAlreadyTaken(email) || email == user.email)
                     {
                         if (password.Equals(passwordConfirmation))
                         {
@@ -53,20 +83,28 @@ namespace Proiect
 
                             try
                             {
+                                Role[] rolesToBeUpdated = new Role[100];
+                                int i = 0;
+
+                                listBoxRoles.Items.Cast<Role>().ToList().ForEach((role) =>
+                                {
+                                    rolesToBeUpdated[i++] = role;
+                                });
+
                                 webService.EditUser(newUser);
+                                webService.UpdateUserRoles(user.id, rolesToBeUpdated);
                             }
                             catch (Exception ex)
                             {
                                 MessageBox.Show("An error occured!\n" + ex.Message.ToString());
                             }
 
-                            MessageBox.Show("The account has been successfully created. You can log in now!");
+                            MessageBox.Show("Salvările au fost realizate cu succes!");
                             textBoxEmail.Text = String.Empty;
                             textBoxName.Text = String.Empty;
                             textBoxPassword.Text = String.Empty;
                             textBoxPasswordConfirmation.Text = String.Empty;
 
-                            parent.Show();
                             this.Close();
                         }
                         else
@@ -87,6 +125,43 @@ namespace Proiect
             else
             {
                 MessageBox.Show("Please fill all the fields.");
+            }
+        }
+
+        private void toolStripButtonDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                webService.DeleteUser(user.id);
+                MessageBox.Show("Utilizatorul a fost șters cu succes!");
+                this.Close();
+            }
+        }
+
+        private void buttonAddRole_Click(object sender, EventArgs e)
+        {
+            Role selectedItem = (Role)comboBoxRoles.SelectedItem;
+
+            if (comboBoxRoles.SelectedItem != null)
+            {
+                listBoxRoles.Items.Add(selectedItem);
+            }
+
+            comboBoxRoles.Items.Remove(selectedItem);
+        }
+
+        private void listBoxRoles_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ((char)Keys.Back))
+            {
+                Role selectedItem = (Role)listBoxRoles.SelectedItem;
+
+                e.Handled = true;
+                if (selectedItem != null)
+                {
+                    listBoxRoles.Items.Remove(selectedItem);
+                    comboBoxRoles.Items.Add(selectedItem);
+                }
             }
         }
     }

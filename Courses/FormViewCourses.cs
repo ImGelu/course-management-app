@@ -65,7 +65,7 @@ namespace Proiect
 
             await Task.Delay(1000);
 
-            if (startLength == tb.Text.Length && tb.Text.Length > 0)
+            if (startLength == tb.Text.Length && tb.Text.Length > 2)
             {
                 try
                 {

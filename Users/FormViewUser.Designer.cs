@@ -34,12 +34,12 @@ namespace Proiect
             this.toolStripButtonEditUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeleteUser = new System.Windows.Forms.ToolStripButton();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.textBoxRole = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelRole = new System.Windows.Forms.Label();
+            this.listBoxRoles = new System.Windows.Forms.ListBox();
             this.toolStrip.SuspendLayout();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +94,7 @@ namespace Proiect
             // 
             // groupBox
             // 
-            this.groupBox.Controls.Add(this.textBoxRole);
+            this.groupBox.Controls.Add(this.listBoxRoles);
             this.groupBox.Controls.Add(this.textBoxEmail);
             this.groupBox.Controls.Add(this.textBoxName);
             this.groupBox.Controls.Add(this.labelEmail);
@@ -102,19 +102,9 @@ namespace Proiect
             this.groupBox.Controls.Add(this.labelRole);
             this.groupBox.Location = new System.Drawing.Point(16, 71);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(628, 170);
+            this.groupBox.Size = new System.Drawing.Size(628, 251);
             this.groupBox.TabIndex = 25;
             this.groupBox.TabStop = false;
-            // 
-            // textBoxRole
-            // 
-            this.textBoxRole.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.textBoxRole.Location = new System.Drawing.Point(14, 124);
-            this.textBoxRole.Multiline = true;
-            this.textBoxRole.Name = "textBoxRole";
-            this.textBoxRole.ReadOnly = true;
-            this.textBoxRole.Size = new System.Drawing.Size(608, 29);
-            this.textBoxRole.TabIndex = 15;
             // 
             // textBoxEmail
             // 
@@ -162,15 +152,24 @@ namespace Proiect
             this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRole.Location = new System.Drawing.Point(14, 100);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(97, 21);
+            this.labelRole.Size = new System.Drawing.Size(52, 21);
             this.labelRole.TabIndex = 8;
-            this.labelRole.Text = "Rol Principal";
+            this.labelRole.Text = "Roluri";
+            // 
+            // listBoxRoles
+            // 
+            this.listBoxRoles.Enabled = false;
+            this.listBoxRoles.FormattingEnabled = true;
+            this.listBoxRoles.Location = new System.Drawing.Point(14, 124);
+            this.listBoxRoles.Name = "listBoxRoles";
+            this.listBoxRoles.Size = new System.Drawing.Size(608, 95);
+            this.listBoxRoles.TabIndex = 16;
             // 
             // FormViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 257);
+            this.ClientSize = new System.Drawing.Size(660, 341);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.labelUtil);
@@ -195,11 +194,11 @@ namespace Proiect
         private System.Windows.Forms.ToolStripButton toolStripButtonEditUser;
         private System.Windows.Forms.ToolStripButton toolStripButtonDeleteUser;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.TextBox textBoxRole;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelRole;
+        private System.Windows.Forms.ListBox listBoxRoles;
     }
 }

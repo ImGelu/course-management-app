@@ -83,6 +83,7 @@ namespace Proiect
             textBoxCredits.Text = course.credits.ToString();
 
             textBoxCourseHours.Text = course.course_hours.ToString();
+        
             textBoxSeminaryHours.Text = course.seminary_hours.ToString();
             textBoxLabHours.Text = course.laboratory_hours.ToString();
             textBoxProjectHours.Text = course.project_hours.ToString();
@@ -116,6 +117,12 @@ namespace Proiect
         private void comboBoxSpecialization_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedSpecialization = (Specialization)comboBoxSpecialization.SelectedItem;
+        }
+
+        private void toolStripButtonRedeemCourse_Click(object sender, EventArgs e)
+        {
+            webService.RedeemCourse(course.id, Utils.GetLoggedInUser().id);
+            MessageBox.Show("Cererea a fost trimisa!");
         }
     }
 }

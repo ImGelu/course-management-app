@@ -35,12 +35,14 @@ namespace Proiect
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelRole = new System.Windows.Forms.Label();
-            this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.buttonAddRole = new System.Windows.Forms.Button();
+            this.listBoxRoles = new System.Windows.Forms.ListBox();
+            this.comboBoxRoles = new System.Windows.Forms.ComboBox();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.groupBox.SuspendLayout();
@@ -68,7 +70,7 @@ namespace Proiect
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(14, 224);
+            this.buttonAdd.Location = new System.Drawing.Point(14, 325);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(608, 34);
             this.buttonAdd.TabIndex = 6;
@@ -102,23 +104,9 @@ namespace Proiect
             this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRole.Location = new System.Drawing.Point(14, 166);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(97, 21);
+            this.labelRole.Size = new System.Drawing.Size(52, 21);
             this.labelRole.TabIndex = 8;
-            this.labelRole.Text = "Rol Principal";
-            // 
-            // comboBoxRole
-            // 
-            this.comboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRole.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Items.AddRange(new object[] {
-            "Administrator",
-            "Secretar",
-            "Profesor"});
-            this.comboBoxRole.Location = new System.Drawing.Point(14, 190);
-            this.comboBoxRole.Name = "comboBoxRole";
-            this.comboBoxRole.Size = new System.Drawing.Size(608, 28);
-            this.comboBoxRole.TabIndex = 5;
+            this.labelRole.Text = "Roluri";
             // 
             // textBoxPassword
             // 
@@ -162,8 +150,10 @@ namespace Proiect
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.buttonAddRole);
+            this.groupBox.Controls.Add(this.listBoxRoles);
+            this.groupBox.Controls.Add(this.comboBoxRoles);
             this.groupBox.Controls.Add(this.textBoxPasswordConfirmation);
-            this.groupBox.Controls.Add(this.comboBoxRole);
             this.groupBox.Controls.Add(this.textBoxEmail);
             this.groupBox.Controls.Add(this.label1);
             this.groupBox.Controls.Add(this.textBoxName);
@@ -175,9 +165,40 @@ namespace Proiect
             this.groupBox.Controls.Add(this.labelRole);
             this.groupBox.Location = new System.Drawing.Point(12, 28);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(628, 280);
+            this.groupBox.Size = new System.Drawing.Size(628, 373);
             this.groupBox.TabIndex = 15;
             this.groupBox.TabStop = false;
+            // 
+            // buttonAddRole
+            // 
+            this.buttonAddRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddRole.Location = new System.Drawing.Point(446, 291);
+            this.buttonAddRole.Name = "buttonAddRole";
+            this.buttonAddRole.Size = new System.Drawing.Size(176, 28);
+            this.buttonAddRole.TabIndex = 19;
+            this.buttonAddRole.Text = "Adaugă rolul";
+            this.buttonAddRole.UseVisualStyleBackColor = true;
+            this.buttonAddRole.Click += new System.EventHandler(this.buttonAddRole_Click);
+            // 
+            // listBoxRoles
+            // 
+            this.listBoxRoles.FormattingEnabled = true;
+            this.listBoxRoles.Location = new System.Drawing.Point(14, 190);
+            this.listBoxRoles.Name = "listBoxRoles";
+            this.listBoxRoles.Size = new System.Drawing.Size(608, 95);
+            this.listBoxRoles.TabIndex = 18;
+            this.listBoxRoles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxRoles_KeyPress);
+            // 
+            // comboBoxRoles
+            // 
+            this.comboBoxRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRoles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRoles.FormattingEnabled = true;
+            this.comboBoxRoles.Location = new System.Drawing.Point(14, 291);
+            this.comboBoxRoles.Name = "comboBoxRoles";
+            this.comboBoxRoles.Size = new System.Drawing.Size(426, 28);
+            this.comboBoxRoles.Sorted = true;
+            this.comboBoxRoles.TabIndex = 17;
             // 
             // toolStripButtonBack
             // 
@@ -210,7 +231,7 @@ namespace Proiect
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(652, 320);
+            this.ClientSize = new System.Drawing.Size(652, 413);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.groupBox);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
@@ -237,7 +258,6 @@ namespace Proiect
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelRole;
-        private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPasswordConfirmation;
@@ -245,5 +265,8 @@ namespace Proiect
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
         private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.Button buttonAddRole;
+        private System.Windows.Forms.ListBox listBoxRoles;
+        private System.Windows.Forms.ComboBox comboBoxRoles;
     }
 }

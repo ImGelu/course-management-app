@@ -54,6 +54,12 @@
     <Compile Include="FormDashboard.Designer.cs">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\FormCreateUser.resx">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,7 +212,7 @@
     <None Include="Web References\CoursesWebServiceReference\Specialization.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\CoursesWebServiceReference\User1.datasource">
+    <None Include="Web References\CoursesWebServiceReference\User.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
   </ItemGroup>
@@ -215,22 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="https://localhost:44347/CoursesWebService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\CoursesWebServiceReference\</RelPath>
-      <UpdateFromURL>https://localhost:44347/CoursesWebService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Proiect_CoursesWebServiceReference_CoursesWebService</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\CoursesWebServiceReference\CoursesWebService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_course.bmp" />
@@ -285,6 +278,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44347/CoursesWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CoursesWebServiceReference\</RelPath>
+      <UpdateFromURL>https://localhost:44347/CoursesWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Proiect_CoursesWebServiceReference_CoursesWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CoursesWebServiceReference\CoursesWebService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

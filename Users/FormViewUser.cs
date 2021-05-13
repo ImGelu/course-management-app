@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Proiect.CoursesWebServiceReference;
 
@@ -15,17 +16,23 @@ namespace Proiect
             InitializeComponent();
         }
 
-        public FormViewUser(int id)
+        public FormViewUser(FormViewUsers parent, int id)
         {
+            this.parent = parent;
             InitializeComponent();
             user = webService.GetUser(id);
         }
 
         private void FormViewUser_Load(object sender, EventArgs e)
         {
-            parent = new FormViewUsers();
             textBoxName.Text = user.name;
             textBoxEmail.Text = user.email;
+            listBoxRoles.ValueMember = "name";
+
+            webService.GetUserRoles(user.id).ToList().ForEach((userRole) =>
+            {
+                listBoxRoles.Items.Add(userRole);
+            });
         }
 
         private void toolStripButtonEditUser_Click(object sender, EventArgs e)

@@ -130,6 +130,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetUserRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserRolesResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="roles" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserRolesResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="GetUsers">
         <s:complexType />
       </s:element>
@@ -293,6 +318,29 @@
         </s:complexType>
       </s:element>
       <s:element name="DeleteCourseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RedeemCourse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="courseId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedeemCourseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetCourseRedemptionStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="courseId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCourseRedemptionStatusResponse">
         <s:complexType />
       </s:element>
       <s:element name="GetSpecializations">
@@ -518,6 +566,18 @@
   <wsdl:message name="GetRoleSoapOut">
     <wsdl:part name="parameters" element="tns:GetRoleResponse" />
   </wsdl:message>
+  <wsdl:message name="GetUserRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserRolesResponse" />
+  </wsdl:message>
   <wsdl:message name="GetUsersSoapIn">
     <wsdl:part name="parameters" element="tns:GetUsers" />
   </wsdl:message>
@@ -601,6 +661,18 @@
   </wsdl:message>
   <wsdl:message name="DeleteCourseSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="RedeemCourseSoapIn">
+    <wsdl:part name="parameters" element="tns:RedeemCourse" />
+  </wsdl:message>
+  <wsdl:message name="RedeemCourseSoapOut">
+    <wsdl:part name="parameters" element="tns:RedeemCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCourseRedemptionStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCourseRedemptionStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetCourseRedemptionStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCourseRedemptionStatusResponse" />
   </wsdl:message>
   <wsdl:message name="GetSpecializationsSoapIn">
     <wsdl:part name="parameters" element="tns:GetSpecializations" />
@@ -719,6 +791,14 @@
       <wsdl:input message="tns:GetRoleSoapIn" />
       <wsdl:output message="tns:GetRoleSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:input message="tns:GetUserRolesSoapIn" />
+      <wsdl:output message="tns:GetUserRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRoles">
+      <wsdl:input message="tns:UpdateUserRolesSoapIn" />
+      <wsdl:output message="tns:UpdateUserRolesSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
       <wsdl:output message="tns:GetUsersSoapOut" />
@@ -774,6 +854,14 @@
     <wsdl:operation name="DeleteCourse">
       <wsdl:input message="tns:DeleteCourseSoapIn" />
       <wsdl:output message="tns:DeleteCourseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RedeemCourse">
+      <wsdl:input message="tns:RedeemCourseSoapIn" />
+      <wsdl:output message="tns:RedeemCourseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCourseRedemptionStatus">
+      <wsdl:input message="tns:SetCourseRedemptionStatusSoapIn" />
+      <wsdl:output message="tns:SetCourseRedemptionStatusSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetSpecializations">
       <wsdl:input message="tns:GetSpecializationsSoapIn" />
@@ -861,6 +949,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetRole">
       <soap:operation soapAction="http://tempuri.org/GetRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <soap:operation soapAction="http://tempuri.org/GetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRoles">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserRoles" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -987,6 +1093,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCourse">
       <soap:operation soapAction="http://tempuri.org/DeleteCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeemCourse">
+      <soap:operation soapAction="http://tempuri.org/RedeemCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCourseRedemptionStatus">
+      <soap:operation soapAction="http://tempuri.org/SetCourseRedemptionStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1177,6 +1301,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <soap12:operation soapAction="http://tempuri.org/GetUserRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRoles">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <soap12:operation soapAction="http://tempuri.org/GetUsers" style="document" />
       <wsdl:input>
@@ -1296,6 +1438,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCourse">
       <soap12:operation soapAction="http://tempuri.org/DeleteCourse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeemCourse">
+      <soap12:operation soapAction="http://tempuri.org/RedeemCourse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCourseRedemptionStatus">
+      <soap12:operation soapAction="http://tempuri.org/SetCourseRedemptionStatus" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -23,16 +23,6 @@ namespace Proiect.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44347/CoursesWebService.asmx")]
-        public string Proiect_CoursesWebServiceReference_CoursesWebService {
-            get {
-                return ((string)(this["Proiect_CoursesWebServiceReference_CoursesWebService"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
@@ -54,6 +44,16 @@ namespace Proiect.Properties {
             }
             set {
                 this["rememberMe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44347/CoursesWebService.asmx")]
+        public string Proiect_CoursesWebServiceReference_CoursesWebService {
+            get {
+                return ((string)(this["Proiect_CoursesWebServiceReference_CoursesWebService"]));
             }
         }
     }

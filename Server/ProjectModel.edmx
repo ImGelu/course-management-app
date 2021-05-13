@@ -179,18 +179,9 @@ warning 6002: The table/view 'D:\ANUL 3\SEMESTRUL II\INFORMATICĂ INDUSTRIALĂ\P
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specializations" EntityType="Self.Specializations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users2Courses" EntityType="Self.Users2Courses" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Users2Courses].[id_user] AS [id_user], 
-    [Users2Courses].[id_course] AS [id_course], 
-    [Users2Courses].[status] AS [status]
-    FROM [dbo].[Users2Courses] AS [Users2Courses]</DefiningQuery>
+          <EntitySet Name="Users2Courses" EntityType="Self.Users2Courses" store:Type="Tables" Schema="dbo">
           </EntitySet>
-          <EntitySet Name="Users2Roles" EntityType="Self.Users2Roles" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Users2Roles].[id_user] AS [id_user], 
-    [Users2Roles].[id_role] AS [id_role]
-    FROM [dbo].[Users2Roles] AS [Users2Roles]</DefiningQuery>
+          <EntitySet Name="Users2Roles" EntityType="Self.Users2Roles" store:Type="Tables" Schema="dbo">
           </EntitySet>
           <AssociationSet Name="FK_Courses_To_Specializations" Association="Self.FK_Courses_To_Specializations">
             <End Role="Specializations" EntitySet="Specializations" />
