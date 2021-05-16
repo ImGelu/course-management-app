@@ -32,16 +32,12 @@ namespace Proiect
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.buttonAddRole = new System.Windows.Forms.Button();
             this.listBoxRoles = new System.Windows.Forms.ListBox();
-            this.textBoxPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.comboBoxRoles = new System.Windows.Forms.ComboBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.labelPasswordConfirmation = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonEditUser = new System.Windows.Forms.Button();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.labelPassword = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelRole = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonDeleteUser = new System.Windows.Forms.ToolStripButton();
@@ -56,16 +52,12 @@ namespace Proiect
             // 
             this.groupBox.Controls.Add(this.buttonAddRole);
             this.groupBox.Controls.Add(this.listBoxRoles);
-            this.groupBox.Controls.Add(this.textBoxPasswordConfirmation);
             this.groupBox.Controls.Add(this.comboBoxRoles);
             this.groupBox.Controls.Add(this.textBoxEmail);
-            this.groupBox.Controls.Add(this.labelPasswordConfirmation);
             this.groupBox.Controls.Add(this.textBoxName);
             this.groupBox.Controls.Add(this.buttonEditUser);
             this.groupBox.Controls.Add(this.labelEmail);
-            this.groupBox.Controls.Add(this.labelPassword);
             this.groupBox.Controls.Add(this.labelName);
-            this.groupBox.Controls.Add(this.textBoxPassword);
             this.groupBox.Controls.Add(this.labelRole);
             this.groupBox.Location = new System.Drawing.Point(12, 28);
             this.groupBox.Name = "groupBox";
@@ -93,16 +85,6 @@ namespace Proiect
             this.listBoxRoles.TabIndex = 15;
             this.listBoxRoles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxRoles_KeyPress);
             // 
-            // textBoxPasswordConfirmation
-            // 
-            this.textBoxPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
-            this.textBoxPasswordConfirmation.Multiline = true;
-            this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
-            this.textBoxPasswordConfirmation.PasswordChar = '*';
-            this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
-            this.textBoxPasswordConfirmation.TabIndex = 13;
-            // 
             // comboBoxRoles
             // 
             this.comboBoxRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -122,16 +104,6 @@ namespace Proiect
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(290, 29);
             this.textBoxEmail.TabIndex = 1;
-            // 
-            // labelPasswordConfirmation
-            // 
-            this.labelPasswordConfirmation.AutoSize = true;
-            this.labelPasswordConfirmation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPasswordConfirmation.Location = new System.Drawing.Point(332, 98);
-            this.labelPasswordConfirmation.Name = "labelPasswordConfirmation";
-            this.labelPasswordConfirmation.Size = new System.Drawing.Size(149, 21);
-            this.labelPasswordConfirmation.TabIndex = 14;
-            this.labelPasswordConfirmation.Text = "Confirmarea parolei";
             // 
             // textBoxName
             // 
@@ -163,16 +135,6 @@ namespace Proiect
             this.labelEmail.TabIndex = 6;
             this.labelEmail.Text = "Email";
             // 
-            // labelPassword
-            // 
-            this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(14, 98);
-            this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(53, 21);
-            this.labelPassword.TabIndex = 11;
-            this.labelPassword.Text = "Parola";
-            // 
             // labelName
             // 
             this.labelName.AutoSize = true;
@@ -182,16 +144,6 @@ namespace Proiect
             this.labelName.Size = new System.Drawing.Size(53, 21);
             this.labelName.TabIndex = 7;
             this.labelName.Text = "Nume";
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(14, 122);
-            this.textBoxPassword.Multiline = true;
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(290, 29);
-            this.textBoxPassword.TabIndex = 10;
             // 
             // labelRole
             // 
@@ -257,6 +209,7 @@ namespace Proiect
             this.toolStripButtonChangePassword.Size = new System.Drawing.Size(106, 30);
             this.toolStripButtonChangePassword.Text = "Schimbă parola";
             this.toolStripButtonChangePassword.ToolTipText = "Schimbă parola";
+            this.toolStripButtonChangePassword.Click += new System.EventHandler(this.toolStripButtonChangePassword_Click);
             // 
             // FormEditUser
             // 
@@ -286,15 +239,11 @@ namespace Proiect
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.ComboBox comboBoxRoles;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.Label labelPasswordConfirmation;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button buttonEditUser;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelRole;
-        private System.Windows.Forms.TextBox textBoxPasswordConfirmation;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonDeleteUser;
         private System.Windows.Forms.Button buttonAddRole;

@@ -61,6 +61,8 @@ namespace Proiect.CoursesWebServiceReference {
         
         private System.Threading.SendOrPostCallback EditUserOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdatePasswordOperationCompleted;
+        
         private System.Threading.SendOrPostCallback DeleteUserOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCoursesOperationCompleted;
@@ -200,6 +202,9 @@ namespace Proiect.CoursesWebServiceReference {
         
         /// <remarks/>
         public event EditUserCompletedEventHandler EditUserCompleted;
+        
+        /// <remarks/>
+        public event UpdatePasswordCompletedEventHandler UpdatePasswordCompleted;
         
         /// <remarks/>
         public event DeleteUserCompletedEventHandler DeleteUserCompleted;
@@ -737,6 +742,36 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.EditUserCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EditUserCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdatePassword", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UpdatePassword(int id, string password) {
+            this.Invoke("UpdatePassword", new object[] {
+                        id,
+                        password});
+        }
+        
+        /// <remarks/>
+        public void UpdatePasswordAsync(int id, string password) {
+            this.UpdatePasswordAsync(id, password, null);
+        }
+        
+        /// <remarks/>
+        public void UpdatePasswordAsync(int id, string password, object userState) {
+            if ((this.UpdatePasswordOperationCompleted == null)) {
+                this.UpdatePasswordOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdatePasswordOperationCompleted);
+            }
+            this.InvokeAsync("UpdatePassword", new object[] {
+                        id,
+                        password}, this.UpdatePasswordOperationCompleted, userState);
+        }
+        
+        private void OnUpdatePasswordOperationCompleted(object arg) {
+            if ((this.UpdatePasswordCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdatePasswordCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2423,6 +2458,10 @@ namespace Proiect.CoursesWebServiceReference {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void EditUserCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void UpdatePasswordCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
