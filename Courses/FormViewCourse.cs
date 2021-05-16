@@ -9,27 +9,27 @@ namespace Proiect
     public partial class FormViewCourse : Form
     {
         public static CoursesWebService webService = new CoursesWebService();
-        private FormDashboard parent;
+        private FormViewCourses parent;
         private Course course;
         private Faculty selectedFaculty;
         private Domain selectedDomain;
         private Specialization selectedSpecialization;
+        private int id;
 
         public FormViewCourse()
         {
             InitializeComponent();
         }
 
-        public FormViewCourse(int id)
+        public FormViewCourse(FormViewCourses parent, int id)
         {
             InitializeComponent();
-            course = webService.GetCourse(id);
+            this.parent = parent;
+            this.id = id;
         }
 
         private void FormViewCourse_Load(object sender, EventArgs e)
         {
-            parent = new FormDashboard();
-
             comboBoxSemester.Items.Add("Semestrul 1");
             comboBoxSemester.Items.Add("Semestrul 2");
             comboBoxStudyLevel.Items.Add("Licență");
@@ -40,6 +40,64 @@ namespace Proiect
             comboBoxYear.Items.Add("Anul 4");
             comboBoxYear.Items.Add("Anul 5");
             comboBoxYear.Items.Add("Anul 6");
+
+            UpdateData();
+        }
+
+        private void comboBoxFaculty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedFaculty = (Faculty)comboBoxFaculty.SelectedItem;
+
+            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+        }
+
+        private void comboBoxDomain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedDomain = (Domain)comboBoxDomain.SelectedItem;
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+        }
+
+        private void comboBoxSpecialization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSpecialization = (Specialization)comboBoxSpecialization.SelectedItem;
+        }
+
+        private void toolStripButtonRedeemCourse_Click(object sender, EventArgs e)
+        {
+            webService.RedeemCourse(course.id, Utils.GetLoggedInUser().id);
+            MessageBox.Show("Cererea a fost trimisa!");
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void FormViewCourse_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
+        }
+
+        private void toolStripButtonEditCourse_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormEditCourse newForm = new FormEditCourse(this, course.id);
+            newForm.Show();
+        }
+
+        private void FormViewCourse_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+            {
+                UpdateData();
+            }
+        }
+
+        private void UpdateData()
+        {
+            course = webService.GetCourse(id);
 
             comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
             comboBoxFaculty.DisplayMember = "name";
@@ -83,7 +141,7 @@ namespace Proiect
             textBoxCredits.Text = course.credits.ToString();
 
             textBoxCourseHours.Text = course.course_hours.ToString();
-        
+
             textBoxSeminaryHours.Text = course.seminary_hours.ToString();
             textBoxLabHours.Text = course.laboratory_hours.ToString();
             textBoxProjectHours.Text = course.project_hours.ToString();
@@ -98,31 +156,6 @@ namespace Proiect
                 course.project_tutors.Split(',').ToList().ForEach((tutor) => { listBoxProjectTutors.Items.Add(tutor.ToString()); });
 
             richTextBox.Text = course.content;
-        }
-
-        private void comboBoxFaculty_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedFaculty = (Faculty)comboBoxFaculty.SelectedItem;
-
-            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
-            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
-        }
-
-        private void comboBoxDomain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedDomain = (Domain)comboBoxDomain.SelectedItem;
-            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
-        }
-
-        private void comboBoxSpecialization_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedSpecialization = (Specialization)comboBoxSpecialization.SelectedItem;
-        }
-
-        private void toolStripButtonRedeemCourse_Click(object sender, EventArgs e)
-        {
-            webService.RedeemCourse(course.id, Utils.GetLoggedInUser().id);
-            MessageBox.Show("Cererea a fost trimisa!");
         }
     }
 }

@@ -116,6 +116,20 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Specialization" nillable="true" type="tns:Specialization" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetRolesByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolesByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolesByNameResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetRole">
         <s:complexType>
           <s:sequence>
@@ -144,6 +158,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetUsersWithRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersWithRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersWithRoleResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="UpdateUserRoles">
         <s:complexType>
           <s:sequence>
@@ -153,6 +181,36 @@
         </s:complexType>
       </s:element>
       <s:element name="UpdateUserRolesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRoleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EditRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditRoleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRoleResponse">
         <s:complexType />
       </s:element>
       <s:element name="GetUsers">
@@ -560,6 +618,12 @@
   <wsdl:message name="GetRolesSoapOut">
     <wsdl:part name="parameters" element="tns:GetRolesResponse" />
   </wsdl:message>
+  <wsdl:message name="GetRolesByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRolesByName" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolesByNameResponse" />
+  </wsdl:message>
   <wsdl:message name="GetRoleSoapIn">
     <wsdl:part name="parameters" element="tns:GetRole" />
   </wsdl:message>
@@ -572,11 +636,35 @@
   <wsdl:message name="GetUserRolesSoapOut">
     <wsdl:part name="parameters" element="tns:GetUserRolesResponse" />
   </wsdl:message>
+  <wsdl:message name="GetUsersWithRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersWithRole" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersWithRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersWithRoleResponse" />
+  </wsdl:message>
   <wsdl:message name="UpdateUserRolesSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateUserRoles" />
   </wsdl:message>
   <wsdl:message name="UpdateUserRolesSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:AddRole" />
+  </wsdl:message>
+  <wsdl:message name="AddRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:AddRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:EditRole" />
+  </wsdl:message>
+  <wsdl:message name="EditRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:EditRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRole" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRoleResponse" />
   </wsdl:message>
   <wsdl:message name="GetUsersSoapIn">
     <wsdl:part name="parameters" element="tns:GetUsers" />
@@ -787,6 +875,10 @@
       <wsdl:input message="tns:GetRolesSoapIn" />
       <wsdl:output message="tns:GetRolesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetRolesByName">
+      <wsdl:input message="tns:GetRolesByNameSoapIn" />
+      <wsdl:output message="tns:GetRolesByNameSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetRole">
       <wsdl:input message="tns:GetRoleSoapIn" />
       <wsdl:output message="tns:GetRoleSoapOut" />
@@ -795,9 +887,25 @@
       <wsdl:input message="tns:GetUserRolesSoapIn" />
       <wsdl:output message="tns:GetUserRolesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetUsersWithRole">
+      <wsdl:input message="tns:GetUsersWithRoleSoapIn" />
+      <wsdl:output message="tns:GetUsersWithRoleSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateUserRoles">
       <wsdl:input message="tns:UpdateUserRolesSoapIn" />
       <wsdl:output message="tns:UpdateUserRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <wsdl:input message="tns:AddRoleSoapIn" />
+      <wsdl:output message="tns:AddRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRole">
+      <wsdl:input message="tns:EditRoleSoapIn" />
+      <wsdl:output message="tns:EditRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <wsdl:input message="tns:DeleteRoleSoapIn" />
+      <wsdl:output message="tns:DeleteRoleSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
@@ -947,6 +1055,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRolesByName">
+      <soap:operation soapAction="http://tempuri.org/GetRolesByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetRole">
       <soap:operation soapAction="http://tempuri.org/GetRole" style="document" />
       <wsdl:input>
@@ -965,8 +1082,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUsersWithRole">
+      <soap:operation soapAction="http://tempuri.org/GetUsersWithRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateUserRoles">
       <soap:operation soapAction="http://tempuri.org/UpdateUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap:operation soapAction="http://tempuri.org/AddRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditRole">
+      <soap:operation soapAction="http://tempuri.org/EditRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <soap:operation soapAction="http://tempuri.org/DeleteRole" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1292,6 +1445,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRolesByName">
+      <soap12:operation soapAction="http://tempuri.org/GetRolesByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetRole">
       <soap12:operation soapAction="http://tempuri.org/GetRole" style="document" />
       <wsdl:input>
@@ -1310,8 +1472,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUsersWithRole">
+      <soap12:operation soapAction="http://tempuri.org/GetUsersWithRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateUserRoles">
       <soap12:operation soapAction="http://tempuri.org/UpdateUserRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRole">
+      <soap12:operation soapAction="http://tempuri.org/AddRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditRole">
+      <soap12:operation soapAction="http://tempuri.org/EditRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <soap12:operation soapAction="http://tempuri.org/DeleteRole" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

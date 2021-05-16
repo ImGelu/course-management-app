@@ -76,11 +76,14 @@
             this.textBoxCourseHours = new System.Windows.Forms.TextBox();
             this.labelCourseHours = new System.Windows.Forms.Label();
             this.buttonEditCourse = new System.Windows.Forms.Button();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.groupBoxProject.SuspendLayout();
             this.groupBoxSeminary.SuspendLayout();
             this.groupBoxLab.SuspendLayout();
             this.groupBoxGeneral.SuspendLayout();
             this.groupBoxCourse.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxProject
@@ -92,7 +95,7 @@
             this.groupBoxProject.Controls.Add(this.textBoxProjectHours);
             this.groupBoxProject.Controls.Add(this.labelProjectHours);
             this.groupBoxProject.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.groupBoxProject.Location = new System.Drawing.Point(950, 268);
+            this.groupBoxProject.Location = new System.Drawing.Point(950, 289);
             this.groupBoxProject.Name = "groupBoxProject";
             this.groupBoxProject.Size = new System.Drawing.Size(273, 238);
             this.groupBoxProject.TabIndex = 76;
@@ -169,7 +172,7 @@
             this.groupBoxSeminary.Controls.Add(this.textBoxSeminaryHours);
             this.groupBoxSeminary.Controls.Add(this.labelSeminaryHours);
             this.groupBoxSeminary.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.groupBoxSeminary.Location = new System.Drawing.Point(950, 24);
+            this.groupBoxSeminary.Location = new System.Drawing.Point(950, 45);
             this.groupBoxSeminary.Name = "groupBoxSeminary";
             this.groupBoxSeminary.Size = new System.Drawing.Size(273, 238);
             this.groupBoxSeminary.TabIndex = 77;
@@ -246,7 +249,7 @@
             this.groupBoxLab.Controls.Add(this.textBoxLabHours);
             this.groupBoxLab.Controls.Add(this.labelLabHours);
             this.groupBoxLab.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.groupBoxLab.Location = new System.Drawing.Point(671, 268);
+            this.groupBoxLab.Location = new System.Drawing.Point(671, 289);
             this.groupBoxLab.Name = "groupBoxLab";
             this.groupBoxLab.Size = new System.Drawing.Size(273, 238);
             this.groupBoxLab.TabIndex = 75;
@@ -333,7 +336,7 @@
             this.groupBoxGeneral.Controls.Add(this.comboBoxYear);
             this.groupBoxGeneral.Controls.Add(this.comboBoxStudyLevel);
             this.groupBoxGeneral.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.groupBoxGeneral.Location = new System.Drawing.Point(19, 25);
+            this.groupBoxGeneral.Location = new System.Drawing.Point(19, 46);
             this.groupBoxGeneral.Name = "groupBoxGeneral";
             this.groupBoxGeneral.Size = new System.Drawing.Size(632, 237);
             this.groupBoxGeneral.TabIndex = 79;
@@ -502,7 +505,7 @@
             this.labelContent.AutoSize = true;
             this.labelContent.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.labelContent.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelContent.Location = new System.Drawing.Point(19, 268);
+            this.labelContent.Location = new System.Drawing.Point(19, 289);
             this.labelContent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(131, 20);
@@ -513,7 +516,7 @@
             // richTextBox
             // 
             this.richTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.richTextBox.Location = new System.Drawing.Point(19, 290);
+            this.richTextBox.Location = new System.Drawing.Point(19, 311);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(632, 216);
             this.richTextBox.TabIndex = 78;
@@ -528,7 +531,7 @@
             this.groupBoxCourse.Controls.Add(this.textBoxCourseHours);
             this.groupBoxCourse.Controls.Add(this.labelCourseHours);
             this.groupBoxCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.groupBoxCourse.Location = new System.Drawing.Point(671, 24);
+            this.groupBoxCourse.Location = new System.Drawing.Point(671, 45);
             this.groupBoxCourse.Name = "groupBoxCourse";
             this.groupBoxCourse.Size = new System.Drawing.Size(273, 238);
             this.groupBoxCourse.TabIndex = 74;
@@ -599,7 +602,7 @@
             // buttonEditCourse
             // 
             this.buttonEditCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonEditCourse.Location = new System.Drawing.Point(19, 514);
+            this.buttonEditCourse.Location = new System.Drawing.Point(19, 535);
             this.buttonEditCourse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonEditCourse.Name = "buttonEditCourse";
             this.buttonEditCourse.Size = new System.Drawing.Size(1204, 35);
@@ -608,12 +611,39 @@
             this.buttonEditCourse.UseVisualStyleBackColor = true;
             this.buttonEditCourse.Click += new System.EventHandler(this.buttonEditCourse_Click);
             // 
+            // toolStrip
+            // 
+            this.toolStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBack});
+            this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip.Size = new System.Drawing.Size(1243, 30);
+            this.toolStrip.TabIndex = 89;
+            this.toolStrip.Text = "toolStrip";
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 20);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
+            // 
             // FormEditCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1243, 573);
+            this.ClientSize = new System.Drawing.Size(1243, 583);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.groupBoxProject);
             this.Controls.Add(this.groupBoxSeminary);
             this.Controls.Add(this.groupBoxLab);
@@ -627,6 +657,7 @@
             this.Name = "FormEditCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editează materia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditCourse_FormClosed);
             this.Load += new System.EventHandler(this.FormEditCourse_Load);
             this.groupBoxProject.ResumeLayout(false);
             this.groupBoxProject.PerformLayout();
@@ -638,6 +669,8 @@
             this.groupBoxGeneral.PerformLayout();
             this.groupBoxCourse.ResumeLayout(false);
             this.groupBoxCourse.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,5 +726,7 @@
         private System.Windows.Forms.TextBox textBoxCourseHours;
         private System.Windows.Forms.Label labelCourseHours;
         private System.Windows.Forms.Button buttonEditCourse;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
     }
 }

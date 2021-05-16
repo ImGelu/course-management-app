@@ -10,6 +10,7 @@ namespace Proiect
         public static CoursesWebService webService = new CoursesWebService();
         private FormViewUsers parent;
         private User user;
+        private int id;
 
         public FormViewUser()
         {
@@ -20,24 +21,17 @@ namespace Proiect
         {
             this.parent = parent;
             InitializeComponent();
-            user = webService.GetUser(id);
+            this.id = id;
         }
 
         private void FormViewUser_Load(object sender, EventArgs e)
         {
-            textBoxName.Text = user.name;
-            textBoxEmail.Text = user.email;
-            listBoxRoles.ValueMember = "name";
-
-            webService.GetUserRoles(user.id).ToList().ForEach((userRole) =>
-            {
-                listBoxRoles.Items.Add(userRole);
-            });
+            UpdateData();
         }
 
         private void toolStripButtonEditUser_Click(object sender, EventArgs e)
         {
-            FormEditUser newForm = new FormEditUser(user.id);
+            FormEditUser newForm = new FormEditUser(this, user.id);
             newForm.Show(this);
             this.Hide();
         }
@@ -51,6 +45,38 @@ namespace Proiect
                 parent.Show();
                 this.Close();
             }  
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void FormViewUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
+        }
+
+        private void FormViewUser_VisibleChanged(object sender, EventArgs e)
+        {
+            if(this.Visible == true)
+            {
+                UpdateData();
+            }
+        }
+
+        private void UpdateData()
+        {
+            user = webService.GetUser(id);
+            textBoxName.Text = user.name;
+            textBoxEmail.Text = user.email;
+            listBoxRoles.ValueMember = "name";
+
+            webService.GetUserRoles(user.id).ToList().ForEach((userRole) =>
+            {
+                listBoxRoles.Items.Add(userRole);
+            });
         }
     }
 }

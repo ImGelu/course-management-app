@@ -10,7 +10,8 @@ namespace Proiect
     public partial class FormEditUser : Form
     {
         public static CoursesWebService webService = new CoursesWebService();
-        private FormViewUsers parent;
+        private FormViewUsers parentUsers = null;
+        private FormViewUser parentUser = null;
         private User user;
 
         public FormEditUser()
@@ -18,15 +19,22 @@ namespace Proiect
             InitializeComponent();
         }
 
-        public FormEditUser(int id)
+        public FormEditUser(FormViewUsers parent, int id)
         {
             InitializeComponent();
             user = webService.GetUser(id);
+            this.parentUsers = parent;
+        }
+
+        public FormEditUser(FormViewUser parent, int id)
+        {
+            InitializeComponent();
+            user = webService.GetUser(id);
+            this.parentUser = parent;
         }
 
         private void FormEditUser_Load(object sender, EventArgs e)
         {
-            parent = new FormViewUsers();
             textBoxEmail.Text = user.email;
             textBoxName.Text = user.name;
             listBoxRoles.ValueMember = "name";
@@ -56,6 +64,28 @@ namespace Proiect
             {
                 comboBoxRoles.Items.Remove(role);
             });
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            if(parentUsers == null)
+            {
+                parentUser.Show();
+            } else
+            {
+                parentUsers.Show();
+            }
+        }
+
+        private void toolStripButtonDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                webService.DeleteUser(user.id);
+                MessageBox.Show("Utilizatorul a fost șters cu succes!");
+                this.Close();
+            }
         }
 
         private void buttonEditUser_Click(object sender, EventArgs e)
@@ -128,16 +158,6 @@ namespace Proiect
             }
         }
 
-        private void toolStripButtonDeleteUser_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                webService.DeleteUser(user.id);
-                MessageBox.Show("Utilizatorul a fost șters cu succes!");
-                this.Close();
-            }
-        }
-
         private void buttonAddRole_Click(object sender, EventArgs e)
         {
             Role selectedItem = (Role)comboBoxRoles.SelectedItem;
@@ -162,6 +182,18 @@ namespace Proiect
                     listBoxRoles.Items.Remove(selectedItem);
                     comboBoxRoles.Items.Add(selectedItem);
                 }
+            }
+        }
+
+        private void FormEditUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (parentUsers == null)
+            {
+                parentUser.Show();
+            }
+            else
+            {
+                parentUsers.Show();
             }
         }
     }

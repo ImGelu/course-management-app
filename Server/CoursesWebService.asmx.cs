@@ -30,6 +30,15 @@ namespace Server
         }
 
         [WebMethod]
+        public List<Role> GetRolesByName(string name)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Roles.Where(role => role.name.Contains(name)).ToList();
+        }
+
+
+        [WebMethod]
         public Role GetRole(int id)
         {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
@@ -43,6 +52,14 @@ namespace Server
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
             return databaseEntities.Database.SqlQuery<Role>("SELECT t2.* FROM Users2Roles AS t1 INNER JOIN Roles AS t2 ON t1.id_role = t2.id AND t1.id_user = @id", new SqlParameter("@id", id)).ToList();
+        }
+
+        [WebMethod]
+        public List<User> GetUsersWithRole(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Database.SqlQuery<User>("SELECT t2.* FROM Users2Roles AS t1 INNER JOIN Users AS t2 ON t1.id_user = t2.id AND t1.id_role = @id", new SqlParameter("@id", id)).ToList();
         }
 
         [WebMethod]
@@ -61,6 +78,37 @@ namespace Server
             });
         }
 
+        [WebMethod]
+        public void AddRole(Role role)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            databaseEntities.Roles.Add(role);
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void EditRole(Role role)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Role existingRole = databaseEntities.Roles.Find(role.id);
+
+            existingRole.name = role.name;
+
+            databaseEntities.SaveChanges();
+        }
+
+        [WebMethod]
+        public void DeleteRole(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            Role existingRole = databaseEntities.Roles.Find(id);
+            databaseEntities.Roles.Remove(existingRole);
+
+            databaseEntities.SaveChanges();
+        }
 
         /** Users **/
         [WebMethod]

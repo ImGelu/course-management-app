@@ -12,15 +12,25 @@ namespace Proiect
         private Faculty selectedFaculty;
         private Domain selectedDomain;
         private Specialization selectedSpecialization;
+        private FormViewCourses parentCourses = null;
+        private FormViewCourse parentCourse = null;
 
         public FormEditCourse()
         {
             InitializeComponent();
         }
-        public FormEditCourse(int id)
+        public FormEditCourse(FormViewCourses parent, int id)
         {
             InitializeComponent();
             course = webService.GetCourse(id);
+            this.parentCourses = parent;
+        }
+
+        public FormEditCourse(FormViewCourse parent, int id)
+        {
+            InitializeComponent();
+            course = webService.GetCourse(id);
+            this.parentCourse = parent;
         }
 
         private void FormEditCourse_Load(object sender, EventArgs e)
@@ -120,6 +130,15 @@ namespace Proiect
             {
                 webService.EditCourse(newCourse);
                 MessageBox.Show("Salvările au fost efectuate cu succes!");
+                this.Close();
+                if (parentCourse == null)
+                {
+                    parentCourses.Show();
+                }
+                else
+                {
+                    parentCourse.Show();
+                }
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -222,6 +241,30 @@ namespace Proiect
 
                 e.Handled = true;
                 if (selectedIndex > -1) listBoxProjectTutors.Items.RemoveAt(selectedIndex);
+            }
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            if(parentCourse == null)
+            {
+                parentCourses.Show();
+            } else
+            {
+                parentCourse.Show();
+            }
+        }
+
+        private void FormEditCourse_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (parentCourse == null)
+            {
+                parentCourses.Show();
+            }
+            else
+            {
+                parentCourse.Show();
             }
         }
     }

@@ -71,7 +71,7 @@ namespace Proiect
 
             await Task.Delay(1000);
 
-            if (startLength == tb.Text.Length && tb.Text.Length > 0)
+            if (startLength == tb.Text.Length && tb.Text.Length > 2)
             {
                 try
                 {
@@ -81,7 +81,6 @@ namespace Proiect
 
                     results.ToList().ForEach((result) =>
                     {
-                        //Role role = webService.GetRole(result.specialization_id);
                         DataRow newRow = dataTable.NewRow();
                         newRow["ID"] = result.id;
                         newRow["Nume"] = result.name;
@@ -109,25 +108,30 @@ namespace Proiect
 
         private void dataGridViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int userId = Convert.ToInt32(dataGridViewUsers.Rows[e.RowIndex].Cells["ID"].Value);
+            if (e.RowIndex > -1)
+            {
+                int userId = Convert.ToInt32(dataGridViewUsers.Rows[e.RowIndex].Cells["ID"].Value);
 
-            if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Vizualizare")
-            {
-                FormViewUser formViewUser = new FormViewUser(this, userId);
-                formViewUser.Show();
-            }
-            else if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Șterge")
-            {
-                if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?\n\nAcțiunea este ireversibilă.", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (e.ColumnIndex > -1 && dataGridViewUsers.Columns[e.ColumnIndex].Name == "Vizualizare")
                 {
-                    webService.DeleteUser(userId);
-                    dataGridViewUsers.Rows.RemoveAt(e.RowIndex);
+                    FormViewUser formViewUser = new FormViewUser(this, userId);
+                    this.Hide();
+                    formViewUser.Show();
                 }
-            }
-            else if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "Editează")
-            {
-                FormEditUser formEditUser = new FormEditUser(userId);
-                formEditUser.Show();
+                else if (e.ColumnIndex > -1 && dataGridViewUsers.Columns[e.ColumnIndex].Name == "Șterge")
+                {
+                    if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?\n\nAcțiunea este ireversibilă.", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        webService.DeleteUser(userId);
+                        dataGridViewUsers.Rows.RemoveAt(e.RowIndex);
+                    }
+                }
+                else if (e.ColumnIndex > -1 && dataGridViewUsers.Columns[e.ColumnIndex].Name == "Editează")
+                {
+                    FormEditUser formEditUser = new FormEditUser(this, userId);
+                    this.Hide();
+                    formEditUser.Show();
+                }
             }
         }
 

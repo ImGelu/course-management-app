@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proiect.Faculties;
+using Proiect.Roles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -62,7 +64,9 @@ namespace Proiect
 
         private void buttonViewFaculties_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon!");
+            FormViewFaculties formViewFaculties = new FormViewFaculties();
+            formViewFaculties.Show(this);
+            this.Hide();
         }
 
         private void buttonViewDomains_Click(object sender, EventArgs e)
@@ -84,7 +88,9 @@ namespace Proiect
 
         private void buttonViewRoles_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon!");
+            FormViewRoles formViewRoles = new FormViewRoles();
+            formViewRoles.Show(this);
+            this.Hide();
         }
     }
 }

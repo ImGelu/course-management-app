@@ -1,7 +1,7 @@
 ﻿
-namespace Proiect
+namespace Proiect.Roles
 {
-    partial class FormViewUsers
+    partial class FormViewRoles
     {
         /// <summary>
         /// Required designer variable.
@@ -29,33 +29,17 @@ namespace Proiect
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonAddUser = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAddRole = new System.Windows.Forms.ToolStripButton();
             this.labelNotFound = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
+            this.dataGridViewRoles = new System.Windows.Forms.DataGridView();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoles)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewUsers
-            // 
-            this.dataGridViewUsers.AllowUserToAddRows = false;
-            this.dataGridViewUsers.AllowUserToDeleteRows = false;
-            this.dataGridViewUsers.AllowUserToResizeColumns = false;
-            this.dataGridViewUsers.AllowUserToResizeRows = false;
-            this.dataGridViewUsers.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(12, 69);
-            this.dataGridViewUsers.Name = "dataGridViewUsers";
-            this.dataGridViewUsers.ReadOnly = true;
-            this.dataGridViewUsers.RowHeadersWidth = 51;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(809, 384);
-            this.dataGridViewUsers.TabIndex = 0;
-            this.dataGridViewUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellClick);
             // 
             // toolStrip
             // 
@@ -67,14 +51,14 @@ namespace Proiect
             this.toolStripTextBoxSearch,
             this.toolStripLabelSearch,
             this.toolStripSeparator1,
-            this.toolStripButtonAddUser});
+            this.toolStripButtonAddRole});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip.Size = new System.Drawing.Size(833, 33);
-            this.toolStrip.TabIndex = 13;
+            this.toolStrip.TabIndex = 17;
             this.toolStrip.Text = "toolStrip";
             // 
             // toolStripButtonBack
@@ -90,6 +74,7 @@ namespace Proiect
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Margin = new System.Windows.Forms.Padding(1, 5, 5, 5);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 23);
@@ -100,8 +85,8 @@ namespace Proiect
             this.toolStripLabelSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabelSearch.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.toolStripLabelSearch.Name = "toolStripLabelSearch";
-            this.toolStripLabelSearch.Size = new System.Drawing.Size(92, 23);
-            this.toolStripLabelSearch.Text = "Caută utilizatori:";
+            this.toolStripLabelSearch.Size = new System.Drawing.Size(71, 23);
+            this.toolStripLabelSearch.Text = "Caută roluri:";
             // 
             // toolStripSeparator1
             // 
@@ -109,15 +94,16 @@ namespace Proiect
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
             // 
-            // toolStripButtonAddUser
+            // toolStripButtonAddRole
             // 
-            this.toolStripButtonAddUser.Image = global::Proiect.Properties.Resources.icon_plus;
-            this.toolStripButtonAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddUser.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonAddUser.Name = "toolStripButtonAddUser";
-            this.toolStripButtonAddUser.Size = new System.Drawing.Size(157, 23);
-            this.toolStripButtonAddUser.Text = "Adaugă un utilizator nou";
-            this.toolStripButtonAddUser.Click += new System.EventHandler(this.toolStripButtonAddUser_Click);
+            this.toolStripButtonAddRole.Image = global::Proiect.Properties.Resources.icon_plus;
+            this.toolStripButtonAddRole.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddRole.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonAddRole.Name = "toolStripButtonAddRole";
+            this.toolStripButtonAddRole.Size = new System.Drawing.Size(125, 23);
+            this.toolStripButtonAddRole.Text = "Adaugă un rol nou";
+            this.toolStripButtonAddRole.ToolTipText = "Adaugă un rol nou";
+            this.toolStripButtonAddRole.Click += new System.EventHandler(this.toolStripButtonAddRole_Click);
             // 
             // labelNotFound
             // 
@@ -125,45 +111,58 @@ namespace Proiect
             this.labelNotFound.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNotFound.Location = new System.Drawing.Point(326, 45);
             this.labelNotFound.Name = "labelNotFound";
-            this.labelNotFound.Size = new System.Drawing.Size(180, 21);
-            this.labelNotFound.TabIndex = 15;
-            this.labelNotFound.Text = "No such user was found!";
+            this.labelNotFound.Size = new System.Drawing.Size(178, 21);
+            this.labelNotFound.TabIndex = 19;
+            this.labelNotFound.Text = "No such role was found!";
             // 
-            // FormViewUsers
+            // dataGridViewRoles
+            // 
+            this.dataGridViewRoles.AllowUserToAddRows = false;
+            this.dataGridViewRoles.AllowUserToDeleteRows = false;
+            this.dataGridViewRoles.AllowUserToResizeColumns = false;
+            this.dataGridViewRoles.AllowUserToResizeRows = false;
+            this.dataGridViewRoles.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRoles.Location = new System.Drawing.Point(12, 69);
+            this.dataGridViewRoles.Name = "dataGridViewRoles";
+            this.dataGridViewRoles.ReadOnly = true;
+            this.dataGridViewRoles.RowHeadersWidth = 51;
+            this.dataGridViewRoles.Size = new System.Drawing.Size(809, 384);
+            this.dataGridViewRoles.TabIndex = 18;
+            // 
+            // FormViewRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(833, 464);
             this.Controls.Add(this.labelNotFound);
+            this.Controls.Add(this.dataGridViewRoles);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.dataGridViewUsers);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormViewUsers";
+            this.Name = "FormViewRoles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista utilizatorilor";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewUsers_FormClosed);
-            this.Load += new System.EventHandler(this.FormViewUsers_Load);
-            this.VisibleChanged += new System.EventHandler(this.FormViewUsers_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
+            this.Text = "Vizualizare roluri";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewRoles_FormClosed);
+            this.Load += new System.EventHandler(this.FormViewRoles_Load);
+            this.VisibleChanged += new System.EventHandler(this.FormViewRoles_VisibleChanged);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabelSearch;
-        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
-        private System.Windows.Forms.Label labelNotFound;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonAddUser;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddRole;
+        private System.Windows.Forms.Label labelNotFound;
+        public System.Windows.Forms.DataGridView dataGridViewRoles;
     }
 }

@@ -8,7 +8,7 @@ namespace Proiect
     public partial class FormCreateCourse : Form
     {
         public static CoursesWebService webService = new CoursesWebService();
-        private FormDashboard parent = new FormDashboard();
+        private FormViewCourses parent = new FormViewCourses();
         private Faculty selectedFaculty;
         private Domain selectedDomain;
         private Specialization selectedSpecialization;
@@ -26,6 +26,31 @@ namespace Proiect
             comboBoxYear.Items.Add("Anul 4");
             comboBoxYear.Items.Add("Anul 5");
             comboBoxYear.Items.Add("Anul 6");
+        }
+
+        private void FormCreateCourse_Load(object sender, EventArgs e)
+        {
+            FormViewCourses parent = (FormViewCourses)Owner;
+
+            comboBoxSemester.Items.Add("Semestrul 1");
+            comboBoxSemester.Items.Add("Semestrul 2");
+            comboBoxStudyLevel.Items.Add("Licență");
+            comboBoxStudyLevel.Items.Add("Master");
+            comboBoxYear.Items.Add("Anul 1");
+            comboBoxYear.Items.Add("Anul 2");
+            comboBoxYear.Items.Add("Anul 3");
+            comboBoxYear.Items.Add("Anul 4");
+            comboBoxYear.Items.Add("Anul 5");
+            comboBoxYear.Items.Add("Anul 6");
+
+            comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
+            comboBoxFaculty.DisplayMember = "name";
+
+            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
+            comboBoxDomain.DisplayMember = "name";
+
+            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
+            comboBoxSpecialization.DisplayMember = "name";
         }
 
         private void buttonAddCourse_Click(object sender, EventArgs e)
@@ -60,31 +85,6 @@ namespace Proiect
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void FormCreateCourse_Load(object sender, EventArgs e)
-        {
-            FormDashboard parent = (FormDashboard)Owner;
-
-            comboBoxSemester.Items.Add("Semestrul 1");
-            comboBoxSemester.Items.Add("Semestrul 2");
-            comboBoxStudyLevel.Items.Add("Licență");
-            comboBoxStudyLevel.Items.Add("Master");
-            comboBoxYear.Items.Add("Anul 1");
-            comboBoxYear.Items.Add("Anul 2");
-            comboBoxYear.Items.Add("Anul 3");
-            comboBoxYear.Items.Add("Anul 4");
-            comboBoxYear.Items.Add("Anul 5");
-            comboBoxYear.Items.Add("Anul 6");
-
-            comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
-            comboBoxFaculty.DisplayMember = "name";
-
-            comboBoxDomain.DataSource = webService.GetDomains().Where(domain => domain.faculty_id == selectedFaculty.id).ToList();
-            comboBoxDomain.DisplayMember = "name";
-
-            comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
-            comboBoxSpecialization.DisplayMember = "name";
         }
 
         private void buttonCourseTutors_Click(object sender, EventArgs e)
@@ -184,6 +184,17 @@ namespace Proiect
                 e.Handled = true;
                 if (selectedIndex > -1) listBoxProjectTutors.Items.RemoveAt(selectedIndex);
             }
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void FormCreateCourse_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
         }
     }
 }

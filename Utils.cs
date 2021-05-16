@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Proiect.CoursesWebServiceReference;
 
 namespace Proiect
 {
     static class Utils
     {
-        public static CoursesWebServiceReference.CoursesWebService webService = new CoursesWebServiceReference.CoursesWebService();
+        public static CoursesWebService webService = new CoursesWebService();
 
         public static bool IsValidEmail(string email)
         {
@@ -23,15 +24,15 @@ namespace Proiect
 
         public static bool EmailAlreadyTaken(string email)
         {
-            CoursesWebServiceReference.User existingUser = webService.GetUserByEmail(email);
+            User existingUser = webService.GetUserByEmail(email);
 
             return existingUser != null;
         }
 
-        public static CoursesWebServiceReference.User GetLoggedInUser()
+        public static User GetLoggedInUser()
         {
             int loggedInUserId = Properties.Settings.Default.loggedInUserId;
-            CoursesWebServiceReference.User existingUser = webService.GetUser(loggedInUserId);
+            User existingUser = webService.GetUser(loggedInUserId);
 
             return existingUser;
         }

@@ -68,6 +68,9 @@
             this.textBoxCourseHours = new System.Windows.Forms.TextBox();
             this.labelCourseHours = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonEditCourse = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRedeemCourse = new System.Windows.Forms.ToolStripButton();
             this.groupBoxProject.SuspendLayout();
             this.groupBoxSeminary.SuspendLayout();
@@ -105,7 +108,6 @@
             // 
             // listBoxProjectTutors
             // 
-            this.listBoxProjectTutors.Enabled = false;
             this.listBoxProjectTutors.FormattingEnabled = true;
             this.listBoxProjectTutors.ItemHeight = 20;
             this.listBoxProjectTutors.Location = new System.Drawing.Point(7, 118);
@@ -162,7 +164,6 @@
             // 
             // listBoxSeminaryTutors
             // 
-            this.listBoxSeminaryTutors.Enabled = false;
             this.listBoxSeminaryTutors.FormattingEnabled = true;
             this.listBoxSeminaryTutors.ItemHeight = 20;
             this.listBoxSeminaryTutors.Location = new System.Drawing.Point(7, 118);
@@ -219,7 +220,6 @@
             // 
             // listBoxLabTutors
             // 
-            this.listBoxLabTutors.Enabled = false;
             this.listBoxLabTutors.FormattingEnabled = true;
             this.listBoxLabTutors.ItemHeight = 20;
             this.listBoxLabTutors.Location = new System.Drawing.Point(7, 118);
@@ -491,7 +491,6 @@
             // 
             // listBoxCourseTutors
             // 
-            this.listBoxCourseTutors.Enabled = false;
             this.listBoxCourseTutors.FormattingEnabled = true;
             this.listBoxCourseTutors.ItemHeight = 20;
             this.listBoxCourseTutors.Location = new System.Drawing.Point(7, 118);
@@ -526,22 +525,52 @@
             this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonRedeemCourse});
+            this.toolStripButtonBack,
+            this.toolStripSeparator1,
+            this.toolStripButtonRedeemCourse,
+            this.toolStripButtonEditCourse});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(1243, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1243, 33);
             this.toolStrip.TabIndex = 87;
             this.toolStrip.Text = "toolStrip";
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 23);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
+            // 
+            // toolStripButtonEditCourse
+            // 
+            this.toolStripButtonEditCourse.Image = global::Proiect.Properties.Resources.icon_pencil;
+            this.toolStripButtonEditCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEditCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonEditCourse.Name = "toolStripButtonEditCourse";
+            this.toolStripButtonEditCourse.Size = new System.Drawing.Size(111, 23);
+            this.toolStripButtonEditCourse.Text = "Editează materia";
+            this.toolStripButtonEditCourse.Click += new System.EventHandler(this.toolStripButtonEditCourse_Click);
             // 
             // toolStripButtonRedeemCourse
             // 
             this.toolStripButtonRedeemCourse.Image = global::Proiect.Properties.Resources.icon_request;
             this.toolStripButtonRedeemCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRedeemCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.toolStripButtonRedeemCourse.Name = "toolStripButtonRedeemCourse";
-            this.toolStripButtonRedeemCourse.Size = new System.Drawing.Size(120, 22);
+            this.toolStripButtonRedeemCourse.Size = new System.Drawing.Size(120, 23);
             this.toolStripButtonRedeemCourse.Text = "Revendică materia";
             this.toolStripButtonRedeemCourse.Click += new System.EventHandler(this.toolStripButtonRedeemCourse_Click);
             // 
@@ -564,7 +593,9 @@
             this.Name = "FormViewCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vizualizare materie";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewCourse_FormClosed);
             this.Load += new System.EventHandler(this.FormViewCourse_Load);
+            this.VisibleChanged += new System.EventHandler(this.FormViewCourse_VisibleChanged);
             this.groupBoxProject.ResumeLayout(false);
             this.groupBoxProject.PerformLayout();
             this.groupBoxSeminary.ResumeLayout(false);
@@ -624,6 +655,9 @@
         private System.Windows.Forms.TextBox textBoxCourseHours;
         private System.Windows.Forms.Label labelCourseHours;
         private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEditCourse;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonRedeemCourse;
     }
 }

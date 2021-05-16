@@ -48,11 +48,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Faculties\FormCreateFaculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculties\FormCreateFaculty.Designer.cs">
+      <DependentUpon>FormCreateFaculty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculties\FormEditFaculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculties\FormEditFaculty.Designer.cs">
+      <DependentUpon>FormEditFaculty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculties\FormViewFaculties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculties\FormViewFaculties.Designer.cs">
+      <DependentUpon>FormViewFaculties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculties\FormViewFaculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculties\FormViewFaculty.Designer.cs">
+      <DependentUpon>FormViewFaculty.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDashboard.Designer.cs">
       <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\FormCreateRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\FormCreateRole.Designer.cs">
+      <DependentUpon>FormCreateRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\FormEditRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\FormEditRole.Designer.cs">
+      <DependentUpon>FormEditRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\FormViewRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\FormViewRoles.Designer.cs">
+      <DependentUpon>FormViewRoles.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\FormChangePassword.cs">
       <SubType>Form</SubType>
@@ -134,8 +176,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Faculties\FormCreateFaculty.resx">
+      <DependentUpon>FormCreateFaculty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculties\FormEditFaculty.resx">
+      <DependentUpon>FormEditFaculty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculties\FormViewFaculties.resx">
+      <DependentUpon>FormViewFaculties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculties\FormViewFaculty.resx">
+      <DependentUpon>FormViewFaculty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\FormCreateRole.resx">
+      <DependentUpon>FormCreateRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\FormEditRole.resx">
+      <DependentUpon>FormEditRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\FormViewRoles.resx">
+      <DependentUpon>FormViewRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
@@ -294,6 +357,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\CoursesWebServiceReference\CoursesWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domains\" />
+    <Folder Include="Logos\" />
+    <Folder Include="Specializations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utcn_logo_simple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utcn_logo_simple1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

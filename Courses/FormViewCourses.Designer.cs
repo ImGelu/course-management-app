@@ -34,6 +34,8 @@
             this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
             this.labelNotFound = new System.Windows.Forms.Label();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonAddCourse = new System.Windows.Forms.ToolStripButton();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
@@ -46,13 +48,15 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
             this.toolStripTextBoxSearch,
-            this.toolStripLabelSearch});
+            this.toolStripLabelSearch,
+            this.toolStripSeparator1,
+            this.toolStripButtonAddCourse});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(937, 33);
+            this.toolStrip.Size = new System.Drawing.Size(833, 33);
             this.toolStrip.TabIndex = 14;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -69,6 +73,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Margin = new System.Windows.Forms.Padding(1, 5, 5, 5);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 23);
@@ -77,18 +82,19 @@
             // toolStripLabelSearch
             // 
             this.toolStripLabelSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabelSearch.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.toolStripLabelSearch.Name = "toolStripLabelSearch";
-            this.toolStripLabelSearch.Size = new System.Drawing.Size(78, 30);
+            this.toolStripLabelSearch.Size = new System.Drawing.Size(78, 23);
             this.toolStripLabelSearch.Text = "Caută materii:";
             // 
             // labelNotFound
             // 
             this.labelNotFound.AutoSize = true;
             this.labelNotFound.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotFound.Location = new System.Drawing.Point(366, 55);
+            this.labelNotFound.Location = new System.Drawing.Point(326, 45);
             this.labelNotFound.Name = "labelNotFound";
             this.labelNotFound.Size = new System.Drawing.Size(196, 21);
-            this.labelNotFound.TabIndex = 18;
+            this.labelNotFound.TabIndex = 21;
             this.labelNotFound.Text = "No such course was found!";
             // 
             // dataGridViewCourses
@@ -99,19 +105,35 @@
             this.dataGridViewCourses.AllowUserToResizeRows = false;
             this.dataGridViewCourses.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCourses.Location = new System.Drawing.Point(21, 79);
+            this.dataGridViewCourses.Location = new System.Drawing.Point(12, 69);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
             this.dataGridViewCourses.ReadOnly = true;
             this.dataGridViewCourses.RowHeadersWidth = 51;
-            this.dataGridViewCourses.Size = new System.Drawing.Size(904, 384);
-            this.dataGridViewCourses.TabIndex = 16;
-            this.dataGridViewCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourses_CellClick);
+            this.dataGridViewCourses.Size = new System.Drawing.Size(809, 384);
+            this.dataGridViewCourses.TabIndex = 20;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
+            // 
+            // toolStripButtonAddCourse
+            // 
+            this.toolStripButtonAddCourse.Image = global::Proiect.Properties.Resources.icon_plus;
+            this.toolStripButtonAddCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonAddCourse.Name = "toolStripButtonAddCourse";
+            this.toolStripButtonAddCourse.Size = new System.Drawing.Size(132, 23);
+            this.toolStripButtonAddCourse.Text = "Adaugă un curs nou";
+            this.toolStripButtonAddCourse.ToolTipText = "Adaugă un curs nou";
+            this.toolStripButtonAddCourse.Click += new System.EventHandler(this.toolStripButtonAddCourse_Click);
             // 
             // FormViewCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 478);
+            this.ClientSize = new System.Drawing.Size(833, 464);
             this.Controls.Add(this.labelNotFound);
             this.Controls.Add(this.dataGridViewCourses);
             this.Controls.Add(this.toolStrip);
@@ -120,7 +142,9 @@
             this.Name = "FormViewCourses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vizualizare materii";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewCourses_FormClosed);
             this.Load += new System.EventHandler(this.FormViewCourses_Load);
+            this.VisibleChanged += new System.EventHandler(this.FormViewCourses_VisibleChanged);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).EndInit();
@@ -136,5 +160,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabelSearch;
         private System.Windows.Forms.Label labelNotFound;
         public System.Windows.Forms.DataGridView dataGridViewCourses;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddCourse;
     }
 }

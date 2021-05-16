@@ -38,9 +38,9 @@ namespace Proiect
             this.buttonViewCourses = new System.Windows.Forms.Button();
             this.buttonViewRequests = new System.Windows.Forms.Button();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripSplitButtonLoggedIn = new System.Windows.Forms.ToolStripSplitButton();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxActions.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -145,6 +145,26 @@ namespace Proiect
             this.toolStrip.Size = new System.Drawing.Size(783, 25);
             this.toolStrip.TabIndex = 1;
             // 
+            // toolStripSplitButtonLoggedIn
+            // 
+            this.toolStripSplitButtonLoggedIn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButtonLoggedIn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.toolStripSplitButtonLoggedIn.Image = global::Proiect.Properties.Resources.icon_user;
+            this.toolStripSplitButtonLoggedIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonLoggedIn.Name = "toolStripSplitButtonLoggedIn";
+            this.toolStripSplitButtonLoggedIn.Size = new System.Drawing.Size(114, 22);
+            this.toolStripSplitButtonLoggedIn.Text = "Logged in as...";
+            this.toolStripSplitButtonLoggedIn.ToolTipText = "Logged in as {user} ({role})";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = global::Proiect.Properties.Resources.icon_logout;
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Proiect.Properties.Resources.logo_utcn;
@@ -154,26 +174,6 @@ namespace Proiect
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // toolStripSplitButtonLoggedIn
-            // 
-            this.toolStripSplitButtonLoggedIn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSplitButtonLoggedIn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logOutToolStripMenuItem});
-            this.toolStripSplitButtonLoggedIn.Image = global::Proiect.Properties.Resources.icon_user;
-            this.toolStripSplitButtonLoggedIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButtonLoggedIn.Name = "toolStripSplitButtonLoggedIn";
-            this.toolStripSplitButtonLoggedIn.Size = new System.Drawing.Size(115, 22);
-            this.toolStripSplitButtonLoggedIn.Text = "Logged in as...";
-            this.toolStripSplitButtonLoggedIn.ToolTipText = "Logged in as {user} ({role})";
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Image = global::Proiect.Properties.Resources.icon_logout;
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.logOutToolStripMenuItem.Text = "Log out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // FormDashboard
             // 

@@ -45,6 +45,8 @@ namespace Proiect
             this.labelRole = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonDeleteUser = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonChangePassword = new System.Windows.Forms.ToolStripButton();
             this.groupBox.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -97,6 +99,7 @@ namespace Proiect
             this.textBoxPasswordConfirmation.Location = new System.Drawing.Point(332, 122);
             this.textBoxPasswordConfirmation.Multiline = true;
             this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
+            this.textBoxPasswordConfirmation.PasswordChar = '*';
             this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
             this.textBoxPasswordConfirmation.TabIndex = 13;
             // 
@@ -207,13 +210,15 @@ namespace Proiect
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonDeleteUser,
+            this.toolStripButtonBack,
+            this.toolStripSeparator1,
             this.toolStripButtonChangePassword});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(652, 30);
+            this.toolStrip.Size = new System.Drawing.Size(652, 33);
             this.toolStrip.TabIndex = 25;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -224,16 +229,32 @@ namespace Proiect
             this.toolStripButtonDeleteUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDeleteUser.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.toolStripButtonDeleteUser.Name = "toolStripButtonDeleteUser";
-            this.toolStripButtonDeleteUser.Size = new System.Drawing.Size(119, 20);
+            this.toolStripButtonDeleteUser.Size = new System.Drawing.Size(119, 23);
             this.toolStripButtonDeleteUser.Text = "Șterge utilizatorul";
             this.toolStripButtonDeleteUser.Click += new System.EventHandler(this.toolStripButtonDeleteUser_Click);
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 23);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
             // 
             // toolStripButtonChangePassword
             // 
             this.toolStripButtonChangePassword.Image = global::Proiect.Properties.Resources.icon_role;
             this.toolStripButtonChangePassword.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonChangePassword.Name = "toolStripButtonChangePassword";
-            this.toolStripButtonChangePassword.Size = new System.Drawing.Size(106, 27);
+            this.toolStripButtonChangePassword.Size = new System.Drawing.Size(106, 30);
             this.toolStripButtonChangePassword.Text = "Schimbă parola";
             this.toolStripButtonChangePassword.ToolTipText = "Schimbă parola";
             // 
@@ -250,6 +271,7 @@ namespace Proiect
             this.Name = "FormEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editare utilizator existent";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditUser_FormClosed);
             this.Load += new System.EventHandler(this.FormEditUser_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
@@ -278,5 +300,7 @@ namespace Proiect
         private System.Windows.Forms.Button buttonAddRole;
         private System.Windows.Forms.ListBox listBoxRoles;
         private System.Windows.Forms.ToolStripButton toolStripButtonChangePassword;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

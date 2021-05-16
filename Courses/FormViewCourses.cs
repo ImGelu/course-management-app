@@ -56,6 +56,13 @@ namespace Proiect
             parent.Show();
         }
 
+        private void toolStripButtonAddCourse_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCreateCourse formCreateCourse = new FormCreateCourse();
+            formCreateCourse.Show(this);
+        }
+
         private async void toolStripTextBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string searchValue = toolStripTextBoxSearch.Text;
@@ -94,34 +101,70 @@ namespace Proiect
                 }
             }
         }
-        
-        private void buttonEditCourse_Click(object sender, EventArgs e)
-        {
-            int rowIndex = dataGridViewCourses.CurrentCell.RowIndex;
-            string nume = dataGridViewCourses.Rows[rowIndex].Cells[1].Value.ToString();
-        }
-
+       
         private void dataGridViewCourses_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int courseId = Convert.ToInt32(dataGridViewCourses.Rows[e.RowIndex].Cells["ID"].Value);
+            if (e.RowIndex > -1)
+            {
+                int courseId = Convert.ToInt32(dataGridViewCourses.Rows[e.RowIndex].Cells["ID"].Value);
 
-            if (dataGridViewCourses.Columns[e.ColumnIndex].Name == "Vizualizare")
-            {
-                FormViewCourse formViewCourse = new FormViewCourse(courseId);
-                formViewCourse.Show();
-            }
-            else if (dataGridViewCourses.Columns[e.ColumnIndex].Name == "Șterge")
-            {
-                if (MessageBox.Show("Ești sigur că vrei să ștergi acest curs?\n\nAcțiunea este ireversibilă.", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (e.ColumnIndex > -1 && dataGridViewCourses.Columns[e.ColumnIndex].Name == "Vizualizare")
                 {
-                    webService.DeleteCourse(courseId);
-                    dataGridViewCourses.Rows.RemoveAt(e.RowIndex);
+                    FormViewCourse formViewCourse = new FormViewCourse(this, courseId);
+                    this.Hide();
+                    formViewCourse.Show();
+                }
+                else if (e.ColumnIndex > -1 && dataGridViewCourses.Columns[e.ColumnIndex].Name == "Șterge")
+                {
+                    if (MessageBox.Show("Ești sigur că vrei să ștergi acest curs?\n\nAcțiunea este ireversibilă.", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        webService.DeleteCourse(courseId);
+                        dataGridViewCourses.Rows.RemoveAt(e.RowIndex);
+                    }
+                }
+                else if (e.ColumnIndex > -1 && dataGridViewCourses.Columns[e.ColumnIndex].Name == "Editează")
+                {
+                    FormEditCourse formEditCourse = new FormEditCourse(this, courseId);
+                    this.Hide();
+                    formEditCourse.Show();
                 }
             }
-            else if (dataGridViewCourses.Columns[e.ColumnIndex].Name == "Editează")
+        }
+
+        private void FormViewCourses_VisibleChanged(object sender, EventArgs e)
+        {
+            updateDataGridView();
+        }
+
+        private void FormViewCourses_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
+        }
+
+        private void updateDataGridView()
+        {
+            string searchValue = toolStripTextBoxSearch.Text;
+
+            if (searchValue != string.Empty && searchValue.Length > 2 && this.Visible == true)
             {
-                FormEditCourse formEditCourse = new FormEditCourse(courseId);
-                formEditCourse.Show();
+                var results = webService.GetCourseByName(searchValue);
+
+                dataTable.Rows.Clear();
+
+                results.ToList().ForEach((result) =>
+                {
+                    Specialization specialization = webService.GetSpecialization(result.specialization_id);
+                    Domain domain = webService.GetDomain(specialization.domain_id);
+                    Faculty faculty = webService.GetFaculty(domain.faculty_id);
+                    DataRow newRow = dataTable.NewRow();
+                    newRow["ID"] = result.id;
+                    newRow["Materie"] = result.name;
+                    newRow["Specializare"] = specialization.name;
+                    newRow["Domeniu"] = domain.name;
+                    newRow["Facultate"] = faculty.name;
+
+                    dataTable.Rows.Add(newRow);
+                });
             }
         }
     }
