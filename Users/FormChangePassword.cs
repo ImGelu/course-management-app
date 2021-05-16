@@ -14,15 +14,18 @@ namespace Proiect.Users
     public partial class FormChangePassword : Form
     {
         private int id;
+        private FormEditUser parent;
+
         public FormChangePassword()
         {
             InitializeComponent();
         }
 
-        public FormChangePassword(int id)
+        public FormChangePassword(FormEditUser parent, int id)
         {
             InitializeComponent();
             this.id = id;
+            this.parent = parent;
         }
 
         private void buttonEditUser_Click(object sender, EventArgs e)
@@ -37,12 +40,23 @@ namespace Proiect.Users
                 {
                     CoursesWebService webService = new CoursesWebService();
                     webService.UpdatePassword(id, pass);
-                    MessageBox.Show("The password was chancged succesfully!");
+                    MessageBox.Show("The password was changed succesfully!");
                     this.Close();
                 }
                 else MessageBox.Show("The passwords don't maatch");
             }
             else MessageBox.Show("Please fill all the fields");
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+        }
+
+        private void FormChangePassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
         }
     }
 }

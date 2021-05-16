@@ -61,14 +61,14 @@ namespace Proiect
             this.groupBox.Controls.Add(this.labelRole);
             this.groupBox.Location = new System.Drawing.Point(12, 28);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(628, 372);
+            this.groupBox.Size = new System.Drawing.Size(628, 295);
             this.groupBox.TabIndex = 17;
             this.groupBox.TabStop = false;
             // 
             // buttonAddRole
             // 
             this.buttonAddRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddRole.Location = new System.Drawing.Point(446, 291);
+            this.buttonAddRole.Location = new System.Drawing.Point(446, 213);
             this.buttonAddRole.Name = "buttonAddRole";
             this.buttonAddRole.Size = new System.Drawing.Size(176, 28);
             this.buttonAddRole.TabIndex = 16;
@@ -79,7 +79,7 @@ namespace Proiect
             // listBoxRoles
             // 
             this.listBoxRoles.FormattingEnabled = true;
-            this.listBoxRoles.Location = new System.Drawing.Point(14, 190);
+            this.listBoxRoles.Location = new System.Drawing.Point(14, 112);
             this.listBoxRoles.Name = "listBoxRoles";
             this.listBoxRoles.Size = new System.Drawing.Size(608, 95);
             this.listBoxRoles.TabIndex = 15;
@@ -90,7 +90,7 @@ namespace Proiect
             this.comboBoxRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRoles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRoles.FormattingEnabled = true;
-            this.comboBoxRoles.Location = new System.Drawing.Point(14, 291);
+            this.comboBoxRoles.Location = new System.Drawing.Point(14, 213);
             this.comboBoxRoles.Name = "comboBoxRoles";
             this.comboBoxRoles.Size = new System.Drawing.Size(426, 28);
             this.comboBoxRoles.Sorted = true;
@@ -117,7 +117,7 @@ namespace Proiect
             // buttonEditUser
             // 
             this.buttonEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditUser.Location = new System.Drawing.Point(14, 325);
+            this.buttonEditUser.Location = new System.Drawing.Point(14, 247);
             this.buttonEditUser.Name = "buttonEditUser";
             this.buttonEditUser.Size = new System.Drawing.Size(608, 34);
             this.buttonEditUser.TabIndex = 4;
@@ -149,7 +149,7 @@ namespace Proiect
             // 
             this.labelRole.AutoSize = true;
             this.labelRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRole.Location = new System.Drawing.Point(14, 166);
+            this.labelRole.Location = new System.Drawing.Point(14, 88);
             this.labelRole.Name = "labelRole";
             this.labelRole.Size = new System.Drawing.Size(52, 21);
             this.labelRole.TabIndex = 8;
@@ -205,8 +205,9 @@ namespace Proiect
             // 
             this.toolStripButtonChangePassword.Image = global::Proiect.Properties.Resources.icon_role;
             this.toolStripButtonChangePassword.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonChangePassword.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.toolStripButtonChangePassword.Name = "toolStripButtonChangePassword";
-            this.toolStripButtonChangePassword.Size = new System.Drawing.Size(106, 30);
+            this.toolStripButtonChangePassword.Size = new System.Drawing.Size(106, 23);
             this.toolStripButtonChangePassword.Text = "Schimbă parola";
             this.toolStripButtonChangePassword.ToolTipText = "Schimbă parola";
             this.toolStripButtonChangePassword.Click += new System.EventHandler(this.toolStripButtonChangePassword_Click);
@@ -215,7 +216,7 @@ namespace Proiect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 413);
+            this.ClientSize = new System.Drawing.Size(652, 336);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.groupBox);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);

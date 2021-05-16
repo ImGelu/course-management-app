@@ -195,8 +195,9 @@ namespace Proiect
 
         private void toolStripButtonChangePassword_Click(object sender, EventArgs e)
         {
-            FormChangePassword newForm = new FormChangePassword(user.id);
+            FormChangePassword newForm = new FormChangePassword(this, user.id);
             newForm.Show();
+            this.Hide();
         }
     }
 }
