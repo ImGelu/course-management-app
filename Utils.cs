@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Proiect.CoursesWebServiceReference;
 
@@ -20,6 +21,12 @@ namespace Proiect
             {
                 return false;
             }
+        }
+
+        public static bool IsValidURL(string url)
+        {
+            Regex rx = new Regex(@"(\b(http|ftp|https):(\/\/|\\\\)[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?|\bwww\.[^\s])", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            return rx.IsMatch(url);
         }
 
         public static bool EmailAlreadyTaken(string email)

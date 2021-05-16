@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -74,16 +75,23 @@ namespace Proiect.Faculties
                     {
                         newFaculty.logo = "";
                     }
+                    if (textBoxName.Text != String.Empty && textBoxWebsite.Text != String.Empty)
+                    {
+                       
+                        if (Utils.IsValidURL(textBoxWebsite.Text))
+                        {
+                            newFaculty.name = textBoxName.Text;
+                            newFaculty.website = textBoxWebsite.Text;
 
-                    newFaculty.name = textBoxName.Text;
-                    newFaculty.website = textBoxWebsite.Text;
+                            webService.AddFaculty(newFaculty);
 
-                    webService.AddFaculty(newFaculty);
+                            MessageBox.Show("Facultatea a fost adăugată cu succes!");
 
-                    MessageBox.Show("Facultatea a fost adăugată cu succes!");
-
-                    this.Close();
-                    parent.Show();
+                            this.Close();
+                            parent.Show();
+                        }else MessageBox.Show("Please add a valid URL");
+                    }
+                    else MessageBox.Show("Please fill all the fields to continue!");
                 }
             } catch(Exception ex)
             {

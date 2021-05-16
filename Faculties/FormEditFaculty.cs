@@ -70,13 +70,21 @@ namespace Proiect.Faculties
                     existingFaculty.id = faculty.id;
                     existingFaculty.name = textBoxName.Text;
                     existingFaculty.website = textBoxWebsite.Text;
+                    if (textBoxName.Text != String.Empty && textBoxWebsite.Text != String.Empty)
+                    {
 
-                    webService.EditFaculty(existingFaculty);
+                        if (Utils.IsValidURL(textBoxWebsite.Text))
+                        {
+                            webService.EditFaculty(existingFaculty);
 
                     MessageBox.Show("Facultatea a fost editată cu succes!");
 
                     this.Close();
                     parent.Show();
+                        }
+                        else MessageBox.Show("Please add a valid URL");
+                    }
+                    else MessageBox.Show("Please fill all the fields to continue!");
                 }
             }
             catch (Exception ex)
