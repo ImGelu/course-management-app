@@ -121,8 +121,16 @@ namespace Server
 
             existingUser.name = user.name;
             existingUser.email = user.email;
-            existingUser.password = user.password;
+            databaseEntities.SaveChanges();
+        }
+        [WebMethod]
+        public void UpdatePassword(int id, string password)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
 
+            User existingUser = databaseEntities.Users.Find(id);
+
+            existingUser.password = password;
             databaseEntities.SaveChanges();
         }
 

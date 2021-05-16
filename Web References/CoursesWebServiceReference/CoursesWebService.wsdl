@@ -242,6 +242,17 @@
       <s:element name="EditUserResponse">
         <s:complexType />
       </s:element>
+      <s:element name="UpdatePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePasswordResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="DeleteUser">
         <s:complexType>
           <s:sequence>
@@ -620,6 +631,12 @@
   <wsdl:message name="EditUserSoapOut">
     <wsdl:part name="parameters" element="tns:EditUserResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdatePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
   <wsdl:message name="DeleteUserSoapIn">
     <wsdl:part name="parameters" element="tns:DeleteUser" />
   </wsdl:message>
@@ -827,6 +844,10 @@
       <wsdl:input message="tns:EditUserSoapIn" />
       <wsdl:output message="tns:EditUserSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input message="tns:UpdatePasswordSoapIn" />
+      <wsdl:output message="tns:UpdatePasswordSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <wsdl:input message="tns:DeleteUserSoapIn" />
       <wsdl:output message="tns:DeleteUserSoapOut" />
@@ -1030,6 +1051,15 @@
     </wsdl:operation>
     <wsdl:operation name="EditUser">
       <soap:operation soapAction="http://tempuri.org/EditUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://tempuri.org/UpdatePassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1375,6 +1405,15 @@
     </wsdl:operation>
     <wsdl:operation name="EditUser">
       <soap12:operation soapAction="http://tempuri.org/EditUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePassword" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

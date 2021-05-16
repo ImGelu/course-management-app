@@ -4,6 +4,7 @@ using Proiect.CoursesWebServiceReference;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
+using Proiect.Users;
 
 namespace Proiect
 {
@@ -60,26 +61,25 @@ namespace Proiect
 
         private void buttonEditUser_Click(object sender, EventArgs e)
         {
-            string name, email, password, passwordConfirmation;
+            string name, email;
 
             name = textBoxName.Text;
             email = textBoxEmail.Text;
-            password = textBoxPassword.Text;
-            passwordConfirmation = textBoxPasswordConfirmation.Text;
+            
 
-            if (name != String.Empty && email != String.Empty && password != String.Empty && passwordConfirmation != String.Empty)
+            if (name != String.Empty && email != String.Empty)
             {
                 if (Utils.IsValidEmail(email))
                 {
                     if (!Utils.EmailAlreadyTaken(email) || email == user.email)
                     {
-                        if (password.Equals(passwordConfirmation))
-                        {
+                        
+                        
                             User newUser = new User();
                             newUser.id = user.id;
                             newUser.name = name;
                             newUser.email = email;
-                            newUser.password = password;
+                            
 
                             try
                             {
@@ -102,16 +102,12 @@ namespace Proiect
                             MessageBox.Show("Salvările au fost realizate cu succes!");
                             textBoxEmail.Text = String.Empty;
                             textBoxName.Text = String.Empty;
-                            textBoxPassword.Text = String.Empty;
-                            textBoxPasswordConfirmation.Text = String.Empty;
+                          
 
                             this.Close();
                         }
-                        else
-                        {
-                            MessageBox.Show("The passwords don't match. Try again!");
-                        }
-                    }
+                       
+                    
                     else
                     {
                         MessageBox.Show("This email is already taken. Try another one!");
@@ -163,6 +159,12 @@ namespace Proiect
                     comboBoxRoles.Items.Add(selectedItem);
                 }
             }
+        }
+
+        private void toolStripButtonChangePassword_Click(object sender, EventArgs e)
+        {
+            FormChangePassword newForm = new FormChangePassword(user.id);
+            newForm.Show();
         }
     }
 }
