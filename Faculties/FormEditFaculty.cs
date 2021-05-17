@@ -38,8 +38,11 @@ namespace Proiect.Faculties
 
             textBoxName.Text = faculty.name;
             textBoxWebsite.Text = faculty.website;
-            pictureBoxLogo.ImageLocation = path + "\\Logos\\" + faculty.logo;
-            pictureBoxLogo.Tag = path + "\\Logos\\" + faculty.logo;
+            if (faculty.logo != "")
+            {
+                pictureBoxLogo.ImageLocation = path + "\\Logos\\" + faculty.logo;
+                pictureBoxLogo.Tag = path + "\\Logos\\" + faculty.logo;
+            }
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)

@@ -48,6 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domains\FormCreateDomain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domains\FormCreateDomain.Designer.cs">
+      <DependentUpon>FormCreateDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domains\FormEditDomain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domains\FormEditDomain.Designer.cs">
+      <DependentUpon>FormEditDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domains\FormViewDomain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domains\FormViewDomain.Designer.cs">
+      <DependentUpon>FormViewDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Domains\FormViewDomains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domains\FormViewDomains.Designer.cs">
+      <DependentUpon>FormViewDomains.cs</DependentUpon>
+    </Compile>
     <Compile Include="Faculties\FormCreateFaculty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +200,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Domains\FormCreateDomain.resx">
+      <DependentUpon>FormCreateDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domains\FormEditDomain.resx">
+      <DependentUpon>FormEditDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domains\FormViewDomain.resx">
+      <DependentUpon>FormViewDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domains\FormViewDomains.resx">
+      <DependentUpon>FormViewDomains.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Faculties\FormCreateFaculty.resx">
       <DependentUpon>FormCreateFaculty.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,7 +395,6 @@
     <None Include="Web References\CoursesWebServiceReference\CoursesWebService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domains\" />
     <Folder Include="Logos\" />
     <Folder Include="Specializations\" />
   </ItemGroup>

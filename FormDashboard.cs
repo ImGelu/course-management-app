@@ -1,4 +1,5 @@
-﻿using Proiect.Faculties;
+﻿using Proiect.Domains;
+using Proiect.Faculties;
 using Proiect.Roles;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,9 @@ namespace Proiect
 
         private void buttonViewDomains_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon!");
+            FormViewDomains formViewDomains = new FormViewDomains();
+            formViewDomains.Show(this);
+            this.Hide();
         }
 
         private void buttonViewSpecializations_Click(object sender, EventArgs e)

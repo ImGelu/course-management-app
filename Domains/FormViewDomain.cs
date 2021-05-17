@@ -9,23 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proiect.Faculties
+namespace Proiect.Domains
 {
-    public partial class FormViewFaculty : Form
+    public partial class FormViewDomain : Form
     {
         public static CoursesWebService webService = new CoursesWebService();
-        private FormViewFaculties parent;
+        private FormViewDomains parent;
+        private Domain domain;
         private Faculty faculty;
         private DataTable dataTable = new DataTable();
         private int id;
         private string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
 
-        public FormViewFaculty()
+        public FormViewDomain()
         {
             InitializeComponent();
         }
 
-        public FormViewFaculty(FormViewFaculties parent, int id)
+        public FormViewDomain(FormViewDomains parent, int id)
         {
             InitializeComponent();
             this.id = id;
@@ -37,30 +38,30 @@ namespace Proiect.Faculties
             dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void FormViewFaculty_Load(object sender, EventArgs e)
-        {
-            UpdateData();
-        }
-
         private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
             parent.Show();
         }
 
-        private void linkLabelFacultyWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void toolStripButtonEditDomain_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabelFacultyWebsite.Text);
-        }
-
-        private void toolStripButtonEditFaculty_Click(object sender, EventArgs e)
-        {
-            FormEditFaculty formEditFaculty = new FormEditFaculty(this, faculty.id);
-            formEditFaculty.Show();
+            FormEditDomain formEditDomain = new FormEditDomain(this, domain.id);
+            formEditDomain.Show();
             this.Hide();
         }
 
-        private void FormViewFaculty_VisibleChanged(object sender, EventArgs e)
+        private void toolStripButtonDeleteDomain_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Ești sigur că vrei să ștergi acest domeniu?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                webService.DeleteDomain(domain.id);
+                MessageBox.Show("Domeniul a fost șters cu succes!");
+                this.Close();
+            }
+        }
+
+        private void FormViewDomain_VisibleChanged(object sender, EventArgs e)
         {
             if (this.Visible == true)
             {
@@ -68,27 +69,18 @@ namespace Proiect.Faculties
             }
         }
 
-        private void toolStripButtonDeleteFaculty_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Ești sigur că vrei să ștergi această facultate?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                webService.DeleteFaculty(faculty.id);
-                MessageBox.Show("Facultatea a fost ștearsă cu succes!");
-                this.Close();
-            }
-        }
-
-        private void FormViewFaculty_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormViewDomain_FormClosed(object sender, FormClosedEventArgs e)
         {
             parent.Show();
         }
 
         private void UpdateData()
         {
-            faculty = webService.GetFaculty(id);
+            domain = webService.GetDomain(id);
+            faculty = webService.GetFaculty(domain.faculty_id);
 
+            labelDomainName.Text = domain.name;
             labelFacultyName.Text = faculty.name;
-            linkLabelFacultyWebsite.Text = faculty.website;
             if (faculty.logo != "")
             {
                 pictureBoxFacultyLogo.ImageLocation = path + "\\Logos\\" + faculty.logo;
@@ -96,13 +88,13 @@ namespace Proiect.Faculties
 
             dataTable.Clear();
 
-            webService.GetDomains().ToList().ForEach((domain) =>
+            webService.GetSpecializations().ToList().ForEach((specialization) =>
             {
-                if (domain.faculty_id == faculty.id)
+                if (specialization.domain_id == domain.id)
                 {
                     DataRow newRow = dataTable.NewRow();
-                    newRow["ID"] = domain.id;
-                    newRow["Nume"] = domain.name;
+                    newRow["ID"] = specialization.id;
+                    newRow["Nume"] = specialization.name;
 
                     dataTable.Rows.Add(newRow);
                 }

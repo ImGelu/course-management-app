@@ -1,7 +1,7 @@
 ﻿
-namespace Proiect.Faculties
+namespace Proiect.Domains
 {
-    partial class FormViewFaculty
+    partial class FormViewDomain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,42 @@ namespace Proiect.Faculties
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBoxFacultyLogo = new System.Windows.Forms.PictureBox();
+            this.labelDomainName = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonEditFaculty = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDeleteFaculty = new System.Windows.Forms.ToolStripButton();
-            this.labelFacultyName = new System.Windows.Forms.Label();
-            this.linkLabelFacultyWebsite = new System.Windows.Forms.LinkLabel();
+            this.toolStripButtonEditDomain = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDeleteDomain = new System.Windows.Forms.ToolStripButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.pictureBoxFacultyLogo = new System.Windows.Forms.PictureBox();
+            this.labelFacultyName = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFacultyLogo)).BeginInit();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFacultyLogo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBoxFacultyLogo
+            // 
+            this.pictureBoxFacultyLogo.ErrorImage = global::Proiect.Properties.Resources.utcn_logo_simple1;
+            this.pictureBoxFacultyLogo.Image = global::Proiect.Properties.Resources.utcn_logo_simple;
+            this.pictureBoxFacultyLogo.Location = new System.Drawing.Point(13, 39);
+            this.pictureBoxFacultyLogo.Name = "pictureBoxFacultyLogo";
+            this.pictureBoxFacultyLogo.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxFacultyLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFacultyLogo.TabIndex = 37;
+            this.pictureBoxFacultyLogo.TabStop = false;
+            // 
+            // labelDomainName
+            // 
+            this.labelDomainName.AutoSize = true;
+            this.labelDomainName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDomainName.Location = new System.Drawing.Point(69, 40);
+            this.labelDomainName.Name = "labelDomainName";
+            this.labelDomainName.Size = new System.Drawing.Size(154, 30);
+            this.labelDomainName.TabIndex = 36;
+            this.labelDomainName.Text = "Domain Name";
             // 
             // toolStrip
             // 
@@ -53,15 +74,15 @@ namespace Proiect.Faculties
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
             this.toolStripSeparator1,
-            this.toolStripButtonEditFaculty,
-            this.toolStripButtonDeleteFaculty});
+            this.toolStripButtonEditDomain,
+            this.toolStripButtonDeleteDomain});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip.Size = new System.Drawing.Size(851, 33);
-            this.toolStrip.TabIndex = 29;
+            this.toolStrip.TabIndex = 35;
             this.toolStrip.Text = "toolStrip";
             // 
             // toolStripButtonBack
@@ -80,47 +101,26 @@ namespace Proiect.Faculties
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
             // 
-            // toolStripButtonEditFaculty
+            // toolStripButtonEditDomain
             // 
-            this.toolStripButtonEditFaculty.Image = global::Proiect.Properties.Resources.icon_pencil;
-            this.toolStripButtonEditFaculty.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonEditFaculty.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonEditFaculty.Name = "toolStripButtonEditFaculty";
-            this.toolStripButtonEditFaculty.Size = new System.Drawing.Size(124, 23);
-            this.toolStripButtonEditFaculty.Text = "Editează facultatea";
-            this.toolStripButtonEditFaculty.Click += new System.EventHandler(this.toolStripButtonEditFaculty_Click);
+            this.toolStripButtonEditDomain.Image = global::Proiect.Properties.Resources.icon_pencil;
+            this.toolStripButtonEditDomain.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEditDomain.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonEditDomain.Name = "toolStripButtonEditDomain";
+            this.toolStripButtonEditDomain.Size = new System.Drawing.Size(122, 23);
+            this.toolStripButtonEditDomain.Text = "Editează domeniul";
+            this.toolStripButtonEditDomain.Click += new System.EventHandler(this.toolStripButtonEditDomain_Click);
             // 
-            // toolStripButtonDeleteFaculty
+            // toolStripButtonDeleteDomain
             // 
-            this.toolStripButtonDeleteFaculty.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonDeleteFaculty.Image = global::Proiect.Properties.Resources.icon_trash;
-            this.toolStripButtonDeleteFaculty.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDeleteFaculty.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.toolStripButtonDeleteFaculty.Name = "toolStripButtonDeleteFaculty";
-            this.toolStripButtonDeleteFaculty.Size = new System.Drawing.Size(114, 23);
-            this.toolStripButtonDeleteFaculty.Text = "Șterge facultatea";
-            this.toolStripButtonDeleteFaculty.Click += new System.EventHandler(this.toolStripButtonDeleteFaculty_Click);
-            // 
-            // labelFacultyName
-            // 
-            this.labelFacultyName.AutoSize = true;
-            this.labelFacultyName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultyName.Location = new System.Drawing.Point(69, 40);
-            this.labelFacultyName.Name = "labelFacultyName";
-            this.labelFacultyName.Size = new System.Drawing.Size(146, 30);
-            this.labelFacultyName.TabIndex = 30;
-            this.labelFacultyName.Text = "Faculty Name";
-            // 
-            // linkLabelFacultyWebsite
-            // 
-            this.linkLabelFacultyWebsite.AutoSize = true;
-            this.linkLabelFacultyWebsite.Location = new System.Drawing.Point(70, 68);
-            this.linkLabelFacultyWebsite.Name = "linkLabelFacultyWebsite";
-            this.linkLabelFacultyWebsite.Size = new System.Drawing.Size(117, 21);
-            this.linkLabelFacultyWebsite.TabIndex = 32;
-            this.linkLabelFacultyWebsite.TabStop = true;
-            this.linkLabelFacultyWebsite.Text = "Faculty Website";
-            this.linkLabelFacultyWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelFacultyWebsite_LinkClicked);
+            this.toolStripButtonDeleteDomain.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonDeleteDomain.Image = global::Proiect.Properties.Resources.icon_trash;
+            this.toolStripButtonDeleteDomain.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDeleteDomain.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.toolStripButtonDeleteDomain.Name = "toolStripButtonDeleteDomain";
+            this.toolStripButtonDeleteDomain.Size = new System.Drawing.Size(112, 23);
+            this.toolStripButtonDeleteDomain.Text = "Șterge domeniul";
+            this.toolStripButtonDeleteDomain.Click += new System.EventHandler(this.toolStripButtonDeleteDomain_Click);
             // 
             // dataGridView
             // 
@@ -141,63 +141,59 @@ namespace Proiect.Faculties
             this.groupBox.Location = new System.Drawing.Point(12, 95);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(827, 234);
-            this.groupBox.TabIndex = 34;
+            this.groupBox.TabIndex = 39;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Domenii";
+            this.groupBox.Text = "Specializări";
             // 
-            // pictureBoxFacultyLogo
+            // labelFacultyName
             // 
-            this.pictureBoxFacultyLogo.ErrorImage = global::Proiect.Properties.Resources.utcn_logo_simple1;
-            this.pictureBoxFacultyLogo.Image = global::Proiect.Properties.Resources.utcn_logo_simple;
-            this.pictureBoxFacultyLogo.Location = new System.Drawing.Point(13, 39);
-            this.pictureBoxFacultyLogo.Name = "pictureBoxFacultyLogo";
-            this.pictureBoxFacultyLogo.Size = new System.Drawing.Size(50, 50);
-            this.pictureBoxFacultyLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFacultyLogo.TabIndex = 31;
-            this.pictureBoxFacultyLogo.TabStop = false;
+            this.labelFacultyName.AutoSize = true;
+            this.labelFacultyName.Location = new System.Drawing.Point(70, 68);
+            this.labelFacultyName.Name = "labelFacultyName";
+            this.labelFacultyName.Size = new System.Drawing.Size(104, 21);
+            this.labelFacultyName.TabIndex = 40;
+            this.labelFacultyName.Text = "Faculty Name";
             // 
-            // FormViewFaculty
+            // FormViewDomain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(851, 335);
-            this.Controls.Add(this.groupBox);
-            this.Controls.Add(this.linkLabelFacultyWebsite);
-            this.Controls.Add(this.pictureBoxFacultyLogo);
             this.Controls.Add(this.labelFacultyName);
+            this.Controls.Add(this.pictureBoxFacultyLogo);
+            this.Controls.Add(this.labelDomainName);
             this.Controls.Add(this.toolStrip);
+            this.Controls.Add(this.groupBox);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormViewFaculty";
+            this.Name = "FormViewDomain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vizualizare facultate";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewFaculty_FormClosed);
-            this.Load += new System.EventHandler(this.FormViewFaculty_Load);
-            this.VisibleChanged += new System.EventHandler(this.FormViewFaculty_VisibleChanged);
+            this.Text = "Vizualizare domeniu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewDomain_FormClosed);
+            this.VisibleChanged += new System.EventHandler(this.FormViewDomain_VisibleChanged);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFacultyLogo)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFacultyLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.PictureBox pictureBoxFacultyLogo;
+        private System.Windows.Forms.Label labelDomainName;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
-        private System.Windows.Forms.Label labelFacultyName;
-        private System.Windows.Forms.PictureBox pictureBoxFacultyLogo;
-        private System.Windows.Forms.LinkLabel linkLabelFacultyWebsite;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEditDomain;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDeleteDomain;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonEditFaculty;
-        private System.Windows.Forms.ToolStripButton toolStripButtonDeleteFaculty;
+        private System.Windows.Forms.Label labelFacultyName;
     }
 }

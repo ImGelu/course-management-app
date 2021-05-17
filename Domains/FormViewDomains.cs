@@ -4,25 +4,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proiect.Faculties
+namespace Proiect.Domains
 {
-    public partial class FormViewFaculties : Form
+    public partial class FormViewDomains : Form
     {
         public static CoursesWebService webService = new CoursesWebService();
         private FormDashboard parent;
 
-        public FormViewFaculties()
+        public FormViewDomains()
         {
             InitializeComponent();
         }
 
-        private void FormViewFaculties_Load(object sender, EventArgs e)
+        private void FormViewDomains_Load(object sender, EventArgs e)
         {
             parent = (FormDashboard)Owner;
 
@@ -35,19 +34,14 @@ namespace Proiect.Faculties
             parent.Show();
         }
 
-        private void toolStripButtonAddFaculty_Click(object sender, EventArgs e)
+        private void toolStripButtonAddDomain_Click(object sender, EventArgs e)
         {
-            FormCreateFaculty formCreateFaculty = new FormCreateFaculty();
-            formCreateFaculty.Show(this);
+            FormCreateDomain formCreateDomain = new FormCreateDomain();
+            formCreateDomain.Show(this);
             this.Hide();
         }
 
-        private void FormViewFaculties_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            parent.Show();
-        }
-
-        private void FormViewFaculties_VisibleChanged(object sender, EventArgs e)
+        private void FormViewDomains_VisibleChanged(object sender, EventArgs e)
         {
             if (this.Visible == true)
             {
@@ -55,11 +49,16 @@ namespace Proiect.Faculties
             }
         }
 
-        private void viewFaculty(object sender, EventArgs e, Faculty faculty)
+        private void FormViewDomains_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormViewFaculty formViewFaculty = new FormViewFaculty(this, faculty.id);
+            parent.Show();
+        }
+
+        private void viewDomain(object sender, EventArgs e, Domain domain)
+        {
+            FormViewDomain formViewDomain = new FormViewDomain(this, domain.id);
             this.Hide();
-            formViewFaculty.Show();
+            formViewDomain.Show();
         }
 
         private void UpdateData(object sender, EventArgs e)
@@ -68,7 +67,7 @@ namespace Proiect.Faculties
 
             int width = panel.Size.Width;
 
-            int widthOffset = 5;
+            int widthOffset = 10;
             int heightOffset = 10;
 
             int btnWidth = 200;
@@ -76,20 +75,20 @@ namespace Proiect.Faculties
 
             string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
 
-            webService.GetFaculties().ToList().ForEach((faculty) =>
+            webService.GetDomains().ToList().ForEach((domain) =>
             {
 
                 if ((widthOffset + btnWidth) >= width)
                 {
-                    widthOffset = 5;
+                    widthOffset = 10;
                     heightOffset = heightOffset + btnHeight;
                 }
 
                 var button = new Button();
                 button.Size = new Size(btnWidth, btnHeight);
-                button.Name = "buttonFaculty" + faculty.id;
-                button.Text = faculty.name;
-                button.Click += new EventHandler((ss, ee) => viewFaculty(sender, e, faculty));
+                button.Name = "buttonDomain" + domain.id;
+                button.Text = domain.name;
+                button.Click += new EventHandler((ss, ee) => viewDomain(sender, e, domain));
                 button.Location = new Point(widthOffset, heightOffset);
 
                 panel.Controls.Add(button);
@@ -97,8 +96,8 @@ namespace Proiect.Faculties
                 widthOffset = widthOffset + (btnWidth);
             });
 
-            this.Height = heightOffset + btnHeight + 90;
-            panel.Height = heightOffset + btnHeight + 90;
+            //this.Height = heightOffset + btnHeight + 90;
+            //panel.Height = heightOffset + btnHeight + 90;
         }
     }
 }

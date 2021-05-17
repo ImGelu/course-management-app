@@ -31,16 +31,16 @@ namespace Proiect.Faculties
         {
             this.labelName = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.labelWebsite = new System.Windows.Forms.Label();
             this.labelLogo = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.buttonCreateFaculty = new System.Windows.Forms.Button();
             this.buttonDeleteLogo = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonChooseLogo = new System.Windows.Forms.Button();
             this.textBoxWebsite = new System.Windows.Forms.TextBox();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStrip.SuspendLayout();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -70,6 +70,16 @@ namespace Proiect.Faculties
             this.toolStrip.Size = new System.Drawing.Size(402, 30);
             this.toolStrip.TabIndex = 28;
             this.toolStrip.Text = "toolStrip";
+            // 
+            // toolStripButtonBack
+            // 
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 20);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
             // 
             // labelWebsite
             // 
@@ -133,23 +143,6 @@ namespace Proiect.Faculties
             this.buttonDeleteLogo.UseVisualStyleBackColor = true;
             this.buttonDeleteLogo.Click += new System.EventHandler(this.buttonDeleteLogo_Click);
             // 
-            // buttonChooseLogo
-            // 
-            this.buttonChooseLogo.Location = new System.Drawing.Point(184, 99);
-            this.buttonChooseLogo.Name = "buttonChooseLogo";
-            this.buttonChooseLogo.Size = new System.Drawing.Size(188, 50);
-            this.buttonChooseLogo.TabIndex = 33;
-            this.buttonChooseLogo.Text = "Alege o imagine";
-            this.buttonChooseLogo.UseVisualStyleBackColor = true;
-            this.buttonChooseLogo.Click += new System.EventHandler(this.buttonChooseLogo_Click);
-            // 
-            // textBoxWebsite
-            // 
-            this.textBoxWebsite.Location = new System.Drawing.Point(78, 64);
-            this.textBoxWebsite.Name = "textBoxWebsite";
-            this.textBoxWebsite.Size = new System.Drawing.Size(294, 29);
-            this.textBoxWebsite.TabIndex = 32;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -162,15 +155,22 @@ namespace Proiect.Faculties
             this.pictureBoxLogo.TabIndex = 34;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // toolStripButtonBack
+            // buttonChooseLogo
             // 
-            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
-            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 20);
-            this.toolStripButtonBack.Text = "Înapoi";
-            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
+            this.buttonChooseLogo.Location = new System.Drawing.Point(184, 99);
+            this.buttonChooseLogo.Name = "buttonChooseLogo";
+            this.buttonChooseLogo.Size = new System.Drawing.Size(188, 50);
+            this.buttonChooseLogo.TabIndex = 33;
+            this.buttonChooseLogo.Text = "Alege o imagine";
+            this.buttonChooseLogo.UseVisualStyleBackColor = true;
+            this.buttonChooseLogo.Click += new System.EventHandler(this.buttonChooseLogo_Click);
+            // 
+            // textBoxWebsite
+            // 
+            this.textBoxWebsite.Location = new System.Drawing.Point(78, 60);
+            this.textBoxWebsite.Name = "textBoxWebsite";
+            this.textBoxWebsite.Size = new System.Drawing.Size(294, 29);
+            this.textBoxWebsite.TabIndex = 32;
             // 
             // FormCreateFaculty
             // 
