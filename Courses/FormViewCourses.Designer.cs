@@ -32,10 +32,10 @@
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
-            this.labelNotFound = new System.Windows.Forms.Label();
-            this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAddCourse = new System.Windows.Forms.ToolStripButton();
+            this.labelNotFound = new System.Windows.Forms.Label();
+            this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,23 @@
             this.toolStripLabelSearch.Size = new System.Drawing.Size(78, 23);
             this.toolStripLabelSearch.Text = "Caută materii:";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
+            // 
+            // toolStripButtonAddCourse
+            // 
+            this.toolStripButtonAddCourse.Image = global::Proiect.Properties.Resources.icon_plus;
+            this.toolStripButtonAddCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonAddCourse.Name = "toolStripButtonAddCourse";
+            this.toolStripButtonAddCourse.Size = new System.Drawing.Size(132, 23);
+            this.toolStripButtonAddCourse.Text = "Adaugă un curs nou";
+            this.toolStripButtonAddCourse.ToolTipText = "Adaugă un curs nou";
+            this.toolStripButtonAddCourse.Click += new System.EventHandler(this.toolStripButtonAddCourse_Click);
+            // 
             // labelNotFound
             // 
             this.labelNotFound.AutoSize = true;
@@ -111,23 +128,7 @@
             this.dataGridViewCourses.RowHeadersWidth = 51;
             this.dataGridViewCourses.Size = new System.Drawing.Size(809, 384);
             this.dataGridViewCourses.TabIndex = 20;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
-            // 
-            // toolStripButtonAddCourse
-            // 
-            this.toolStripButtonAddCourse.Image = global::Proiect.Properties.Resources.icon_plus;
-            this.toolStripButtonAddCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonAddCourse.Name = "toolStripButtonAddCourse";
-            this.toolStripButtonAddCourse.Size = new System.Drawing.Size(132, 23);
-            this.toolStripButtonAddCourse.Text = "Adaugă un curs nou";
-            this.toolStripButtonAddCourse.ToolTipText = "Adaugă un curs nou";
-            this.toolStripButtonAddCourse.Click += new System.EventHandler(this.toolStripButtonAddCourse_Click);
+            this.dataGridViewCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourses_CellClick);
             // 
             // FormViewCourses
             // 

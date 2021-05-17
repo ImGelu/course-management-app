@@ -129,6 +129,7 @@ namespace Proiect.Roles
             this.dataGridViewRoles.RowHeadersWidth = 51;
             this.dataGridViewRoles.Size = new System.Drawing.Size(809, 384);
             this.dataGridViewRoles.TabIndex = 18;
+            this.dataGridViewRoles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoles_CellClick);
             // 
             // FormViewRoles
             // 
