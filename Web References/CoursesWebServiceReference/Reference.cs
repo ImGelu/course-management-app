@@ -117,6 +117,10 @@ namespace Proiect.CoursesWebServiceReference {
         
         private System.Threading.SendOrPostCallback DeleteFacultyOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetRequestsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateStatusOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -286,6 +290,12 @@ namespace Proiect.CoursesWebServiceReference {
         
         /// <remarks/>
         public event DeleteFacultyCompletedEventHandler DeleteFacultyCompleted;
+        
+        /// <remarks/>
+        public event GetRequestsCompletedEventHandler GetRequestsCompleted;
+        
+        /// <remarks/>
+        public event UpdateStatusCompletedEventHandler UpdateStatusCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRoles", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1538,6 +1548,61 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.DeleteFacultyCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DeleteFacultyCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRequests", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Users2Courses[] GetRequests() {
+            object[] results = this.Invoke("GetRequests", new object[0]);
+            return ((Users2Courses[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRequestsAsync() {
+            this.GetRequestsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetRequestsAsync(object userState) {
+            if ((this.GetRequestsOperationCompleted == null)) {
+                this.GetRequestsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRequestsOperationCompleted);
+            }
+            this.InvokeAsync("GetRequests", new object[0], this.GetRequestsOperationCompleted, userState);
+        }
+        
+        private void OnGetRequestsOperationCompleted(object arg) {
+            if ((this.GetRequestsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRequestsCompleted(this, new GetRequestsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateStatus", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UpdateStatus(int status) {
+            this.Invoke("UpdateStatus", new object[] {
+                        status});
+        }
+        
+        /// <remarks/>
+        public void UpdateStatusAsync(int status) {
+            this.UpdateStatusAsync(status, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateStatusAsync(int status, object userState) {
+            if ((this.UpdateStatusOperationCompleted == null)) {
+                this.UpdateStatusOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateStatusOperationCompleted);
+            }
+            this.InvokeAsync("UpdateStatus", new object[] {
+                        status}, this.UpdateStatusOperationCompleted, userState);
+        }
+        
+        private void OnUpdateStatusOperationCompleted(object arg) {
+            if ((this.UpdateStatusCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateStatusCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2834,6 +2899,36 @@ namespace Proiect.CoursesWebServiceReference {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void DeleteFacultyCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetRequestsCompletedEventHandler(object sender, GetRequestsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRequestsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRequestsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Users2Courses[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Users2Courses[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void UpdateStatusCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

@@ -465,5 +465,20 @@ namespace Server
 
             databaseEntities.SaveChanges();
         }
+
+        /* Requests */
+        [WebMethod]
+        public List<Users2Courses> GetRequests()
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Users2Courses.ToList();
+        }
+
+        [WebMethod]
+        public void UpdateStatus(int status)
+        {
+            databaseEntities.Users2Courses.SqlQuery("UPDATE Users2Courses SET status = @status ", new SqlParameter("@status", status));
+        }
     }
 }

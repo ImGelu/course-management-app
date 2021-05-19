@@ -28,103 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewRequests = new System.Windows.Forms.DataGridView();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonAccept = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDeny = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequests)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewRequests
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 59);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(716, 286);
-            this.dataGridView1.TabIndex = 10;
+            this.dataGridViewRequests.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRequests.Location = new System.Drawing.Point(12, 59);
+            this.dataGridViewRequests.Name = "dataGridViewRequests";
+            this.dataGridViewRequests.Size = new System.Drawing.Size(716, 286);
+            this.dataGridViewRequests.TabIndex = 10;
             // 
-            // Column1
+            // toolStrip
             // 
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 50;
+            this.toolStrip.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonBack,
+            this.toolStripSeparator1,
+            this.toolStripButtonAccept,
+            this.toolStripButtonDeny});
+            this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip.Size = new System.Drawing.Size(740, 33);
+            this.toolStrip.TabIndex = 88;
+            this.toolStrip.Text = "toolStrip";
             // 
-            // Column2
+            // toolStripButtonBack
             // 
-            this.Column2.HeaderText = "Materie";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 310;
+            this.toolStripButtonBack.Image = global::Proiect.Properties.Resources.icon_back;
+            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBack.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonBack.Name = "toolStripButtonBack";
+            this.toolStripButtonBack.Size = new System.Drawing.Size(60, 23);
+            this.toolStripButtonBack.Text = "Înapoi";
+            this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
             // 
-            // Column3
+            // toolStripSeparator1
             // 
-            this.Column3.HeaderText = "Profesor";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 310;
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
             // 
-            // button1
+            // toolStripButtonAccept
             // 
-            this.button1.Location = new System.Drawing.Point(98, 393);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Aprobare";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.toolStripButtonAccept.Image = global::Proiect.Properties.Resources.icon_request;
+            this.toolStripButtonAccept.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAccept.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonAccept.Name = "toolStripButtonAccept";
+            this.toolStripButtonAccept.Size = new System.Drawing.Size(106, 23);
+            this.toolStripButtonAccept.Text = "Aprobă materia";
+            this.toolStripButtonAccept.Click += new System.EventHandler(this.toolStripButtonAccept_Click);
             // 
-            // button2
+            // toolStripButtonDeny
             // 
-            this.button2.Location = new System.Drawing.Point(307, 393);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Respingere";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.toolStripButtonDeny.Image = global::Proiect.Properties.Resources.icon_pencil;
+            this.toolStripButtonDeny.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDeny.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonDeny.Name = "toolStripButtonDeny";
+            this.toolStripButtonDeny.Size = new System.Drawing.Size(116, 23);
+            this.toolStripButtonDeny.Text = "Respinge materia";
+            this.toolStripButtonDeny.Click += new System.EventHandler(this.toolStripButtonDeny_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(538, 393);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Anulare";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Vizualizare_revendicari
+            // FormViewRequests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 463);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Vizualizare_revendicari";
+            this.Controls.Add(this.toolStrip);
+            this.Controls.Add(this.dataGridViewRequests);
+            this.Name = "FormViewRequests";
             this.Text = "Vizualizare_revendicari";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormViewRequests_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequests)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dataGridViewRequests;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBack;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAccept;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDeny;
     }
 }

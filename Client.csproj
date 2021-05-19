@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Courses\Requests\PopupRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Courses\Requests\PopupRequests.Designer.cs">
+      <DependentUpon>PopupRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domains\FormCreateDomain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Courses\Requests\PopupRequests.resx">
+      <DependentUpon>PopupRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domains\FormCreateDomain.resx">
       <DependentUpon>FormCreateDomain.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +321,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\CoursesWebServiceReference\User.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CoursesWebServiceReference\Users2Courses.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
   </ItemGroup>
