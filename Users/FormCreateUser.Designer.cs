@@ -73,7 +73,7 @@ namespace Proiect
             this.buttonAdd.Location = new System.Drawing.Point(14, 325);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(608, 34);
-            this.buttonAdd.TabIndex = 6;
+            this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Adaugă utilizatorul";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -163,6 +163,7 @@ namespace Proiect
             this.groupBox.Controls.Add(this.labelName);
             this.groupBox.Controls.Add(this.textBoxPassword);
             this.groupBox.Controls.Add(this.labelRole);
+            this.groupBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.groupBox.Location = new System.Drawing.Point(12, 28);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(628, 373);
@@ -175,7 +176,7 @@ namespace Proiect
             this.buttonAddRole.Location = new System.Drawing.Point(446, 291);
             this.buttonAddRole.Name = "buttonAddRole";
             this.buttonAddRole.Size = new System.Drawing.Size(176, 28);
-            this.buttonAddRole.TabIndex = 19;
+            this.buttonAddRole.TabIndex = 7;
             this.buttonAddRole.Text = "Adaugă rolul";
             this.buttonAddRole.UseVisualStyleBackColor = true;
             this.buttonAddRole.Click += new System.EventHandler(this.buttonAddRole_Click);
@@ -183,10 +184,11 @@ namespace Proiect
             // listBoxRoles
             // 
             this.listBoxRoles.FormattingEnabled = true;
+            this.listBoxRoles.ItemHeight = 20;
             this.listBoxRoles.Location = new System.Drawing.Point(14, 190);
             this.listBoxRoles.Name = "listBoxRoles";
-            this.listBoxRoles.Size = new System.Drawing.Size(608, 95);
-            this.listBoxRoles.TabIndex = 18;
+            this.listBoxRoles.Size = new System.Drawing.Size(608, 84);
+            this.listBoxRoles.TabIndex = 5;
             this.listBoxRoles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxRoles_KeyPress);
             // 
             // comboBoxRoles
@@ -198,7 +200,7 @@ namespace Proiect
             this.comboBoxRoles.Name = "comboBoxRoles";
             this.comboBoxRoles.Size = new System.Drawing.Size(426, 28);
             this.comboBoxRoles.Sorted = true;
-            this.comboBoxRoles.TabIndex = 17;
+            this.comboBoxRoles.TabIndex = 6;
             // 
             // toolStripButtonBack
             // 
@@ -239,7 +241,7 @@ namespace Proiect
             this.MinimizeBox = false;
             this.Name = "FormCreateUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Adăugare utilizator nou";
+            this.Text = "Creare utilizator nou";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCreateUser_FormClosed);
             this.Load += new System.EventHandler(this.FormCreateUser_Load);
             this.groupBox.ResumeLayout(false);

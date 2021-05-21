@@ -1,12 +1,6 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect.Faculties
@@ -43,6 +37,8 @@ namespace Proiect.Faculties
                 pictureBoxLogo.ImageLocation = path + "\\Logos\\" + faculty.logo;
                 pictureBoxLogo.Tag = path + "\\Logos\\" + faculty.logo;
             }
+
+            this.Text = String.Format("Editare facultate • {0}", faculty.name);
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)
@@ -65,7 +61,8 @@ namespace Proiect.Faculties
                     {
                         System.IO.File.Copy(openFileDialog.FileName, path + "\\Logos\\" + filename);
                         existingFaculty.logo = System.IO.Path.GetFileName(pictureBoxLogo.Tag.ToString());
-                    } else
+                    }
+                    else
                     {
                         existingFaculty.logo = faculty.logo;
                     }
@@ -80,14 +77,14 @@ namespace Proiect.Faculties
                         {
                             webService.EditFaculty(existingFaculty);
 
-                    MessageBox.Show("Facultatea a fost editată cu succes!");
+                            MessageBox.Show("Facultatea a fost editată cu succes!");
 
-                    this.Close();
-                    parent.Show();
+                            this.Close();
+                            parent.Show();
                         }
-                        else MessageBox.Show("Please add a valid URL");
+                        else MessageBox.Show("Adresa website nu este una validă!");
                     }
-                    else MessageBox.Show("Please fill all the fields to continue!");
+                    else MessageBox.Show("Toate câmpurile sunt obligatorii!");
                 }
             }
             catch (Exception ex)

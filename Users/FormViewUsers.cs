@@ -23,6 +23,7 @@ namespace Proiect
             dataTable.Columns.Add("Roluri", typeof(string));
             dataGridViewUsers.DataSource = dataTable;
             dataGridViewUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewUsers.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             DataGridViewButtonColumn viewBtn = new DataGridViewButtonColumn();
             viewBtn.UseColumnTextForButtonValue = true;

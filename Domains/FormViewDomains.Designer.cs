@@ -103,7 +103,7 @@ namespace Proiect.Domains
             this.MinimizeBox = false;
             this.Name = "FormViewDomains";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vizualizare domenii";
+            this.Text = "Lista domeniilor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewDomains_FormClosed);
             this.Load += new System.EventHandler(this.FormViewDomains_Load);
             this.VisibleChanged += new System.EventHandler(this.FormViewDomains_VisibleChanged);

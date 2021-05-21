@@ -132,12 +132,14 @@ namespace Proiect.Faculties
             this.dataGridView.Location = new System.Drawing.Point(6, 26);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.Size = new System.Drawing.Size(815, 202);
             this.dataGridView.TabIndex = 33;
             // 
             // groupBox
             // 
             this.groupBox.Controls.Add(this.dataGridView);
+            this.groupBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.groupBox.Location = new System.Drawing.Point(12, 95);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(827, 234);
@@ -175,7 +177,6 @@ namespace Proiect.Faculties
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vizualizare facultate";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewFaculty_FormClosed);
-            this.Load += new System.EventHandler(this.FormViewFaculty_Load);
             this.VisibleChanged += new System.EventHandler(this.FormViewFaculty_VisibleChanged);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();

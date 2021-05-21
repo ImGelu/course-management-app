@@ -1,12 +1,7 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect.Domains
@@ -99,6 +94,8 @@ namespace Proiect.Domains
                     dataTable.Rows.Add(newRow);
                 }
             });
+
+            this.Text = String.Format("Vizualizare domeniu • {0}", domain.name);
         }
     }
 }

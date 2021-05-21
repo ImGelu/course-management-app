@@ -52,8 +52,9 @@ namespace Proiect
             this.dataGridViewUsers.Location = new System.Drawing.Point(12, 69);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
+            this.dataGridViewUsers.RowHeadersVisible = false;
             this.dataGridViewUsers.RowHeadersWidth = 51;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(809, 384);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(960, 384);
             this.dataGridViewUsers.TabIndex = 0;
             this.dataGridViewUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellClick);
             // 
@@ -73,7 +74,7 @@ namespace Proiect
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(833, 33);
+            this.toolStrip.Size = new System.Drawing.Size(984, 33);
             this.toolStrip.TabIndex = 13;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -90,6 +91,7 @@ namespace Proiect
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Margin = new System.Windows.Forms.Padding(1, 5, 5, 5);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 23);
@@ -123,18 +125,18 @@ namespace Proiect
             // 
             this.labelNotFound.AutoSize = true;
             this.labelNotFound.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotFound.Location = new System.Drawing.Point(326, 45);
+            this.labelNotFound.Location = new System.Drawing.Point(355, 45);
             this.labelNotFound.Name = "labelNotFound";
-            this.labelNotFound.Size = new System.Drawing.Size(180, 21);
+            this.labelNotFound.Size = new System.Drawing.Size(275, 21);
             this.labelNotFound.TabIndex = 15;
-            this.labelNotFound.Text = "No such user was found!";
+            this.labelNotFound.Text = "Nu s-au găsit utilizatori cu acest nume";
             // 
             // FormViewUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(833, 464);
+            this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.labelNotFound);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.dataGridViewUsers);

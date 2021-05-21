@@ -37,11 +37,6 @@ namespace Proiect.Faculties
             dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void FormViewFaculty_Load(object sender, EventArgs e)
-        {
-            UpdateData();
-        }
-
         private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -107,6 +102,8 @@ namespace Proiect.Faculties
                     dataTable.Rows.Add(newRow);
                 }
             });
+
+            this.Text = String.Format("Vizualizare facultate • {0}", faculty.name);
         }
     }
 }

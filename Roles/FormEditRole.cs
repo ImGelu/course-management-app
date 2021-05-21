@@ -1,12 +1,5 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect.Roles
@@ -32,6 +25,7 @@ namespace Proiect.Roles
         private void FormEditRole_Load(object sender, EventArgs e)
         {
             textBoxName.Text = role.name;
+            this.Text = String.Format("Editare rol • {0}", role.name);
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -49,7 +43,7 @@ namespace Proiect.Roles
             }
             else
             {
-                MessageBox.Show("Completați toate câmpurile.");
+                MessageBox.Show("Toate câmpurile sunt obligatorii!");
             }
         }
 

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proiect.Courses.Requests
+namespace Proiect.Specializations
 {
-    public partial class PopupRequests : Form
+    public partial class FormCreateSpecialization : Form
     {
-        public PopupRequests()
+        public FormCreateSpecialization()
         {
             InitializeComponent();
         }

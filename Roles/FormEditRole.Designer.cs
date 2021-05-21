@@ -43,7 +43,7 @@ namespace Proiect.Roles
             this.buttonEdit.Location = new System.Drawing.Point(13, 84);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(413, 31);
-            this.buttonEdit.TabIndex = 5;
+            this.buttonEdit.TabIndex = 2;
             this.buttonEdit.Text = "Salvează modificările";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
@@ -63,7 +63,7 @@ namespace Proiect.Roles
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(357, 29);
-            this.textBoxName.TabIndex = 3;
+            this.textBoxName.TabIndex = 1;
             // 
             // toolStrip
             // 

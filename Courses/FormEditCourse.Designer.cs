@@ -108,7 +108,7 @@
             this.textBoxProjectTutors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxProjectTutors.Name = "textBoxProjectTutors";
             this.textBoxProjectTutors.Size = new System.Drawing.Size(223, 27);
-            this.textBoxProjectTutors.TabIndex = 60;
+            this.textBoxProjectTutors.TabIndex = 24;
             // 
             // buttonProjectTutors
             // 
@@ -117,7 +117,7 @@
             this.buttonProjectTutors.Location = new System.Drawing.Point(237, 201);
             this.buttonProjectTutors.Name = "buttonProjectTutors";
             this.buttonProjectTutors.Size = new System.Drawing.Size(30, 29);
-            this.buttonProjectTutors.TabIndex = 59;
+            this.buttonProjectTutors.TabIndex = 25;
             this.buttonProjectTutors.UseVisualStyleBackColor = true;
             this.buttonProjectTutors.Click += new System.EventHandler(this.buttonProjectTutors_Click);
             // 
@@ -140,7 +140,7 @@
             this.listBoxProjectTutors.Location = new System.Drawing.Point(7, 112);
             this.listBoxProjectTutors.Name = "listBoxProjectTutors";
             this.listBoxProjectTutors.Size = new System.Drawing.Size(260, 84);
-            this.listBoxProjectTutors.TabIndex = 57;
+            this.listBoxProjectTutors.TabIndex = 23;
             this.listBoxProjectTutors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxProjectTutors_KeyPress);
             // 
             // textBoxProjectHours
@@ -149,7 +149,7 @@
             this.textBoxProjectHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxProjectHours.Name = "textBoxProjectHours";
             this.textBoxProjectHours.Size = new System.Drawing.Size(260, 27);
-            this.textBoxProjectHours.TabIndex = 41;
+            this.textBoxProjectHours.TabIndex = 22;
             // 
             // labelProjectHours
             // 
@@ -185,7 +185,7 @@
             this.textBoxSeminaryTutors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSeminaryTutors.Name = "textBoxSeminaryTutors";
             this.textBoxSeminaryTutors.Size = new System.Drawing.Size(223, 27);
-            this.textBoxSeminaryTutors.TabIndex = 60;
+            this.textBoxSeminaryTutors.TabIndex = 16;
             // 
             // buttonSeminaryTutors
             // 
@@ -194,7 +194,7 @@
             this.buttonSeminaryTutors.Location = new System.Drawing.Point(237, 201);
             this.buttonSeminaryTutors.Name = "buttonSeminaryTutors";
             this.buttonSeminaryTutors.Size = new System.Drawing.Size(30, 29);
-            this.buttonSeminaryTutors.TabIndex = 59;
+            this.buttonSeminaryTutors.TabIndex = 17;
             this.buttonSeminaryTutors.UseVisualStyleBackColor = true;
             this.buttonSeminaryTutors.Click += new System.EventHandler(this.buttonSeminaryTutors_Click);
             // 
@@ -217,7 +217,7 @@
             this.listBoxSeminaryTutors.Location = new System.Drawing.Point(7, 112);
             this.listBoxSeminaryTutors.Name = "listBoxSeminaryTutors";
             this.listBoxSeminaryTutors.Size = new System.Drawing.Size(260, 84);
-            this.listBoxSeminaryTutors.TabIndex = 57;
+            this.listBoxSeminaryTutors.TabIndex = 15;
             this.listBoxSeminaryTutors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxSeminaryTutors_KeyPress);
             // 
             // textBoxSeminaryHours
@@ -226,7 +226,7 @@
             this.textBoxSeminaryHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSeminaryHours.Name = "textBoxSeminaryHours";
             this.textBoxSeminaryHours.Size = new System.Drawing.Size(260, 27);
-            this.textBoxSeminaryHours.TabIndex = 41;
+            this.textBoxSeminaryHours.TabIndex = 14;
             // 
             // labelSeminaryHours
             // 
@@ -262,7 +262,7 @@
             this.textBoxLabTutors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxLabTutors.Name = "textBoxLabTutors";
             this.textBoxLabTutors.Size = new System.Drawing.Size(223, 27);
-            this.textBoxLabTutors.TabIndex = 60;
+            this.textBoxLabTutors.TabIndex = 20;
             // 
             // buttonLabTutors
             // 
@@ -271,7 +271,7 @@
             this.buttonLabTutors.Location = new System.Drawing.Point(237, 201);
             this.buttonLabTutors.Name = "buttonLabTutors";
             this.buttonLabTutors.Size = new System.Drawing.Size(30, 29);
-            this.buttonLabTutors.TabIndex = 59;
+            this.buttonLabTutors.TabIndex = 21;
             this.buttonLabTutors.UseVisualStyleBackColor = true;
             this.buttonLabTutors.Click += new System.EventHandler(this.buttonLabTutors_Click);
             // 
@@ -294,7 +294,7 @@
             this.listBoxLabTutors.Location = new System.Drawing.Point(7, 112);
             this.listBoxLabTutors.Name = "listBoxLabTutors";
             this.listBoxLabTutors.Size = new System.Drawing.Size(260, 84);
-            this.listBoxLabTutors.TabIndex = 57;
+            this.listBoxLabTutors.TabIndex = 19;
             this.listBoxLabTutors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxLabTutors_KeyPress);
             // 
             // textBoxLabHours
@@ -303,7 +303,7 @@
             this.textBoxLabHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxLabHours.Name = "textBoxLabHours";
             this.textBoxLabHours.Size = new System.Drawing.Size(260, 27);
-            this.textBoxLabHours.TabIndex = 41;
+            this.textBoxLabHours.TabIndex = 18;
             // 
             // labelLabHours
             // 
@@ -350,7 +350,7 @@
             this.comboBoxSpecialization.Location = new System.Drawing.Point(384, 188);
             this.comboBoxSpecialization.Name = "comboBoxSpecialization";
             this.comboBoxSpecialization.Size = new System.Drawing.Size(233, 28);
-            this.comboBoxSpecialization.TabIndex = 71;
+            this.comboBoxSpecialization.TabIndex = 8;
             this.comboBoxSpecialization.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpecialization_SelectedIndexChanged);
             // 
             // comboBoxDomain
@@ -360,7 +360,7 @@
             this.comboBoxDomain.Location = new System.Drawing.Point(384, 118);
             this.comboBoxDomain.Name = "comboBoxDomain";
             this.comboBoxDomain.Size = new System.Drawing.Size(233, 28);
-            this.comboBoxDomain.TabIndex = 70;
+            this.comboBoxDomain.TabIndex = 7;
             this.comboBoxDomain.SelectedIndexChanged += new System.EventHandler(this.comboBoxDomain_SelectedIndexChanged);
             // 
             // comboBoxFaculty
@@ -370,7 +370,7 @@
             this.comboBoxFaculty.Location = new System.Drawing.Point(384, 47);
             this.comboBoxFaculty.Name = "comboBoxFaculty";
             this.comboBoxFaculty.Size = new System.Drawing.Size(233, 28);
-            this.comboBoxFaculty.TabIndex = 69;
+            this.comboBoxFaculty.TabIndex = 6;
             this.comboBoxFaculty.SelectedIndexChanged += new System.EventHandler(this.comboBoxFaculty_SelectedIndexChanged);
             // 
             // labelDomain
@@ -423,7 +423,7 @@
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(243, 27);
-            this.textBoxName.TabIndex = 36;
+            this.textBoxName.TabIndex = 1;
             // 
             // textBoxCredits
             // 
@@ -431,7 +431,7 @@
             this.textBoxCredits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxCredits.Name = "textBoxCredits";
             this.textBoxCredits.Size = new System.Drawing.Size(243, 27);
-            this.textBoxCredits.TabIndex = 40;
+            this.textBoxCredits.TabIndex = 5;
             // 
             // labelYear
             // 
@@ -480,7 +480,7 @@
             this.comboBoxSemester.Location = new System.Drawing.Point(104, 118);
             this.comboBoxSemester.Name = "comboBoxSemester";
             this.comboBoxSemester.Size = new System.Drawing.Size(243, 28);
-            this.comboBoxSemester.TabIndex = 63;
+            this.comboBoxSemester.TabIndex = 3;
             // 
             // comboBoxYear
             // 
@@ -489,7 +489,7 @@
             this.comboBoxYear.Location = new System.Drawing.Point(104, 81);
             this.comboBoxYear.Name = "comboBoxYear";
             this.comboBoxYear.Size = new System.Drawing.Size(243, 28);
-            this.comboBoxYear.TabIndex = 65;
+            this.comboBoxYear.TabIndex = 2;
             // 
             // comboBoxStudyLevel
             // 
@@ -498,7 +498,7 @@
             this.comboBoxStudyLevel.Location = new System.Drawing.Point(104, 152);
             this.comboBoxStudyLevel.Name = "comboBoxStudyLevel";
             this.comboBoxStudyLevel.Size = new System.Drawing.Size(243, 28);
-            this.comboBoxStudyLevel.TabIndex = 64;
+            this.comboBoxStudyLevel.TabIndex = 4;
             // 
             // labelContent
             // 
@@ -519,7 +519,7 @@
             this.richTextBox.Location = new System.Drawing.Point(19, 311);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(632, 216);
-            this.richTextBox.TabIndex = 78;
+            this.richTextBox.TabIndex = 9;
             this.richTextBox.Text = "";
             // 
             // groupBoxCourse
@@ -544,7 +544,7 @@
             this.textBoxCourseTutors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxCourseTutors.Name = "textBoxCourseTutors";
             this.textBoxCourseTutors.Size = new System.Drawing.Size(223, 27);
-            this.textBoxCourseTutors.TabIndex = 60;
+            this.textBoxCourseTutors.TabIndex = 12;
             // 
             // buttonCourseTutors
             // 
@@ -553,7 +553,7 @@
             this.buttonCourseTutors.Location = new System.Drawing.Point(237, 201);
             this.buttonCourseTutors.Name = "buttonCourseTutors";
             this.buttonCourseTutors.Size = new System.Drawing.Size(30, 29);
-            this.buttonCourseTutors.TabIndex = 59;
+            this.buttonCourseTutors.TabIndex = 13;
             this.buttonCourseTutors.UseVisualStyleBackColor = true;
             this.buttonCourseTutors.Click += new System.EventHandler(this.buttonCourseTutors_Click);
             // 
@@ -576,7 +576,7 @@
             this.listBoxCourseTutors.Location = new System.Drawing.Point(7, 112);
             this.listBoxCourseTutors.Name = "listBoxCourseTutors";
             this.listBoxCourseTutors.Size = new System.Drawing.Size(260, 84);
-            this.listBoxCourseTutors.TabIndex = 57;
+            this.listBoxCourseTutors.TabIndex = 11;
             this.listBoxCourseTutors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxCourseTutors_KeyPress);
             // 
             // textBoxCourseHours
@@ -585,7 +585,7 @@
             this.textBoxCourseHours.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxCourseHours.Name = "textBoxCourseHours";
             this.textBoxCourseHours.Size = new System.Drawing.Size(260, 27);
-            this.textBoxCourseHours.TabIndex = 41;
+            this.textBoxCourseHours.TabIndex = 10;
             // 
             // labelCourseHours
             // 
@@ -606,7 +606,7 @@
             this.buttonEditCourse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonEditCourse.Name = "buttonEditCourse";
             this.buttonEditCourse.Size = new System.Drawing.Size(1204, 35);
-            this.buttonEditCourse.TabIndex = 72;
+            this.buttonEditCourse.TabIndex = 26;
             this.buttonEditCourse.Text = "Salvează modificările";
             this.buttonEditCourse.UseVisualStyleBackColor = true;
             this.buttonEditCourse.Click += new System.EventHandler(this.buttonEditCourse_Click);

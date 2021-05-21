@@ -61,14 +61,14 @@ namespace Proiect.Domains
             this.comboBoxFaculty.Location = new System.Drawing.Point(84, 60);
             this.comboBoxFaculty.Name = "comboBoxFaculty";
             this.comboBoxFaculty.Size = new System.Drawing.Size(288, 29);
-            this.comboBoxFaculty.TabIndex = 37;
+            this.comboBoxFaculty.TabIndex = 2;
             // 
             // buttonAddDomain
             // 
             this.buttonAddDomain.Location = new System.Drawing.Point(84, 96);
             this.buttonAddDomain.Name = "buttonAddDomain";
             this.buttonAddDomain.Size = new System.Drawing.Size(288, 37);
-            this.buttonAddDomain.TabIndex = 36;
+            this.buttonAddDomain.TabIndex = 3;
             this.buttonAddDomain.Text = "Adaugă un domeniu nou";
             this.buttonAddDomain.UseVisualStyleBackColor = true;
             this.buttonAddDomain.Click += new System.EventHandler(this.buttonAddDomain_Click);
@@ -78,7 +78,7 @@ namespace Proiect.Domains
             this.textBoxName.Location = new System.Drawing.Point(84, 25);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(288, 29);
-            this.textBoxName.TabIndex = 31;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 

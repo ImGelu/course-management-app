@@ -102,7 +102,7 @@ namespace Proiect.Faculties
             this.MinimizeBox = false;
             this.Name = "FormViewFaculties";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vizualizare facultăți";
+            this.Text = "Lista facultăților";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewFaculties_FormClosed);
             this.Load += new System.EventHandler(this.FormViewFaculties_Load);
             this.VisibleChanged += new System.EventHandler(this.FormViewFaculties_VisibleChanged);

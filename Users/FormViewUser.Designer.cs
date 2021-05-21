@@ -109,6 +109,7 @@ namespace Proiect
             this.groupBox.Controls.Add(this.labelEmail);
             this.groupBox.Controls.Add(this.labelName);
             this.groupBox.Controls.Add(this.labelRole);
+            this.groupBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.groupBox.Location = new System.Drawing.Point(11, 45);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(628, 251);
@@ -119,9 +120,10 @@ namespace Proiect
             // 
             this.listBoxRoles.Enabled = false;
             this.listBoxRoles.FormattingEnabled = true;
+            this.listBoxRoles.ItemHeight = 20;
             this.listBoxRoles.Location = new System.Drawing.Point(14, 124);
             this.listBoxRoles.Name = "listBoxRoles";
-            this.listBoxRoles.Size = new System.Drawing.Size(608, 95);
+            this.listBoxRoles.Size = new System.Drawing.Size(608, 84);
             this.listBoxRoles.TabIndex = 16;
             // 
             // textBoxEmail
@@ -187,7 +189,6 @@ namespace Proiect
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vizualizare Utilizator";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewUser_FormClosed);
-            this.Load += new System.EventHandler(this.FormViewUser_Load);
             this.VisibleChanged += new System.EventHandler(this.FormViewUser_VisibleChanged);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();

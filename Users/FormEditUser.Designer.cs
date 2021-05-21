@@ -59,6 +59,7 @@ namespace Proiect
             this.groupBox.Controls.Add(this.labelEmail);
             this.groupBox.Controls.Add(this.labelName);
             this.groupBox.Controls.Add(this.labelRole);
+            this.groupBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.groupBox.Location = new System.Drawing.Point(12, 28);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(628, 295);
@@ -67,11 +68,11 @@ namespace Proiect
             // 
             // buttonAddRole
             // 
-            this.buttonAddRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddRole.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonAddRole.Location = new System.Drawing.Point(446, 213);
             this.buttonAddRole.Name = "buttonAddRole";
             this.buttonAddRole.Size = new System.Drawing.Size(176, 28);
-            this.buttonAddRole.TabIndex = 16;
+            this.buttonAddRole.TabIndex = 5;
             this.buttonAddRole.Text = "Adaugă rolul";
             this.buttonAddRole.UseVisualStyleBackColor = true;
             this.buttonAddRole.Click += new System.EventHandler(this.buttonAddRole_Click);
@@ -79,10 +80,11 @@ namespace Proiect
             // listBoxRoles
             // 
             this.listBoxRoles.FormattingEnabled = true;
+            this.listBoxRoles.ItemHeight = 20;
             this.listBoxRoles.Location = new System.Drawing.Point(14, 112);
             this.listBoxRoles.Name = "listBoxRoles";
-            this.listBoxRoles.Size = new System.Drawing.Size(608, 95);
-            this.listBoxRoles.TabIndex = 15;
+            this.listBoxRoles.Size = new System.Drawing.Size(608, 84);
+            this.listBoxRoles.TabIndex = 3;
             this.listBoxRoles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBoxRoles_KeyPress);
             // 
             // comboBoxRoles
@@ -94,11 +96,11 @@ namespace Proiect
             this.comboBoxRoles.Name = "comboBoxRoles";
             this.comboBoxRoles.Size = new System.Drawing.Size(426, 28);
             this.comboBoxRoles.Sorted = true;
-            this.comboBoxRoles.TabIndex = 9;
+            this.comboBoxRoles.TabIndex = 4;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.textBoxEmail.Location = new System.Drawing.Point(14, 52);
             this.textBoxEmail.Multiline = true;
             this.textBoxEmail.Name = "textBoxEmail";
@@ -107,7 +109,7 @@ namespace Proiect
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.textBoxName.Location = new System.Drawing.Point(332, 52);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
@@ -116,11 +118,11 @@ namespace Proiect
             // 
             // buttonEditUser
             // 
-            this.buttonEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditUser.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonEditUser.Location = new System.Drawing.Point(14, 247);
             this.buttonEditUser.Name = "buttonEditUser";
             this.buttonEditUser.Size = new System.Drawing.Size(608, 34);
-            this.buttonEditUser.TabIndex = 4;
+            this.buttonEditUser.TabIndex = 6;
             this.buttonEditUser.Text = "Salvează schimbările";
             this.buttonEditUser.UseVisualStyleBackColor = true;
             this.buttonEditUser.Click += new System.EventHandler(this.buttonEditUser_Click);

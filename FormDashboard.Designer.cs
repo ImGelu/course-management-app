@@ -60,7 +60,7 @@ namespace Proiect
             this.groupBoxActions.Size = new System.Drawing.Size(233, 396);
             this.groupBoxActions.TabIndex = 0;
             this.groupBoxActions.TabStop = false;
-            this.groupBoxActions.Text = "What do you want to do today?";
+            this.groupBoxActions.Text = "Ce vrei să faci azi?";
             // 
             // buttonViewRoles
             // 
@@ -68,7 +68,7 @@ namespace Proiect
             this.buttonViewRoles.Name = "buttonViewRoles";
             this.buttonViewRoles.Size = new System.Drawing.Size(214, 46);
             this.buttonViewRoles.TabIndex = 7;
-            this.buttonViewRoles.Text = "View Roles";
+            this.buttonViewRoles.Text = "Vizualizare roluri";
             this.buttonViewRoles.UseVisualStyleBackColor = true;
             this.buttonViewRoles.Click += new System.EventHandler(this.buttonViewRoles_Click);
             // 
@@ -78,7 +78,7 @@ namespace Proiect
             this.buttonViewSpecializations.Name = "buttonViewSpecializations";
             this.buttonViewSpecializations.Size = new System.Drawing.Size(214, 46);
             this.buttonViewSpecializations.TabIndex = 6;
-            this.buttonViewSpecializations.Text = "View Specializations";
+            this.buttonViewSpecializations.Text = "Vizualizare specializări";
             this.buttonViewSpecializations.UseVisualStyleBackColor = true;
             this.buttonViewSpecializations.Click += new System.EventHandler(this.buttonViewSpecializations_Click);
             // 
@@ -88,7 +88,7 @@ namespace Proiect
             this.buttonViewDomains.Name = "buttonViewDomains";
             this.buttonViewDomains.Size = new System.Drawing.Size(214, 46);
             this.buttonViewDomains.TabIndex = 5;
-            this.buttonViewDomains.Text = "View Domains";
+            this.buttonViewDomains.Text = "Vizualizare domenii";
             this.buttonViewDomains.UseVisualStyleBackColor = true;
             this.buttonViewDomains.Click += new System.EventHandler(this.buttonViewDomains_Click);
             // 
@@ -98,7 +98,7 @@ namespace Proiect
             this.buttonViewUsers.Name = "buttonViewUsers";
             this.buttonViewUsers.Size = new System.Drawing.Size(214, 46);
             this.buttonViewUsers.TabIndex = 3;
-            this.buttonViewUsers.Text = "View Users";
+            this.buttonViewUsers.Text = "Vizualizare utilizatori";
             this.buttonViewUsers.UseVisualStyleBackColor = true;
             this.buttonViewUsers.Click += new System.EventHandler(this.buttonViewUsers_Click);
             // 
@@ -108,7 +108,7 @@ namespace Proiect
             this.buttonViewFaculties.Name = "buttonViewFaculties";
             this.buttonViewFaculties.Size = new System.Drawing.Size(214, 46);
             this.buttonViewFaculties.TabIndex = 4;
-            this.buttonViewFaculties.Text = "View Faculties";
+            this.buttonViewFaculties.Text = "Vizualizare facultăți";
             this.buttonViewFaculties.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonViewFaculties.UseVisualStyleBackColor = true;
             this.buttonViewFaculties.Click += new System.EventHandler(this.buttonViewFaculties_Click);
@@ -120,7 +120,7 @@ namespace Proiect
             this.buttonViewCourses.Name = "buttonViewCourses";
             this.buttonViewCourses.Size = new System.Drawing.Size(214, 46);
             this.buttonViewCourses.TabIndex = 1;
-            this.buttonViewCourses.Text = "View Courses";
+            this.buttonViewCourses.Text = "Vizualizare materii";
             this.buttonViewCourses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonViewCourses.UseVisualStyleBackColor = true;
             this.buttonViewCourses.Click += new System.EventHandler(this.buttonViewCourses_Click);
@@ -131,7 +131,7 @@ namespace Proiect
             this.buttonViewRequests.Name = "buttonViewRequests";
             this.buttonViewRequests.Size = new System.Drawing.Size(214, 46);
             this.buttonViewRequests.TabIndex = 2;
-            this.buttonViewRequests.Text = "View Redemption Requests ";
+            this.buttonViewRequests.Text = "Vizualizare cereri";
             this.buttonViewRequests.UseVisualStyleBackColor = true;
             this.buttonViewRequests.Click += new System.EventHandler(this.buttonViewRequests_Click);
             // 
@@ -153,8 +153,8 @@ namespace Proiect
             this.toolStripSplitButtonLoggedIn.Image = global::Proiect.Properties.Resources.icon_user;
             this.toolStripSplitButtonLoggedIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButtonLoggedIn.Name = "toolStripSplitButtonLoggedIn";
-            this.toolStripSplitButtonLoggedIn.Size = new System.Drawing.Size(114, 22);
-            this.toolStripSplitButtonLoggedIn.Text = "Logged in as...";
+            this.toolStripSplitButtonLoggedIn.Size = new System.Drawing.Size(135, 22);
+            this.toolStripSplitButtonLoggedIn.Text = "Conectat ca {0} ({1})";
             this.toolStripSplitButtonLoggedIn.ToolTipText = "Logged in as {user} ({role})";
             // 
             // logOutToolStripMenuItem
@@ -168,9 +168,9 @@ namespace Proiect
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Proiect.Properties.Resources.logo_utcn;
-            this.pictureBox1.Location = new System.Drawing.Point(251, 144);
+            this.pictureBox1.Location = new System.Drawing.Point(259, 159);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 172);
+            this.pictureBox1.Size = new System.Drawing.Size(510, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;

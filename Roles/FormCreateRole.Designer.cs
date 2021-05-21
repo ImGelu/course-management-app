@@ -43,7 +43,7 @@ namespace Proiect.Roles
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(357, 29);
-            this.textBoxName.TabIndex = 0;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 

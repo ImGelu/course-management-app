@@ -31,19 +31,19 @@ namespace Proiect.Faculties
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.buttonEditFaculty = new System.Windows.Forms.Button();
+            this.buttonDeleteLogo = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.buttonChooseLogo = new System.Windows.Forms.Button();
+            this.textBoxWebsite = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.labelLogo = new System.Windows.Forms.Label();
             this.labelWebsite = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
-            this.textBoxWebsite = new System.Windows.Forms.TextBox();
-            this.buttonDeleteLogo = new System.Windows.Forms.Button();
-            this.buttonChooseLogo = new System.Windows.Forms.Button();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.labelLogo = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
-            this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox
@@ -68,17 +68,56 @@ namespace Proiect.Faculties
             this.buttonEditFaculty.Location = new System.Drawing.Point(78, 205);
             this.buttonEditFaculty.Name = "buttonEditFaculty";
             this.buttonEditFaculty.Size = new System.Drawing.Size(294, 37);
-            this.buttonEditFaculty.TabIndex = 36;
+            this.buttonEditFaculty.TabIndex = 5;
             this.buttonEditFaculty.Text = "Salvează modificările";
             this.buttonEditFaculty.UseVisualStyleBackColor = true;
             this.buttonEditFaculty.Click += new System.EventHandler(this.buttonEditFaculty_Click);
+            // 
+            // buttonDeleteLogo
+            // 
+            this.buttonDeleteLogo.Location = new System.Drawing.Point(184, 149);
+            this.buttonDeleteLogo.Name = "buttonDeleteLogo";
+            this.buttonDeleteLogo.Size = new System.Drawing.Size(188, 50);
+            this.buttonDeleteLogo.TabIndex = 4;
+            this.buttonDeleteLogo.Text = "Șterge logo-ul";
+            this.buttonDeleteLogo.UseVisualStyleBackColor = true;
+            this.buttonDeleteLogo.Click += new System.EventHandler(this.buttonDeleteLogo_Click);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxLogo.ErrorImage = global::Proiect.Properties.Resources.utcn_logo_simple1;
+            this.pictureBoxLogo.Image = global::Proiect.Properties.Resources.utcn_logo_simple;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(78, 99);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 34;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // buttonChooseLogo
+            // 
+            this.buttonChooseLogo.Location = new System.Drawing.Point(184, 99);
+            this.buttonChooseLogo.Name = "buttonChooseLogo";
+            this.buttonChooseLogo.Size = new System.Drawing.Size(188, 50);
+            this.buttonChooseLogo.TabIndex = 3;
+            this.buttonChooseLogo.Text = "Alege o imagine";
+            this.buttonChooseLogo.UseVisualStyleBackColor = true;
+            this.buttonChooseLogo.Click += new System.EventHandler(this.buttonChooseLogo_Click);
+            // 
+            // textBoxWebsite
+            // 
+            this.textBoxWebsite.Location = new System.Drawing.Point(78, 60);
+            this.textBoxWebsite.Name = "textBoxWebsite";
+            this.textBoxWebsite.Size = new System.Drawing.Size(294, 29);
+            this.textBoxWebsite.TabIndex = 2;
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(78, 25);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(294, 29);
-            this.textBoxName.TabIndex = 31;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 
@@ -88,6 +127,15 @@ namespace Proiect.Faculties
             this.labelName.Size = new System.Drawing.Size(53, 21);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Nume";
+            // 
+            // labelLogo
+            // 
+            this.labelLogo.AutoSize = true;
+            this.labelLogo.Location = new System.Drawing.Point(7, 98);
+            this.labelLogo.Name = "labelLogo";
+            this.labelLogo.Size = new System.Drawing.Size(45, 21);
+            this.labelLogo.TabIndex = 30;
+            this.labelLogo.Text = "Logo";
             // 
             // labelWebsite
             // 
@@ -124,54 +172,6 @@ namespace Proiect.Faculties
             this.toolStripButtonBack.Text = "Înapoi";
             this.toolStripButtonBack.Click += new System.EventHandler(this.toolStripButtonBack_Click);
             // 
-            // textBoxWebsite
-            // 
-            this.textBoxWebsite.Location = new System.Drawing.Point(78, 60);
-            this.textBoxWebsite.Name = "textBoxWebsite";
-            this.textBoxWebsite.Size = new System.Drawing.Size(294, 29);
-            this.textBoxWebsite.TabIndex = 32;
-            // 
-            // buttonDeleteLogo
-            // 
-            this.buttonDeleteLogo.Location = new System.Drawing.Point(184, 149);
-            this.buttonDeleteLogo.Name = "buttonDeleteLogo";
-            this.buttonDeleteLogo.Size = new System.Drawing.Size(188, 50);
-            this.buttonDeleteLogo.TabIndex = 35;
-            this.buttonDeleteLogo.Text = "Șterge logo-ul";
-            this.buttonDeleteLogo.UseVisualStyleBackColor = true;
-            this.buttonDeleteLogo.Click += new System.EventHandler(this.buttonDeleteLogo_Click);
-            // 
-            // buttonChooseLogo
-            // 
-            this.buttonChooseLogo.Location = new System.Drawing.Point(184, 99);
-            this.buttonChooseLogo.Name = "buttonChooseLogo";
-            this.buttonChooseLogo.Size = new System.Drawing.Size(188, 50);
-            this.buttonChooseLogo.TabIndex = 33;
-            this.buttonChooseLogo.Text = "Alege o imagine";
-            this.buttonChooseLogo.UseVisualStyleBackColor = true;
-            this.buttonChooseLogo.Click += new System.EventHandler(this.buttonChooseLogo_Click);
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxLogo.ErrorImage = global::Proiect.Properties.Resources.utcn_logo_simple1;
-            this.pictureBoxLogo.Image = global::Proiect.Properties.Resources.utcn_logo_simple;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(78, 99);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 34;
-            this.pictureBoxLogo.TabStop = false;
-            // 
-            // labelLogo
-            // 
-            this.labelLogo.AutoSize = true;
-            this.labelLogo.Location = new System.Drawing.Point(7, 98);
-            this.labelLogo.Name = "labelLogo";
-            this.labelLogo.Size = new System.Drawing.Size(45, 21);
-            this.labelLogo.TabIndex = 30;
-            this.labelLogo.Text = "Logo";
-            // 
             // FormEditFaculty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -191,9 +191,9 @@ namespace Proiect.Faculties
             this.Load += new System.EventHandler(this.FormEditFaculty_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

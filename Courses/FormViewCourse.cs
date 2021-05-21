@@ -40,8 +40,6 @@ namespace Proiect
             comboBoxYear.Items.Add("Anul 4");
             comboBoxYear.Items.Add("Anul 5");
             comboBoxYear.Items.Add("Anul 6");
-
-            UpdateData();
         }
 
         private void comboBoxFaculty_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,6 +154,8 @@ namespace Proiect
                 course.project_tutors.Split(',').ToList().ForEach((tutor) => { listBoxProjectTutors.Items.Add(tutor.ToString()); });
 
             richTextBox.Text = course.content;
+
+            this.Text = String.Format("Vizualizare materie • {0}", course.name);
         }
     }
 }

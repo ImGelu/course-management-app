@@ -104,7 +104,7 @@ namespace Proiect.Faculties
             this.textBoxName.Location = new System.Drawing.Point(78, 25);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(294, 29);
-            this.textBoxName.TabIndex = 31;
+            this.textBoxName.TabIndex = 1;
             // 
             // groupBox
             // 
@@ -128,7 +128,7 @@ namespace Proiect.Faculties
             this.buttonCreateFaculty.Location = new System.Drawing.Point(78, 205);
             this.buttonCreateFaculty.Name = "buttonCreateFaculty";
             this.buttonCreateFaculty.Size = new System.Drawing.Size(294, 37);
-            this.buttonCreateFaculty.TabIndex = 36;
+            this.buttonCreateFaculty.TabIndex = 5;
             this.buttonCreateFaculty.Text = "Adaugă facultatea";
             this.buttonCreateFaculty.UseVisualStyleBackColor = true;
             this.buttonCreateFaculty.Click += new System.EventHandler(this.buttonCreateFaculty_Click);
@@ -138,7 +138,7 @@ namespace Proiect.Faculties
             this.buttonDeleteLogo.Location = new System.Drawing.Point(184, 149);
             this.buttonDeleteLogo.Name = "buttonDeleteLogo";
             this.buttonDeleteLogo.Size = new System.Drawing.Size(188, 50);
-            this.buttonDeleteLogo.TabIndex = 35;
+            this.buttonDeleteLogo.TabIndex = 4;
             this.buttonDeleteLogo.Text = "Șterge logo-ul";
             this.buttonDeleteLogo.UseVisualStyleBackColor = true;
             this.buttonDeleteLogo.Click += new System.EventHandler(this.buttonDeleteLogo_Click);
@@ -160,7 +160,7 @@ namespace Proiect.Faculties
             this.buttonChooseLogo.Location = new System.Drawing.Point(184, 99);
             this.buttonChooseLogo.Name = "buttonChooseLogo";
             this.buttonChooseLogo.Size = new System.Drawing.Size(188, 50);
-            this.buttonChooseLogo.TabIndex = 33;
+            this.buttonChooseLogo.TabIndex = 3;
             this.buttonChooseLogo.Text = "Alege o imagine";
             this.buttonChooseLogo.UseVisualStyleBackColor = true;
             this.buttonChooseLogo.Click += new System.EventHandler(this.buttonChooseLogo_Click);
@@ -170,7 +170,7 @@ namespace Proiect.Faculties
             this.textBoxWebsite.Location = new System.Drawing.Point(78, 60);
             this.textBoxWebsite.Name = "textBoxWebsite";
             this.textBoxWebsite.Size = new System.Drawing.Size(294, 29);
-            this.textBoxWebsite.TabIndex = 32;
+            this.textBoxWebsite.TabIndex = 2;
             // 
             // FormCreateFaculty
             // 

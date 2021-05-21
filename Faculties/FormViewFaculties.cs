@@ -1,13 +1,7 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect.Faculties
@@ -25,8 +19,6 @@ namespace Proiect.Faculties
         private void FormViewFaculties_Load(object sender, EventArgs e)
         {
             parent = (FormDashboard)Owner;
-
-            UpdateData(sender, e);
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)
@@ -98,7 +90,7 @@ namespace Proiect.Faculties
             });
 
             this.Height = heightOffset + btnHeight + 90;
-            panel.Height = heightOffset + btnHeight + 90;
+            panel.Height = heightOffset + btnHeight + 110;
         }
     }
 }

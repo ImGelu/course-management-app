@@ -63,7 +63,7 @@ namespace Proiect.Users
             this.textBoxPasswordConfirmation.Name = "textBoxPasswordConfirmation";
             this.textBoxPasswordConfirmation.PasswordChar = '*';
             this.textBoxPasswordConfirmation.Size = new System.Drawing.Size(290, 29);
-            this.textBoxPasswordConfirmation.TabIndex = 13;
+            this.textBoxPasswordConfirmation.TabIndex = 2;
             // 
             // labelPasswordConfirmation
             // 
@@ -81,7 +81,7 @@ namespace Proiect.Users
             this.buttonEditUser.Location = new System.Drawing.Point(14, 76);
             this.buttonEditUser.Name = "buttonEditUser";
             this.buttonEditUser.Size = new System.Drawing.Size(603, 34);
-            this.buttonEditUser.TabIndex = 4;
+            this.buttonEditUser.TabIndex = 3;
             this.buttonEditUser.Text = "Salvează parola";
             this.buttonEditUser.UseVisualStyleBackColor = true;
             this.buttonEditUser.Click += new System.EventHandler(this.buttonEditUser_Click);
@@ -92,9 +92,9 @@ namespace Proiect.Users
             this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(14, 17);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(95, 21);
+            this.labelPassword.Size = new System.Drawing.Size(92, 21);
             this.labelPassword.TabIndex = 11;
-            this.labelPassword.Text = "Parola Noua";
+            this.labelPassword.Text = "Parola nouă";
             // 
             // textBoxPassword
             // 
@@ -104,7 +104,7 @@ namespace Proiect.Users
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(290, 29);
-            this.textBoxPassword.TabIndex = 10;
+            this.textBoxPassword.TabIndex = 1;
             // 
             // toolStrip
             // 

@@ -25,5 +25,10 @@ namespace Server
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual List<User> Users { get; set; }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

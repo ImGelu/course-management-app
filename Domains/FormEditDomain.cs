@@ -98,6 +98,8 @@ namespace Proiect.Domains
                 Faculty currentFaculty = (Faculty)comboBoxFaculty.Items[i];
                 if (currentFaculty.id == domain.faculty_id) comboBoxFaculty.SelectedIndex = i;
             }
+
+            this.Text = String.Format("Editare domeniu • {0}", domain.name);
         }
     }
 }

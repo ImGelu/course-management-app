@@ -39,5 +39,9 @@ namespace Server
         public virtual Specialization Specialization { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual List<Users2Courses> Users2Courses { get; set; }
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

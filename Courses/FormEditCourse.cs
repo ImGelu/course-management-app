@@ -19,6 +19,7 @@ namespace Proiect
         {
             InitializeComponent();
         }
+
         public FormEditCourse(FormViewCourses parent, int id)
         {
             InitializeComponent();
@@ -63,7 +64,7 @@ namespace Proiect
             comboBoxDomain.SelectedItem = courseDomain;
             comboBoxSpecialization.SelectedItem = courseSpecialization;
 
-            for(int i = 0; i < comboBoxFaculty.Items.Count; i++)
+            for (int i = 0; i < comboBoxFaculty.Items.Count; i++)
             {
                 Faculty currentFaculty = (Faculty)comboBoxFaculty.Items[i];
                 if (currentFaculty.id == courseFaculty.id) comboBoxFaculty.SelectedIndex = i;
@@ -92,7 +93,7 @@ namespace Proiect
             textBoxLabHours.Text = course.laboratory_hours.ToString();
             textBoxProjectHours.Text = course.project_hours.ToString();
 
-            if(course.seminary_tutors.Length > 0)
+            if (course.seminary_tutors.Length > 0)
                 course.seminary_tutors.Split(',').ToList().ForEach((tutor) => { listBoxSeminaryTutors.Items.Add(tutor.ToString()); });
 
             if (course.laboratory_tutors.Length > 0)
@@ -102,6 +103,8 @@ namespace Proiect
                 course.project_tutors.Split(',').ToList().ForEach((tutor) => { listBoxProjectTutors.Items.Add(tutor.ToString()); });
 
             richTextBox.Text = course.content;
+
+            this.Text = String.Format("Editare materie • {0}", course.name);
         }
 
         private void buttonEditCourse_Click(object sender, EventArgs e)
@@ -129,7 +132,7 @@ namespace Proiect
             try
             {
                 webService.EditCourse(newCourse);
-                MessageBox.Show("Salvările au fost efectuate cu succes!");
+                MessageBox.Show("Materia a fost editată cu succes!");
                 this.Close();
                 if (parentCourse == null)
                 {
@@ -139,7 +142,8 @@ namespace Proiect
                 {
                     parentCourse.Show();
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -147,7 +151,7 @@ namespace Proiect
 
         private void buttonCourseTutors_Click(object sender, EventArgs e)
         {
-            if(textBoxCourseTutors.Text != String.Empty)
+            if (textBoxCourseTutors.Text != String.Empty)
             {
                 listBoxCourseTutors.Items.Add(textBoxCourseTutors.Text);
                 textBoxCourseTutors.Clear();
@@ -207,7 +211,7 @@ namespace Proiect
                 int selectedIndex = listBoxCourseTutors.SelectedIndex;
 
                 e.Handled = true;
-                if(selectedIndex > -1) listBoxCourseTutors.Items.RemoveAt(selectedIndex);
+                if (selectedIndex > -1) listBoxCourseTutors.Items.RemoveAt(selectedIndex);
             }
         }
 
@@ -247,10 +251,11 @@ namespace Proiect
         private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            if(parentCourse == null)
+            if (parentCourse == null)
             {
                 parentCourses.Show();
-            } else
+            }
+            else
             {
                 parentCourse.Show();
             }

@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using Proiect.CoursesWebServiceReference;
 using System.Linq;
-using System.Reflection;
 using System.Collections.Generic;
 using Proiect.Users;
 
@@ -52,9 +51,9 @@ namespace Proiect
             {
                 listBoxRoles.Items.Add(userRole);
 
-                foreach(Role role in comboBoxRoles.Items)
+                foreach (Role role in comboBoxRoles.Items)
                 {
-                    if(role.id == userRole.id)
+                    if (role.id == userRole.id)
                     {
                         rolesToBeRemoved.Add(role);
                     }
@@ -65,15 +64,19 @@ namespace Proiect
             {
                 comboBoxRoles.Items.Remove(role);
             });
+
+            this.Text = String.Format("Editare utilizator • {0}", user.name);
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            if(parentUsers == null)
+
+            if (parentUsers == null)
             {
                 parentUser.Show();
-            } else
+            }
+            else
             {
                 parentUsers.Show();
             }
@@ -95,7 +98,6 @@ namespace Proiect
 
             name = textBoxName.Text;
             email = textBoxEmail.Text;
-            
 
             if (name != String.Empty && email != String.Empty)
             {
@@ -103,54 +105,48 @@ namespace Proiect
                 {
                     if (!Utils.EmailAlreadyTaken(email) || email == user.email)
                     {
-                        
-                        
-                            User newUser = new User();
-                            newUser.id = user.id;
-                            newUser.name = name;
-                            newUser.email = email;
-                            
+                        User newUser = new User();
+                        newUser.id = user.id;
+                        newUser.name = name;
+                        newUser.email = email;
 
-                            try
+                        try
+                        {
+                            Role[] rolesToBeUpdated = new Role[100];
+                            int i = 0;
+
+                            listBoxRoles.Items.Cast<Role>().ToList().ForEach((role) =>
                             {
-                                Role[] rolesToBeUpdated = new Role[100];
-                                int i = 0;
+                                rolesToBeUpdated[i++] = role;
+                            });
 
-                                listBoxRoles.Items.Cast<Role>().ToList().ForEach((role) =>
-                                {
-                                    rolesToBeUpdated[i++] = role;
-                                });
-
-                                webService.EditUser(newUser);
-                                webService.UpdateUserRoles(user.id, rolesToBeUpdated);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("An error occured!\n" + ex.Message.ToString());
-                            }
-
-                            MessageBox.Show("Salvările au fost realizate cu succes!");
-                            textBoxEmail.Text = String.Empty;
-                            textBoxName.Text = String.Empty;
-                          
-
-                            this.Close();
+                            webService.EditUser(newUser);
+                            webService.UpdateUserRoles(user.id, rolesToBeUpdated);
                         }
-                       
-                    
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("A apărut o eroare!\n" + ex.Message.ToString());
+                        }
+
+                        MessageBox.Show("Salvările au fost realizate cu succes!");
+                        textBoxEmail.Text = String.Empty;
+                        textBoxName.Text = String.Empty;
+
+                        this.Close();
+                    }
                     else
                     {
-                        MessageBox.Show("This email is already taken. Try another one!");
+                        MessageBox.Show("Acest email este deja luat. Încearcă altul!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid email address!");
+                    MessageBox.Show("Acest email nu este unul valid. Încearcă altul!");
                 }
             }
             else
             {
-                MessageBox.Show("Please fill all the fields.");
+                MessageBox.Show("Toate câmpurile sunt obligatorii!");
             }
         }
 

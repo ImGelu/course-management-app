@@ -51,7 +51,7 @@ namespace Server
         {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
-            return databaseEntities.Database.SqlQuery<Role>("SELECT t2.* FROM Users2Roles AS t1 INNER JOIN Roles AS t2 ON t1.id_role = t2.id AND t1.id_user = @id", new SqlParameter("@id", id)).ToList();
+            return databaseEntities.Database.SqlQuery<Role>("SELECT DISTINCT t2.name, t2.id FROM Users2Roles AS t1 INNER JOIN Roles AS t2 ON t1.id_role = t2.id AND t1.id_user = @id", new SqlParameter("@id", id)).ToList();
         }
 
         [WebMethod]
@@ -284,9 +284,16 @@ namespace Server
         {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
-            Users2Courses users2Courses = databaseEntities.Users2Courses.Where((item) => item.id_course == courseId).Where((item) => item.id_user == userId).FirstOrDefault();
+            Users2Courses oldEntry = databaseEntities.Users2Courses.Where((item) => item.id_course == courseId).Where((item) => item.id_user == userId).FirstOrDefault();
+            databaseEntities.Users2Courses.Remove(oldEntry);
+            databaseEntities.SaveChanges();
+
+            Users2Courses users2Courses = new Users2Courses();
+            users2Courses.id_user = userId;
+            users2Courses.id_course = courseId;
             users2Courses.status = status;
 
+            databaseEntities.Users2Courses.Add(users2Courses);
             databaseEntities.SaveChanges();
         }
 
@@ -473,12 +480,6 @@ namespace Server
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
             return databaseEntities.Users2Courses.ToList();
-        }
-
-        [WebMethod]
-        public void UpdateStatus(int status)
-        {
-            databaseEntities.Users2Courses.SqlQuery("UPDATE Users2Courses SET status = @status ", new SqlParameter("@status", status));
         }
     }
 }

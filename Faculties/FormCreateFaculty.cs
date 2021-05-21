@@ -1,13 +1,6 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect.Faculties
@@ -18,11 +11,11 @@ namespace Proiect.Faculties
         private FormViewFaculties parent;
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         private string path = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-        
+
         public FormCreateFaculty()
         {
             InitializeComponent();
-            openFileDialog.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
+            openFileDialog.Filter = "Imagini (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
             openFileDialog.Multiselect = false;
         }
 
@@ -71,13 +64,14 @@ namespace Proiect.Faculties
                     {
                         System.IO.File.Copy(openFileDialog.FileName, pictureBoxLogo.Tag.ToString());
                         newFaculty.logo = System.IO.Path.GetFileName(pictureBoxLogo.Tag.ToString());
-                    } else
+                    }
+                    else
                     {
                         newFaculty.logo = "";
                     }
                     if (textBoxName.Text != String.Empty && textBoxWebsite.Text != String.Empty)
                     {
-                       
+
                         if (Utils.IsValidURL(textBoxWebsite.Text))
                         {
                             newFaculty.name = textBoxName.Text;
@@ -89,11 +83,13 @@ namespace Proiect.Faculties
 
                             this.Close();
                             parent.Show();
-                        }else MessageBox.Show("Please add a valid URL");
+                        }
+                        else MessageBox.Show("Adresa website nu este una validă!");
                     }
-                    else MessageBox.Show("Please fill all the fields to continue!");
+                    else MessageBox.Show("Toate câmpurile sunt obligatorii!");
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }

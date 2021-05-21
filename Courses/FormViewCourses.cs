@@ -23,7 +23,10 @@ namespace Proiect
             dataTable.Columns.Add("Domeniu", typeof(string));
             dataTable.Columns.Add("Specializare", typeof(string));
             dataGridViewCourses.DataSource = dataTable;
+            dataGridViewCourses.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCourses.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCourses.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCourses.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             DataGridViewButtonColumn viewBtn = new DataGridViewButtonColumn();
             viewBtn.UseColumnTextForButtonValue = true;
@@ -101,7 +104,7 @@ namespace Proiect
                 }
             }
         }
-       
+
         private void dataGridViewCourses_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)

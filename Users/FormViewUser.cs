@@ -24,11 +24,6 @@ namespace Proiect
             this.id = id;
         }
 
-        private void FormViewUser_Load(object sender, EventArgs e)
-        {
-            UpdateData();
-        }
-
         private void toolStripButtonEditUser_Click(object sender, EventArgs e)
         {
             FormEditUser newForm = new FormEditUser(this, user.id);
@@ -44,7 +39,7 @@ namespace Proiect
                 MessageBox.Show("Utilizatorul a fost șters cu succes!");
                 parent.Show();
                 this.Close();
-            }  
+            }
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)
@@ -60,7 +55,7 @@ namespace Proiect
 
         private void FormViewUser_VisibleChanged(object sender, EventArgs e)
         {
-            if(this.Visible == true)
+            if (this.Visible == true)
             {
                 UpdateData();
             }
@@ -72,6 +67,10 @@ namespace Proiect
             textBoxName.Text = user.name;
             textBoxEmail.Text = user.email;
             listBoxRoles.ValueMember = "name";
+
+            this.Text = String.Format("Vizualizare utilizator • {0}", user.name);
+
+            listBoxRoles.Items.Clear();
 
             webService.GetUserRoles(user.id).ToList().ForEach((userRole) =>
             {

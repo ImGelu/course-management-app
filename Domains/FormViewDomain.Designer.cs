@@ -138,6 +138,7 @@ namespace Proiect.Domains
             // groupBox
             // 
             this.groupBox.Controls.Add(this.dataGridView);
+            this.groupBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.groupBox.Location = new System.Drawing.Point(12, 95);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(827, 234);

@@ -1,14 +1,8 @@
 ﻿using Proiect.Domains;
 using Proiect.Faculties;
 using Proiect.Roles;
+using Proiect.Specializations;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect
@@ -18,8 +12,8 @@ namespace Proiect
         public FormDashboard()
         {
             InitializeComponent();
-            toolStripSplitButtonLoggedIn.Text = String.Format("Logged in as {0} ({1})", Utils.GetLoggedInUser().name, Utils.GetLoggedInUser().email);
-            toolStripSplitButtonLoggedIn.ToolTipText = String.Format("Logged in as {0} ({1})", Utils.GetLoggedInUser().name, Utils.GetLoggedInUser().email);
+            toolStripSplitButtonLoggedIn.Text = String.Format("Conectat ca {0} ({1})", Utils.GetLoggedInUser().name, Utils.GetLoggedInUser().email);
+            toolStripSplitButtonLoggedIn.ToolTipText = String.Format("Conectat ca {0} ({1})", Utils.GetLoggedInUser().name, Utils.GetLoggedInUser().email);
             Utils.SetButtonImage(buttonViewCourses, Properties.Resources.icon_course);
             Utils.SetButtonImage(buttonViewRequests, Properties.Resources.icon_request);
             Utils.SetButtonImage(buttonViewDomains, Properties.Resources.icon_domain);
@@ -37,10 +31,11 @@ namespace Proiect
 
             FormLogin parent = (FormLogin)Owner;
 
-            if(parent != null)
+            if (parent != null)
             {
                 parent.Show();
-            } else
+            }
+            else
             {
                 FormLogin formLogin = new FormLogin();
                 formLogin.Show();
@@ -79,7 +74,9 @@ namespace Proiect
 
         private void buttonViewSpecializations_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon!");
+            FormViewSpecializations formViewSpecializations = new FormViewSpecializations();
+            formViewSpecializations.Show(this);
+            this.Hide();
         }
 
         private void buttonViewUsers_Click(object sender, EventArgs e)

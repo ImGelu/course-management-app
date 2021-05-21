@@ -1,12 +1,5 @@
 ﻿using Proiect.CoursesWebServiceReference;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect.Users
@@ -40,12 +33,12 @@ namespace Proiect.Users
                 {
                     CoursesWebService webService = new CoursesWebService();
                     webService.UpdatePassword(id, pass);
-                    MessageBox.Show("The password was changed succesfully!");
+                    MessageBox.Show("Parola a fost actualizată cu succes!");
                     this.Close();
                 }
-                else MessageBox.Show("The passwords don't maatch");
+                else MessageBox.Show("Parolele nu se potrivesc. Încearcă din nou!");
             }
-            else MessageBox.Show("Please fill all the fields");
+            else MessageBox.Show("Toate câmpurile sunt obligatorii!");
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)

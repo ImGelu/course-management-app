@@ -11,7 +11,7 @@ namespace Proiect
         {
             InitializeComponent();
 
-            toolTipEmail.SetToolTip(textBoxEmail, "The email must end with *.utcluj.ro");
+            toolTipEmail.SetToolTip(textBoxEmail, "Email-ul trebuie să se termine cu *.utcluj.ro");
             Utils.SetButtonImage(buttonCreateAccount, Properties.Resources.icon_login, 15, 15);
         }
 
@@ -26,12 +26,12 @@ namespace Proiect
         {
             string name, email, password, passwordConfirmation;
 
-            name                 = textBoxName.Text;
-            email                = textBoxEmail.Text;
-            password             = textBoxPassword.Text;
+            name = textBoxName.Text;
+            email = textBoxEmail.Text;
+            password = textBoxPassword.Text;
             passwordConfirmation = textBoxPasswordConfirmation.Text;
 
-            if(name != String.Empty && email != String.Empty && password != String.Empty && passwordConfirmation != String.Empty)
+            if (name != String.Empty && email != String.Empty && password != String.Empty && passwordConfirmation != String.Empty)
             {
                 if (Utils.IsValidEmail(email))
                 {
@@ -50,10 +50,10 @@ namespace Proiect
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("An error occured!\n" + ex.Message.ToString());
+                                MessageBox.Show("A apărut o eroare!\n" + ex.Message.ToString());
                             }
 
-                            MessageBox.Show("The account has been successfully created. You can log in now!");
+                            MessageBox.Show("Contul a fost creat cu succes. Poți să te conectezi acum!");
                             textBoxEmail.Text = String.Empty;
                             textBoxName.Text = String.Empty;
                             textBoxPassword.Text = String.Empty;
@@ -65,19 +65,22 @@ namespace Proiect
                         }
                         else
                         {
-                            MessageBox.Show("The passwords don't match. Try again!");
+                            MessageBox.Show("Parolele nu se potrivesc. Încearcă din nou!");
                         }
-                    } else
-                    {
-                        MessageBox.Show("This email is already taken. Try another one!");
                     }
-                } else
-                {
-                    MessageBox.Show("Please enter a valid email address!");
+                    else
+                    {
+                        MessageBox.Show("Acest email este deja luat. Încearcă altul!");
+                    }
                 }
-            } else
+                else
+                {
+                    MessageBox.Show("Acest email nu este unul valid. Încearcă altul!");
+                }
+            }
+            else
             {
-                MessageBox.Show("Please fill all the fields.");
+                MessageBox.Show("Toate câmpurile sunt obligatorii!");
             }
         }
     }

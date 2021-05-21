@@ -19,7 +19,7 @@ namespace Proiect
 
             CoursesWebServiceReference.User loginUser = new CoursesWebServiceReference.User();
 
-            email    = textBoxEmail.Text;
+            email = textBoxEmail.Text;
             password = textBoxPassword.Text;
 
             loginUser = webService.CheckLogin(email, password);
@@ -38,7 +38,7 @@ namespace Proiect
                 formDashboard.Show(this);
                 this.Hide();
             }
-            else MessageBox.Show("Wrong email/password combination. Try again.");
+            else MessageBox.Show("Email-ul și parola nu se potrivesc. Încearcă din nou!");
         }
 
         private void linkLabelSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

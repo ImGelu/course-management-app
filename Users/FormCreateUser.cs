@@ -15,7 +15,6 @@ namespace Proiect
             InitializeComponent();
         }
 
-
         private void FormCreateUser_Load(object sender, EventArgs e)
         {
             parent = (FormViewUsers)Owner;
@@ -61,11 +60,10 @@ namespace Proiect
                                 });
 
                                 webService.AddUser(newUser);
-                                // webService.UpdateUserRoles(user.id, rolesToBeUpdated);
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("An error occured!\n" + ex.Message.ToString());
+                                MessageBox.Show("A apărut o eroare\n" + ex.Message.ToString());
                             }
 
                             MessageBox.Show("Contul a fost creat cu succes!");
@@ -78,22 +76,22 @@ namespace Proiect
                         }
                         else
                         {
-                            MessageBox.Show("The passwords don't match. Try again!");
+                            MessageBox.Show("Parolele nu se potrivesc. Încearcă din nou!");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("This email is already taken. Try another one!");
+                        MessageBox.Show("Acest email este deja luat. Încearcă altul!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid email address!");
+                    MessageBox.Show("Acest email nu este unul valid. Încearcă altul!");
                 }
             }
             else
             {
-                MessageBox.Show("Please fill all the fields.");
+                MessageBox.Show("Toate câmpurile sunt obligatorii!");
             }
         }
 

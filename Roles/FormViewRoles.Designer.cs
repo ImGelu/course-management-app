@@ -74,7 +74,6 @@ namespace Proiect.Roles
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Margin = new System.Windows.Forms.Padding(1, 5, 5, 5);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 23);
@@ -109,11 +108,11 @@ namespace Proiect.Roles
             // 
             this.labelNotFound.AutoSize = true;
             this.labelNotFound.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotFound.Location = new System.Drawing.Point(326, 45);
+            this.labelNotFound.Location = new System.Drawing.Point(293, 45);
             this.labelNotFound.Name = "labelNotFound";
-            this.labelNotFound.Size = new System.Drawing.Size(178, 21);
+            this.labelNotFound.Size = new System.Drawing.Size(247, 21);
             this.labelNotFound.TabIndex = 19;
-            this.labelNotFound.Text = "No such role was found!";
+            this.labelNotFound.Text = "Nu s-au găsit roluri cu acest nume";
             // 
             // dataGridViewRoles
             // 
@@ -126,6 +125,7 @@ namespace Proiect.Roles
             this.dataGridViewRoles.Location = new System.Drawing.Point(12, 69);
             this.dataGridViewRoles.Name = "dataGridViewRoles";
             this.dataGridViewRoles.ReadOnly = true;
+            this.dataGridViewRoles.RowHeadersVisible = false;
             this.dataGridViewRoles.RowHeadersWidth = 51;
             this.dataGridViewRoles.Size = new System.Drawing.Size(809, 384);
             this.dataGridViewRoles.TabIndex = 18;
@@ -144,7 +144,7 @@ namespace Proiect.Roles
             this.MinimizeBox = false;
             this.Name = "FormViewRoles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vizualizare roluri";
+            this.Text = "Lista rolurilor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewRoles_FormClosed);
             this.Load += new System.EventHandler(this.FormViewRoles_Load);
             this.VisibleChanged += new System.EventHandler(this.FormViewRoles_VisibleChanged);
