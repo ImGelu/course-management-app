@@ -93,6 +93,12 @@ namespace Proiect
             textBoxLabHours.Text = course.laboratory_hours.ToString();
             textBoxProjectHours.Text = course.project_hours.ToString();
 
+            webService.GetCourseTutors(course.id).ToList().ForEach((tutor) =>
+            {
+                listBoxCourseTutors.Items.Add(tutor);
+            });
+            listBoxCourseTutors.DisplayMember = "name";
+
             if (course.seminary_tutors.Length > 0)
                 course.seminary_tutors.Split(',').ToList().ForEach((tutor) => { listBoxSeminaryTutors.Items.Add(tutor.ToString()); });
 
@@ -149,15 +155,6 @@ namespace Proiect
             }
         }
 
-        private void buttonCourseTutors_Click(object sender, EventArgs e)
-        {
-            if (textBoxCourseTutors.Text != String.Empty)
-            {
-                listBoxCourseTutors.Items.Add(textBoxCourseTutors.Text);
-                textBoxCourseTutors.Clear();
-            }
-        }
-
         private void buttonLabTutors_Click(object sender, EventArgs e)
         {
             if (textBoxLabTutors.Text != String.Empty)
@@ -211,7 +208,12 @@ namespace Proiect
                 int selectedIndex = listBoxCourseTutors.SelectedIndex;
 
                 e.Handled = true;
-                if (selectedIndex > -1) listBoxCourseTutors.Items.RemoveAt(selectedIndex);
+                if (selectedIndex > -1)
+                {
+                    User selectedItem = (User)listBoxCourseTutors.SelectedItem;
+                    listBoxCourseTutors.Items.RemoveAt(selectedIndex);
+                    webService.SetCourseRedemptionStatus(course.id, selectedItem.id, 2);
+                }
             }
         }
 

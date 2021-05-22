@@ -63,8 +63,18 @@ namespace Server
         }
 
         [WebMethod]
+        public bool UserIs(int id, String role)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            List<Role> roles = databaseEntities.Database.SqlQuery<Role>("SELECT DISTINCT t2.name, t2.id FROM Users2Roles AS t1 INNER JOIN Roles AS t2 ON t1.id_role = t2.id AND t1.id_user = @id", new SqlParameter("@id", id)).ToList();
+
+            return roles.Any(userRole => userRole.name == role);
+        }
+
+        [WebMethod]
         public void UpdateUserRoles(int id, List<Role> roles)
-        { 
+        {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
 
             databaseEntities.Database.ExecuteSqlCommand("DELETE FROM Users2Roles WHERE id_user = @id", new SqlParameter("@id", id));
@@ -206,7 +216,7 @@ namespace Server
         public Course GetCourse(int id)
         {
             databaseEntities.Configuration.ProxyCreationEnabled = false;
-            
+
             return databaseEntities.Courses.Find(id);
         }
 
@@ -217,6 +227,15 @@ namespace Server
 
             return databaseEntities.Courses.Where(course => course.name.Contains(name)).ToList();
         }
+
+        [WebMethod]
+        public List<User> GetCourseTutors(int id)
+        {
+            databaseEntities.Configuration.ProxyCreationEnabled = false;
+
+            return databaseEntities.Database.SqlQuery<User>("SELECT t2.* FROM Users2Courses AS t1 INNER JOIN Users AS t2 ON t1.id_user = t2.id AND t1.status = 1 AND t1.id_course = @id", new SqlParameter("@id", id)).ToList();
+        }
+
 
         [WebMethod]
         public void AddCourse(Course course)

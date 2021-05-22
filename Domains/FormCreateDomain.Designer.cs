@@ -141,7 +141,6 @@ namespace Proiect.Domains
             this.Text = "Creare domeniu nou";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCreateDomain_FormClosed);
             this.Load += new System.EventHandler(this.FormCreateDomain_Load);
-            this.VisibleChanged += new System.EventHandler(this.FormCreateDomain_VisibleChanged);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.toolStrip.ResumeLayout(false);

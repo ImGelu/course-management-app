@@ -172,6 +172,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UserIs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserIsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserIsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="UpdateUserRoles">
         <s:complexType>
           <s:sequence>
@@ -356,6 +371,20 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetCourseByNameResult" type="tns:ArrayOfCourse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCourseTutors">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCourseTutorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCourseTutorsResult" type="tns:ArrayOfUser" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -663,6 +692,12 @@
   <wsdl:message name="GetUsersWithRoleSoapOut">
     <wsdl:part name="parameters" element="tns:GetUsersWithRoleResponse" />
   </wsdl:message>
+  <wsdl:message name="UserIsSoapIn">
+    <wsdl:part name="parameters" element="tns:UserIs" />
+  </wsdl:message>
+  <wsdl:message name="UserIsSoapOut">
+    <wsdl:part name="parameters" element="tns:UserIsResponse" />
+  </wsdl:message>
   <wsdl:message name="UpdateUserRolesSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateUserRoles" />
   </wsdl:message>
@@ -758,6 +793,12 @@
   </wsdl:message>
   <wsdl:message name="GetCourseByNameSoapOut">
     <wsdl:part name="parameters" element="tns:GetCourseByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCourseTutorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCourseTutors" />
+  </wsdl:message>
+  <wsdl:message name="GetCourseTutorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCourseTutorsResponse" />
   </wsdl:message>
   <wsdl:message name="AddCourseSoapIn">
     <wsdl:part name="parameters" element="tns:AddCourse" />
@@ -924,6 +965,10 @@
       <wsdl:input message="tns:GetUsersWithRoleSoapIn" />
       <wsdl:output message="tns:GetUsersWithRoleSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UserIs">
+      <wsdl:input message="tns:UserIsSoapIn" />
+      <wsdl:output message="tns:UserIsSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateUserRoles">
       <wsdl:input message="tns:UpdateUserRolesSoapIn" />
       <wsdl:output message="tns:UpdateUserRolesSoapOut" />
@@ -987,6 +1032,10 @@
     <wsdl:operation name="GetCourseByName">
       <wsdl:input message="tns:GetCourseByNameSoapIn" />
       <wsdl:output message="tns:GetCourseByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseTutors">
+      <wsdl:input message="tns:GetCourseTutorsSoapIn" />
+      <wsdl:output message="tns:GetCourseTutorsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AddCourse">
       <wsdl:input message="tns:AddCourseSoapIn" />
@@ -1132,6 +1181,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UserIs">
+      <soap:operation soapAction="http://tempuri.org/UserIs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateUserRoles">
       <soap:operation soapAction="http://tempuri.org/UpdateUserRoles" style="document" />
       <wsdl:input>
@@ -1269,6 +1327,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCourseByName">
       <soap:operation soapAction="http://tempuri.org/GetCourseByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseTutors">
+      <soap:operation soapAction="http://tempuri.org/GetCourseTutors" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1540,6 +1607,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UserIs">
+      <soap12:operation soapAction="http://tempuri.org/UserIs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateUserRoles">
       <soap12:operation soapAction="http://tempuri.org/UpdateUserRoles" style="document" />
       <wsdl:input>
@@ -1677,6 +1753,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCourseByName">
       <soap12:operation soapAction="http://tempuri.org/GetCourseByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseTutors">
+      <soap12:operation soapAction="http://tempuri.org/GetCourseTutors" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

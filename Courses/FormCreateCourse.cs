@@ -30,7 +30,7 @@ namespace Proiect
 
         private void FormCreateCourse_Load(object sender, EventArgs e)
         {
-            FormViewCourses parent = (FormViewCourses)Owner;
+            parent = (FormViewCourses)Owner;
 
             comboBoxSemester.Items.Add("Semestrul 1");
             comboBoxSemester.Items.Add("Semestrul 2");
@@ -51,6 +51,12 @@ namespace Proiect
 
             comboBoxSpecialization.DataSource = webService.GetSpecializations().Where(specialization => specialization.domain_id == selectedDomain.id).ToList();
             comboBoxSpecialization.DisplayMember = "name";
+        }
+
+        private void toolStripButtonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
         }
 
         private void buttonAddCourse_Click(object sender, EventArgs e)
@@ -184,12 +190,6 @@ namespace Proiect
                 e.Handled = true;
                 if (selectedIndex > -1) listBoxProjectTutors.Items.RemoveAt(selectedIndex);
             }
-        }
-
-        private void toolStripButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            parent.Show();
         }
 
         private void FormCreateCourse_FormClosed(object sender, FormClosedEventArgs e)

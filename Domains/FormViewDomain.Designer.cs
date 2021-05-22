@@ -132,6 +132,7 @@ namespace Proiect.Domains
             this.dataGridView.Location = new System.Drawing.Point(6, 26);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.Size = new System.Drawing.Size(815, 202);
             this.dataGridView.TabIndex = 33;
             // 

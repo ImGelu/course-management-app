@@ -18,7 +18,8 @@ namespace Proiect.Domains
         private void FormCreateDomain_Load(object sender, EventArgs e)
         {
             parent = (FormViewDomains)Owner;
-            UpdateData();
+            comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
+            comboBoxFaculty.DisplayMember = "name";
         }
         
         private void toolStripButtonBack_Click(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace Proiect.Domains
                     this.Close();
                     parent.Show();
                 }
-                else MessageBox.Show("Please fill all the fields to continue!");
+                else MessageBox.Show("Toate câmpurile sunt obligatorii!");
             }
             catch (Exception ex)
             {
@@ -54,24 +55,9 @@ namespace Proiect.Domains
             }
         }
 
-        private void FormCreateDomain_VisibleChanged(object sender, EventArgs e)
-        {
-            if (this.Visible == true)
-            {
-                UpdateData();
-            }
-        }
-
         private void FormCreateDomain_FormClosed(object sender, FormClosedEventArgs e)
         {
             parent.Show();
         }
-
-        private void UpdateData()
-        {
-            comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
-            comboBoxFaculty.DisplayMember = "name";
-        }
-
     }
 }

@@ -44,6 +44,7 @@
             this.dataGridViewRequests.Location = new System.Drawing.Point(12, 46);
             this.dataGridViewRequests.Name = "dataGridViewRequests";
             this.dataGridViewRequests.ReadOnly = true;
+            this.dataGridViewRequests.RowHeadersVisible = false;
             this.dataGridViewRequests.Size = new System.Drawing.Size(809, 384);
             this.dataGridViewRequests.TabIndex = 10;
             this.dataGridViewRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRequests_CellClick);
@@ -86,7 +87,7 @@
             this.MinimizeBox = false;
             this.Name = "FormViewRequests";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cereri de revendicare";
+            this.Text = "Lista cererilor de revendicare";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewRequests_FormClosed);
             this.Load += new System.EventHandler(this.FormViewRequests_Load);
             this.VisibleChanged += new System.EventHandler(this.FormViewRequests_VisibleChanged);

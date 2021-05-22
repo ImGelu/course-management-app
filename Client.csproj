@@ -260,6 +260,18 @@
     <EmbeddedResource Include="Roles\FormViewRoles.resx">
       <DependentUpon>FormViewRoles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Specializations\FormCreateSpecialization.resx">
+      <DependentUpon>FormCreateSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Specializations\FormEditSpecialization.resx">
+      <DependentUpon>FormEditSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Specializations\FormViewSpecialization.resx">
+      <DependentUpon>FormViewSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Specializations\FormViewSpecializations.resx">
+      <DependentUpon>FormViewSpecializations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
     </EmbeddedResource>

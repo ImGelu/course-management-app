@@ -69,8 +69,6 @@
             this.labelContent = new System.Windows.Forms.Label();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBoxCourse = new System.Windows.Forms.GroupBox();
-            this.textBoxCourseTutors = new System.Windows.Forms.TextBox();
-            this.buttonCourseTutors = new System.Windows.Forms.Button();
             this.labelCourseTutors = new System.Windows.Forms.Label();
             this.listBoxCourseTutors = new System.Windows.Forms.ListBox();
             this.textBoxCourseHours = new System.Windows.Forms.TextBox();
@@ -524,8 +522,6 @@
             // 
             // groupBoxCourse
             // 
-            this.groupBoxCourse.Controls.Add(this.textBoxCourseTutors);
-            this.groupBoxCourse.Controls.Add(this.buttonCourseTutors);
             this.groupBoxCourse.Controls.Add(this.labelCourseTutors);
             this.groupBoxCourse.Controls.Add(this.listBoxCourseTutors);
             this.groupBoxCourse.Controls.Add(this.textBoxCourseHours);
@@ -537,25 +533,6 @@
             this.groupBoxCourse.TabIndex = 74;
             this.groupBoxCourse.TabStop = false;
             this.groupBoxCourse.Text = "Curs";
-            // 
-            // textBoxCourseTutors
-            // 
-            this.textBoxCourseTutors.Location = new System.Drawing.Point(7, 201);
-            this.textBoxCourseTutors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxCourseTutors.Name = "textBoxCourseTutors";
-            this.textBoxCourseTutors.Size = new System.Drawing.Size(223, 27);
-            this.textBoxCourseTutors.TabIndex = 12;
-            // 
-            // buttonCourseTutors
-            // 
-            this.buttonCourseTutors.BackgroundImage = global::Proiect.Properties.Resources.icon_plus;
-            this.buttonCourseTutors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCourseTutors.Location = new System.Drawing.Point(237, 201);
-            this.buttonCourseTutors.Name = "buttonCourseTutors";
-            this.buttonCourseTutors.Size = new System.Drawing.Size(30, 29);
-            this.buttonCourseTutors.TabIndex = 13;
-            this.buttonCourseTutors.UseVisualStyleBackColor = true;
-            this.buttonCourseTutors.Click += new System.EventHandler(this.buttonCourseTutors_Click);
             // 
             // labelCourseTutors
             // 
@@ -719,8 +696,6 @@
         private System.Windows.Forms.Label labelContent;
         private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.GroupBox groupBoxCourse;
-        private System.Windows.Forms.TextBox textBoxCourseTutors;
-        private System.Windows.Forms.Button buttonCourseTutors;
         private System.Windows.Forms.Label labelCourseTutors;
         private System.Windows.Forms.ListBox listBoxCourseTutors;
         private System.Windows.Forms.TextBox textBoxCourseHours;

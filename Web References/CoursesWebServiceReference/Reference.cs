@@ -39,6 +39,8 @@ namespace Proiect.CoursesWebServiceReference {
         
         private System.Threading.SendOrPostCallback GetUsersWithRoleOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UserIsOperationCompleted;
+        
         private System.Threading.SendOrPostCallback UpdateUserRolesOperationCompleted;
         
         private System.Threading.SendOrPostCallback AddRoleOperationCompleted;
@@ -70,6 +72,8 @@ namespace Proiect.CoursesWebServiceReference {
         private System.Threading.SendOrPostCallback GetCourseOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetCourseByNameOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetCourseTutorsOperationCompleted;
         
         private System.Threading.SendOrPostCallback AddCourseOperationCompleted;
         
@@ -173,6 +177,9 @@ namespace Proiect.CoursesWebServiceReference {
         public event GetUsersWithRoleCompletedEventHandler GetUsersWithRoleCompleted;
         
         /// <remarks/>
+        public event UserIsCompletedEventHandler UserIsCompleted;
+        
+        /// <remarks/>
         public event UpdateUserRolesCompletedEventHandler UpdateUserRolesCompleted;
         
         /// <remarks/>
@@ -219,6 +226,9 @@ namespace Proiect.CoursesWebServiceReference {
         
         /// <remarks/>
         public event GetCourseByNameCompletedEventHandler GetCourseByNameCompleted;
+        
+        /// <remarks/>
+        public event GetCourseTutorsCompletedEventHandler GetCourseTutorsCompleted;
         
         /// <remarks/>
         public event AddCourseCompletedEventHandler AddCourseCompleted;
@@ -432,6 +442,37 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.GetUsersWithRoleCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetUsersWithRoleCompleted(this, new GetUsersWithRoleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UserIs", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool UserIs(int id, string role) {
+            object[] results = this.Invoke("UserIs", new object[] {
+                        id,
+                        role});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UserIsAsync(int id, string role) {
+            this.UserIsAsync(id, role, null);
+        }
+        
+        /// <remarks/>
+        public void UserIsAsync(int id, string role, object userState) {
+            if ((this.UserIsOperationCompleted == null)) {
+                this.UserIsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUserIsOperationCompleted);
+            }
+            this.InvokeAsync("UserIs", new object[] {
+                        id,
+                        role}, this.UserIsOperationCompleted, userState);
+        }
+        
+        private void OnUserIsOperationCompleted(object arg) {
+            if ((this.UserIsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UserIsCompleted(this, new UserIsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -890,6 +931,35 @@ namespace Proiect.CoursesWebServiceReference {
             if ((this.GetCourseByNameCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetCourseByNameCompleted(this, new GetCourseByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCourseTutors", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public User[] GetCourseTutors(int id) {
+            object[] results = this.Invoke("GetCourseTutors", new object[] {
+                        id});
+            return ((User[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetCourseTutorsAsync(int id) {
+            this.GetCourseTutorsAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetCourseTutorsAsync(int id, object userState) {
+            if ((this.GetCourseTutorsOperationCompleted == null)) {
+                this.GetCourseTutorsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCourseTutorsOperationCompleted);
+            }
+            this.InvokeAsync("GetCourseTutors", new object[] {
+                        id}, this.GetCourseTutorsOperationCompleted, userState);
+        }
+        
+        private void OnGetCourseTutorsOperationCompleted(object arg) {
+            if ((this.GetCourseTutorsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetCourseTutorsCompleted(this, new GetCourseTutorsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2339,6 +2409,32 @@ namespace Proiect.CoursesWebServiceReference {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void UserIsCompletedEventHandler(object sender, UserIsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UserIsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UserIsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void UpdateUserRolesCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
@@ -2573,6 +2669,32 @@ namespace Proiect.CoursesWebServiceReference {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Course[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetCourseTutorsCompletedEventHandler(object sender, GetCourseTutorsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetCourseTutorsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetCourseTutorsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public User[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((User[])(this.results[0]));
             }
         }
     }

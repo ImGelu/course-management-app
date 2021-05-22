@@ -144,6 +144,12 @@ namespace Proiect
             textBoxLabHours.Text = course.laboratory_hours.ToString();
             textBoxProjectHours.Text = course.project_hours.ToString();
 
+            webService.GetCourseTutors(course.id).ToList().ForEach((tutor) =>
+            {
+                listBoxCourseTutors.Items.Add(tutor);
+            });
+            listBoxCourseTutors.DisplayMember = "name";
+
             if (course.seminary_tutors.Length > 0)
                 course.seminary_tutors.Split(',').ToList().ForEach((tutor) => { listBoxSeminaryTutors.Items.Add(tutor.ToString()); });
 
