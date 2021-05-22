@@ -72,6 +72,19 @@ namespace Proiect.Specializations
 
         private void UpdateData()
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonEditSpecialization.Visible = true;
+                toolStripButtonDeleteSpecialization.Visible = true;
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonEditSpecialization.Visible = false;
+                toolStripButtonDeleteSpecialization.Visible = false;
+            }
+
             specialization = webService.GetSpecialization(id);
             domain = webService.GetDomain(specialization.domain_id);
             faculty = webService.GetFaculty(domain.faculty_id);

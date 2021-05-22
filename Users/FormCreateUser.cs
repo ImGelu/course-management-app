@@ -60,6 +60,10 @@ namespace Proiect
                                 });
 
                                 webService.AddUser(newUser);
+
+                                User addedUser = webService.GetUserByEmail(newUser.email);
+
+                                webService.UpdateUserRoles(addedUser.id, rolesToBeUpdated);
                             }
                             catch (Exception ex)
                             {

@@ -12,6 +12,7 @@ namespace Proiect
         public static CoursesWebService webService = new CoursesWebService();
         private FormViewUsers parentUsers = null;
         private FormViewUser parentUser = null;
+        private FormDashboard parentDashboard = null;
         private User user;
 
         public FormEditUser()
@@ -33,8 +34,20 @@ namespace Proiect
             this.parentUser = parent;
         }
 
+        public FormEditUser(FormDashboard parent, int id)
+        {
+            InitializeComponent();
+            user = webService.GetUser(id);
+            this.parentDashboard = parent;
+        }
+
         private void FormEditUser_Load(object sender, EventArgs e)
         {
+            if (!webService.UserIs(Utils.GetLoggedInUser().id, "Administrator"))
+            {
+                toolStripButtonDeleteUser.Visible = false;
+            }
+            
             textBoxEmail.Text = user.email;
             textBoxName.Text = user.name;
             listBoxRoles.ValueMember = "name";
@@ -65,6 +78,13 @@ namespace Proiect
                 comboBoxRoles.Items.Remove(role);
             });
 
+            if (!webService.UserIs(Utils.GetLoggedInUser().id, "Administrator"))
+            {
+                comboBoxRoles.Enabled = false;
+                listBoxRoles.Enabled = false;
+                buttonAddRole.Enabled = false;
+            }
+
             this.Text = String.Format("Editare utilizator • {0}", user.name);
         }
 
@@ -72,13 +92,17 @@ namespace Proiect
         {
             this.Close();
 
-            if (parentUsers == null)
+            if (parentUser != null)
             {
                 parentUser.Show();
             }
-            else
+            else if (parentUsers != null)
             {
                 parentUsers.Show();
+            }
+            else
+            {
+                parentDashboard.Show();
             }
         }
 
@@ -86,6 +110,9 @@ namespace Proiect
         {
             if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                Role[] roles = new Role[1];
+
+                webService.UpdateUserRoles(user.id, roles);
                 webService.DeleteUser(user.id);
                 MessageBox.Show("Utilizatorul a fost șters cu succes!");
                 this.Close();
@@ -179,13 +206,17 @@ namespace Proiect
 
         private void FormEditUser_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (parentUsers == null)
+            if (parentUser != null)
             {
                 parentUser.Show();
             }
-            else
+            else if (parentUsers != null)
             {
                 parentUsers.Show();
+            }
+            else
+            {
+                parentDashboard.Show();
             }
         }
 

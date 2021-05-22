@@ -71,6 +71,19 @@ namespace Proiect.Domains
 
         private void UpdateData()
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonEditDomain.Visible = true;
+                toolStripButtonDeleteDomain.Visible = true;
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonEditDomain.Visible = false;
+                toolStripButtonDeleteDomain.Visible = false;
+            }
+
             domain = webService.GetDomain(id);
             faculty = webService.GetFaculty(domain.faculty_id);
 

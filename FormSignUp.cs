@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proiect.CoursesWebServiceReference;
+using System;
 using System.Windows.Forms;
 
 namespace Proiect
@@ -39,7 +40,7 @@ namespace Proiect
                     {
                         if (password.Equals(passwordConfirmation))
                         {
-                            CoursesWebServiceReference.User newUser = new CoursesWebServiceReference.User();
+                            User newUser = new User();
                             newUser.name = name;
                             newUser.email = email;
                             newUser.password = password;
@@ -47,6 +48,13 @@ namespace Proiect
                             try
                             {
                                 webService.AddUser(newUser);
+
+                                User addedUser = webService.GetUserByEmail(newUser.email);
+
+                                Role[] roles = new Role[1];
+                                roles[0] = webService.GetRole(3);
+
+                                webService.UpdateUserRoles(addedUser.id, roles);
                             }
                             catch (Exception ex)
                             {

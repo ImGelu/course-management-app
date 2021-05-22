@@ -83,7 +83,7 @@ namespace Proiect
             }
 
             textBoxName.Text = course.name;
-            comboBoxYear.SelectedIndex = course.study_level - 1;
+            comboBoxYear.SelectedIndex = course.study_year - 1;
             comboBoxSemester.SelectedIndex = course.semester - 1;
             comboBoxStudyLevel.SelectedIndex = course.study_level - 1;
             textBoxCredits.Text = course.credits.ToString();

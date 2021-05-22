@@ -33,7 +33,6 @@ namespace Proiect
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonEditUser = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDeleteUser = new System.Windows.Forms.ToolStripButton();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.listBoxRoles = new System.Windows.Forms.ListBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -53,8 +52,7 @@ namespace Proiect
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
             this.toolStripSeparator1,
-            this.toolStripButtonEditUser,
-            this.toolStripButtonDeleteUser});
+            this.toolStripButtonEditUser});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
@@ -89,17 +87,6 @@ namespace Proiect
             this.toolStripButtonEditUser.Size = new System.Drawing.Size(129, 23);
             this.toolStripButtonEditUser.Text = "Editează utilizatorul";
             this.toolStripButtonEditUser.Click += new System.EventHandler(this.toolStripButtonEditUser_Click);
-            // 
-            // toolStripButtonDeleteUser
-            // 
-            this.toolStripButtonDeleteUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonDeleteUser.Image = global::Proiect.Properties.Resources.icon_trash;
-            this.toolStripButtonDeleteUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDeleteUser.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.toolStripButtonDeleteUser.Name = "toolStripButtonDeleteUser";
-            this.toolStripButtonDeleteUser.Size = new System.Drawing.Size(119, 23);
-            this.toolStripButtonDeleteUser.Text = "Șterge utilizatorul";
-            this.toolStripButtonDeleteUser.Click += new System.EventHandler(this.toolStripButtonDeleteUser_Click);
             // 
             // groupBox
             // 
@@ -202,7 +189,6 @@ namespace Proiect
         #endregion
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButtonEditUser;
-        private System.Windows.Forms.ToolStripButton toolStripButtonDeleteUser;
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxName;

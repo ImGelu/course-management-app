@@ -38,6 +38,7 @@ namespace Proiect
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.linkLabelSignUp = new System.Windows.Forms.LinkLabel();
+            this.linkLabelGuest = new System.Windows.Forms.LinkLabel();
             this.groupBoxLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,12 +143,26 @@ namespace Proiect
             this.linkLabelSignUp.Text = "Nu ai un cont? Înregistrează-te!";
             this.linkLabelSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSignUp_LinkClicked);
             // 
+            // linkLabelGuest
+            // 
+            this.linkLabelGuest.AutoSize = true;
+            this.linkLabelGuest.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelGuest.Location = new System.Drawing.Point(85, 293);
+            this.linkLabelGuest.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabelGuest.Name = "linkLabelGuest";
+            this.linkLabelGuest.Size = new System.Drawing.Size(97, 13);
+            this.linkLabelGuest.TabIndex = 9;
+            this.linkLabelGuest.TabStop = true;
+            this.linkLabelGuest.Text = "Intră ca și musafir";
+            this.linkLabelGuest.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGuest_LinkClicked);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(513, 329);
+            this.Controls.Add(this.linkLabelGuest);
             this.Controls.Add(this.linkLabelSignUp);
             this.Controls.Add(this.groupBoxLogin);
             this.Controls.Add(this.label4);
@@ -175,6 +190,7 @@ namespace Proiect
         private System.Windows.Forms.GroupBox groupBoxLogin;
         private System.Windows.Forms.LinkLabel linkLabelSignUp;
         private System.Windows.Forms.CheckBox checkBoxRememberMe;
+        private System.Windows.Forms.LinkLabel linkLabelGuest;
     }
 }
 

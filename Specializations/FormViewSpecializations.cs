@@ -56,6 +56,17 @@ namespace Proiect.Specializations
 
         private void UpdateData(object sender, EventArgs e)
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonAddSpecialization.Visible = true;
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonAddSpecialization.Visible = false;
+            }
+
             panel.Controls.Clear();
 
             int width = panel.Size.Width;

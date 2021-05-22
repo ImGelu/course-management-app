@@ -31,17 +31,6 @@ namespace Proiect
             this.Hide();
         }
 
-        private void toolStripButtonDeleteUser_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                webService.DeleteUser(user.id);
-                MessageBox.Show("Utilizatorul a fost șters cu succes!");
-                parent.Show();
-                this.Close();
-            }
-        }
-
         private void toolStripButtonBack_Click(object sender, EventArgs e)
         {
             this.Close();

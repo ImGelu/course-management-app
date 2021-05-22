@@ -70,8 +70,8 @@
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonEditCourse = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRedeemCourse = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEditCourse = new System.Windows.Forms.ToolStripButton();
             this.groupBoxProject.SuspendLayout();
             this.groupBoxSeminary.SuspendLayout();
             this.groupBoxLab.SuspendLayout();
@@ -278,6 +278,7 @@
             // 
             this.comboBoxSpecialization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxSpecialization.Enabled = false;
+            this.comboBoxSpecialization.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSpecialization.FormattingEnabled = true;
             this.comboBoxSpecialization.Location = new System.Drawing.Point(384, 188);
             this.comboBoxSpecialization.Name = "comboBoxSpecialization";
@@ -289,6 +290,7 @@
             // 
             this.comboBoxDomain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxDomain.Enabled = false;
+            this.comboBoxDomain.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDomain.FormattingEnabled = true;
             this.comboBoxDomain.Location = new System.Drawing.Point(384, 118);
             this.comboBoxDomain.Name = "comboBoxDomain";
@@ -300,6 +302,7 @@
             // 
             this.comboBoxFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBoxFaculty.Enabled = false;
+            this.comboBoxFaculty.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFaculty.FormattingEnabled = true;
             this.comboBoxFaculty.Location = new System.Drawing.Point(384, 47);
             this.comboBoxFaculty.Name = "comboBoxFaculty";
@@ -455,10 +458,10 @@
             // 
             // richTextBox
             // 
-            this.richTextBox.Enabled = false;
             this.richTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.richTextBox.Location = new System.Drawing.Point(19, 311);
             this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ReadOnly = true;
             this.richTextBox.Size = new System.Drawing.Size(632, 216);
             this.richTextBox.TabIndex = 85;
             this.richTextBox.Text = "";
@@ -554,16 +557,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 23);
             // 
-            // toolStripButtonEditCourse
-            // 
-            this.toolStripButtonEditCourse.Image = global::Proiect.Properties.Resources.icon_pencil;
-            this.toolStripButtonEditCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonEditCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonEditCourse.Name = "toolStripButtonEditCourse";
-            this.toolStripButtonEditCourse.Size = new System.Drawing.Size(111, 23);
-            this.toolStripButtonEditCourse.Text = "Editează materia";
-            this.toolStripButtonEditCourse.Click += new System.EventHandler(this.toolStripButtonEditCourse_Click);
-            // 
             // toolStripButtonRedeemCourse
             // 
             this.toolStripButtonRedeemCourse.Image = global::Proiect.Properties.Resources.icon_request;
@@ -573,6 +566,16 @@
             this.toolStripButtonRedeemCourse.Size = new System.Drawing.Size(120, 23);
             this.toolStripButtonRedeemCourse.Text = "Revendică materia";
             this.toolStripButtonRedeemCourse.Click += new System.EventHandler(this.toolStripButtonRedeemCourse_Click);
+            // 
+            // toolStripButtonEditCourse
+            // 
+            this.toolStripButtonEditCourse.Image = global::Proiect.Properties.Resources.icon_pencil;
+            this.toolStripButtonEditCourse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEditCourse.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.toolStripButtonEditCourse.Name = "toolStripButtonEditCourse";
+            this.toolStripButtonEditCourse.Size = new System.Drawing.Size(111, 23);
+            this.toolStripButtonEditCourse.Text = "Editează materia";
+            this.toolStripButtonEditCourse.Click += new System.EventHandler(this.toolStripButtonEditCourse_Click);
             // 
             // FormViewCourse
             // 

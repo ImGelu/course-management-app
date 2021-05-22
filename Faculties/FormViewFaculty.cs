@@ -80,6 +80,19 @@ namespace Proiect.Faculties
 
         private void UpdateData()
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonEditFaculty.Visible = true;
+                toolStripButtonDeleteFaculty.Visible = true;
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonEditFaculty.Visible = false;
+                toolStripButtonDeleteFaculty.Visible = false;
+            }
+
             faculty = webService.GetFaculty(id);
 
             labelFacultyName.Text = faculty.name;

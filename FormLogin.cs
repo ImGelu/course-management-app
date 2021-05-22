@@ -47,5 +47,12 @@ namespace Proiect
             formSignUp.Show(this);
             this.Hide();
         }
+
+        private void linkLabelGuest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormDashboard formDashboard = new FormDashboard();
+            formDashboard.Show(this);
+            this.Hide();
+        }
     }
 }

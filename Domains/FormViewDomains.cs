@@ -56,6 +56,17 @@ namespace Proiect.Domains
 
         private void UpdateData(object sender, EventArgs e)
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonAddDomain.Visible = true;
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonAddDomain.Visible = false;
+            }
+
             panel.Controls.Clear();
 
             int width = panel.Size.Width;

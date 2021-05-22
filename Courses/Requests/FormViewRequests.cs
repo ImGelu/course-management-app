@@ -25,24 +25,32 @@ namespace Proiect
 
             dataTable.Columns.Add("Profesor", typeof(string));
             dataTable.Columns.Add("Materie", typeof(string));
+            dataTable.Columns.Add("Facultatea", typeof(string));
+            dataTable.Columns.Add("Specializarea", typeof(string));
             dataTable.Columns.Add("Status", typeof(string));
 
             dataGridViewRequests.DataSource = dataTable;
             dataGridViewRequests.Columns[0].Visible = false;
             dataGridViewRequests.Columns[1].Visible = false;
+            dataGridViewRequests.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewRequests.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewRequests.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewRequests.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            DataGridViewButtonColumn viewBtn = new DataGridViewButtonColumn();
-            viewBtn.UseColumnTextForButtonValue = true;
-            viewBtn.Text = "Aprobă";
-            viewBtn.Name = "Aprobare cerere";
-            dataGridViewRequests.Columns.Add(viewBtn);
+            if (!webService.UserIs(Utils.GetLoggedInUser().id, "Profesor"))
+            {
+                DataGridViewButtonColumn viewBtn = new DataGridViewButtonColumn();
+                viewBtn.UseColumnTextForButtonValue = true;
+                viewBtn.Text = "Aprobă";
+                viewBtn.Name = "Aprobare cerere";
+                dataGridViewRequests.Columns.Add(viewBtn);
 
-            DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
-            editBtn.UseColumnTextForButtonValue = true;
-            editBtn.Text = "Respinge";
-            editBtn.Name = "Respingere cerere";
-            dataGridViewRequests.Columns.Add(editBtn);
+                DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
+                editBtn.UseColumnTextForButtonValue = true;
+                editBtn.Text = "Respinge";
+                editBtn.Name = "Respingere cerere";
+                dataGridViewRequests.Columns.Add(editBtn);
+            }
         }
 
         private void FormViewRequests_Load(object sender, EventArgs e)
@@ -89,7 +97,7 @@ namespace Proiect
 
         private void FormViewRequests_VisibleChanged(object sender, EventArgs e)
         {
-            if(this.Visible == true)
+            if (this.Visible == true)
             {
                 updateDataGridView();
             }
@@ -101,23 +109,62 @@ namespace Proiect
 
             dataTable.Rows.Clear();
 
-            results.ToList().ForEach((result) =>
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Profesor"))
             {
-                DataRow newRow = dataTable.NewRow();
-                newRow["id_user"] = result.id_user;
-                newRow["id_course"] = result.id_course;
-                newRow["Profesor"] = webService.GetUser(result.id_user).name;
-                newRow["Materie"] = webService.GetCourse(result.id_course).name;
-                newRow["Status"] = statusList.GetValue(result.status);
+                results.Where(result => result.id_user == Utils.GetLoggedInUser().id).ToList().ForEach((result) =>
+                {
+                    Course course = webService.GetCourse(result.id_course);
+                    Specialization specialization = webService.GetSpecialization(course.specialization_id);
+                    Domain domain = webService.GetDomain(specialization.domain_id);
+                    Faculty faculty = webService.GetFaculty(domain.faculty_id);
 
-                dataTable.Rows.Add(newRow);
-            });
+                    DataRow newRow = dataTable.NewRow();
+                    newRow["id_user"] = result.id_user;
+                    newRow["id_course"] = result.id_course;
+                    newRow["Profesor"] = webService.GetUser(result.id_user).name;
+                    newRow["Materie"] = course.name;
+                    newRow["Facultatea"] = faculty.name;
+                    newRow["Specializarea"] = specialization.name;
+                    newRow["Status"] = statusList.GetValue(result.status);
 
-            foreach(DataGridViewRow row in dataGridViewRequests.Rows)
+                    dataTable.Rows.Add(newRow);
+
+                });
+
+                foreach (DataGridViewRow row in dataGridViewRequests.Rows)
+                {
+                    if ((string)row.Cells[6].Value == "Aprobată") row.Cells[6].Style.BackColor = Color.LightGreen;
+                    else if ((string)row.Cells[6].Value == "Respinsă") row.Cells[6].Style.BackColor = Color.Red;
+                    else row.Cells[6].Style.BackColor = Color.Orange;
+                }
+            }
+            else
             {
-                if ((string)row.Cells[6].Value == "Aprobată") row.Cells[6].Style.BackColor = Color.LightGreen;
-                else if ((string)row.Cells[6].Value == "Respinsă") row.Cells[6].Style.BackColor = Color.Red;
-                else row.Cells[6].Style.BackColor = Color.Orange;
+                results.ToList().ForEach((result) =>
+                {
+                    Course course = webService.GetCourse(result.id_course);
+                    Specialization specialization = webService.GetSpecialization(course.specialization_id);
+                    Domain domain = webService.GetDomain(specialization.domain_id);
+                    Faculty faculty = webService.GetFaculty(domain.faculty_id);
+
+                    DataRow newRow = dataTable.NewRow();
+                    newRow["id_user"] = result.id_user;
+                    newRow["id_course"] = result.id_course;
+                    newRow["Profesor"] = webService.GetUser(result.id_user).name;
+                    newRow["Materie"] = course.name;
+                    newRow["Facultatea"] = faculty.name;
+                    newRow["Specializarea"] = specialization.name;
+                    newRow["Status"] = statusList.GetValue(result.status);
+
+                    dataTable.Rows.Add(newRow);
+                });
+
+                foreach (DataGridViewRow row in dataGridViewRequests.Rows)
+                {
+                    if ((string)row.Cells[8].Value == "Aprobată") row.Cells[8].Style.BackColor = Color.LightGreen;
+                    else if ((string)row.Cells[8].Value == "Respinsă") row.Cells[8].Style.BackColor = Color.Red;
+                    else row.Cells[8].Style.BackColor = Color.Orange;
+                }
             }
         }
     }

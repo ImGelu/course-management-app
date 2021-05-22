@@ -1,4 +1,5 @@
-﻿using Proiect.Domains;
+﻿using Proiect.CoursesWebServiceReference;
+using Proiect.Domains;
 using Proiect.Faculties;
 using Proiect.Roles;
 using Proiect.Specializations;
@@ -9,6 +10,8 @@ namespace Proiect
 {
     public partial class FormDashboard : Form
     {
+        public static CoursesWebService webService = new CoursesWebService();
+
         public FormDashboard()
         {
             InitializeComponent();
@@ -21,6 +24,39 @@ namespace Proiect
             Utils.SetButtonImage(buttonViewRoles, Properties.Resources.icon_role);
             Utils.SetButtonImage(buttonViewFaculties, Properties.Resources.icon_faculty);
             Utils.SetButtonImage(buttonViewUsers, Properties.Resources.icon_users);
+
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator"))
+            {
+                buttonViewRequests.Enabled = true;
+                buttonViewUsers.Enabled = true;
+                buttonViewRoles.Enabled = true;
+            }
+            else if (webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                buttonViewRequests.Enabled = true;
+                buttonViewUsers.Enabled = false;
+                buttonViewRoles.Enabled = false;
+            }
+            else if (webService.UserIs(Utils.GetLoggedInUser().id, "Profesor"))
+            {
+                buttonViewRequests.Enabled = true;
+                buttonViewUsers.Enabled = false;
+                buttonViewRoles.Enabled = false;
+            }
+            else
+            {
+                buttonViewRequests.Enabled = false;
+                buttonViewUsers.Enabled = false;
+                buttonViewRoles.Enabled = false;
+                toolStripSplitButtonLoggedIn.Visible = false;
+            }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEditUser formEditUser = new FormEditUser(this, Utils.GetLoggedInUser().id);
+            formEditUser.Show();
+            this.Hide();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,6 +127,12 @@ namespace Proiect
             FormViewRoles formViewRoles = new FormViewRoles();
             formViewRoles.Show(this);
             this.Hide();
+        }
+
+        private void FormDashboard_VisibleChanged(object sender, EventArgs e)
+        {
+            toolStripSplitButtonLoggedIn.Text = String.Format("Conectat ca {0} ({1})", Utils.GetLoggedInUser().name, Utils.GetLoggedInUser().email);
+            toolStripSplitButtonLoggedIn.ToolTipText = String.Format("Conectat ca {0} ({1})", Utils.GetLoggedInUser().name, Utils.GetLoggedInUser().email);
         }
     }
 }

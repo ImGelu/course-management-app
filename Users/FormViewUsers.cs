@@ -24,6 +24,7 @@ namespace Proiect
             dataGridViewUsers.DataSource = dataTable;
             dataGridViewUsers.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewUsers.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             DataGridViewButtonColumn viewBtn = new DataGridViewButtonColumn();
             viewBtn.UseColumnTextForButtonValue = true;
@@ -123,6 +124,9 @@ namespace Proiect
                 {
                     if (MessageBox.Show("Ești sigur că vrei să ștergi acest utilizator?\n\nAcțiunea este ireversibilă.", "Atenție!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        Role[] roles = new Role[1];
+
+                        webService.UpdateUserRoles(userId, roles);
                         webService.DeleteUser(userId);
                         dataGridViewUsers.Rows.RemoveAt(e.RowIndex);
                     }

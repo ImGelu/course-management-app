@@ -41,7 +41,16 @@ namespace Proiect
             int loggedInUserId = Properties.Settings.Default.loggedInUserId;
             User existingUser = webService.GetUser(loggedInUserId);
 
-            return existingUser;
+            if(existingUser != null) return existingUser;
+            else
+            {
+                User newUser = new User();
+                newUser.email = "Fără cont";
+                newUser.name = "Musafir";
+                newUser.id = 0;
+
+                return newUser;
+            }
         }
 
         private static Image ScaleImage(Image image, int maxWidth, int maxHeight)

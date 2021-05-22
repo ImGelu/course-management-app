@@ -344,30 +344,36 @@
             // comboBoxSpecialization
             // 
             this.comboBoxSpecialization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSpecialization.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSpecialization.FormattingEnabled = true;
             this.comboBoxSpecialization.Location = new System.Drawing.Point(384, 188);
+            this.comboBoxSpecialization.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.comboBoxSpecialization.Name = "comboBoxSpecialization";
-            this.comboBoxSpecialization.Size = new System.Drawing.Size(233, 28);
+            this.comboBoxSpecialization.Size = new System.Drawing.Size(233, 21);
             this.comboBoxSpecialization.TabIndex = 8;
             this.comboBoxSpecialization.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpecialization_SelectedIndexChanged);
             // 
             // comboBoxDomain
             // 
             this.comboBoxDomain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDomain.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDomain.FormattingEnabled = true;
             this.comboBoxDomain.Location = new System.Drawing.Point(384, 118);
+            this.comboBoxDomain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.comboBoxDomain.Name = "comboBoxDomain";
-            this.comboBoxDomain.Size = new System.Drawing.Size(233, 28);
+            this.comboBoxDomain.Size = new System.Drawing.Size(233, 21);
             this.comboBoxDomain.TabIndex = 7;
             this.comboBoxDomain.SelectedIndexChanged += new System.EventHandler(this.comboBoxDomain_SelectedIndexChanged);
             // 
             // comboBoxFaculty
             // 
             this.comboBoxFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFaculty.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFaculty.FormattingEnabled = true;
             this.comboBoxFaculty.Location = new System.Drawing.Point(384, 47);
+            this.comboBoxFaculty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.comboBoxFaculty.Name = "comboBoxFaculty";
-            this.comboBoxFaculty.Size = new System.Drawing.Size(233, 28);
+            this.comboBoxFaculty.Size = new System.Drawing.Size(233, 21);
             this.comboBoxFaculty.TabIndex = 6;
             this.comboBoxFaculty.SelectedIndexChanged += new System.EventHandler(this.comboBoxFaculty_SelectedIndexChanged);
             // 

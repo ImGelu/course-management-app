@@ -34,17 +34,20 @@ namespace Proiect
             viewBtn.Name = "Vizualizare";
             dataGridViewCourses.Columns.Add(viewBtn);
 
-            DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
-            editBtn.UseColumnTextForButtonValue = true;
-            editBtn.Text = "Editează";
-            editBtn.Name = "Editează";
-            dataGridViewCourses.Columns.Add(editBtn);
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
+                editBtn.UseColumnTextForButtonValue = true;
+                editBtn.Text = "Editează";
+                editBtn.Name = "Editează";
+                dataGridViewCourses.Columns.Add(editBtn);
 
-            DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
-            deleteBtn.UseColumnTextForButtonValue = true;
-            deleteBtn.Text = "Șterge";
-            deleteBtn.Name = "Șterge";
-            dataGridViewCourses.Columns.Add(deleteBtn);
+                DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
+                deleteBtn.UseColumnTextForButtonValue = true;
+                deleteBtn.Text = "Șterge";
+                deleteBtn.Name = "Șterge";
+                dataGridViewCourses.Columns.Add(deleteBtn);
+            }
         }
 
         private void FormViewCourses_Load(object sender, EventArgs e)
@@ -146,6 +149,17 @@ namespace Proiect
 
         private void updateDataGridView()
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator") || webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonAddCourse.Visible = true;
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonAddCourse.Visible = false;
+            }
+
             string searchValue = toolStripTextBoxSearch.Text;
 
             if (searchValue != string.Empty && searchValue.Length > 2 && this.Visible == true)

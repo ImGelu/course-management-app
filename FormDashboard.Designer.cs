@@ -39,6 +39,7 @@ namespace Proiect
             this.buttonViewRequests = new System.Windows.Forms.Button();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButtonLoggedIn = new System.Windows.Forms.ToolStripSplitButton();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxActions.SuspendLayout();
@@ -149,6 +150,7 @@ namespace Proiect
             // 
             this.toolStripSplitButtonLoggedIn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSplitButtonLoggedIn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.toolStripSplitButtonLoggedIn.Image = global::Proiect.Properties.Resources.icon_user;
             this.toolStripSplitButtonLoggedIn.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -157,11 +159,19 @@ namespace Proiect
             this.toolStripSplitButtonLoggedIn.Text = "Conectat ca {0} ({1})";
             this.toolStripSplitButtonLoggedIn.ToolTipText = "Logged in as {user} ({role})";
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Image = global::Proiect.Properties.Resources.icon_role;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.settingsToolStripMenuItem.Text = "Setările contului";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Image = global::Proiect.Properties.Resources.icon_logout;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -189,6 +199,7 @@ namespace Proiect
             this.Name = "FormDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.VisibleChanged += new System.EventHandler(this.FormDashboard_VisibleChanged);
             this.groupBoxActions.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
@@ -212,5 +223,6 @@ namespace Proiect
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.Button buttonViewRoles;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }

@@ -26,6 +26,7 @@ namespace Proiect
             InitializeComponent();
             this.parent = parent;
             this.id = id;
+            course = webService.GetCourse(id);
         }
 
         private void FormViewCourse_Load(object sender, EventArgs e)
@@ -63,8 +64,13 @@ namespace Proiect
 
         private void toolStripButtonRedeemCourse_Click(object sender, EventArgs e)
         {
-            webService.RedeemCourse(course.id, Utils.GetLoggedInUser().id);
-            MessageBox.Show("Cererea a fost trimisa!");
+            if (toolStripButtonRedeemCourse.Enabled == true)
+            {
+                webService.RedeemCourse(course.id, Utils.GetLoggedInUser().id);
+                MessageBox.Show("Cererea a fost trimisa!");
+                toolStripButtonRedeemCourse.Enabled = false;
+                toolStripButtonRedeemCourse.Text = "Cerere în așteptare";
+            }
         }
 
         private void toolStripButtonBack_Click(object sender, EventArgs e)
@@ -95,6 +101,50 @@ namespace Proiect
 
         private void UpdateData()
         {
+            if (webService.UserIs(Utils.GetLoggedInUser().id, "Administrator"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonEditCourse.Visible = true;
+                toolStripButtonRedeemCourse.Visible = true;
+            }
+            else if (webService.UserIs(Utils.GetLoggedInUser().id, "Secretar"))
+            {
+                toolStripSeparator1.Visible = true;
+                toolStripButtonEditCourse.Visible = true;
+                toolStripButtonRedeemCourse.Visible = false;
+            }
+            else if (webService.UserIs(Utils.GetLoggedInUser().id, "Profesor"))
+            {
+                toolStripSeparator1.Visible = true;
+
+                if (webService.GetCourseTutors(course.id).Any(user => user.id == Utils.GetLoggedInUser().id)) // daca are cerere aprobata
+                {
+                    toolStripButtonEditCourse.Visible = true;
+                    toolStripButtonRedeemCourse.Visible = false;
+                }
+                else if (webService.GetRequests().Any(request => request.id_course == course.id && request.id_user == Utils.GetLoggedInUser().id && request.status == 0)) // daca are o cerere in asteptare
+                {
+                    toolStripButtonEditCourse.Visible = false;
+                    toolStripButtonRedeemCourse.Visible = true;
+                    toolStripButtonRedeemCourse.Enabled = false;
+                    toolStripButtonRedeemCourse.Text = "Cerere în așteptare";
+                }
+                else if (webService.GetRequests().Any(request => request.id_course == course.id && request.id_user == Utils.GetLoggedInUser().id && request.status == 2)) // daca are o cerere respinsa
+                {
+                    toolStripButtonEditCourse.Visible = false;
+                    toolStripButtonRedeemCourse.Visible = true;
+                } else
+                {
+                    toolStripButtonEditCourse.Visible = false;
+                }
+            }
+            else
+            {
+                toolStripSeparator1.Visible = false;
+                toolStripButtonEditCourse.Visible = false;
+                toolStripButtonRedeemCourse.Visible = false;
+            }
+
             course = webService.GetCourse(id);
 
             comboBoxFaculty.DataSource = webService.GetFaculties().ToList();
@@ -133,7 +183,7 @@ namespace Proiect
             }
 
             textBoxName.Text = course.name;
-            comboBoxYear.SelectedIndex = course.study_level - 1;
+            comboBoxYear.SelectedIndex = course.study_year - 1;
             comboBoxSemester.SelectedIndex = course.semester - 1;
             comboBoxStudyLevel.SelectedIndex = course.study_level - 1;
             textBoxCredits.Text = course.credits.ToString();

@@ -45,7 +45,7 @@
             this.dataGridViewRequests.Name = "dataGridViewRequests";
             this.dataGridViewRequests.ReadOnly = true;
             this.dataGridViewRequests.RowHeadersVisible = false;
-            this.dataGridViewRequests.Size = new System.Drawing.Size(809, 384);
+            this.dataGridViewRequests.Size = new System.Drawing.Size(1520, 403);
             this.dataGridViewRequests.TabIndex = 10;
             this.dataGridViewRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRequests_CellClick);
             // 
@@ -61,7 +61,7 @@
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(833, 30);
+            this.toolStrip.Size = new System.Drawing.Size(1544, 30);
             this.toolStrip.TabIndex = 88;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -80,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(833, 444);
+            this.ClientSize = new System.Drawing.Size(1544, 461);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.dataGridViewRequests);
             this.MaximizeBox = false;
